@@ -1,7 +1,7 @@
 // 公共头
 var adct = document.getElementsByTagName('title')[0].getAttribute('adct');
 
-document.writeln(" <header>\n" +
+document.writeln("<header>\n" +
     "        <div class=\"headerTop\">\n" +
     "            <div class=\"mianCont\">\n" +
     "                <div class=\"headerTopLeft Lf\">\n" +
@@ -39,12 +39,12 @@ document.writeln(" <header>\n" +
     "                <div class=\"logo Lf\" style=\"width: 243px;height: 63px;margin: 0;margin-right: 129px;margin-left: 30px;\"></div>\n" +
     "                <div class=\"navList Lf\">\n" +
     "                    <div class=\"cfnav cfnav1 on\"><a href=\"./index.html\">首页</a></div>\n" +
-    "                    <div class=\"cfnav cfnav2\"><a href=\"##\">明星货主</a></div>\n" +
+    "                    <div class=\"cfnav cfnav2\"><a href=\"##\">明星贸易</a></div>\n" +
     "                    <div class=\"cfnav cfnav3\"><a href=\"./starCarrier.html\">明星货运</a></div>\n" +
-    "                    <div class=\"cfnav cfnav4\"><a href=\"##\">金融服务</a></div>\n" +
-    "                    <div class=\"cfnav cfnav5\"><a href=\"./OAplatform.html\">案例平台</a></div>\n" +
+    "                    <div class=\"cfnav cfnav4\"><a href=\"##\">金融租赁</a></div>\n" +
+    "                    <div class=\"cfnav cfnav5\"><a href=\"./OAplatform.html\">OA平台</a></div>\n" +
     "                    <div class=\"cfnav cfnav6\"><a href=\"./dangerousGoods_search.html\">危化品查询</a></div>\n" +
-    "                    <div class=\"cfnav cfnav7\"><a href=\"##\">交易平台</a></div>\n" +
+    "                    <!--<div class=\"cfnav cfnav7\"><a href=\"##\">交易平台</a></div>-->\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +

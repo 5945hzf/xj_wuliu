@@ -1,4 +1,4 @@
-<!--账户 特殊资质认证-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +19,7 @@
 <div class="container">
     <div class="containerTitle">
         <div class="Lf">企业信息</div>
-        <div class="Rt" style="width: 90px;height: 35px;border: 1px solid #f1f1f1;line-height: 35px;margin-top: 8px;"><img style="margin: 12px 5px 0 15px;" src="../img/cf_shuaxin.png" alt="">刷新</div>
+        <div class="Rt cfRefresh" style="width: 90px;height: 35px;border: 1px solid #f1f1f1;line-height: 35px;margin-top: 8px;"><img style="margin: 12px 5px 0 15px;" src="../img/cf_shuaxin.png" alt="">刷新</div>
     </div>
 
     <div class="center1">
@@ -75,6 +75,12 @@
 
 <script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script type="text/javascript">
+
+    //设置Iframe高度
+    $(function () {
+        window.parent.$("#Iframe").css("height","700");
+    })
+
     var startTime1 = '';
     var endTime1 = '';
     var isSelect=false;

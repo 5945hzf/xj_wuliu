@@ -142,3 +142,11 @@ $(function () {
         window.location.href="./account.html";
     })
 })
+//刷新按钮
+$(".cfRefresh").click(function () {
+    location.reload();
+})
+//模拟点击 框
+$(".cf_select").click(function () {
+    $(this).toggleClass("on");
+})

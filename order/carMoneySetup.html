@@ -34,9 +34,9 @@
     	<!--头部-->
     	<div class="boxHead">
     		<div class="headLeft">扣车款设置</div>
-    		<div class="headRight">
+    		<div class="headRight cfRefresh">
     			<img src="../img/yh_refresh2.png"/>
-    			<span>刷新</span>
+    			<span class="">刷新</span>
     		</div>
 			<div class="add">新增扣车款</div>
     	</div>
@@ -103,6 +103,9 @@
 
 
 <script type="text/javascript" >
+    $(function () {
+        window.parent.$("#Iframe").css("height","1050");
+    })
 
     $('.objListBox>div:nth-child(5n)').css('margin-right','0');
     Page({

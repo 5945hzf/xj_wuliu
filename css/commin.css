@@ -58,7 +58,13 @@ body {
 input,textarea,button{
 	font-family: "Microsoft YaHei",Arial;
 }
-
+input[type="button"]{
+	outline: none;
+}
+input[type="text"]{
+	text-indent: 10px;
+	mso-text-indent-alt: 10px;
+}
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {   
 	/* WebKit browsers */   
    color: #999;   

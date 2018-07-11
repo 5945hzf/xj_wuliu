@@ -103,15 +103,15 @@
 </head>
 <body>
     <div class="contbox clearFloat">
-        <div class="topTitle">财务管理<div class="fr"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
+        <div class="topTitle">财务管理<div class="fr cfRefresh"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
         <div class="topHeader clearFloat">
             <div class="headerImg Lf">
                 <img src="../img/cf_headerImg.png" alt="">
             </div>
             <div class="Lf clearFloat headerCent">
-                <div><span>企业名称</span><span>化动力有限公司</span></div>
-                <div><span>绑定银行</span><span>中信银行</span></div>
-                <div style="margin-bottom: 0;"><span>绑定卡号</span><span>1414143153615451</span><span>更改绑定</span></div>
+                <div><span style="margin-right: 14px;">企业名</span><span>化动力有限公司</span></div>
+                <div><span style="margin-right: 14px;">绑定银行</span><span>中信银行</span></div>
+                <div style="margin-bottom: 0;"><span style="margin-right: 14px;">绑定卡号</span><span>1414143153615451</span><span style="margin-left: 15px;color: #6EA3FF;">更改绑定</span></div>
             </div>
             <div class=" clearFloat headerRight">
                 <div class="btn1">资质查看</div>
@@ -123,8 +123,8 @@
                 <div class="Lf">
                     <label>可用金额：<span>¥5600.00</span></label>
                     <div class="inputBoxItemOneRight">
-                        <input type="button" value="提现" class="btn tixianBtn">
-                        <input type="button" value="充值" class="btn chongzhiBtn">
+                        <input type="button" value="提现" class="btn tixianBtn" onclick="goTixian()">
+                        <input type="button" value="充值" class="btn chongzhiBtn" onclick="goChongzhi()">
                     </div>
                 </div>
                 <div class="line"></div>
@@ -310,6 +310,13 @@
         $('tbody tr td').eq(0).css('width','110px');
         $('tbody tr td').eq(1).css('width','225px');
         $('tbody tr td').eq(3).css('width','270px');
+
+        function goTixian() { //跳转提现页面
+            window.location.href="./platTixian.html";
+        }
+        function goChongzhi() {//跳转充值页面
+            window.location.href="./platChongzhi.html";
+        }
     </script>
     </body>
 </html>
