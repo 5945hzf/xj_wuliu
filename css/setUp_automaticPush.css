@@ -1,0 +1,218 @@
+body{
+    background-color: #fff;
+    font-family: MicrosoftYaHei;
+}
+/*左边菜单*/
+.manageList{
+    width: 210px;
+}
+.manageList>ul{
+    width: 210px;
+}
+.manageList>ul>li>a{
+   display: block;
+   /*width: 190px;*/
+   padding-left: 30px;
+   font-size: 16px;
+   height: 50px;
+   line-height: 50px;
+   color: #6c9efb;
+   background-color: #ffffff;
+   border: 2px solid #f7f7f7;
+}
+.manageList>ul>li>ul{
+    display: none;
+    
+    border: 2px solid #f7f7f7;
+    border-top: none;
+}
+.manageList>ul>li>ul>li>a{
+    display: block;
+    /*width: 175px;*/
+    padding-left: 45px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    color: #828282;
+    background-color: #ffffff;
+}
+.manageList>ul>li>ul>li>.active{
+    border-top: 1px solid #f7f7f7;
+    border-bottom: 1px solid #f7f7f7;
+    height: 48px;
+    line-height: 48px;
+    background-color: #fdfdfd;
+}
+.manageList>ul>li>ul>li>.active1{
+    height: 48px;
+    line-height: 48px;
+    border: 1px solid;
+    color: white;
+    background-color: #5590f6;
+}
+
+
+.rightContBox{
+    float: right;
+    overflow: hidden;
+    border: 1px solid #dedede;
+    width: 968px;;
+    min-height: 1030px;
+    margin-bottom: 5px;
+}
+
+/*头部*/
+.boxHead{
+	width: 100%;
+	height: 51px;
+	line-height: 51px;
+	border-bottom: 1px solid #ebe9ea;
+	
+}
+.boxHead .headLeft{
+	float: left;
+	margin-left: 22px;
+	color: #282828;
+	font-size: 16px;
+}
+.boxHead .headRight{
+	width: 90px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	border: 1px solid #ebe9ea;
+	border-radius: 3px;
+	float: right;
+	margin-top: 8px;
+	margin-right: 13px;
+	color: #FFFFFF;
+	font-size: 16px;
+	background-color: #6EA3FF;
+}
+
+
+.record{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #ebe8ea;
+}
+.record div:first-child{
+	float: left;
+	margin-left: 21px;
+	font-size: 16px;
+}
+
+.contentslist{
+	width: 100%;
+	font-size: 14px;
+	color: #282828;
+}
+.contentslist thead tr{
+	height: 52px;
+	line-height: 52px;
+	background-color: #fdfdfd;
+	border-bottom: 1px solid #ebe8ea;
+}
+.contentslist tbody tr{
+	height: 59px;
+	line-height: 59px;
+	border-bottom: 1px solid #ebe8ea;
+}
+.contentslist tbody tr td{
+	text-align: center;
+}
+.lookover{
+	margin-right: 10px;
+	color: #282828;
+}
+.delect{
+	margin-left: 10px;
+	color: #282828;
+	font-size: 14px;
+}
+.salesvolume{
+	color: #6ba1ff;
+	font-size: 14px;
+}
+.sendmsg{
+	font-size: 14px;
+	color: #282828;
+	margin-right: 20px;
+}
+.editmsg{
+	font-size: 14px;
+	color: #6EA3FF;
+	margin-left: 21px;
+}
+/* 分页 */
+.pagesBox{
+    margin-top: 18px;
+    overflow: hidden;
+    font-size: 15px;
+    color: #333;
+}
+.pagesBox ul{
+    float: right;
+    margin-right: 144px;
+}
+.pagesBox ul>li{
+    float: left;
+    /* width: 38px; */
+    height: 38px;
+    margin-left: 10px;
+    padding: 0 13px;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 38px;
+    cursor: pointer;
+}
+.pagesBox ul>li.actived{
+    background-color: #5590f6;
+    color: #FFFFFF;
+}
+.pagesBox>input{
+    float: right;
+    width: 50px;
+    height: 38px;
+    box-sizing: border-box;
+    border: 1px solid #dedede;
+    line-height: 38px;
+    text-align: center;
+}
+.pagesBox .go{
+    float: right;
+    height: 38px;
+    margin-right: 13px;
+    width: 48px;
+    margin-left: 10px;
+    box-sizing: border-box;
+    /*border: 1px solid #dedede;*/
+    text-align: center;
+    line-height: 38px;
+    cursor: pointer;
+    background-color: #6ba1ff;
+    color: #fff;
+    border-radius: 3px;
+}
+.leftctns{
+	font-size: 12px;
+	color: #282828;
+	margin-left: 140px;
+	margin-top: 10px;
+	display: inline-block;
+}
+.leftctns span{
+	font-size: 14px;
+	color: #6EA3FF;
+}
+/* 清楚浮动 */
+.clearfix:before,.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}

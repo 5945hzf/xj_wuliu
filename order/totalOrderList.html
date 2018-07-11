@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆物流服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
+    <link rel="stylesheet" href="../css/require_style/publishRequireList.css">
+    <style>
+        .opciationBox>.btn {
+            float: right;
+            margin-top: 9px;
+            margin-right: 9px;
+            text-align: center;
+            border: 1px solid #ebe9ea;
+            width: 93px;
+            height: 37px;
+            box-sizing: border-box;
+            color: #333;
+            background: #fff;
+            cursor: pointer;
+        }
+        tbody>tr>td>.btn{
+            color: #6ba1ff;
+            cursor: pointer;
+        }
+        .ll{
+            margin-right: 12px;
+        }
+        .listBox table{
+            border-bottom: 1px solid #ebe9ea;
+        }
+        .bottomOperiat{
+            border-top: 1px solid #ebe9ea;
+            border-bottom: 1px solid #ebe9ea;
+            height: 60px;
+            box-sizing: border-box; 
+            font-size: 14px;
+        }
+        .bottomOperiat>span{
+            float: left;
+            line-height: 60px;
+            cursor: pointer;
+        }
+        .bottomOperiat .squre{
+            border: 1px solid #ebe9ea;
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            margin-left: 20px;
+            margin-right: 8px;
+            margin-top: 23px;
+            border-radius: 3px;
+        }
+        .bottomOperiat .squre.active{
+            background: #6ba1ff;
+        }
+        .bottomOperiat>.selsectAll{
+            margin-right: 20px;
+        }
+        .bottomOperiat>.closeBtn{
+            margin-right: 16px;
+        }
+        .bottomOperiat>.delBtn, .bottomOperiat>.closeBtn{
+            margin-top: 10px;
+            width: 112px;
+            height: 38px;
+            line-height: 38px;
+            text-align: center;
+            color: #fff;
+            background: #6BA1FF;
+        }
+        .pageBox{
+            height: 76px;
+            line-height: 76px;
+            box-sizing: border-box;
+        }
+        .listBox{height: 1116px;}
+    </style>
+    
+    
+</head>
+<body>
+    <div class="contbox">
+        <div class="topTitle">总订单列表<div class="fr"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
+        <div class="inputBox">
+            <label for="">输入搜索</label><input class="orderNo input" type="text" placeholder="订单编号">
+            <label for="">订单状态</label>
+            <div class="goodsType input select" data-selectedindex="0"><span>全部</span><img src="../img/prl-select.jpg" >
+                <ul>
+                    <li data-index="1">待分配订单</li>
+                    <li data-index="2">进行中订单</li>
+                    <li data-index="3">完成待审核订单</li>
+                    <li data-index="3">已完成订单</li>
+                </ul>
+            </div>
+            <label for="">提交时间</label><input class="publishTime input" type="text" placeholder="请选择时间">
+            <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-left: 100px;">
+            <!--<input class="advancedRetrievalBtn btn input" type="button" value="高级检索">-->
+        </div>
+        <div class="opciationBox">
+            <div class="select displayNum" data-selectedindex="0"><span>显示条数</span><img src="../img/prl-select.jpg" alt="">
+                <ul>
+                    <li data-index="1">10</li>
+                    <li data-index="2">20</li>
+                    <li data-index="3">30</li>
+                </ul>
+            </div>
+            <input class="exportOrderBtn btn" type="button" value="导出订单">
+            <input class="addOrder btn" type="button" value="新增订单">
+        </div>
+        <div class="listBox">
+            <table>
+                <thead>
+                    <tr>
+
+                        <td>订单编号</td>
+                        <td>公司名称</td>
+                        <td>订单类型</td>
+                        <td>已运单数</td>
+                        <td>总金额</td>
+                        <td>待结金额</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3001804091631062137</td>
+                        <td>化动力有限公司</td>
+                        <td>多次</td>
+                        <td>5</td>
+                        <td>¥10000.00</td>
+                        <td>¥10000.00</td>
+                        <td><span class="see ll">查看订单</span><span class="btn ll">新增订单</span><span class="btn ll">结束订单</span><span class="btn">金额结算</span></td>
+                    </tr>
+                    <tr>
+                        <td>3001804091631062137</td>
+                        <td>化动力有限公司</td>
+                        <td>多次</td>
+                        <td>5</td>
+                        <td>¥10000.00</td>
+                        <td>¥10000.00</td>
+                        <td><span class="see ll">查看订单</span><span class="btn ll">新增订单</span><span class="btn ll">结束订单</span><span class="btn">金额结算</span></td>
+                    </tr>
+                    <tr>
+                        <td>3001804091631062137</td>
+                        <td>化动力有限公司</td>
+                        <td>年订单</td>
+                        <td>5</td>
+                        <td>¥10000.00</td>
+                        <td>¥10000.00</td>
+                        <td><span class="see ll">查看订单</span><span class="btn ll">新增订单</span><span class="btn ll">结束订单</span><span class="btn">金额结算</span></td>
+                    </tr>
+                    <tr>
+                        <td>3001804091631062137</td>
+                        <td>化动力有限公司</td>
+                        <td>月订单</td>
+                        <td>5</td>
+                        <td>¥10000.00</td>
+                        <td>¥10000.00</td>
+                        <td><span class="see ll">查看订单</span><span class="btn ll">新增订单</span><span class="btn ll">结束订单</span><span class="btn">金额结算</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="bottomOperiat">
+            <span class="squre"></span>
+            <span class="selsectAll">全选</span>
+            <span class="closeBtn">关闭订单</span>
+            <span class="delBtn">删除订单</span>
+        </div>
+        <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
+            <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
+            <div class="pageJump">
+                <span class="allPageN">1/200</span>
+                <i style="margin-left: 12px;">共200页</i>，
+                <span>到第</span>
+                <input type="text"/>
+                <span>页</span>
+                <button type="button" class="button">GO</button>
+            </div>
+        </div>
+        <!--<div class="pageBox">-->
+        <!--共100张 当前为1页 共5页-->
+        <!--</div>-->
+    </div>
+
+
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+        Page({
+            num: 200,
+            elem: $('#page1'),
+            callback: function(n) {
+                console.log(n);
+            }
+        });
+        
+        // 模拟单选按钮
+        $('.bottomOperiat .squre').click(function(){
+            $(this).toggleClass('active');
+        });
+        $('.bottomOperiat .selsectAll').click(function(){
+            $('.bottomOperiat .squre').toggleClass('active');
+        });
+    </script>
+</body>
+</html>

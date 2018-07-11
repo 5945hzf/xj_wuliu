@@ -1,0 +1,75 @@
+body{
+    background: #fff;
+}
+.contbox {
+    width: 970px;
+    border: 1px solid #ebe9ea;
+}
+.topTitle {
+    border-bottom: 1px solid #ebe9ea;
+    color: #333;
+    font-size: 18px;
+    line-height: 60px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    background-image: url(../../img/dgs-xq.png);
+    background-size: 100% 100%;
+}
+.mainBox{
+    padding-bottom: 20px;
+    line-height: 60px;
+    font-size: 14px;
+    color: #333;
+}
+.mainBox .left{
+    float: left;
+    width: 156px;
+    text-align: right;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+.mainBox .right{
+    overflow: hidden;
+}
+.money{
+    font-size: 24px;
+    color: #ff731c;
+}
+.bankSelect{
+    height: 62px;
+    width: 574px;
+    border: 1px solid #ff731c;
+    box-sizing: border-box;
+    line-height: 60px;
+    padding: 0 10px;
+    box-shadow: 0 0 3px #ff731c;
+    margin: 1px;
+    margin-bottom: 3px;
+}
+.bankSelect .bankRight{
+    float: right;
+    color: #999;
+}
+.moneyInput{
+    width: 270px;
+    height: 40px;
+    box-sizing: border-box;
+    line-height: 40px;
+    padding-left: 5px;
+    border: 1px solid #ebe9ea;
+    margin-right: 15px;
+}
+.zixun{
+    line-height: 50px;
+    color: #666;
+}
+.confirmTixianBtn{
+    width: 260px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    color: #fff;
+    background: #518df9;
+    cursor: pointer;
+    border-radius: 5px;
+}

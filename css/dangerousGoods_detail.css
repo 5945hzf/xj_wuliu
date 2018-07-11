@@ -1,0 +1,121 @@
+body{
+    background-color: #fff;
+}
+input::-webkit-input-placeholder { /* WebKit browsers*/ 
+　　color:#bdbdbd;
+}
+input:-moz-placeholder {  /* Mozilla Firefox 4 to 18*/ 
+　　color:#bdbdbd;
+}
+input::-moz-placeholder {  /* Mozilla Firefox 19+*/ 
+　　color:#bdbdbd;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+*/ 
+　　color:#bdbdbd;
+}
+.dgsTxtImg, .search{
+    width: 878px;
+    margin: 0 auto;
+}
+.searchBox{
+    height: 66px;
+    overflow: hidden;
+}
+.searchBox>input{
+    height: 46px;
+    line-height: 46px;
+    box-sizing: border-box;
+    border: 1px solid #0071bc;
+    margin-top: 18px;
+}
+
+.searchBox>.searchinput{
+    width: 605px;
+    padding-left: 10px; 
+    font-size: 16px;
+}
+.searchBox>.btn{
+    width: 136px;
+    background: #0071bc;
+    text-align: center;
+    color: #fff;
+    font-size: 19px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.hotSearch{
+    padding-left: 137px;
+}
+.hotSearch span{
+    margin-right: 12px;
+    font-size: 14px;
+    color: #666;
+    line-height: 35px;
+}
+.detailBox{
+    border: 1px solid #dedede;
+    margin-top: 75px;
+    height: 540px;
+    box-sizing: border-box;
+}
+.detailBox .title{
+    height: 59px;
+    line-height: 59px;
+    font-size: 16px;
+    color: #333333;
+    padding-left: 12px;
+    box-sizing: border-box;
+    background-image: url('../img/dgs-xq.png');
+    background-size: cover;
+}
+.detailCont{
+    padding-top: 31px;
+    padding-left: 16px;
+    font-size: 14px;
+    color: #666;
+}
+.leftcont{
+    width: 772px;
+    display: inline-block;
+}
+.leftcont p{
+    line-height: 24px;
+}
+.leftcont p>.name{
+    font-size: 28px;
+    color: #0071bc;
+    margin: 7px;
+}
+.info{
+    overflow: hidden;
+    margin-top: 12px;
+}
+.info .info-item{
+    width: 50%;
+    float: left;
+}
+.info .info-title{
+    line-height: 35px;
+    color: #0071bc;
+    margin-bottom: 5px;
+}
+.info-item li{
+    margin-bottom: 10px;
+    margin-left: 14px;
+    overflow: hidden;
+}
+.info-item li>span{
+    float:left;
+    overflow:hidden;
+    width:120px;
+    line-height: 16px;
+}
+.info-item li>span i{
+    display: inline-block;
+    width:120px;
+}
+.detailCont>img{
+    float: right;
+    margin-right: 45px;
+}

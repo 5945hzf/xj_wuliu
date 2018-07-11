@@ -1,0 +1,112 @@
+body{
+    background-color: #fff;
+}
+input::-webkit-input-placeholder { /* WebKit browsers*/ 
+　　color:#bdbdbd;
+}
+input:-moz-placeholder {  /* Mozilla Firefox 4 to 18*/ 
+　　color:#bdbdbd;
+}
+input::-moz-placeholder {  /* Mozilla Firefox 19+*/ 
+　　color:#bdbdbd;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+*/ 
+　　color:#bdbdbd;
+}
+.dgsTxtImg, .search{
+    width: 878px;
+    margin: 0 auto;
+}
+.searchBox{
+    height: 66px;
+    overflow: hidden;
+}
+.searchBox>input{
+    height: 46px;
+    line-height: 46px;
+    box-sizing: border-box;
+    border: 1px solid #0071bc;
+    margin-top: 18px;
+}
+.searchBox>.searchinput{
+    width: 605px;
+    padding-left: 10px; 
+    font-size: 16px;
+}
+.searchBox>.btn{
+    width: 136px;
+    background: #0071bc;
+    text-align: center;
+    color: #fff;
+    font-size: 19px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.hotSearch{
+    padding-left: 137px;
+}
+.hotSearch span{
+    margin-right: 12px;
+    font-size: 14px;
+    color: #666;
+    line-height: 35px;
+}
+/* 最新热搜 */
+.lastestHotSearch .title{
+    margin-left: 193px;
+    margin-bottom: 8px;
+    line-height: 105px;
+    color: #0071bc;
+    font-size: 20px;
+    background-image: url('../img/dgs-hs.png');
+    background-size: 107px 47px;
+    background-repeat: no-repeat;
+    background-position: 35px 36px;
+}
+.lastestHotSearch li{
+    width: 783px;
+    height: 60px;
+    border-bottom: 1px solid #e7e7e7;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.lastestHotSearch li:hover{
+    -webkit-box-shadow: 3px 3px 10px #dcdcdc;  
+    -moz-box-shadow: 3px 3px 10px #dcdcdc;  
+    box-shadow: 3px 3px 10px #dcdcdc;  
+}
+
+.lastestHotSearch .dot{
+    float: left;
+    width: 5px;
+    height: 5px;
+    background-color: #c6dafd;
+    border-radius: 50%;
+    margin: 27px 10px;
+}
+.lastestHotSearch span{
+    font-size: 16px;
+    line-height: 59px;
+}
+.lastestHotSearch .name{
+    font-size: 18px;
+    color: #525252;
+}
+.lastestHotSearch .danger{
+    margin-left: 56px;
+}
+.lastestHotSearch span.check{
+    float: right;
+    margin-right: 12px;
+    cursor: pointer;
+}
+.grayFC{
+    color: #737373;
+}
+.blueFC{
+    color: #0071bc;
+}
+.orangeFC{
+    color: #f16621;
+}

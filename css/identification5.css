@@ -1,0 +1,141 @@
+.xiaoshi{display: none;}
+.btn{width: 359px;height: 51px;line-height:51px;background-color: #007aff;border-radius: 5px;text-align: center;color: white;margin-left: 122px;margin-top: 35px;}
+.red{color: red;}
+img{float: left;}
+input{background-color: #fafafa;border: 1px solid #eaeaea;}
+/*a{color: #80acf8;}*/
+a{color: #282828;}
+.containerTitle{height: 50px;line-height: 50px;font-size: 16px;color: #282828;border-bottom: 1px solid #f1f1f1;padding: 0 14px;}
+.containerTitle::after{content: "";display: block;clear: both;}
+html,body{min-width: 972px;width: 972px;height:980px;background-color: white;overflow: hidden;margin: auto;font-size: 14px;}
+.container{width:970px;border: 1px solid #f1f1f1;height: 975px;}
+.header{padding-top:21px;padding-left:61px;height:62px;box-sizing:border-box;border-bottom: 1px solid #f1f1f1;}
+.header>ul{overflow: hidden;}
+.header>ul>li{float: left;height: 18px;line-height: 18px;font-size: 16px;}
+.header>ul>.row{line-height: 10px;margin-left: 4px;}
+.header>ul>li>a{}
+.header>ul>li>a>div{color: white;height: 18px;line-height: 18px; text-align: center; width: 18px;border-radius: 50%;font-size:11px;margin: 0 4px; }
+.header>ul>li>a>.orange{background-color: #ffae4c;}
+.header>ul>li>a>.lan{background-color: #80aeff;}
+
+
+.bottom1{overflow: hidden;padding-left: 200px;}
+.bottom1>.left1{margin: 91px 60px 0 0;}
+.bottom1>.right2{ margin-left: 15px;}
+.bottom1>.right2>ul{}
+.bottom1>.right2>ul>li{overflow: hidden;/* margin-top: 17px; */ padding-bottom: 17px; position: relative;}
+.bottom1>.right2>ul>li>.left1{width:100px;height: 38px;line-height: 38px;text-align: right;margin-right: 20px;}
+.bottom1>.right2>ul>li>.right1{overflow: hidden;}
+.bottom1>.right2>ul>li>.right1>input{width: 359px;height: 32px;font-size: 14px;text-indent: 10px;}
+.bottom1>.right2>ul>li>.right1>.date-input{width: 169px;}
+.bottom1>.right2>ul>li>.right1>.uploade{position: relative;width: 150px;height: 100px;line-height: 100px;text-align: center;margin-right: 20px; border: 1px solid #ebe9ea;}
+.bottom1>.right2>ul>li>.right1>.uploade>i{position: absolute;top: 0;left: 0;right: 0;bottom: 0;}
+.bottom1>.right2>ul>li>.right1>.uploade>img{position: absolute;top: 0;left: 0;right: 0;bottom: 0;width: 100%;height: 100%;}
+.bottom1>.right2>ul>li>.right1>.uploade>input{position: absolute;top: 0;left: 0;right: 0;bottom: 0;opacity: 0;width: 100%;}
+.bottom1>.right2>ul>li>.right2{line-height: 38px;margin-left: -30px;}
+.bottom1>.right2>ul>li>.right2>input{margin-left: 30px;}
+.ts {
+    margin-left: 125px;
+    display: none;
+}
+
+.bottom1>.right2>ul>li.pay_pass {
+    width: 490px;
+}
+
+/*清除浮动*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+
+
+.submit_btn {
+    width: 173px;
+    height: 51px;
+    background-color: #6CA0FF;
+    display: inline-block;
+    margin-left: 121px;
+    text-align: center;
+    line-height: 51px;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 35px;
+}
+
+.cancel_btn {
+    width: 172px;
+    height: 49px;
+    border: 1px solid #C5C5C5;
+    display: inline-block;
+    background-color: #F6F6F6;
+    margin-left: 13px;
+    text-align: center;
+    line-height: 51px;
+    font-size: 16px;
+    color: #282828;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 35px;
+}
+
+.update_phone_btn {
+    width: 88px;
+    height: 36px;
+    background-color: #6CA0FF;
+    color: #fff;
+    font-size: 14px;
+    line-height: 38px;
+    text-align: center;
+    margin-left: 7px;
+    border-radius: 2px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.current input{
+    width: 265px !important;
+}
+
+.yincang {
+    display: none;
+}
+
+.xianshi {
+    display: inline-block;
+}
+
+.fr {
+    float: right;
+}
+
+.update_yincang {
+    display: none;
+}
+
+.yiRenZheng, .weiRenzheng {
+    display: none;
+}
+
+.yanzheng {
+    position: absolute;
+    top: 41px;
+    font-size: 12px;
+    max-height: 12px;
+    line-height: 12px;
+}
+
+i.red {
+    margin-right: 3px;
+}
+.next_btn{font-size: 16px;}

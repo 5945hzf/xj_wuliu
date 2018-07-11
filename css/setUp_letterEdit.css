@@ -1,0 +1,125 @@
+body{
+    background-color: #fff;
+}
+/*左边菜单*/
+.manageList{
+    width: 210px;
+}
+.manageList>ul{
+    width: 210px;
+}
+.manageList>ul>li>a{
+   display: block;
+   /*width: 190px;*/
+   padding-left: 30px;
+   font-size: 16px;
+   height: 50px;
+   line-height: 50px;
+   color: #6c9efb;
+   background-color: #ffffff;
+   border: 2px solid #f7f7f7;
+}
+.manageList>ul>li>ul{
+    display: none;
+    
+    border: 2px solid #f7f7f7;
+    border-top: none;
+}
+.manageList>ul>li>ul>li>a{
+    display: block;
+    /*width: 175px;*/
+    padding-left: 45px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    color: #828282;
+    background-color: #ffffff;
+}
+.manageList>ul>li>ul>li>.active{
+    border-top: 1px solid #f7f7f7;
+    border-bottom: 1px solid #f7f7f7;
+    height: 48px;
+    line-height: 48px;
+    background-color: #fdfdfd;
+}
+.manageList>ul>li>ul>li>.active1{
+    height: 48px;
+    line-height: 48px;
+    border: 1px solid;
+    color: white;
+    background-color: #5590f6;
+}
+
+
+.rightContBox{
+    float: right;
+    overflow: hidden;
+    border: 1px solid #dedede;
+    width: 968px;;
+    min-height: 901px;
+    margin-bottom: 5px;
+}
+/* freightCont */
+.freightCont{
+	float: right;
+    overflow: hidden;
+    border: 1px solid #dedede;
+    width: 968px;;
+    min-height: 902px;
+    margin-bottom: 5px;
+}
+/*头部*/
+.boxHead{
+	width: 100%;
+	height: 51px;
+	line-height: 51px;
+	border-bottom: 1px solid #ebe9ea;
+	
+}
+.boxHead2{
+	width: 100%;
+	height: 48px;
+	line-height: 48px;
+	border-bottom: 1px solid #ebe9ea;
+	background-color: #fdfdfd;
+}
+ .headLeft{
+	float: left;
+	margin-left: 22px;
+	color: #282828;
+	font-size: 16px;
+}
+.boxHead .headRight{
+	width: 90px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	border: 1px solid #ebe9ea;
+	border-radius: 3px;
+	float: right;
+	margin-top: 8px;
+	margin-right: 13px;
+	color: #282828;
+	font-size: 16px;
+}
+.boxHead .headRight img{
+	width: 8px;
+	height: 12px;
+}
+.boxHead .headRight span{
+	margin-left: 5px;
+}
+/*内容*/
+.boxContent{
+	margin-top: 57px;
+}
+
+/* 清楚浮动 */
+.clearfix:before,.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}

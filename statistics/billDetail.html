@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆物流服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
+    <link rel="stylesheet" href="../css/billDetail.css">
+    <style>
+        /* baojiaCompany */
+        .baojiaCompany>.contBox{
+            overflow: hidden;
+        }
+        .baojiaCompany .ll{
+            width: 327px;
+        }
+        .baojiaCompany .mm{
+            width: 320px;
+        }
+        .baojiaCompany .rr{
+            width: 285px;
+        }
+        .baojiaCompany .rr .select{
+            margin-right: 15px;
+        }
+        /* operator */
+        .operator>.contBox{
+            overflow: hidden;
+        }
+        .operator .ll{
+            width: 327px;
+        }
+        .operator .mm{
+            width: 320px;
+        }
+        .operator .rr{
+            width: 285px;
+        }
+        /* 点击查看合同 */
+        div.seehetong {
+            float: right;
+            width: 48px;
+            margin-right: 28px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #038cd9;
+            background-image: url(../img/prl-right.png);
+            background-size: 9px 7px;
+            background-repeat: no-repeat;
+            background-position: right center;
+        }
+        tbody tr td .btn{
+            color: #6ba1ff;
+            cursor: pointer;
+        }
+        thead{background-color: #fdfdfd;}
+        tr{border-bottom: 1px solid #ebe9ea;}
+        th{height: 35px;font-size: 12px;line-height: 35px;text-align: center;}
+        td{height: 60px;font-size: 12px;line-height: 60px;text-align: center;}
+        .listBox{border: 1px solid #ebe9ea;margin-top: 13px;}
+    </style>
+</head>
+<body>
+    <div class="contbox-prld">
+        <div class="toptitle title">
+            <span>账单详情</span>
+            <div class="fr closeBtn" style="margin-right: 7px;"><img src="../img/prl-close.png" alt="" width="11" height="11">关&nbsp;&nbsp;闭</div>
+            <div class="fr freshBtn"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷&nbsp;&nbsp;新</div>
+        </div>
+
+        <div class="requireInfo infoBox">
+            <div class="title"><img src="../img/prl-titlelogo.png" width="29" height="28" alt="">订单信息</div>
+            <div class="contBox">
+                <div class="contlist contlistone">
+                    <div class="left ll">
+                        <div>订单编号：<span>201707196369321</span></div>
+                        <div>发布时间：<span>2015-09-08 23:00</span></div>
+                        <div>装车时间：<span>2015-09-08 23:00</span></div>
+                    </div>
+                    <div class="left rr">
+                        <div class="desti">始&nbsp;&nbsp;发&nbsp;&nbsp;地：<span class="destination">新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情</span></div>
+                        <div class="desti">目&nbsp;&nbsp;的&nbsp;&nbsp;地：<span class="destination">新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情中华人民共和国北京市东城区朝阳花园</span></div></div>
+                    </div>
+                <div class="contlist contlisttwo">
+                    <div class="left ll">
+                        <div>货物类型：<span>危化</span></div>
+                        <div>重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：<span>150吨</span></div>
+                        <div>支付方式：预付</div>
+                    </div>
+                    <div class="left mm">
+                        <div>包装类型：<span>罐装</span></div>
+                        <div>开&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票：<span>普票</span></div>
+                        <div>结算方式：<span>现汇</span></div>
+                    </div>
+                    <div class="left rr">
+                        <div>货物名称：<span>片碱</span></div>
+                        <div>车辆类型：<span>罐装车</span></div>
+                        <div>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：<span>备注信息</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="operator infoBox">
+            <div class="title"><img src="../img/prl-titlelogo.png" width="29" height="28" alt="">已结算订单</div>
+            <div class="contBox">
+                <div class="left ll">
+                    <div>订单编号：<span>201707196369321</span></div>
+                    <div>订单编号：<span>201707196369321</span></div>
+                </div>
+                <div class="left mm">
+                    <div>订单编号：<span>201707196369321</span></div>
+                    <div>订单编号：<span>201707196369321</span></div>
+                </div>
+                <div class="left rr">
+                    <div>订单编号：<span>201707196369321</span></div>
+                    <div>订单编号：<span>201707196369321</span></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="listBox" style="overflow-x: auto;">
+            <table style="width: 1728px;">
+                <thead>
+                <tr>
+                    <th>车牌号</th>
+                    <th>司机</th>
+                    <th>订单金额</th>
+                    <th>金额</th>
+                    <th>油卡</th>
+                    <th>订单号</th>
+                    <th>矿发日期 </th>
+                    <th>到期日期</th>
+                    <th>磅单号</th>
+                    <th>矿发磅单号</th>
+                    <th>车号</th>
+                    <th>过路费</th>
+                    <th>到货单位</th>
+                    <th>矿发吨位</th>
+                    <th>矿发单价</th>
+                    <th>接收数</th>
+                    <th>实际结算</th>
+                    <th>运费单价</th>
+                    <th>运费金额</th>
+                    <th>磅差</th>
+                    <th>合理损耗2‰</th>
+                    <th>司机承担数量</th>
+                    <th>司机承担金额</th>
+                    <th>实际应付金额</th>
+                    <th>自由车辆扣款</th>
+                    <th>多打款项</th>
+                    <th>少打款项</th>
+                    <th>油卡</th>
+                    <th>疆外油卡</th>
+                    <th>轮胎券</th>
+                    <th>气卡</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>新B WER256</td>
+                    <td>王小二</td>
+                    <td>¥1200.00</td>
+                    <td>1200.00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>新B WER256</td>
+                    <td>王小二</td>
+                    <td>¥1200.00</td>
+                    <td>1200.00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="operator infoBox">
+            <div class="title"><img src="../img/prl-titlelogo.png" width="29" height="28" alt="">未结算订单</div>
+            <div class="contBox">
+                <div class="left ll">
+                    <div>订单编号：<span>201707196369321</span></div>
+                    <div>订单编号：<span>201707196369321</span></div>
+                </div>
+                <div class="left mm">
+                    <div>订单编号：<span>201707196369321</span></div>
+                    <div>订单编号：<span>201707196369321</span></div>
+                </div>
+                <div class="left rr">
+                    <div>订单编号：<span>201707196369321</span></div>
+                    <div>订单编号：<span>201707196369321</span></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="listBox" style="overflow-x: auto;">
+            <table style="width: 1728px;">
+                <thead>
+                <tr>
+                    <th>车牌号</th>
+                    <th>司机</th>
+                    <th>订单金额</th>
+                    <th>金额</th>
+                    <th>油卡</th>
+                    <th>订单号</th>
+                    <th>矿发日期 </th>
+                    <th>到期日期</th>
+                    <th>磅单号</th>
+                    <th>矿发磅单号</th>
+                    <th>车号</th>
+                    <th>过路费</th>
+                    <th>到货单位</th>
+                    <th>矿发吨位</th>
+                    <th>矿发单价</th>
+                    <th>接收数</th>
+                    <th>实际结算</th>
+                    <th>运费单价</th>
+                    <th>运费金额</th>
+                    <th>磅差</th>
+                    <th>合理损耗2‰</th>
+                    <th>司机承担数量</th>
+                    <th>司机承担金额</th>
+                    <th>实际应付金额</th>
+                    <th>自由车辆扣款</th>
+                    <th>多打款项</th>
+                    <th>少打款项</th>
+                    <th>油卡</th>
+                    <th>疆外油卡</th>
+                    <th>轮胎券</th>
+                    <th>气卡</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>新B WER256</td>
+                    <td>王小二</td>
+                    <td>¥1200.00</td>
+                    <td>1200.00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>新B WER256</td>
+                    <td>王小二</td>
+                    <td>¥1200.00</td>
+                    <td>1200.00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

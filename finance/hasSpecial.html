@@ -1,0 +1,320 @@
+<!--账户 已有资质-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/hasSpecial.css"/>
+    <style type="text/css">
+        
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="containerTitle">
+        <div class="Lf">企业资质审核</div>
+        <div class="Rt" style="width: 90px;height: 35px;border: 1px solid #f1f1f1;line-height: 35px;margin-top: 8px;"><img style="margin: 12px 5px 0 15px;" src="../img/cf_shuaxin.png" alt="">刷新</div>
+    </div>
+    <div id="center0" class="center">
+        <div class="center1 c0">
+            <ul>
+                <li class="clearfix">
+                    <div class="left1 Lf"><i class="red">*</i>资质类型:</div>
+                    <div class="right1 Lf">
+                        <div class="select zizhi_type zizhi_type0" id="zizhi_type0" data-selectedindex="">
+                            <span></span>
+                            <img src="../img/prl-select.jpg" alt="">
+                            <ul>
+                                <li data-index="1">10</li>
+                                <li data-index="2">20</li>
+                                <li data-index="3">30</li>
+                            </ul>
+                        </div>
+                        <!--<select name="" class="zizhi_type zizhi_type0" id="zizhi_type0">-->
+
+                        <!--</select>-->
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="left1 Lf"><i class="red">*</i>资质编号:</div>
+                    <div class="right1 Lf"><input type="text" class="zizhi_num" id="zizhi_num0"></div>
+                    <span class="ts">资质编号必须为数字</span>
+                </li>
+
+                <li   style="overflow: visible;" class="clearfix">
+                    <div class="left1 Lf"><i class="red">*</i>许可经营范围:</div>
+                    <div class="right1 Lf">
+                        <div name="" id="textarea0" class="textarea"  style="width: 359px;height: 95px;" contenteditable="true" ></div>
+                    </div>
+                    <div class=" btn1 Lf" style="color: #999999;font-size: 14px;"><img style="width: 20px;height: 20px;" src="../img/cf_add.png" alt="">添加</div>
+                    <span class="ts" style="margin-top: 32px;">许可经营不能为空</span>
+
+                    <div class="none">
+                        <div class="sousuo_div">
+                            <input type="text" id="" class="input_width">
+                            <img src="../img/sousuo.png" class="sousuo_img" alt="">
+                            <span class="sousuo">搜索</span>
+                        </div>
+                        <div class="cousuo_cont">
+                            <ul class="sousuo_ul">
+
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="left1 Lf"><i class="red">*</i>有效期:</div>
+                    <div class="right1 Lf">
+                        <input type="text" class="date-input laydate-icon kuang start" style="text-indent: 0px;" placeholder="请选择日期" id="test1">
+                        <span style="height: 38px;line-height: 38px;">&nbsp;至&nbsp; </span>
+                        <input type="text" class="date-input laydate-icon kuang end" style="text-indent: 0px;" placeholder="请选择日期" id="test2">
+                    </div>
+                    <span class="ts">有效期不能为空</span>
+                </li>
+                <li>
+                    <div class="left1 Lf"><i class="red">*</i>资质图片：</div>
+                    <div class="right1 Lf">
+                        <div class="uploade Lf" style="">
+                            <i style=""></i>
+                            <img src="../img/list_logo.png" alt=""   title="点击更换图片">
+                            <input type="file"  accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" onchange="xmTanUploadImg1(this);">
+                            <input type="hidden" name="" value="">
+                        </div>
+                        <div class="uploade Lf" style="">
+                            <i style=""></i>
+                            <img src="../img/list_logo.png" alt=""  title="点击更换图片">
+                            <input type="file"  accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" onchange="xmTanUploadImg1(this);">
+                            <input type="hidden" name="" value="">
+                        </div>
+                    </div>
+                    <span class="ts"></span>
+                </li>
+            </ul>
+            <!--<i class="red" style="display: block;margin-top: 22px;font-size: 14px;margin-left: 155px;">请上传营业执照或者扫描件！ 照片大小 < 2MB</i>-->
+        </div>
+    </div>
+    <div id="center1" class="center">
+        <div class="center1 c0">
+            <ul>
+                <li class="clearfix">
+                    <div class="left1 Lf"><i class="red">*</i>资质类型:</div>
+                    <div class="right1 Lf">
+                        <div class="select zizhi_type zizhi_type0" id="zizhi_type1" data-selectedindex="">
+                            <span></span>
+                            <img src="../img/prl-select.jpg" alt="">
+                            <ul>
+                                <li data-index="1">10</li>
+                                <li data-index="2">20</li>
+                                <li data-index="3">30</li>
+                            </ul>
+                        </div>
+                        <!--<select name="" class="zizhi_type zizhi_type0" id="zizhi_type0">-->
+
+                        <!--</select>-->
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="left1 Lf"><i class="red">*</i>资质编号:</div>
+                    <div class="right1 Lf"><input type="text" class="zizhi_num" id="zizhi_num1"></div>
+                    <span class="ts">资质编号必须为数字</span>
+                </li>
+
+                <li   style="overflow: visible;" class="clearfix">
+                    <div class="left1 Lf"><i class="red">*</i>许可经营范围:</div>
+                    <div class="right1 Lf">
+                        <div name="" id="textarea1" class="textarea"  style="width: 359px;height: 95px;" contenteditable="true" ></div>
+                    </div>
+                    <div class=" btn1 Lf" style="color: #999999;font-size: 14px;"><img style="width: 20px;height: 20px;" src="../img/cf_add.png" alt="">添加</div>
+                    <span class="ts" style="margin-top: 32px;">许可经营不能为空</span>
+
+                    <div class="none">
+                        <div class="sousuo_div">
+                            <input type="text" id="" class="input_width">
+                            <img src="../img/sousuo.png" class="sousuo_img" alt="">
+                            <span class="sousuo">搜索</span>
+                        </div>
+                        <div class="cousuo_cont">
+                            <ul class="sousuo_ul">
+
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="left1 Lf"><i class="red">*</i>有效期:</div>
+                    <div class="right1 Lf">
+                        <input type="text" class="date-input laydate-icon kuang start" style="text-indent: 0px;" placeholder="请选择日期" id="test3">
+                        <span style="height: 38px;line-height: 38px;">&nbsp;至&nbsp; </span>
+                        <input type="text" class="date-input laydate-icon kuang end" style="text-indent: 0px;" placeholder="请选择日期" id="test4">
+                    </div>
+                    <span class="ts">有效期不能为空</span>
+                </li>
+                <li>
+                    <div class="left1 Lf"><i class="red">*</i>资质图片：</div>
+                    <div class="right1 Lf">
+                        <div class="uploade Lf" style="">
+                            <i style=""></i>
+                            <img src="../img/list_logo.png" alt=""   title="点击更换图片">
+                            <input type="file"  accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" onchange="xmTanUploadImg1(this);">
+                            <input type="hidden" name="" value="">
+                        </div>
+                        <div class="uploade Lf" style="">
+                            <i style=""></i>
+                            <img src="../img/list_logo.png" alt=""  title="点击更换图片">
+                            <input type="file"  accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" onchange="xmTanUploadImg1(this);">
+                            <input type="hidden" name="" value="">
+                        </div>
+                    </div>
+                    <span class="ts"></span>
+                </li>
+            </ul>
+            <!--<i class="red" style="display: block;margin-top: 22px;font-size: 14px;margin-left: 155px;">请上传营业执照或者扫描件！ 照片大小 < 2MB</i>-->
+        </div>
+    </div>
+    
+
+    <div class="bottom1">
+        <div class="right2 Lf">
+            <!--<div class="btn Lf add add1">继续添加其他资质</div>-->
+            <!--<div class="btn Lf sub">提交</div>-->
+            <!--<div class="btn weiRenZheng next_btn">下一步</div>-->
+            <div class="btn yiRenZheng update_btn" style="margin-top: 0;margin-left: 147px;">修改资质信息</div>
+            <div style="margin-left:150px;margin-top: 32px;">修改资料审核中，如有疑问可致电 <a href="##" style="color: #5590f6;">400-1234567</a></div>
+            <div class="" style="margin-left: 182px;margin-top: 5px;">
+                <img src="../img/qq.png" alt="" style="vertical-align: bottom; float: none;">
+                <a href="##" style="color: #5590f6;">客服QQ</a>
+                <span>(工作日10 : 00 - 19 : 00)</span>
+            </div>
+
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
+<script type="text/javascript">
+
+    var startTime1 = '';
+    var endTime1 = '';
+
+    laydate({
+        elem: '#test1',
+        format: 'YYYY-MM-DD hh:mm:ss',
+        istime: true,
+        choose: function(dates){ //选择好日期的回调
+            startTime1 = dates;
+        }
+    })
+    laydate({
+        elem: '#test2',
+        format: 'YYYY-MM-DD hh:mm:ss',
+        istime: true,
+        choose: function(dates){ //选择好日期的回调
+            endTime1 = dates;
+        }
+    })
+    laydate({
+        elem: '#test3',
+        format: 'YYYY-MM-DD hh:mm:ss',
+        istime: true,
+        choose: function(dates){ //选择好日期的回调
+            startTime1 = dates;
+        }
+    })
+    laydate({
+        elem: '#test4',
+        format: 'YYYY-MM-DD hh:mm:ss',
+        istime: true,
+        choose: function(dates){ //选择好日期的回调
+            endTime1 = dates;
+        }
+    })
+
+    function lay(id) {
+        laydate({
+            elem: '#'+id,
+            format: 'YYYY-MM-DD hh:mm:ss',
+            istime: true,
+            choose: function(dates){ //选择好日期的回调
+                /*endTime1 = dates;*/
+            }
+        })
+    }
+
+    //不同浏览器下的路径不同
+    function getObjectURL(file) {
+        var url = null;
+        if (window.createObjectURL != undefined) { // basic
+
+            url = window.createObjectURL(file);
+
+        } else if (window.URL != undefined) { // mozilla(firefox)
+
+            url = window.URL.createObjectURL(file);
+
+        } else if (window.webkitURL != undefined) { // webkit or chrome
+
+            url = window.webkitURL.createObjectURL(file);
+        }
+
+        return url;
+    }
+
+    //选择图片，马上预览
+    function xmTanUploadImg(obj) {
+        var file = obj.files[0];
+
+        if (file.size >= 2097152) {
+            alert('上传的图片超过了2MB');
+            return;
+        }
+
+        //添加图片路径到img src中进行预览
+        $(obj).prev().attr('src', getObjectURL(file));
+
+        var formdata=new FormData();
+
+        var c = $(obj).prev()[0];
+        var path = $(c).attr('src');
+
+        formdata.append('file', file);
+        
+        formdata.append('path', path);
+    
+
+        $.ajax({
+            url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+            type: 'post',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            data: formdata,
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                // console.log(data);
+                /*img_url1 = data.url;*/
+                $(obj).prev().attr('src', data.url);
+                $(obj).next().val(data.url);
+                $(obj).prev().attr('data-flag', '0');
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+    }
+
+
+</script>
+</body>
+</html>

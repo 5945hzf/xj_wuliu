@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆物流服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
+    <link rel="stylesheet" href="../css/setting-style/setting-stationMsgEdit.css">
+</head>
+<body>
+    <div class="contbox-spme">
+        <div class="headTitle">
+            <span>站内信编辑</span>
+            <span class="backBtn"><img src="../img/s-pmeBack.png" alt="" width="8" height="13">返回</span>
+        </div>
+        <div class="contTitle">站内消息</div>
+        <div class="mianCont_box">
+            <div>
+                <div class="left">消息类型：</div>
+                <div class="rigt">订单创建时</div>
+            </div>
+            <div>
+                <div class="left">标签说明：</div>
+                <div class="right">
+                    <div class="right-ll Lf">
+                        <div>用户名：$Username$</div>
+                        <div>配送方式：$Shipping_Type$ </div>
+                        <div>收货人邮编：$Shipping_Zip$</div>
+                        <div>收货人Email：$Shipping_Email$</div>
+                    </div>
+                    <div class="right-mm Lf">
+                        <div>订单号：$OrderId$</div>
+                        <div>收货人姓名：$Shipping_Name$</div>
+                        <div>收货人电话：$Shipping_Phone</div>
+                        <div>商城名称：$SiteNam</div>
+                    </div>
+                    <div class="right-rr Lf">
+                        <div>订单金额：$Total$</div>
+                        <div>收货人地址：$Shipping_Addr$</div>
+                        <div>收货人手机：$Shipping_Cell$</div>
+                        <div>备注：$Memo$</div>
+                    </div>
+                </div>
+            </div>
+            <div class="msgTitle">
+                <div class="left"><span style="color:#ea0900;margin-right: 2px;">*</span>站内信标题：</div>
+                <input class="right" type="text" placeholder="订单已提交成功">
+            </div>
+            <div class="emailBox">
+                <div class="left"><span style="color:#ea0900;margin-right: 2px;">*</span>邮件内容：</div>
+                <div class="right">
+                    <textarea class="emailCont" placeholder="感谢您的订购，您的订单已经提交成功，订单号：0000000000235777"></textarea>
+                    <div>内容不能为空，长度限制在<span class="zishu">1-300</span>个字符之间</div>
+                    <div class="submitBtn">提交</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

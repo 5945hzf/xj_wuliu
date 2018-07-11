@@ -1,0 +1,168 @@
+<!--积分兑换记录-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title adct="2">新疆物流服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/integral.css"/>
+    <style>
+
+    </style>
+
+
+
+</head>
+<body>
+<div class="container">
+    <div class="containerTitle">
+        积分兑换记录
+    </div>
+    <div class="containerTop">
+        <div class="containerTopLe Lf">
+
+            <div class="containerTopLe1 Lf">
+                <div class="containerTopLeImg Lf">
+                    <img src="../img/cf_integral1.png" alt="">
+                </div>
+                <div class="Lf">
+                    <div style="font-size: 30px;color: #F66132;">8000</div>
+                    <div style="font-size: 14px;">总积分</div>
+                </div>
+            </div>
+            <div class="containerTopLe1 Lf">
+                <div class="containerTopLeImg Lf">
+                    <img src="../img/cf_integral2.png" alt="">
+                </div>
+                <div class="Lf">
+                    <div style="font-size: 30px;color: #7CBA3F;">3600</div>
+                    <div style="font-size: 14px;">可用积分</div>
+                </div>
+            </div>
+            <div class="containerTopLe1 Lf">
+                <div class="containerTopLeImg Lf">
+                    <img src="../img/cf_integral3.png" alt="">
+                </div>
+                <div class="Lf">
+                    <div style="font-size: 30px;color: #6EA3FF;">600</div>
+                    <div style="font-size: 14px;">已分配积分</div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="containerTopRi  Lf">
+            <div style="font-size: 16px;color: #282828;margin-bottom: 20px;">
+                <img src="../img/cf_laba.png" alt="">
+                温馨提示:
+            </div>
+            <div style="color: #838383;font-size: 12px;line-height: 22px;">XSHSIH化工平台为回馈会员，特别推出的会员积分。
+                会员可将账户内累计的积分用于兑换积分平台上推出
+                的相关产品和增值服务。</div>
+        </div>
+    </div>
+    <div class="jifenNav" style="overflow: hidden;">
+        <div class="Lf on" style="margin-left: 29px;">积分记录</div>
+        <div class="Lf">兑换记录</div>
+    </div>
+
+    <div class="jifenjilu">
+        <table>
+            <thead>
+                <tr>
+                    <td style="width: 220px;">时间</td>
+                    <td style="width: 90px;"></td>
+                    <td style="width: 274px;">行为</td>
+                    <td style="width: 90px;"></td>
+                    <td>积分数</td>
+                    <td style="width: 120px;"></td>
+                    <td>操作用户</td>
+                </tr>
+            </thead>
+            <tbody >
+                <tr>
+                    <td style="color: #666666;">2018-01-02 10:02:30</td>
+                    <td></td>
+                    <td><i class="jifenSta green">完成任务</i>成功注册账户，获得积分：<i style="color: #f97646;">1</i></td>
+                    <td></td>
+                    <td class="jifenNum">+1</td>
+                    <td></td>
+                    <td>张三</td>
+                </tr>
+                <tr>
+                    <td style="color: #666666;">2018-01-02 10:02:30</td>
+                    <td></td>
+                    <td><i class="jifenSta green">完成任务</i>成功注册账户，获得积分：<i style="color: #f97646;">1</i></td>
+                    <td></td>
+                    <td class="jifenNum">+1</td>
+                    <td></td>
+                    <td>张三</td>
+                </tr>
+                <tr>
+                    <td style="color: #666666;">2018-01-02 10:02:30</td>
+                    <td></td>
+                    <td><i class="jifenSta green">完成任务</i>成功注册账户，获得积分：<i style="color: #f97646;">1</i></td>
+                    <td></td>
+                    <td class="jifenNum">+1</td>
+                    <td></td>
+                    <td>张三</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
+        <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
+        <div class="pageJump">
+            <span class="allPageN">1/200</span>
+            <i style="margin-left: 12px;">共200页</i>，
+            <span>到第</span>
+            <input type="text"/>
+            <span>页</span>
+            <button type="button" class="button">GO</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script type="text/javascript" >
+    $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+    Page({
+        num: 200,
+        elem: $('#page1'),
+        callback: function(n) {
+            console.log(n);
+        }
+    });
+    $(".cfnav").click(function () {
+        $(".cfnav").removeClass("on");
+        $(this).addClass("on");
+    })
+    $(".jifenNav>div").click(function () {
+        $(".jifenNav>div").removeClass("on");
+        $(this).addClass("on");
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

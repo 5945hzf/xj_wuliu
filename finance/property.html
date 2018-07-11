@@ -1,0 +1,315 @@
+<!--平台资产-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆物流服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
+    <!--<link rel="stylesheet" href="../css/require_style/publishRequireList.css">-->
+    <link rel="stylesheet" href="../css/financialManage/financialManage.css">
+    <style>
+        body{
+            background-color: #fff;
+        }
+        /* contBox */
+        .contbox{
+            width: 970px;
+            border: 1px solid #ebe9ea;
+        }
+        .topTitle{
+            border-bottom: 1px solid #ebe9ea;
+            color: #282828;
+            font-size: 16px;
+            line-height: 52px;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+        .topTitle>.fr{
+            float: right;
+            border: 1px solid #ebe9ea;
+            width: 92px;
+            height: 36px;
+            line-height: 36px;
+            box-sizing: border-box;
+            margin-right: 13px;
+            margin-top: 9px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .topTitle>.fr>img{
+            float: left;
+            margin-left: 8px;
+        }
+        .listBox table{
+            border-bottom: 1px solid #ebe9ea;
+        }
+        .bottomOperiat{
+            border-top: 1px solid #ebe9ea;
+            border-bottom: 1px solid #ebe9ea;
+            height: 60px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .bottomOperiat>span{
+            float: left;
+            line-height: 60px;
+            cursor: pointer;
+        }
+        .bottomOperiat .squre{
+            border: 1px solid #ebe9ea;
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            margin-left: 20px;
+            margin-right: 8px;
+            margin-top: 23px;
+            border-radius: 3px;
+        }
+        .bottomOperiat .squre.active{
+            background: #6ba1ff;
+        }
+        .bottomOperiat>.selsectAll{
+            margin-right: 20px;
+        }
+        .bottomOperiat>.closeBtn{
+            margin-right: 16px;
+        }
+        .bottomOperiat>.delBtn, .bottomOperiat>.closeBtn{
+            margin-top: 10px;
+            width: 112px;
+            height: 38px;
+            line-height: 38px;
+            text-align: center;
+            color: #fff;
+            background: #6BA1FF;
+        }
+        .pageBox{
+            height: 76px;
+            line-height: 76px;
+            box-sizing: border-box;
+        }
+        .headerRight{float: right;}
+        .topHeader{padding: 20px;border-bottom: 1px solid #ebe9ea;font-size: 14px;}
+        .headerImg{width: 100px;height: 100px;margin-right: 20px;}
+        .headerImg img{width: 100%;height: 100%;}
+        .headerCent div{margin-bottom: 19px;}
+        .btn1{width: 100px;height: 25px;line-height: 25px;color: white;background-color: #6ba1ff;text-align: center;font-size: 14px;border-radius: 3px;}
+    </style>
+</head>
+<body>
+    <div class="contbox clearFloat">
+        <div class="topTitle">财务管理<div class="fr"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
+        <div class="topHeader clearFloat">
+            <div class="headerImg Lf">
+                <img src="../img/cf_headerImg.png" alt="">
+            </div>
+            <div class="Lf clearFloat headerCent">
+                <div><span>企业名称</span><span>化动力有限公司</span></div>
+                <div><span>绑定银行</span><span>中信银行</span></div>
+                <div style="margin-bottom: 0;"><span>绑定卡号</span><span>1414143153615451</span><span>更改绑定</span></div>
+            </div>
+            <div class=" clearFloat headerRight">
+                <div class="btn1">资质查看</div>
+                <div class="btn1" style="margin-top: 22px;">资质申请</div>
+            </div>
+        </div>
+        <div class="inputBox">
+            <div class="inputBoxItem inputBoxItemOne">
+                <div class="Lf">
+                    <label>可用金额：<span>¥5600.00</span></label>
+                    <div class="inputBoxItemOneRight">
+                        <input type="button" value="提现" class="btn tixianBtn">
+                        <input type="button" value="充值" class="btn chongzhiBtn">
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="Lf">
+                    <label>待结算：<span>¥5600.00</span></label>
+                    <div class="inputBoxItemOneRight">
+                        <span class="notPayRecordBtn">待结算记录</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inputBoxItem inputBoxItemTwo">
+                <label class="zhangwuDetail">账务明细<span class="dayPayDownload">日账单下载</span><span>月账单下载</span></label>
+                <label class="keyongMoney">可用金额：<span><i>¥</i>56.00</span>元</label>
+            </div>
+            <div class="inputBoxItem inputBoxItemThree">
+                <div class="Lf" style="width: 53%;">
+                    <div class="moneyFlowBox ibit">
+                        <span style="margin-right: 15px;">资金流向：</span>
+                        <input type="radio" name="moneyFlow" id="mf-all" value="0" checked="checked"><label for="mf-all" name="mf-all" class="checked">所有</label>
+                        <input type="radio" name="moneyFlow" id="mf-income" value="1"><label for="mf-income" name="mf-income">收入</label>
+                        <input type="radio" name="moneyFlow" id="mf-expenditure" value="2"><label for="mf-expenditure" name="mf-expenditure">支付</label>
+                    </div>
+                    <div class="businessOrderNum"><span style="margin-right:4px;">商户订单号：</span><input type="text"></div>
+                </div>
+                <div class="Lf" style="width: 47%;">
+                    <div class="typeBox ibit"><span style="margin-right: 25px;">类型：</span><input type="radio" name="type" id="t-all" value="0" checked="checked"><label for="t-all" name="t-all" class="checked">所有</label>
+                        <input type="radio" name="type" id="t-pay" value="1"><label for="t-pay" name="t-pay">支付</label>
+                        <input type="radio" name="type" id="t-chongzhi" value="2"><label for="t-chongzhi" name="t-chongzhi">充值</label>
+                        <input type="radio" name="type" id="t-tixian" value="3"><label for="t-tixian" name="t-tixian" style="margin:0;">提现</label>
+                    </div>
+                    <div class="timeBox"><span style="margin-right: 20px;">起止时间：</span><input type="text" name="" id=""><i class="transverseLine"></i><input type="text" name="" id=""></div>
+                    <div class="searchBtnBox"><span class="searchBtn">搜&nbsp;&nbsp;索</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="incomeAndExpendBox">
+            <label style="margin-left: 20px;">收入（2）：<span class="green">8000.00</span>元</label>
+            <label style="margin-left: 45px;">支出（1）：<span class="red">-3000.00</span>元</label>
+            <span class="downloadPayBtn">下载账单</span>
+        </div>
+        <div class="listBox" style="height: 463px;">
+            <table>
+                <thead>
+                <tr>
+                    <td>时间</td>
+                    <td>流水号<span style="margin: 0 7px;">|</span>商户订单号</td>
+                    <td>类型</td>
+                    <td>交易对方</td>
+                    <td>收入/支出(元)</td>
+                    <td>余额(元)</td>
+                    <td>详情</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="pl20">
+                        <div>2018-04-10</div>
+                        <div>10:41:22</div>
+                    </td>
+                    <td class="pl20">
+                        <div>流水号：3001804091631062138</div>
+                        <div>订单号：3001804091631062137</div>
+                    </td>
+                    <td>现汇交易</td>
+                    <td>
+                        <div>账户名：新疆中顺鑫和供应链管理股份有限公司</div>
+                        <div>账户号：3113710033455221943</div>
+                    </td>
+                    <td>6000</td>
+                    <td>100</td>
+                    <td><span class="btn ll">查看</span><span class="btn">下载</span></td>
+                </tr>
+                <tr>
+                    <td class="pl20">
+                        <div>2018-04-10</div>
+                        <div>10:41:22</div>
+                    </td>
+                    <td class="pl20">
+                        <div>流水号：3001804091631062138</div>
+                        <div>订单号：3001804091631062137</div>
+                    </td>
+                    <td>提现</td>
+                    <td>
+                        <div>账户名：新疆中顺鑫和供应链管理股份有限公司</div>
+                        <div>账户号：3113710033455221943</div>
+                    </td>
+                    <td>6000</td>
+                    <td>100</td>
+                    <td><span class="btn ll">查看</span><span class="btn">下载</span></td>
+                </tr>
+                <tr>
+                    <td class="pl20">
+                        <div>2018-04-10</div>
+                        <div>10:41:22</div>
+                    </td>
+                    <td class="pl20">
+                        <div>流水号：3001804091631062138</div>
+                        <div>订单号：3001804091631062137</div>
+                    </td>
+                    <td>充值</td>
+                    <td>
+                        <div>账户名：新疆中顺鑫和供应链管理股份有限公司</div>
+                        <div>账户号：3113710033455221943</div>
+                    </td>
+                    <td>6000</td>
+                    <td>100</td>
+                    <td><span class="btn ll">查看</span><span class="btn">下载</span></td>
+                </tr>
+                <tr>
+                    <td class="pl20">
+                        <div>2018-04-10</div>
+                        <div>10:41:22</div>
+                    </td>
+                    <td class="pl20">
+                        <div>流水号：3001804091631062138</div>
+                        <div>订单号：3001804091631062137</div>
+                    </td>
+                    <td>充值</td>
+                    <td>
+                        <div>账户名：新疆中顺鑫和供应链管理股份有限公司</div>
+                        <div>账户号：3113710033455221943</div>
+                    </td>
+                    <td>6000</td>
+                    <td>100</td>
+                    <td><span class="btn ll">查看</span><span class="btn">下载</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
+            <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
+            <div class="pageJump">
+                <span class="allPageN">1/200</span>
+                <i style="margin-left: 12px;">共200页</i>，
+                <span>到第</span>
+                <input type="text"/>
+                <span>页</span>
+                <button type="button" class="button">GO</button>
+            </div>
+        </div>
+
+
+
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        //设置Iframe高度
+        $(function () {
+            window.parent.$("#Iframe").css("height","1235");
+        })
+        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+        Page({
+            num: 200,
+            elem: $('#page1'),
+            callback: function(n) {
+                console.log(n);
+            }
+        });
+        // 模拟单选按钮
+        $('.bottomOperiat .squre').click(function(){
+            $(this).toggleClass('active');
+        });
+        $('.bottomOperiat .selsectAll').click(function(){
+            $('.bottomOperiat .squre').toggleClass('active');
+        });
+
+        // 模拟单选按钮
+        $('.ibit label').click(function(){
+            var radioId = $(this).attr('name');
+            if(!$(this).hasClass('checked')){
+                $(this).parent('.ibit').find('input').removeAttr('checked');
+                $(this).parent('.ibit').find('label').removeClass('checked');
+                $(this).addClass('checked');
+                $('#'+radioId).attr('checked', 'checked');
+            }
+            console.log($('#'+radioId).attr('checked'));
+        })
+
+        // 控制td宽度
+        $('tbody tr td').eq(0).css('width','110px');
+        $('tbody tr td').eq(1).css('width','225px');
+        $('tbody tr td').eq(3).css('width','270px');
+    </script>
+    </body>
+</html>

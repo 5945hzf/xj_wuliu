@@ -1,0 +1,127 @@
+body{
+    background-color: #fff;
+}
+/* contBox */
+.contbox{
+    width: 970px;
+    border: 1px solid #ebe9ea;
+}
+.topTitle{
+    border-bottom: 1px solid #ebe9ea;
+    color: #333;
+    font-size: 18px;
+    line-height: 50px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    background-image: url(../../img/dgs-xq.png);
+    background-size: 100% 100%;
+}
+
+/* inputBox */
+.inputBox{
+    padding: 0 40px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #282828;
+}
+.inputBoxItem{
+    box-sizing: border-box;
+}
+.inputBoxItemOne{
+    height: 71px;
+    border-bottom: 1px solid #ebe9ea;
+    line-height: 24px;
+    padding-left: 3px;
+}
+.inputBoxItemOne>.payMethods{
+    padding-top: 13px;
+}
+.inputBoxItemOne>.totalMoney>span{
+    color: #ff731c;
+}
+.inputBoxItemTwo{
+    height: 268px;
+    line-height: 30px;
+    padding-top: 13px;
+    padding-left: 3px;
+}
+.inputBoxItemTwo .itemBox{
+    overflow: hidden;
+    width: 100%;
+}
+.inputBoxItemTwo .ibit{
+    width: 535px;
+}
+/* 自定义单选按钮样式 START */
+.inputBoxItemTwo input[type="radio"]{
+    display: none;
+}
+.inputBoxItemTwo label{
+    padding-left: 22px;
+    background: url(../../img/fm-nocheck.png) no-repeat left center;
+    cursor: pointer;
+    margin-right: 35px;
+}
+.inputBoxItemTwo label.checked{
+    background: url(../../img/fm-checked.png) no-repeat left center;
+}
+/* 自定义单选按钮样式 END */
+
+.chongzhiBtn{
+    color: #6da2ff;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.tixianBtn{
+    margin-right: 17px;
+}
+.rightBox{
+    width: 350px;
+    box-sizing: border-box;
+    padding-right: 13px;
+}
+.rightBox input{
+    width: 130px;
+    height: 32px;
+    box-sizing: border-box;
+    border: 1px solid #ebe9ea;
+}
+.rightBox .payStatus{
+    float: right;
+    color: #ff731c;
+}
+.toPayBtnBox{
+    overflow: hidden;
+}
+.toPayBtn{
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: #6ba1ff;
+    color: #fff;
+    float: right;
+    cursor: pointer;
+    margin-top: 15px;
+}
+.yue{
+    color: #ff6c6a;
+    text-align: right;
+}
+.radioAndBtnBox{
+    overflow: hidden;
+    width: 210px;
+    float: right;
+}
+.radioAndBtnBox label{
+    margin-right: 0;
+    vertical-align: middle;
+}
+.radioAndBtnBox .toPayBtn{
+    margin-top: 0;
+}
+.radioAndBtnBoxContainer{
+    overflow: hidden;
+    margin-top: 15px;
+}

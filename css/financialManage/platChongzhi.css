@@ -1,0 +1,67 @@
+body{
+    background: #fff;
+}
+.contbox {
+    width: 970px;
+    border: 1px solid #ebe9ea;
+}
+.topTitle {
+    border-bottom: 1px solid #ebe9ea;
+    color: #333;
+    font-size: 18px;
+    line-height: 60px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    background-image: url(../../img/dgs-xq.png);
+    background-size: 100% 100%;
+}
+.mainBox{
+    padding-top: 25px;
+    padding-bottom: 20px;
+}
+.mainBox .item{
+    margin: 0 auto;
+    margin-bottom: 23px;
+    width: 940px;
+    box-sizing: border-box;
+    border: 1px solid #ebe9ea;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    padding: 15px 0;
+    padding-right: 0;
+}
+.item .left{
+    width: 290px;
+    float: left;
+    padding-left: 16px;
+    box-sizing: border-box;
+}
+.item .right{
+    overflow: hidden;
+    line-height: 30px;
+    font-size: 16px;
+    color: #282828;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+.item.bandcardItem{
+    padding: 35px 0;
+}
+.bandcardItem .left{
+    padding-left: 50px;
+}
+.bandcardItem .right{
+    padding-top: 7px;
+}
+.beforeImg{
+    position: absolute;
+    left: -14px;
+    top: -1px;
+}
+.behindImg{
+    position: absolute;
+    right: -35px;
+    top: -59px;
+    width: 160px;
+}

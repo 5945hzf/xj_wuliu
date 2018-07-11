@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆物流服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
+    <link rel="stylesheet" href="../css/setUp_msgList.css">
+
+</head>
+<body>
+<!--短信列表-->
+
+    <div class="rightContBox" style="float: none;">
+    	<!--头部-->
+    	<div class="boxHead">
+    		<div class="headLeft">短信列表</div>
+    		<div class="headRight">
+    			<img src="../img/yh_refresh2.png"/>
+    			<span>刷新</span>
+    		</div>
+    	</div>
+    	<div class="filtersech">
+    		<div class="filter1">筛选查询</div>
+    		
+    		<div class="filter3">查询结果</div>
+    		<div class="filter2"><input type="checkbox" name="" id="" value="" />收起筛选</div>
+    	</div>
+    	<div class="messages">
+    		<div class="mesgfirst"><span>关键词</span><input placeholder="关键词" type="text" name="" id="" value="" /></div>
+    		<div><span>发布人员</span><div><img style="position: absolute;top: 11px;" src="../img/cf_open.png"/><label>全部</label></div></div>
+    		<div class="mesglast"><span>发布时间</span><div><img src="../img/yh_rili.png"/><input type="text" placeholder="请选择日期" name="" id="" value="" /></div></div>
+    	</div>
+    	<div class="record">
+    		<div>数据列表</div>
+    		<div>排序方式<img src="../img/cf_open.png"/></div>
+            <div>显示条数<img src="../img/cf_open.png"/></div>
+            <div>群发消息</div>
+            <div>发送短信</div>
+            <div>自动推送设置</div>
+    	</div>
+        
+        <ul class="list_main">
+            <li>
+                <div class="list_lft"></div>
+                <div class="list_rgt">
+                    <div class="list_rgt_tp">
+                        <span>发布人员：admin</span>
+                        <span>发送时间：2017-08-02 15:47:23</span>
+                        <span>接收对象：200人</span>
+                        <i>x 删除</i>
+                    </div>
+                    <div class="list_rgt_bm">
+                        尊敬的用户，为了给您带来更好的体验，秒杀专区业务将于2017年4月26日22：00-2017年4月27日09:00期间进行系统升级，升级期间秒杀专区
+入口将暂时下线。升级后可正常充值和查看充值记录，请有需要的用户提前充值或者在系统升级后再充值。给您带来的不便，敬请谅解。
+感谢您一如既往的支持。
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="list_lft"></div>
+                <div class="list_rgt">
+                    <div class="list_rgt_tp">
+                        <span>发布人员：admin</span>
+                        <span>发送时间：2017-08-02 15:47:23</span>
+                        <span>接收对象：200人</span>
+                        <i>x 删除</i>
+                    </div>
+                    <div class="list_rgt_bm">
+                        尊敬的用户，为了给您带来更好的体验，秒杀专区业务将于2017年4月26日22：00-2017年4月27日09:00期间进行系统升级，升级期间秒杀专区
+入口将暂时下线。升级后可正常充值和查看充值记录，请有需要的用户提前充值或者在系统升级后再充值。给您带来的不便，敬请谅解。
+感谢您一如既往的支持。
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+		<div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;">
+			<ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
+			<div class="pageJump">
+				<span class="allPageN">1/200</span>
+				<i style="margin-left: 12px;">共200页</i>，
+				<span>到第</span>
+				<input type="text"/>
+				<span>页</span>
+				<button type="button" class="button">GO</button>
+			</div>
+		</div>
+
+	</div>
+<!--</div>-->
+
+<!--<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>-->
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script type="text/javascript" >
+
+    $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+    Page({
+        num: 200,
+        elem: $('#page1'),
+        callback: function(n) {
+            console.log(n);
+        }
+    });
+	 $(".manage").click(function () {
+        $(this).parent().find("ul").toggle();
+        $(this).find('img').eq(0).attr('src',$(this).find('img').eq(0).attr('src')==="./img/cf_open.png"?"./img/cf_close.png":"./img/cf_open.png");
+//  	$(this).css("border-bottom","1px solid #f7f7f7")
+	 });
+</script>
+</body>
+</html>

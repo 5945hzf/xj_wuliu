@@ -1,0 +1,91 @@
+body{
+    background: #fff;
+}
+.contbox-spme{
+    width: 970px;
+    border: 1px solid #ebe9ea;
+    box-sizing: border-box;
+}
+
+/* headTitle */
+.headTitle{
+    border-bottom: 1px solid #ebe9ea;
+    height: 54px;;
+    box-sizing: border-box;
+    line-height: 54px;
+    padding-left: 13px;
+    font-size: 16px;
+    color: #282828;
+}
+.headTitle .backBtn{
+    margin-top: 7px;
+    margin-right: 14px;
+    float: right;
+    width: 92px;
+    height: 36px;
+    border: 1px solid #ebe9ea;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 36px;
+    color: #333;
+}
+.backBtn>img{
+    float: left;
+    margin-left: 18px;
+    margin-top: 13px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* mianCont_box */
+.mianCont_box{
+    height: 700px;
+    padding-top: 25px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ebe9ea;
+    font-size: 14px;
+    color: #282828;
+    line-height: 38px;
+}
+.mianCont_box .left{
+    float: left;
+    width: 150px;
+    padding-right: 5px;
+    box-sizing: border-box;
+    text-align: right;
+}
+.mianCont_box .right{
+    overflow: hidden;
+}
+.mianCont_box .right .Lf{
+    width: 272px;
+}
+/* emailBox */
+.emailBox{
+    padding-top: 15px;
+}
+.emailBox .emailCont{
+    height: 272px;
+    width: 674px;
+    box-sizing: border-box;
+    border: 1px solid #ebe9ea;
+    padding: 5px 10px;
+    line-height: 30px;
+}
+.zishu{
+    color: #ff9800;
+}
+.submitBtn{
+    width: 142px;
+    height: 38px;
+    margin-left: 242px;
+    margin-top: 25px;
+    text-align: center;
+    line-height: 38px;
+    color: #fff;
+    background-color: #6ba1ff;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+}

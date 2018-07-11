@@ -1,0 +1,119 @@
+body{
+    background-color: #fff;
+}
+.main-left{
+    float: left;
+    width: 923px;
+}
+.main-left>.headtitle{
+    height: 41px;
+    line-height: 41px;
+    background-image: url(../img/cd-head.jpg);
+    background-size: cover;
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333;
+}
+.main-left>.title{
+    line-height: 70px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-size: 28px;
+    color: #333;
+}
+.main-left>.subtitle{
+    line-height: 45px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+    color: #0071bc;
+    border-bottom: 1px solid #dedede;
+    width: 890px;
+}
+.main-left>.subtitle>span{
+    color: #666;
+    margin-right: 5px;
+}
+.main-left>.contInfo{
+    padding-top: 13px;
+    width: 890px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #333;
+    border-bottom: 1px solid #dedede;
+}
+.main-left>.contInfo>.cont{
+    text-indent: 1em;
+}
+.main-left>.contInfo>img{
+    margin: 0 auto;
+    display: block;
+}
+.main-left>.contInfo .author{
+    text-align: right;
+    line-height: 60px;
+}
+.otherLink{
+    width: 890px;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-size: 14px;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+.otherLink>a{
+    color: #2f3538;
+    width: 50%;
+    overflow: hidden;
+}
+.otherLink>a>span{
+    display: inline-block;
+    width: 381px;
+    color: #0073b9;
+}
+
+.main-right{
+    overflow: hidden;
+    border: 1px solid #dedede;
+    border-bottom: none;
+}
+.rightTitle{
+    height: 41px;
+    box-sizing: border-box;
+    line-height: 40px;
+    border-bottom: 1px solid #dedede;
+    background-image: url('../img/cd-hot.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 36px;
+}
+.main-right li{
+    height: 101px;
+    border-bottom: 1px solid #dedede;
+    box-sizing: border-box;
+    padding-top: 13px;
+    padding-left: 8px;
+    overflow: hidden;
+}
+.main-right li img{
+    vertical-align: middle;
+    float: left;
+}
+.main-right li>div{
+    float: left;
+    margin-left: 15px;
+    width: 160px;
+}
+.hotcont{
+    color: #666;
+    font-size: 14px;
+    height: 50px;
+}
+.hotbott{
+    font-size: 12px;
+    color: #999;
+    line-height: 30px;
+    text-align: right;
+}

@@ -1,0 +1,178 @@
+body{
+    background-color: #fff;
+}
+/*左边菜单*/
+.manageList{
+    width: 210px;
+}
+.manageList>ul{
+    width: 210px;
+}
+.manageList>ul>li>a{
+   display: block;
+   /*width: 190px;*/
+   padding-left: 30px;
+   font-size: 16px;
+   height: 50px;
+   line-height: 50px;
+   color: #6c9efb;
+   background-color: #ffffff;
+   border: 2px solid #f7f7f7;
+}
+.manageList>ul>li>ul{
+    display: none;
+    
+    border: 2px solid #f7f7f7;
+    border-top: none;
+}
+.manageList>ul>li>ul>li>a{
+    display: block;
+    /*width: 175px;*/
+    padding-left: 45px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    color: #828282;
+    background-color: #ffffff;
+}
+.manageList>ul>li>ul>li>.active{
+    border-top: 1px solid #f7f7f7;
+    border-bottom: 1px solid #f7f7f7;
+    height: 48px;
+    line-height: 48px;
+    background-color: #fdfdfd;
+}
+.manageList>ul>li>ul>li>.active1{
+    height: 48px;
+    line-height: 48px;
+    border: 1px solid;
+    color: white;
+    background-color: #5590f6;
+}
+
+
+.rightContBox{
+    float: right;
+    overflow: hidden;
+    border: 1px solid #dedede;
+    width: 968px;;
+    min-height: 902px;
+    margin-bottom: 5px;
+}
+/* freightCont */
+.freightCont{
+	float: right;
+    overflow: hidden;
+    border: 1px solid #dedede;
+    width: 968px;;
+    min-height: 902px;
+    margin-bottom: 5px;
+}
+/*头部*/
+.boxHead{
+	width: 100%;
+	height: 51px;
+	line-height: 51px;
+	border-bottom: 1px solid #ebe9ea;
+	
+}
+.boxHead .headLeft{
+	float: left;
+	margin-left: 22px;
+	color: #282828;
+	font-size: 16px;
+}
+.boxHead .headRight{
+	width: 90px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	border: 1px solid #ebe9ea;
+	border-radius: 3px;
+	float: right;
+	margin-top: 8px;
+	margin-right: 13px;
+	color: #282828;
+	font-size: 16px;
+}
+.boxHead .headRight img{
+	width: 8px;
+	height: 12px;
+}
+.boxHead .headRight span{
+	margin-left: 5px;
+}
+/*内容*/
+.boxContent{
+	margin-top: 68px;
+}
+.boxContent .ctnsItem{
+	width: 411px;
+	height: 38px;
+	line-height: 38px;
+	margin-left: 222px;
+	margin-bottom: 22px;
+}
+.boxContent .ctnsItem span{
+	display: inline-block;
+	width: 140px;
+	float: left;
+	height: 100%;
+	text-align: right;
+	color: #282828;
+	font-size: 14px;
+}
+.boxContent .ctnsItem span em{
+	display: inline-block;
+	height: 100%;
+	margin-right: 4px;
+	color: #E91717;
+}
+.boxContent .ctnsItem input{
+	width: 249px;
+	height: 34px;
+	border: 1px solid #D3D3D3;
+	float: right;
+	padding-left: 10px;
+}
+#getcode{
+	width: 167px;
+	float: left;
+	margin-left: 9px;
+}
+#codebtn{
+	width: 70px;
+	margin-left: 7px;
+	color: #6EA3FF;
+	font-size: 14px;
+}
+.boxContent .ctnsItem textarea{
+	width: 254px;
+	height: 126px;
+	border: 1px solid #D3D3D3;
+	float: right;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+.submitbtns{
+	width: 259px;
+	height: 47px;
+	text-align: center;
+	line-height: 47px;
+	color: #FFFFFF;
+	font-size: 16px;
+	background-color: #6EA3FF;
+	border-radius: 3px;
+	float: left;
+	margin-left: 369px;
+	margin-top: 27px;
+}
+/* 清楚浮动 */
+.clearfix:before,.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}

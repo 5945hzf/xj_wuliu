@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆物流服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
+    <!--<link rel="stylesheet" href="../css/require_style/publishRequireList.css">-->
+    <style>
+        body{
+            background-color: #fff;
+        }
+        /* contBox */
+        .contbox{
+            width: 970px;
+            border: 1px solid #ebe9ea;
+        }
+        .topTitle{
+            border-bottom: 1px solid #ebe9ea;
+            color: #282828;
+            font-size: 16px;
+            line-height: 52px;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+        .topTitle>.fr{
+            float: right;
+            border: 1px solid #ebe9ea;
+            width: 92px;
+            height: 36px;
+            line-height: 36px;
+            box-sizing: border-box;
+            margin-right: 13px;
+            margin-top: 9px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .topTitle>.fr>img{
+            float: left;
+            margin-left: 8px;
+        }
+        /* inputBox */
+        .inputBox{
+            height: 60px;
+            border-bottom: 1px solid #ebe9ea;
+            padding-left: 20px;
+            box-sizing: border-box;
+            line-height: 60px;
+            font-size: 14px;
+            color: #282828;
+        }
+        .inputBox label{
+            margin-right: 7px;
+        }
+        .inputBox>.input{
+            height: 38px;
+            box-sizing: border-box;
+            margin-right: 12px;
+            padding-left: 10px;
+            border: 1px solid #ebe9ea;
+        }
+        .inputBox>.orderNo{
+            width: 180px;
+        }
+        .inputBox>.goodsType{
+            line-height: 38px;
+            display: inline-block;
+            width: 160px;
+            position: relative;
+            color: #999;
+            background: #fff;
+            cursor: pointer;
+            float: none;
+        }
+        .inputBox>.goodsType>img{
+            float: right;
+            width: 13px;
+            height: 7px;
+            margin-top: 15px;
+            margin-right: 9px;
+        }
+        .inputBox>.goodsType>ul{
+            display: none;
+            position: absolute;
+            top: 37px;
+            left: -1px;
+            line-height: 38px;
+            width: 160px;
+            box-sizing: border-box;
+            border: 1px solid #ebe9ea;
+            border-top: none;
+        }
+        .inputBox>.goodsType>ul>li{
+            background: #fff;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+        /* .inputBox>.goodsType>ul>li:hover{
+            background: #ebe9ea;
+            color: #fff;
+        } */
+        .publishTime{
+            width: 160px;
+        }
+        .inputBox>.btn{
+            outline: none;
+            border: none;
+            padding: 0;
+            text-align: center;
+            width: 94px;
+            color: #fff;
+            background: #6ba1ff;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .btn.advancedRetrievalBtn{
+            margin-right: 0;
+        }
+        .opciationBox{
+            height: 53px;
+            border-bottom: 1px solid #ebe9ea;
+            font-size: 14px;
+            line-height: 52px;
+        }
+        .opciationBox>.exportDemandBtn{
+            float: right;
+            margin-top: 9px;
+            margin-right: 9px;
+            text-align: center;
+            border: 1px solid #ebe9ea;
+            width: 93px;
+            height: 37px;
+            box-sizing: border-box;
+            color: #333;
+            background: #fff;
+        }
+        .opciationBox>.displayNum{
+            position: relative;
+            float: right;
+            margin-top: 9px;
+            margin-right: 4px;
+            width: 132px;
+            height: 37px;
+            line-height: 37px;
+            border: 1px solid #ebe9ea;
+            box-sizing: border-box;
+            padding-left: 10px;
+            color: #999;
+            cursor: pointer;
+        }
+        .displayNum>img{
+            float: right;
+            width: 13px;
+            height: 7px;
+            margin-top: 15px;
+            margin-right: 9px;
+        }
+        .displayNum>ul{
+            display: none;
+            width: 132px;
+            box-sizing: border-box;
+            border: 1px solid #ebe9ea;
+            position: absolute;
+            top: 36px;
+            left: -1px;
+            background: #fff;
+            border-top: none;
+        }
+        .displayNum>ul>li{
+            padding-left: 10px;
+            cursor: pointer;
+        }
+        .select>ul>li.hovered{
+            background: #ebe9ea !important;
+            color: #fff !important;
+        }
+        table{
+            width: 100%;
+            font-size: 12px;
+            color: #282828;
+            margin-bottom: 80px;
+        }
+        thead>tr{
+            height: 34px;
+            line-height: 34px;
+            background-color: #fdfdfd;
+        }
+        tbody>tr{
+            height: 60px;
+            line-height: 60px;
+            border-top: 1px solid #ebe9ea;
+        }
+        td{
+            text-align: center;
+        }
+        .ll{color: #6ba1ff;margin-right: 10px;}
+        .see,.del,.edit{
+            cursor: pointer;
+        }
+        .opciationBox>.btn {
+            float: right;
+            margin-top: 9px;
+            margin-right: 9px;
+            text-align: center;
+            border: 1px solid #ebe9ea;
+            width: 93px;
+            height: 37px;
+            box-sizing: border-box;
+            color: #333;
+            background: #fff;
+            cursor: pointer;
+        }
+        tbody>tr>td>.btn{
+            color: #6ba1ff;
+            cursor: pointer;
+        }
+        .ll{
+            margin-right: 12px;
+        }
+        .listBox table{
+            border-bottom: 1px solid #ebe9ea;
+        }
+        .bottomOperiat{
+            border-top: 1px solid #ebe9ea;
+            border-bottom: 1px solid #ebe9ea;
+            height: 60px;
+            box-sizing: border-box; 
+            font-size: 14px;
+        }
+        .bottomOperiat>span{
+            float: left;
+            line-height: 60px;
+            cursor: pointer;
+        }
+        .bottomOperiat .squre{
+            border: 1px solid #ebe9ea;
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            margin-left: 20px;
+            margin-right: 8px;
+            margin-top: 23px;
+            border-radius: 3px;
+        }
+        .bottomOperiat .squre.active{
+            background: #6ba1ff;
+        }
+        .bottomOperiat>.selsectAll{
+            margin-right: 20px;
+        }
+        .bottomOperiat>.closeBtn{
+            margin-right: 16px;
+        }
+        .bottomOperiat>.delBtn, .bottomOperiat>.closeBtn{
+            margin-top: 10px;
+            width: 112px;
+            height: 38px;
+            line-height: 38px;
+            text-align: center;
+            color: #fff;
+            background: #6BA1FF;
+        }
+        .pageBox{
+            height: 76px;
+            line-height: 76px;
+            box-sizing: border-box;
+        }
+        .listBox{height: 1116px;}
+        .cf_select{
+            margin: 0 auto;
+            width: 13px;
+            height: 13px;
+            background: url("../img/cf_noselect.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .cf_select.on{
+            background: url("../img/cf_selct.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        tr .btn{margin: 0 6px;}
+    </style>
+    
+    
+</head>
+<body>
+    <div class="contbox">
+        <div class="topTitle">订单统计
+            <div class="fr"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
+        <div class="inputBox">
+            <label for="">输入搜索</label><input class="orderNo input" type="text" placeholder="订单编号">
+            <label for="">订单状态</label>
+            <div class="goodsType input select" data-selectedindex="0"><span>全部</span><img src="../img/prl-select.jpg" >
+                <ul>
+                    <li data-index="1">待分配订单</li>
+                    <li data-index="2">进行中订单</li>
+                    <li data-index="3">完成待审核订单</li>
+                    <li data-index="3">已完成订单</li>
+                </ul>
+            </div>
+            <label for="">提交时间</label><input class="publishTime input" type="text" placeholder="请选择时间">
+            <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-left: 100px;">
+        </div>
+        <div class="opciationBox">
+            <div class="select displayNum" data-selectedindex="0"><span>显示条数</span><img src="../img/prl-select.jpg" alt="">
+                <ul>
+                    <li data-index="1">10</li>
+                    <li data-index="2">20</li>
+                    <li data-index="3">30</li>
+                </ul>
+            </div>
+            <input class="exportOrderBtn btn" type="button" value="导出订单">
+            <input class=" btn" type="button" value="新增订单">
+        </div>
+        <div class="listBox" style="overflow-x: auto">
+            <table style="width: 1024px;">
+                <thead>
+                    <tr>
+                        <th style="width: 56px;text-align: center;"></th>
+                        <th>订单编号</th>
+                        <th>装车时间</th>
+                        <th>货物类型</th>
+                        <th>货物名称</th>
+                        <th>重量／体积 </th>
+                        <th>始发地</th>
+                        <th>目的地</th>
+                        <th>订单状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div class="cf_select"></div></td>
+                        <td>3001804091631062137</td>
+                        <td>2017-07-19 14:48</td>
+                        <td>危化-罐装</td>
+                        <td>氢氧化钠</td>
+                        <td>1500吨</td>
+                        <td>新疆-乌鲁木齐</td>
+                        <td>北京-朝阳区</td>
+                        <td>进行中订单</td>
+                        <td><span class="btn seeDetail">查看订单</span><span class="btn sure">确认送达</span><span class="btn updata">更改车辆</span><span class="btn cancel">取消订单</span></td>
+                    </tr>
+                    <tr>
+                        <td><div class="cf_select"></div></td>
+                        <td>3001804091631062137</td>
+                        <td>2017-07-19 14:48</td>
+                        <td>危化-罐装</td>
+                        <td>氢氧化钠</td>
+                        <td>1500吨</td>
+                        <td>新疆-乌鲁木齐</td>
+                        <td>北京-朝阳区</td>
+                        <td>进行中订单</td>
+                        <td><span class="btn seeDetail">查看订单</span><span class="btn sure">确认送达</span><span class="btn updata">更改车辆</span><span class="btn cancel">取消订单</span></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="bottomOperiat">
+            <span class="squre"></span>
+            <span class="selsectAll">全选</span>
+            <span class="closeBtn">关闭订单</span>
+            <span class="delBtn">删除订单</span>
+        </div>
+        <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
+            <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
+            <div class="pageJump">
+                <span class="allPageN">1/200</span>
+                <i style="margin-left: 12px;">共200页</i>，
+                <span>到第</span>
+                <input type="text"/>
+                <span>页</span>
+                <button type="button" class="button">GO</button>
+            </div>
+        </div>
+        <!--<div class="pageBox">-->
+        <!--共100张 当前为1页 共5页-->
+        <!--</div>-->
+    </div>
+
+
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+        Page({
+            num: 200,
+            elem: $('#page1'),
+            callback: function(n) {
+                console.log(n);
+            }
+        });
+        //查看详情
+        $(".seeDetail").click(function () {
+            window.location.href="./onGoingOrder-detail.html";
+        })
+        // 模拟单选按钮
+        $('.bottomOperiat .squre').click(function(){
+            $(this).toggleClass('active');
+        });
+        $('.bottomOperiat .selsectAll').click(function(){
+            $('.bottomOperiat .squre').toggleClass('active');
+        });
+    </script>
+</body>
+</html>

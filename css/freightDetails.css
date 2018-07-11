@@ -1,0 +1,116 @@
+body{
+    background-color: #fff;
+}
+.leftTab{
+    float: left;
+    width: 252px;
+    border: 1px solid #dedede;
+}
+.leftTab li.tabHead{
+    font-size: 18px;
+    color: #fff;
+    background-image: url('../img/sc-1.png');
+    background-size: cover;
+}
+.leftTab li{
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #666;
+    padding-left: 13px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.leftTab li.active{
+    color: #0071bc;
+}
+.rightContBox{
+    padding-left: 3px;
+    overflow: hidden;
+}
+/* freightCont */
+.freightCont{
+    overflow: hidden;
+    border: 1px solid #dedede;
+    min-height: 262px;
+    margin-bottom: 5px;
+}
+.freightCont>img{
+    margin-top: 17px;
+    margin-left: 15px;
+    margin-right: 22px;
+}
+.freightCont>.middle{
+    width: 410px;
+    font-size: 16px;
+    color: #666666;
+}
+.companyName{
+    font-size: 18px;
+    color: #282828;
+    margin-top: 25px;
+}
+.dangerClass{
+    margin-top: 14px;
+    line-height: 23px;
+    font-size: 14px;
+    color: #0071bc;
+}
+.dangerClass>img{
+    vertical-align: middle;
+    margin-right: 3px;
+}
+.address{
+    margin-top: 12px;
+}
+.briefIntroduction{
+    margin-top: 15px;
+    line-height: 24px;
+}
+.midb{
+    line-height: 24px;
+    text-align: right;
+}
+.freightCont>.right{
+    width: 272px;
+    text-align: center;
+}
+.orderNum{
+    margin-top: 100px;
+    font-size: 28px;
+    color: #f16621;
+    line-height: 40px;
+}
+.orderNumTxt{
+    font-size: 18px;
+    color: #282828;
+}
+/* companyBrief */
+.companyBrief{
+    width: 946px;
+    height: 490px;
+    background-image: url('../img/fd-company.png');
+    background-size: cover;
+}
+.companyBrief>img{
+    margin-left: 529px;
+    margin-top: 135px;
+}
+.companyBrief>p{
+    width: 370px;
+    margin-left: 550px;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #f2f2f2;
+    line-height: 26px;
+}
+
+/* 清楚浮动 */
+.clearfix:before,.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}

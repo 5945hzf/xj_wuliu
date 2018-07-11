@@ -1,0 +1,170 @@
+body{
+    background-color: white;
+}
+.footerTop{border-top: 1px solid #e1e1e8;}
+.line{
+    width: 100%;
+    height: 0;
+    /*min-width: 1229px;*/
+    border-bottom: 2px solid #e1e1e8;
+}
+.tabLinkMaxBox{
+    display: none;
+}
+
+.stateList{
+    background-color: white;
+    padding-top: 14px;
+}
+.stateList>div{
+    float:left;
+    padding: 2px 6px;
+}
+.stateList>.last{
+
+}
+
+
+.countContainer{
+    overflow: hidden;
+    margin-top: 15px;
+}
+.manageList{
+    width: 210px;
+}
+.manageList  .manageList1{
+    border: 2px solid #f7f7f7;
+    width: 210px;
+}
+.manageList .manageList1 a{
+   display: block;
+   /*width: 190px;*/
+   padding-left: 30px;
+   font-size: 16px;
+   height: 70px;
+   line-height: 70px;
+    color: #6c9efb;
+   background-color: #ffffff;
+}
+.manageList .manageList2{
+    display: none;
+}
+.manageList .manageList2 a{
+    display: block;
+    /*width: 175px;*/
+    padding-left: 45px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    color: #828282;
+    background-color: #ffffff;
+}
+.manageList .manageList2 .active{
+    border-top: 1px solid #f7f7f7;
+    border-bottom: 1px solid #f7f7f7;
+    height: 48px;
+    line-height: 48px;
+    background-color: #fdfdfd;
+}
+.manageList .manageList2 .active1{
+    height: 48px;
+    line-height: 48px;
+    border: 1px solid;
+    color: white;
+    background-color: #5590f6;
+}
+
+.countRight{
+    float: right;
+    /*//height: 1200px;*/
+    /*//width: 980px;*/
+}
+
+input{
+    outline:none;
+}
+header{margin-bottom: 0;}
+header>.headerBot{display: none;}
+.xiaoshi{display: none;}
+.mianCont_box{display: none;}
+.topTitle{background: url("../img/cf_headerBAck.png") no-repeat;background-position: center;height: 98px;background-size: cover; }
+.topTitle .headerBot{
+    /*height: 83px;*/
+    padding-top: 41px;
+}
+.topTitle .navList .cfnav{
+    float: left;
+    /*width: 74px;*/
+    padding: 0 15px;
+    text-align: center;
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    /*//margin-right: 15px;*/
+    color: #737373;
+}
+.topTitle .navList .cfnav a{
+    /*color: #666666;*/
+    display:inline-block;
+    height: 100%;
+    width: 100%;
+}
+.topTitle .navList .cfnav.on{
+    color: #1C93DB;
+    border-bottom: 2px solid #1C93DB;
+}
+.topTitle .navList .cfnav:hover{
+    color: #1C93DB;
+    border-bottom: 2px solid #1C93DB;
+}
+.red{color: red;}
+.pop{display: none;}
+.pop{position: fixed;top: 0;left: 0;right:0;bottom: 0;width: 100%;height: 100%;z-index: 999;background-color: rgba(102,102,102,0.5);}
+.pop>.cont{position: fixed;top: 50%;left: 50%;width: 628px;height: 363px;background-color: #ffffff;transform: translate(-50%,-50%);}
+.pop>.cont>.cancel{text-align: right;color: #9E9E9E;margin-bottom: 37px;margin-top: 18px;margin-right: 18px;}
+.pop>.cont>.cance2{margin: 0;padding: 0 20px;height: 50px;line-height: 50px;background: url("../img/cf_popbackgr.png") no-repeat ; margin-bottom: 27px;background-size: contain;}
+.pop>.cont>.cance2>.popTitle{color:#5992f3;font-size: 16px;}
+.pop>.cont>div{overflow: hidden;padding: 0;margin-top: 10px;}
+.pop>.cont>div>.leftTitle{margin-left:53px;width: 120px;text-align: right;margin-right: 18px;height:36px;line-height: 36px;}
+.pop>.cont>div>.popInput{width: 337px;height:38px;}
+.pop>.cont>div>.popInput>input{width: 100%;height:28px; color: #C6C6C6;margin-top: 1px;border: 1px solid #C6C6C6;text-indent: 10px;}
+.pop>.cont>.forget2{text-align: right;margin-right: 100px;margin-top: 10px;}
+.pop>.cont>.forget2>a{color: #007aff;}
+.pop>.cont>.popBottom{margin-left: 90px;margin-top: 35px;}
+.pop>.cont>.popBottom>.btn{margin-left: 58px;width: 137px;height: 39px;line-height: 39px;background-color: #007aff;color: white;text-align: center;border-radius: 5px;}
+
+.pop>.cont>.popBottom>.popReset{color:#ff7524;border: 1px solid #ff7524;background-color: white;}
+.pop>.cont>.popBottom>.popReset:hover{color:#ffffff;border: 1px solid #ff7524;background-color: #ff7524;}
+.pop>.cont>.popBottom>.popCancel{background-color: white;border: 1px solid #007aff;color: #007aff;}
+.pop>.cont>.popBottom>.popCancel:hover{background-color: #007aff;color: #ffffff;}
+.pop>.cont>.popBottom>.popSure:hover{background-color: #026ee4;color: #ffffff;}
+
+
+.input_height input {
+    height: 30px;
+    width: 190px;
+    margin-bottom: 17px;
+    text-indent: 10px;
+}
+
+.info label {
+    width: 110px;
+    text-align: right;
+    display: inline-block;
+}
+
+
+.modelBox23 .modelcontent p {
+    padding: 5px 68px;
+}
+
+.modelcontent p {
+    color: #949495;
+    font-size: 14px;
+    padding: 0 80px;
+}
+
+.modelcontent p span {
+    color: #5992f3;
+}
+

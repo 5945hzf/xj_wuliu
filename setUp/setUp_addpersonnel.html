@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆物流服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
+    <link rel="stylesheet" href="../css/setUp_addpersonnel.css">
+
+</head>
+<body>
+<!--添加员工-->
+<!--<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>-->
+<!--<div class="mianCont" style="margin-top: 10px;padding-bottom:24px;">-->
+    <!--设置-->
+    <!--<div class="manageList Lf cfidx6">-->
+        <!--<ul>-->
+            <!--<li>-->
+                <!--<a href="##" class="manage"><strong>设置</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img src="../img/cf_open.png" alt=""></div></a>-->
+                <!--<ul>-->
+                    <!--<li><a href="##" class="manageItem" data-src="./accountOverView.html" data-height="1600">贸易合同</a></li>-->
+                    <!--<li><a href="##" class="manageItem " data-src="./companyRenzheng/promptCompanyRenzheng.html" data-height="1600">部门管理</a></li>-->
+                    <!--<li><a href="##" class="manageItem" data-src="./companyRenzheng/myCollect.html" data-height="1600">角色管理</a></li>-->
+                    <!--<li><a href="##" class="manageItem" data-src="./companyRenzheng/accountManage.html" data-height="1600">员工管理</a></li>-->
+                    <!--<li><a href="##" class="manageItem" data-src="./accountOverView.html" data-height="1600">自动推送设置</a></li>-->
+                    <!--<li><a href="##" class="manageItem " data-src="./companyRenzheng/promptCompanyRenzheng.html" data-height="1600">日志管理</a></li>-->
+                    <!--<li><a href="##" class="manageItem" data-src="./companyRenzheng/myCollect.html" data-height="1600">消息管理</a></li>-->
+                    <!--<li><a href="##" class="manageItem" data-src="./companyRenzheng/accountManage.html" data-height="1600">常用功能设置</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+
+        <!--</ul>-->
+    <!--</div>-->
+    <div class="rightContBox"  style="float: none">
+    	<!--头部-->
+    	<div class="boxHead">
+    		<div class="headLeft">添加成员</div>
+    		<div class="headRight">
+    			<img src="../img/yh_backHead.png"/>
+    			<span>返回</span>
+    		</div>
+    	</div>
+    	<!--内容-->
+    	<div class="boxContent">
+    		
+    		
+    		<div class="ctnsItem">
+    			<span><em>*</em>成员手机号：</span>
+    			<input type="" name="" id="" value="" />
+    		</div>
+    		<div class="ctnsItem">
+    			<span><em>*</em>成员姓名：</span>
+    			<input type="" name="" id="" value="" />
+    		</div>
+    		<div class="ctnsItem">
+    			<span><em>*</em>登录账号：</span>
+    			<input type="" name="" id="" value="" />
+    		</div>
+    		<div class="ctnsItem">
+    			<span><em>*</em>所属角色：</span>
+    			<input placeholder="全部" type="" name="" id="" value="" />
+    		</div>
+    		<div class="ctnsItem">
+    			<span><em>*</em>登录密码：</span>
+    			<input type="" name="" id="" value="" />
+    		</div>
+    		<div class="ctnsItem">
+    			<span><em>*</em>确认密码：</span>
+    			<input type="" name="" id="" value="" />
+    		</div>
+    		<div class="ctnsItem">
+    			<span>新支付密码：</span>
+    			<input type="" name="" id="" value="" />
+    		</div>
+    		<div class="ctnsItem">
+    			<span>支付密码确认：</span>
+    			<input type="" name="" id="" value="" />
+    		</div>
+    		<div class="ctnsItem">
+    			<span>财务绑定手机验证码：</span>
+    			<input id="getcode" type="" name="" id="" value="" />
+    			<span id="codebtn">获取验证码</span>
+    		</div>
+    		<div class="ctnsItem">
+    			<span>备注信息：</span>
+    			<textarea name="" rows="" cols="" placeholder="请输入内容"></textarea>
+    		</div>
+    		
+    		
+    		<div class="submitbtns">提交</div>
+    		
+    		
+    	</div>
+    </div>
+<!--</div>-->
+
+<!--<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>-->
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script type="text/javascript" >
+	 
+	 $(".manage").click(function () {
+        $(this).parent().find("ul").toggle();
+        $(this).find('img').eq(0).attr('src',$(this).find('img').eq(0).attr('src')==="./img/cf_open.png"?"./img/cf_close.png":"./img/cf_open.png");
+//  	$(this).css("border-bottom","1px solid #f7f7f7")
+	 });
+</script>
+</body>
+</html>

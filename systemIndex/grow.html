@@ -1,0 +1,140 @@
+<!--个人成长值-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title adct="2">新疆物流服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/grow.css"/>
+    <style>
+
+    </style>
+
+
+
+</head>
+<body>
+<div class="container">
+    <div class="containerTitle">
+        个人成长值
+        <div style="float: right;">
+            <div class="Lf" style="width: 124px;height: 28px;"><input  style="width: 100%;height: 100%;" type="date"></div>
+            <div class="search Lf">搜索</div>
+            <div class="Lf" style="width: 146px;height: 26px;"> <input style="width: 100%;height: 100%;" type="text"></div>
+            <div class="search Lf">搜索</div>
+        </div>
+
+    </div>
+    <div class="containerTop">
+        <div class="Headimg Lf">
+            <img src="../img/hsdfHeadImg.png" alt="">
+        </div>
+        <div class="containerTopCen Lf">
+            <div>贡献: <img style="vertical-align: sub;" src="../img/cf_jifen1.png" alt=""> <i id="GXnum">8000</i>分   <span style="margin-left: 36px;">可用积分: </span><img style="vertical-align: sub;" src="../img/cf_jifen2.png" alt=""><i id="jifen">300</i>分</div>
+            <div style="margin: 15px 0;line-height: 14px;">等级: <span id="grow"><span id="grow1"></span></span> <i style="font-size: 12px;color: #ADADAD;">还差</i> <i  style="font-size: 12px;color: #f66132;">6000</i> <i style="font-size: 12px;color: #ADADAD;">分升级</i></div>
+            <div>目前等级: <span class="huiyuandengji">黄金会员</span></div>
+        </div>
+
+        <div class="containerTopRi"><a href="./base.html" style="display: inline-block;height: 100%;width: 100%;">基本信息</a></div>
+    </div>
+
+    <div class="jifenjilu">
+        <table style="font-size: 14px;">
+            <thead>
+                <tr>
+                    <td style="width: 80px;margin-right: 100px;">排序</td>
+                    <td style="width: 100px;"></td>
+                    <td class="date" style="width: 200px;margin-right: 200px;">日期</td>
+                    <td style="width: 200px;"></td>
+                    <td style="">来源</td>
+                    <td style="width: 200px;"></td>
+                    <td style="width: 100px;">获得积分</td>
+                </tr>
+            </thead>
+            <tbody >
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td style="color: #666666;">2018-01-02 10:02:30</td>
+                    <td></td>
+                    <td><i class="jifenSta red">签到</i></td>
+                    <td></td>
+                    <td><i class="red">100</i>分</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td style="color: #666666;">2018-01-02 10:02:30</td>
+                    <td></td>
+                    <td><i class="jifenSta red">签到</i></td>
+                    <td></td>
+                    <td><i class="red">100</i>分</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td style="color: #666666;">2018-01-02 10:02:30</td>
+                    <td></td>
+                    <td><i class="jifenSta red">签到</i></td>
+                    <td></td>
+                    <td><i class="red">100</i>分</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
+        <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
+        <div class="pageJump">
+            <span class="allPageN">1/200</span>
+            <i style="margin-left: 12px;">共200页</i>，
+            <span>到第</span>
+            <input type="text"/>
+            <span>页</span>
+            <button type="button" class="button">GO</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script type="text/javascript" >
+    $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+    Page({
+        num: 200,
+        elem: $('#page1'),
+        callback: function(n) {
+            console.log(n);
+        }
+    });
+    $(".cfnav").click(function () {
+        $(".cfnav").removeClass("on");
+        $(this).addClass("on");
+    })
+    $(".jifenNav>div").click(function () {
+        $(".jifenNav>div").removeClass("on");
+        $(this).addClass("on");
+    })
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

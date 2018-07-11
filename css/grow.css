@@ -1,0 +1,39 @@
+body{
+    background-color: #ffffff;
+}
+.red{color: #f66132;}
+.container{
+    height: 1444px;
+    border: 1px solid #ebe9ea;
+    width: 970px;
+}
+.containerTopCen{font-size: 14px;}
+.containerTitle{
+    height: 49px;line-height: 49px;padding-left: 36px;border-bottom: 1px solid #ebe9ea;font-size: 16px;
+}
+.containerTop{border-bottom: 1px solid #ebe9ea;height: 126px;padding-top: 35px;}
+
+.Headimg{width: 96px;height: 96px;border-radius: 50%;margin-left: 42px;margin-right: 36px;}
+.Headimg img{width: 100%;height: 100%;}
+
+.containerTopRi{float: right;width:115px;height:36px;line-height: 36px;text-align: center;background-color: #6EA3FF;color: #ffffff;font-size:14px;border-radius: 3px;margin-top: 55px;margin-right: 20px;}
+#grow{display:inline-block; width: 243px;height: 14px;background-color: #f1f1f1;border-radius: 7px;overflow: hidden;}
+#grow1{display:inline-block;width: 100px; height: 14px;background-color: #f86025;border-radius: 7px;}
+#GXnum{color: #f14f28;}
+#jifen{color: #81afff;}
+.huiyuandengji{display: inline-block; background-color: #ffc22e;  width: 57px;height: 20px;line-height: 20px;font-size: 12px;color: #ffffff;text-align: center;}
+
+.jifenjilu{height: 1128px;color: #282828;}
+.jifenjilu table{width: 100%;}
+.jifenjilu table thead{background-color: #fdfdfd;height: 44px; line-height: 44px;border-bottom:1px solid #ebe9ea;border-top:1px solid #ebe9ea; }
+.jifenjilu table thead tr td {text-align: center;}
+.jifenjilu table tbody tr{border-bottom:1px solid #ebe9ea;height: 52px;line-height: 52px;font-size: 14px;}
+.jifenjilu table tbody tr td {text-align: center;}
+.jifenSta{font-size: 12px;color: white;padding: 5px;margin-right: 5px;background-color: #fc4144;}
+.jifenNum{color:#f97646; }
+.green{background-color: #6dc756;}
+.jifenNav{font-size: 14px; color: #282828;}
+.jifenNav>div{width: 64px;text-align: center;margin-right: 67px;height: 51px; line-height: 51px;}
+.jifenNav>div.on{border-bottom: 4px solid #f97646;}
+
+.search{width: 68px;height: 32px;line-height: 32px;background-color: #6ba1ff;color: #ffffff;font-size: 12px;text-align: center;margin-top: 10px;margin-right: 15px;}

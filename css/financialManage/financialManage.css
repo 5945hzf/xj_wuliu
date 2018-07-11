@@ -1,0 +1,267 @@
+body{
+    background-color: #fff;
+}
+/* contBox */
+.contbox{
+    width: 970px;
+    border: 1px solid #ebe9ea;
+}
+.topTitle{
+    border-bottom: 1px solid #ebe9ea;
+    color: #282828;
+    font-size: 16px;
+    line-height: 52px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+.topTitle>.fr{
+    float: right;
+    border: 1px solid #ebe9ea;
+    width: 92px;
+    height: 36px;
+    line-height: 36px;
+    box-sizing: border-box;
+    margin-right: 13px;
+    margin-top: 9px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.topTitle>.fr>img{
+    float: left;
+    margin-left: 8px;
+}
+/* inputBox */
+.inputBox{
+    border-bottom: 1px solid #ebe9ea;
+    padding: 0 45px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #282828;
+}
+.inputBoxItem{
+    border-bottom: 1px solid #ebe9ea;
+}
+.inputBoxItemOne{
+    position: relative;
+    height: 89px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.inputBoxItemOne>.Lf{
+    width: 50%;
+}
+.inputBoxItemOne label{
+    float: left;
+    width: 200px;
+    margin-left: 40px;
+    margin-top: 15px;
+    line-height: 28px;
+}
+.inputBoxItemOne label>span{
+    display: block;
+    margin-left: 45px;
+    font-size: 18px;
+    color: #ff731c;
+}
+.inputBoxItemOneRight{
+    overflow: hidden;
+}
+.inputBoxItemOneRight>.btn{
+    width: 70px;
+    height: 25px;
+    margin-top: 47px;
+    text-align: center;
+    line-height: 24px;
+    color: #fff;
+    cursor: pointer;
+    background: #6ba1ff;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+.tixianBtn{
+    margin-right: 17px;
+}
+.notPayRecordBtn{
+    display: block;
+    margin-top: 47px;
+    color: #6ba1ff;
+    cursor: pointer;
+}
+.inputBoxItemOne>.line{
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    width: 3px;
+    height: 40px;
+    background: #ebe9ea;
+}
+.inputBoxItemTwo{
+    height: 48px;
+    box-sizing: border-box;
+    line-height: 48px;
+}
+.inputBoxItemTwo>label>.dayPayDownload{
+    margin-left: 40px;
+    margin-right: 20px;
+}
+.inputBoxItemTwo>.zhangwuDetail{
+    margin-left: 7px;
+}
+.inputBoxItemTwo>.zhangwuDetail>span{
+    color: #6ba1ff;
+    cursor: pointer;
+}
+.inputBoxItemTwo>.keyongMoney{
+    float: right;
+    margin-right: 30px;
+}
+.inputBoxItemTwo>.keyongMoney>span{
+    color: #ff731c;
+    font-size: 18px;
+}
+.inputBoxItemTwo>.keyongMoney>span>i{
+    font-size: 14px;
+}
+.inputBoxItemThree{
+    width: 100%;
+    height: 190px;
+    border: none;
+    box-sizing: border-box;
+    line-height: 50px;
+    overflow: hidden;
+}
+.inputBoxItemThree .moneyFlowBox{
+    margin-left: 10px;
+}
+.inputBoxItemThree input[type="text"]{
+    padding: 5px;
+    box-sizing: border-box;
+}
+/* 自定义单选按钮样式 START */
+.inputBoxItemThree input[type="radio"]{
+    display: none;
+}
+.inputBoxItemThree label{
+    padding-left: 22px;
+    background: url(../../img/fm-nocheck.png) no-repeat left center;
+    cursor: pointer;
+    margin-right: 45px;
+}
+.inputBoxItemThree label.checked{
+    background: url(../../img/fm-checked.png) no-repeat left center;
+}
+/* 自定义单选按钮样式 END */
+.typeBox label{
+    margin-right: 40px;
+}
+
+.inputBoxItemThree .businessOrderNum{
+    margin-left: 10px;
+}
+.inputBoxItemThree .businessOrderNum>input{
+    width: 300px;
+    height: 38px;
+    box-sizing: border-box;
+    border: 1px solid #ebe9ea;
+}
+.timeBox>input{
+    width: 150px;
+    height: 38px;
+    box-sizing: border-box;
+    border: 1px solid #ebe9ea;
+}
+.timeBox>.transverseLine{
+    display: inline-block;
+    margin: 0 5px;
+    width: 10px;
+    height: 2px;
+    background: #ebe9ea;
+    vertical-align: middle;
+}
+.searchBtnBox{
+    overflow: hidden;
+}
+.searchBtn{
+    float: right;
+    width: 244px;
+    height: 42px;
+    background: #6ba0ff;
+    color: #fff;
+    line-height: 42px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 23px;
+    border-radius: 5px;
+}
+.incomeAndExpendBox{
+    height: 35px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ebe9ea;
+    line-height: 35px;
+    font-size: 14px;
+    color: #282828;
+}
+.incomeAndExpendBox .downloadPayBtn{
+    float: right;
+    margin-right: 30px;
+    color: #6ba1ff;
+    cursor: pointer;
+}
+.green{
+    color: #3dbc27;
+}
+.red{
+    color: #ff342e;
+}
+.incomeAndExpendBox .green,.incomeAndExpendBox .red{
+    margin-left: 5px;
+}
+
+.listBox{
+    margin-bottom: 45px;
+}
+table{
+    width: 100%;
+    font-size: 12px;
+    color: #282828;
+    border-bottom: 1px solid #ebe9ea;
+}
+thead>tr{
+    height: 34px;
+    line-height: 34px;
+    background-color: #fdfdfd;
+}
+tbody>tr{
+    height: 61px;
+    line-height: 60px;
+    box-sizing: border-box;
+    border-top: 1px solid #ebe9ea;
+}
+tr>td{
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+}
+tbody>tr>td>div{
+    line-height: 20px;
+    text-align: left;
+    margin: 0 auto;
+}
+.pl20{
+    padding-left: 20px;
+}
+tbody>tr>td>.btn{
+    color: #6ba1ff;
+    cursor: pointer;
+}
+.ll{
+    margin-right: 20px;
+}
+/* pageBox */
+.pageBox{
+    /* border-top: 1px solid #ebe9ea; */
+    height: 76px;
+    line-height: 76px;
+    box-sizing: border-box;
+}

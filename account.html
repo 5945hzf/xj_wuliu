@@ -1,0 +1,436 @@
+<!--账户公共部分-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="./css/commin.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/account.css"/>
+    <style>
+
+
+    </style>
+</head>
+<body>
+<script src="./js/header.js" type="text/javascript" charset="utf-8"></script>
+<div class="topTitle">
+    <div class="headerBot">
+        <div class="mianCont">
+            <div class="logo Lf" onclick="goIndex()" style="width: 167px;height: 44px;margin: 0;margin-right: 8px;margin-left: 25px;"></div>
+            <div class="navList Lf">
+                <div class="cfnav cfnav1 on" onclick="showMangeList('.cfidx1')"><a href="##">首页</a></div>
+                <div class="cfnav cfnav2" onclick="showMangeList('.cfidx2')"><a href="##">需求</a></div>
+                <div class="cfnav cfnav3" onclick="showMangeList('.cfidx3')"><a href="##">多定单</a></div>
+                <div class="cfnav cfnav4" onclick="showMangeList('.cfidx4')"><a href="##">订单</a></div>
+                <div class="cfnav cfnav5" onclick="showMangeList('.cfidx5')"><a href="##">财务</a></div>
+                <div class="cfnav cfnav6" onclick="showMangeList('.cfidx6')"><a href="##">司机</a></div>
+                <div class="cfnav cfnav7" onclick="showMangeList('.cfidx7')"><a href="##">统计</a></div>
+                <div class="cfnav cfnav8" onclick="showMangeList('.cfidx8')"><a href="##">车辆</a></div>
+                <div class="cfnav cfnav9" onclick="showMangeList('.cfidx9')"><a href="##">油价券</a></div>
+                <div class="cfnav cfnav10" onclick="showMangeList('.cfidx10')"><a href="##">结算网点</a></div>
+                <div class="cfnav cfnav11" onclick="showMangeList('.cfidx11')"><a href="##">设置</a></div>
+                <div class="cfnav cfnav12" onclick="showMangeList('.cfidx12')"><a href="##">合同</a></div>
+                <div class="cfnav cfnav13" ><a href="./dangerousGoods_search.html">危化品</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<div class="countContainer mianCont">
+    <!--首页-->
+    <div class="manageList Lf cfidx1" data-idx=".cfnav1">
+        <ul class="manageList1">
+            <li>
+                <a href="##" class="manage"><strong>系统首页</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem" data-src="index" data-height="860">系统首页</a></li>
+                    <li><a href="##" class="manageItem"  data-src="./systemIndex/grow.html"  data-height="1600">个人中心</a></li>
+                    <li><a href="##" class="manageItem" data-src="./systemIndex/integral.html" data-height="1479">积分兑换记录</a></li>
+                    <li><a href="##" class="manageItem" data-src="./systemIndex/myOrder.html" data-height="1420">会员商品订单</a></li>
+                    <li><a href="##" class="manageItem " data-src="./systemIndex/information.html" data-height="576">企业信息设置</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--需求-->
+    <div class="manageList Lf cfidx2" data-idx=".cfnav2">
+        <ul class="manageList1">
+            <li>
+                <a href="##" class="manage"><strong>定单管理</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem" data-src="./need/published.html" data-height="1447">已发布询盘</a></li>
+                    <li><a href="##" class="manageItem " data-src="./need/overdue.html" data-height="1447">过期询盘</a></li>
+                    <li><a href="##" class="manageItem" data-src="./need/toOffer.html" data-height="1447">待报价需求</a></li>
+                    <li><a href="##" class="manageItem " data-src="./need/toConfirmRequire.html" data-height="1447">待确认需求</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--多单-->
+    <div class="manageList Lf cfidx3" data-idx=".cfnav3">
+        <ul class="manageList1">
+            <li>
+                <a href="##" class="manage"><strong>多单列表</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem" data-src="./order/totalOrderList.html" data-height="1450">总订单列表</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--订单-->
+    <div class="manageList Lf cfidx4" data-idx=".cfnav4">
+        <ul class="manageList1">
+            <li>
+                <a href="##" class="manage"><strong>订单管理</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem" data-src="./order/notDistributeOrder.html" data-height="1445">待分配订单</a></li>
+                    <li><a href="##" class="manageItem " data-src="./order/onGoingOrder.html" data-height="1445">进行中订单</a></li>
+                    <li><a href="##" class="manageItem" data-src="./order/sureTakengoodsOrder.html" data-height="1445">确认收货订单</a></li>
+                    <li><a href="##" class="manageItem" data-src="./order/reimbursementAuditedOrder.html" data-height="1445">回款审核订单</a></li>
+                    <li><a href="##" class="manageItem" data-src="./order/financeNotAuditOrder.html" data-height="1445">财务待审核订单</a></li>
+                    <li><a href="##" class="manageItem" data-src="./order/finishedOrder.html" data-height="1445">已完成订单</a></li>
+                    <li><a href="##" class="manageItem" data-src="./order/carMoneySetup.html" data-height="1445">扣车款设置</a></li>
+                    <li><a href="##" class="manageItem" data-src="./order/priceAjustApplication.html" data-height="1445">调价申请</a></li>
+
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!--财务-->
+    <div class="manageList Lf cfidx5" data-idx=".cfnav5">
+        <ul class="manageList1">
+            <li>
+                <a href="##" class="manage"><strong>财务管理</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem" data-src="./finance/property.html" data-height="1032">平台资产</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="manageList1">
+            <li>
+                <a href="##" class="manage"><strong>待审核列表</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <!--<li><a href="##" class="manageItem" data-src="caiwu" data-height="1032">平台资产</a></li>-->
+                    <!--<li><a href="##" class="manageItem " data-src="./financialManage/settlementAudit.html" data-height="715">待审核列表</a></li>-->
+                    <li><a href="##" class="manageItem" data-src="./finance/replenish.html" data-height="767">油卡补充申请</a></li>
+                    <li><a href="##" class="manageItem" data-src="./finance/returnedMoney.html" data-height="767">订单回款申请</a></li>
+                    <li><a href="##" class="manageItem" data-src="./finance/imprest.html" data-height="767">预付款申请</a></li>
+                    <li><a href="##" class="manageItem" data-src="./finance/wageCalculation.html" data-height="767">工资结算</a></li>
+                    <li><a href="##" class="manageItem" data-src="./finance/outWage.html" data-height="767">外部工资申请</a></li>
+                    <li><a href="##" class="manageItem" data-src="./finance/orderJieSuanList.html" data-height="767">订单结算列表</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--司机-->
+    <div class="manageList Lf cfidx6" data-idx=".cfnav6">
+        <ul class="manageList1">
+            <li>
+                <a href="##" class="manage"><strong>司机管理</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem" data-src="./driver/setUp_departmentManage.html" data-height="1032">部门管理</a></li>
+                    <li><a href="##" class="manageItem " data-src="./driver/dutyMange.html" data-height="715">职务管理</a></li>
+                    <li><a href="##" class="manageItem" data-src="./driver/personMange.html" data-height="767">人员管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--统计-->
+    <div class="manageList Lf cfidx7" data-idx=".cfnav7">
+        <ul class="manageList1">
+            <li>
+                <a href="##" class="manage"><strong>数据统计</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem" data-src="./statistics/dataIndex.html" data-height="1032">数据首页</a></li>
+                    <li><a href="##" class="manageItem " data-src="./statistics/orderStatistics.html" data-height="715">订单统计</a></li>
+                    <li><a href="##" class="manageItem" data-src="./statistics/ticket.html" data-height="767">有价券统计</a></li>
+                    <li><a href="##" class="manageItem " data-src="./statistics/profit.html" data-height="715">毛利统计</a></li>
+                    <li><a href="##" class="manageItem " data-src="./statistics/receivable.html" data-height="715">应收账款</a></li>
+                    <li><a href="##" class="manageItem " data-src="./statistics/single.html" data-height="715">单车利润</a></li>
+                    <li><a href="##" class="manageItem " data-src="./statistics/personManage.html" data-height="715">人员管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--车辆-->
+    <div class="manageList Lf cfidx8" data-idx=".cfnav8">
+        <ul class="manageList1">
+            <li>
+                <a href="##" class="manage"><strong>车辆管理</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem" data-src="cheliang" data-height="1032">车辆管理</a></li>
+                    <li><a href="##" class="manageItem " data-src="" data-height="715">线路管理</a></li>
+                    <li><a href="##" class="manageItem" data-src="" data-height="767">车辆设置</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--有价券-->
+    <div class="manageList Lf cfidx9" data-idx=".cfnav9">
+        <ul class="manageList1">
+            <li>
+                <a href="##" class="manage"><strong>油价券管理</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem" data-src="youjiaquan" data-height="1032">实卡管理</a></li>
+                    <li><a href="##" class="manageItem " data-src="" data-height="715">虚拟券管理</a></li>
+                    <li><a href="##" class="manageItem" data-src="" data-height="767">代金券列表</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--结算网点-->
+    <div class="manageList Lf cfidx10" data-idx=".cfnav10">
+        <ul class="manageList1">
+            <li>
+                <a href="##" class="manage"><strong>结算网点</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem" data-src="wangdian" data-height="1032">结算网店列表</a></li>
+                    <li><a href="##" class="manageItem " data-src="" data-height="715">订单列表</a></li>
+                    <li><a href="##" class="manageItem" data-src="" data-height="767">财务管理</a></li>
+                    <li><a href="##" class="manageItem " data-src="" data-height="715">油卡申请审核</a></li>
+                    <li><a href="##" class="manageItem" data-src="" data-height="767">油卡列表</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--&lt;!&ndash;设置&ndash;&gt;   &#45;&#45;&#45;&#45;-->
+    <div class="manageList Lf cfidx11" data-idx=".cfnav11">
+        <ul class="manageList1">
+            <li>
+                <a href="##" class="manage"><strong>设置</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_open.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem " data-src="./setUp/setUp_departmentManage.html" data-height="1054">部门管理</a></li>
+                    <li><a href="##" class="manageItem" data-src="" data-height="1442">短信列表</a></li>
+                    <li><a href="##" class="manageItem" data-src="./setUp/setUp_automaticPush.html" data-height="1054">自动推送设置</a></li>
+                    <li><a href="##" class="manageItem " data-src="./setUp/setting-logManage.html" data-height="1050">日志管理</a></li>
+                    <li><a href="##" class="manageItem" data-src="./setUp/setUp_messageManage.html" data-height="1110">消息管理</a></li>
+                    <li><a href="##" class="manageItem" data-src="" data-height="1054">税率设置</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <!--合同-->
+    <div class="manageList Lf cfidx12" data-idx=".cfnav12">
+        <ul class="manageList1">
+            <li>
+                <a href="##" class="manage"><strong>合同</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem" data-src="hetong" data-height="1032">员工合同</a></li>
+                    <li><a href="##" class="manageItem " data-src="" data-height="715">车辆合同</a></li>
+                    <li><a href="##" class="manageItem" data-src="./contract/setting-tradeContract.html" data-height="767">贸易合同</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--危化品-->
+    <!--<div class="manageList Lf cfidx13" data-idx=".cfnav13">-->
+        <!--<ul class="manageList1">-->
+            <!--<li>-->
+                <!--<a href="##" class="manage"><strong>危化品</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>-->
+                <!--<ul class="manageList2">-->
+                    <!--<li><a href="##" class="manageItem" data-src="weihua" data-height="1032">财务管理</a></li>-->
+                    <!--<li><a href="##" class="manageItem " data-src="./financialManage/settlementAudit.html" data-height="715">结算审核</a></li>-->
+                    <!--<li><a href="##" class="manageItem" data-src="./financialManage/servicePay.html" data-height="767">服务费支付</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <div class="countRight">
+        <!--<div>当前位置:<a href="##">个人中心</a></div>-->
+        <iframe src=""
+                name="ifd"
+                width="980"
+                frameborder="0"
+                id="Iframe"
+                style="overflow: hidden;"
+                scrolling="no"
+        ></iframe>
+    </div>
+
+    <!--修改密码弹框-->
+    <div class="pop" id="updataPwd">
+        <div class="cont">
+            <div class="cance2">
+                <span class="popTitle Lf">修改密码</span>
+                <span class="close Rt" onclick="close1(this)"><img src="./img/gsxq_del.png" alt=""></span>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <div class="leftTitle Lf"> <i class="red">*</i>
+                    <span>您的密码：</span>
+                </div>
+                <div class="popInput Lf">
+                    <input type="password" id="oldPwd" maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)">
+                </div>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <div class="leftTitle Lf"> <i class="red">*</i>
+                    <span>新密码：</span>
+                </div>
+                <div class="popInput Lf">
+                    <input id="newPwd1" type="password"  maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)">
+                </div>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <div class="leftTitle Lf"> <i class="red">*</i>
+                    <span>确认密码：</span>
+                </div>
+                <div class="popInput Lf">
+                    <input id="newPwd2" type="password" maxlength="20" placeholder="必须和设置的密码一致" onkeyup="this.value=chaneseCheck(this.value)">
+                </div>
+            </div>
+            <!--<div class="forget2"><a href="../login/findPass.html">忘记密码?</a></div>-->
+            <div class="popBottom">
+                <!--<div class="btn Lf popCancel close" onclick="close1()">取消</div>-->
+                <div class="btn Lf popReset" onclick="reset(this)">重置</div>
+                <div class="btn Lf popSure" id="updataPwdSub">确定</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="./js/footer.js" type="text/javascript" charset="utf-8"></script>
+<script src="./js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="./js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" >
+    $(".manageList").css("display","none");
+
+
+
+    function showMangeList(idx) {//设置每个页面的  初始加载页面， cfsrc  必须是 和data-src 一致
+        //$(".manageList").css("display","none");
+        //$(idx).css("display","block");
+        if(idx==".cfidx1"){//首页
+            sessionStorage.setItem("cfsrc","index");
+        }else if(idx==".cfidx2"){//需求
+            sessionStorage.setItem("cfsrc","./need/published.html");
+        }else if(idx==".cfidx3"){//多订单
+            sessionStorage.setItem("cfsrc","./order/totalOrderList.html");
+        }else if(idx==".cfidx4"){//订单
+            sessionStorage.setItem("cfsrc","./order/notDistributeOrder.html");
+        }else if(idx==".cfidx5"){//财务
+            sessionStorage.setItem("cfsrc","./finance/property.html");
+        }else if(idx==".cfidx6"){//司机
+            sessionStorage.setItem("cfsrc","./driver/setUp_departmentManage.html");
+        }else if(idx==".cfidx7"){//统计
+            sessionStorage.setItem("cfsrc","./statistics/dataIndex.html");
+        }else if(idx==".cfidx8"){//车辆
+            sessionStorage.setItem("cfsrc","cheliang");
+        }else if(idx==".cfidx9"){//有价券
+            sessionStorage.setItem("cfsrc","youjiaquan");
+        }else if(idx==".cfidx10"){//结算网点
+            sessionStorage.setItem("cfsrc","wangdian");
+        }else if(idx==".cfidx11"){//设置
+            sessionStorage.setItem("cfsrc","./setUp/setUp_departmentManage.html");
+        }else if(idx==".cfidx12"){//合同
+            sessionStorage.setItem("cfsrc","hetong");
+        }else if(idx==".cfidx13"){//危化品
+            sessionStorage.setItem("cfsrc","weihua");
+        }
+        showNav();
+    }
+    function goIndex() {
+        window.location.href="./index.html";
+    }
+    //禁止输入中文
+    function chaneseCheck(str){
+        var temp=""
+        for(var i=0;i<str.length;i++)
+            if(str.charCodeAt(i)>0&&str.charCodeAt(i)<255)
+                temp+=str.charAt(i)
+        return temp
+    }
+    var state=1;//未认证
+    $(function () {
+        if(state===0){
+            $(".yiRenZheng").addClass('xiaoshi');
+            $(".weiRenZheng .manage").each(function (index) {
+                if(index!=0){
+                    $(this).find('img').eq(0).attr('src',"./img/cf_close.png");
+                }
+            })
+        }else{
+            $(".weiRenZheng").addClass('xiaoshi');
+            $(".yiRenZheng .manage").each(function (index) {
+                if(index!=0){
+                    $(this).find('img').eq(0).attr('src',"./img/cf_close.png");
+                }
+            })
+        }
+        //
+
+        $(".manage").click(function () {
+            $(this).parent().find("ul").toggle();
+            $(this).find('img').eq(0).attr('src',$(this).find('img').eq(0).attr('src')==="./img/cf_open.png"?"./img/cf_close.png":"./img/cf_open.png");
+        });
+
+
+        $(".manageItem").hover(function () {
+            $(".manageItem").removeClass("active");
+            $(this).addClass("active");
+        },function () {
+            $(".manageItem").removeClass("active");
+            $(this).removeClass("active");
+        }).click(function () {
+
+            /*if (!companyId && $(this).attr("data-src") != './identification1.html') {
+                alert('请先进行企业认证！');
+                return false;
+            }*/
+
+            $(".manageItem").removeClass("active1");
+            $(this).addClass("active1");
+
+            $("#Iframe").attr("src",$(this).attr("data-src"));
+            $("#Iframe").attr("height",$(this).attr("data-height"));
+            $("#Iframe").css("height",$(this).attr("data-height"));
+        });
+    })
+
+    $(".cfnav").click(function () {
+        $(".cfnav").removeClass("on");
+        $(this).addClass("on");
+    })
+    showNav();
+
+    function showNav() {
+        $(".manageItem").each(function (idx,item) {
+            $(this).removeClass("active1");
+            if($(this).attr("data-src")==sessionStorage.getItem("cfsrc")){
+                $(".manageList").css("display","none");
+                $(".cfnav").removeClass("on");
+                $($(this).parent().parent().parent().parent().parent().attr("data-idx")).addClass("on");
+                $($(this).parent().parent().parent().parent().parent().attr("data-idx")).css("display","block");
+
+                $(this).parent().parent().parent().parent().parent().css("display","block");
+                $(this).parent().parent().show();
+                $(this).parent().parent().parent().find("img").eq(0).attr('src',"./img/cf_open.png");
+                $(this).addClass("active1");
+                $("#Iframe").attr("src",$(this).attr("data-src"));
+                $("#Iframe").attr("height",$(this).attr("data-height"));
+            }
+
+        })
+    }
+function close1(that) {
+    $(that).parents(".pop").css("display","none")
+}
+
+
+
+
+</script>
+</body>
+</html>

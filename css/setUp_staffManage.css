@@ -1,0 +1,429 @@
+body{
+    background-color: #fff;
+    font-family: MicrosoftYaHei;
+}
+/*左边菜单*/
+.manageList{
+    width: 210px;
+}
+.manageList>ul{
+    width: 210px;
+}
+.manageList>ul>li>a{
+   display: block;
+   /*width: 190px;*/
+   padding-left: 30px;
+   font-size: 16px;
+   height: 50px;
+   line-height: 50px;
+   color: #6c9efb;
+   background-color: #ffffff;
+   border: 2px solid #f7f7f7;
+}
+.manageList>ul>li>ul{
+    display: none;
+    
+    border: 2px solid #f7f7f7;
+    border-top: none;
+}
+.manageList>ul>li>ul>li>a{
+    display: block;
+    /*width: 175px;*/
+    padding-left: 45px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    color: #828282;
+    background-color: #ffffff;
+}
+.manageList>ul>li>ul>li>.active{
+    border-top: 1px solid #f7f7f7;
+    border-bottom: 1px solid #f7f7f7;
+    height: 48px;
+    line-height: 48px;
+    background-color: #fdfdfd;
+}
+.manageList>ul>li>ul>li>.active1{
+    height: 48px;
+    line-height: 48px;
+    border: 1px solid;
+    color: white;
+    background-color: #5590f6;
+}
+
+
+.rightContBox{
+    float: right;
+    overflow: hidden;
+    border: 1px solid #dedede;
+    width: 968px;;
+    min-height: 1102px;
+    margin-bottom: 5px;
+}
+
+/*头部*/
+.boxHead{
+	width: 100%;
+	height: 51px;
+	line-height: 51px;
+	border-bottom: 1px solid #ebe9ea;
+	
+}
+.boxHead .headLeft{
+	float: left;
+	margin-left: 22px;
+	color: #282828;
+	font-size: 16px;
+}
+.boxHead .headRight{
+	width: 90px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	border: 1px solid #ebe9ea;
+	border-radius: 3px;
+	float: right;
+	margin-top: 8px;
+	margin-right: 13px;
+	color: #282828;
+	font-size: 16px;
+}
+.boxHead .headRight img{
+	width: 14px;
+	height: 14px;
+}
+.boxHead .headRight span{
+	margin-left: 5px;
+}
+.filtersech{
+	width: 100%;
+	height: 48px;
+	line-height: 48px;
+	background-color: #fdfdfd;
+	border-bottom: 1px solid #ebe9ea;
+}
+.filter1{
+	float: left;
+	font-size: 16px;
+	margin-left: 20px;
+}
+.filter2{
+	float: right;
+	font-size: 14px;
+	margin-right: 19px;
+}
+.filter2 input{
+	margin-top: 18px;
+    float: left;
+    display: block;
+    margin-right: 6px;
+}
+.filter3{
+	float: right;
+	width: 83px;
+	height: 30px;
+	background-color: #FFFFFF;
+	border-radius: 3px;
+	border: 1px solid #ebe9ea;
+	margin-top: 8px;
+	margin-right: 14px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 14px;
+}
+.messages{
+	width: 100%;
+	height: 78px;
+	line-height: 78px;
+	border-bottom: 1px solid #ebe9ea;
+}
+.messages div{
+	float: left;
+	width: 33%;
+	text-align: center;
+	
+}
+.messages div span{
+	margin-left: 20px;
+	margin-right: 6px;
+	font-size: 16px;
+	color: #282828;
+}
+.messages div span{
+	float: left;
+	
+	font-size: 14px;
+}
+.messages div input{
+	width: 180px;
+	height: 34px;
+	display: inline-block;
+	float: left;
+	margin-top: 20px;
+	border: 1px solid #ebe9ea;
+}
+.messages div>div{
+	width: 160px;
+	height: 36px;
+	border: 1px solid #ebe9ea;
+	display: inline-block;
+	margin-top: 20px;
+	line-height: 36px;
+    text-align: left;
+    position: relative;
+}
+.messages div>div img{
+	position: absolute;
+	top: 8px;
+	right: 7px;
+}
+.messages div>div label{
+	margin-left: 11px;
+	color: #999999;
+	font-size: 14px;
+}
+.messages div>div input{
+	display: inline-block;
+	width: 100%;
+	height: 94%;
+	border: none;
+}
+.mesgfirst input{
+    color: #282828;
+    font-size: 14px;
+    text-indent: 11px;
+}
+#mesglast{
+	text-align: right;
+}
+#mesglast span{
+	float: right;
+}
+#mesglast label{
+	font-size: 12px;
+	color: #ff7740;
+}
+.record{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #ebe8ea;
+}
+.record div:first-child{
+	float: left;
+	margin-left: 21px;
+	font-size: 16px;
+}
+/*.record div:nth-of-type(2){*/
+	/*float: right;*/
+	/*width: 102px;*/
+	/*height: 32px;*/
+	/*text-align: center;*/
+	/*line-height: 32px;*/
+	/*border: 1px solid #ebe8ea;*/
+	/*margin-right: 13px;*/
+	/*font-size: 14px;*/
+	/*position: relative;*/
+	/*margin-top: 8px;*/
+/*}*/
+/*.record div:nth-of-type(3){*/
+	/*float: right;*/
+	/*width: 102px;*/
+	/*height: 32px;*/
+	/*text-align: center;*/
+	/*line-height: 32px;*/
+	/*border: 1px solid #ebe8ea;*/
+	/*margin-right: 6px;*/
+	/*font-size: 14px;*/
+	/*position: relative;*/
+	/*margin-top: 8px;*/
+/*}*/
+/*.record div:nth-of-type(2) img,.record div:nth-of-type(3) img{*/
+	/*position: absolute;*/
+	/*top: 8px;*/
+	/*right: 6px;*/
+/*}*/
+.contentslist{
+	width: 100%;
+	font-size: 14px;
+	color: #282828;
+}
+.contentslist thead tr{
+	height: 52px;
+	line-height: 52px;
+	background-color: #fdfdfd;
+	border-bottom: 1px solid #ebe8ea;
+}
+.contentslist tbody tr{
+	height: 59px;
+	line-height: 59px;
+	border-bottom: 1px solid #ebe8ea;
+}
+.jifen{
+	color: #FF7849;
+}
+.contentslist tbody tr td{
+	text-align: center;
+	font-size: 14px;
+}
+.contentslist tbody tr td a{
+	color: #6EA3FF;
+}
+.edits{
+	margin: 0 12px;
+}
+.contentslist tbody tr .times{
+	position: relative;
+}
+.contentslist tbody tr .times span:first-child{
+	display: block;
+    height: 29px;
+    line-height: 29px;
+    position: absolute;
+    top: 4px;
+    width: 100%;
+    font-size: 12px;
+}
+.contentslist tbody tr .times span:last-child{
+	height: 29px;
+    line-height: 29px;
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 4px;
+    font-size: 12px;
+}
+.contentslist tbody tr td p{
+	/*display: inline-block;*/
+	width: 100%;
+	height: 29px;
+	line-height: 29px;
+}
+.lookover{
+	margin-right: 10px;
+	color: #6EA3FF;
+}
+.delect{
+	margin-left: 10px;
+	color: #6EA3FF;
+}
+/*开关按钮样式*/
+	.chooseswitch .switch{
+        display:none;
+    }
+    .chooseswitch label{
+        position:relative;
+        display: inline-block;
+        padding: 1px;
+        border-radius: 24px;
+        width: 37px;
+        height: 21px;
+        margin-bottom: 15px;
+        background-color: #eee;
+        cursor: pointer;
+        vertical-align: top;
+        -webkit-user-select: none;
+        margin-top: 18px;
+    }
+    .chooseswitch label:before{
+        content: '';
+        display: block;
+        border-radius: 24px;
+        height: 21px;
+        background-color: white;
+        -webkit-transform: scale(1, 1);
+        -webkit-transition: all 0.3s ease;
+    }
+    .chooseswitch label:after{
+        content: '';
+        position: absolute;
+        top: 50%;  
+        left: 50%;  
+        margin-top: -11px;  
+        margin-left: -11px;
+        width: 22px;
+        height: 21px;
+        border-radius: 22px;
+        background-color: white;
+        box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.08);
+        -webkit-transform: translateX(-9px);
+        -webkit-transition: all 0.3s ease;
+    }
+    .chooseswitch .switch:checked~label:after{
+        -webkit-transform: translateX(9px);
+    }
+    
+    .chooseswitch .switch:checked~label:before{
+        background-color:#6EA3FF;
+    } 
+/* 分页 */
+.pagesBox{
+    margin-top: 18px;
+    overflow: hidden;
+    font-size: 15px;
+    color: #333;
+}
+.pagesBox ul{
+    float: right;
+    margin-right: 144px;
+}
+.pagesBox ul>li{
+    float: left;
+    /* width: 38px; */
+    height: 38px;
+    margin-left: 10px;
+    padding: 0 13px;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 38px;
+    cursor: pointer;
+}
+.pagesBox ul>li.actived{
+    background-color: #5590f6;
+    color: #FFFFFF;
+}
+.pagesBox>input{
+    float: right;
+    width: 50px;
+    height: 38px;
+    box-sizing: border-box;
+    border: 1px solid #dedede;
+    line-height: 38px;
+    text-align: center;
+}
+.pagesBox .go{
+    float: right;
+    height: 38px;
+    margin-right: 13px;
+    width: 48px;
+    margin-left: 10px;
+    box-sizing: border-box;
+    /*border: 1px solid #dedede;*/
+    text-align: center;
+    line-height: 38px;
+    cursor: pointer;
+    background-color: #6ba1ff;
+    color: #fff;
+    border-radius: 3px;
+}
+.leftctns{
+	font-size: 12px;
+	color: #282828;
+	margin-left: 140px;
+	margin-top: 10px;
+	display: inline-block;
+}
+.leftctns span{
+	font-size: 14px;
+	color: #6EA3FF;
+}
+/* 清楚浮动 */
+.clearfix:before,.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
