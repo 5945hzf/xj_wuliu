@@ -1,0 +1,159 @@
+body{
+    background: #fff;
+}
+.contbox-prld{
+    width: 970px;
+}
+.title{
+    height: 50px;
+    line-height: 50px;
+    background-image: url(../img/dgs-xq.png);
+    background-size: 100% 100%;
+    padding-left: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #282828;
+}
+.toptitle{
+    font-size: 18px;
+    overflow: hidden;
+
+}
+.toptitle>.fr{
+    float: right;
+    font-size: 14px;
+    color: #333;
+    width: 92px;
+    height: 36px;
+    line-height: 36px;
+    box-sizing: border-box;
+    margin-top: 7px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.toptitle .baojiaBtn{
+    background: #6ba1ff;
+    text-align: center;
+    color: #fff;
+}
+.closeBtn,
+.freshBtn{
+    border: 1px solid #ebe9ea;
+    background: #fff;
+}
+.freshBtn>img{
+    float: left;
+    margin-left: 8px;
+}
+.closeBtn>img{
+    float: left;
+    margin-top: 13px;
+    margin-left: 14px;
+    margin-right: 5px;
+}
+
+.infoBox{
+    margin-top: 10px;
+    border: 1px solid #ebe9ea;
+}
+.contBox{
+    box-sizing: border-box;
+    line-height: 32px;
+    font-size: 14px;
+    color: #333333;
+    padding-left: 34px;
+    padding-top: 10px;
+    padding-bottom: 12px;
+
+}
+.contBox span{
+    color: #666666;
+}
+.title>img{
+    float: left;
+    margin-right: 5px;
+    margin-top: 10px;
+}
+.contBox .left{
+    float: left;
+}
+.left i{
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+}
+/* requireInfo */
+.requireInfo .contBox{
+    /*min-height: 244px;*/
+}
+.contlist{
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.contlistone .ll{
+    width: 327px;
+}
+.contlistone .rr{
+    width: 420px;
+}
+.contlistone .desti{
+    overflow: hidden;
+}
+.contlistone .destination{
+    float: right;
+    display: inline-block;
+    width: 347px;
+}
+.contlisttwo .ll{
+    width: 327px;
+}
+.contlisttwo .mm{
+    width: 320px;
+}
+.contlisttwo .rr{
+    width: 285px;
+}
+/* dangerIntroduce */
+.dangerIntroduce .title>div{
+    float: right;
+    width: 95px;
+    margin-right: 28px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #038cd9;
+    background-image: url('../img/prl-right.png');
+    background-size: 9px 7px;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.dangerIntroduce .contBox{
+    overflow: hidden;
+}
+.dangerIntroduce .ll{
+    width: 327px;
+}
+.dangerIntroduce .mm{
+    width: 320px;
+}
+.dangerIntroduce .rr{
+    width: 285px;
+}
+/* companyInfo */
+.companyInfo>.contBox{
+    overflow: hidden;
+}
+.companyInfo .ll{
+    width: 327px;
+}
+.companyInfo .mm{
+    width: 320px;
+}
+.companyInfo .rr{
+    width: 285px;
+}
+.btn{
+    cursor: pointer;
+}
+.contBox .blue{
+    color: #0072bc;
+}
