@@ -1,4 +1,4 @@
-//var pubIP = 'http://172.17.210.187:7777/service/';
+//var pubIP = 'http://api.xjv56.com/service/';
 var pubIP = 'http://192.168.1.80:7777/service/';
 //var token = 'ceshi123456';
 var token=localStorage.getItem("token");
@@ -13,7 +13,7 @@ var companyId = null, userId = null ;
 // 例子： 
 // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
 // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
-Date.prototype.Format = function (fmt) { //author: meizz 
+Date.prototype.Format = function (fmt) { 
     var o = {
         "M+": this.getMonth() + 1, //月份 
         "d+": this.getDate(), //日 
@@ -74,64 +74,221 @@ function cf_popEffectClose1(that) {
 	$(that).parent().parent().parent().css("display","none");
 }
 
-if(token) {
-    //底部信息ajax
-    $.ajax({
-        type: "post",
-        url: pubIP + "platform/getPlatformInfo",//v1.0
-        cache: false,
-        dataType: "json",
-        headers: {
-            token: token
-        },
-        success: function (json) {
-            //console.log(json.code);
-            $('.kfPhone').text(json.data.customerMobile);
-            $('.kfEm').text(json.data.customerEmail);
-        },
-        error: function (xhr, statues, error) {
-
-        }
-    });
+if(token){
+	//底部信息ajax
+	$.ajax({ 
+		  type:"post",
+		  url:pubIP+"platform/getPlatformInfo",//v1.0
+		  cache:false,
+		  dataType: "json",
+		  headers: {
+		  	token: token
+		  },
+		  success: function(json){
+		    //console.log(json.code);
+		  	$('.kfPhone').text(json.data.customerMobile);
+		  	$('.kfEm').text(json.data.customerEmail);
+		  },
+		  error:function(xhr,statues,error){
+		      
+		  }
+	});
+	
+	//isOld token
+	//2 ok 已认证
+	//0 超时
+	//1 未登录
+	//-1 未认证
+	//-2 审核中
+	$.ajax({ 
+		  type:"post",
+		  url:pubIP+"user/getUserInfoByToken",//v1.0
+		  cache:false,
+		  dataType: "json",
+		  async:false,
+		  headers: {
+		  	token: token
+		  },
+		  success: function(json){
+		    //console.log(json.data);
+			//是否超时
+			
+		    if(json.code == 401){
+		    		localStorage.setItem('isOld','0');
+		  		if(location.href.indexOf('login') == -1){
+		  			if(location.href.indexOf('index') == -1){
+		  				if(location.href.indexOf('account') != -1 || location.href.indexOf('shopManage') != -1){
+		  					$("#effect" , parent.document).show();
+		  				}else{
+		  					missedLogin() ;
+		  				}
+		  			}
+		  		}
+		  	}else{
+		  		//是否认证
+		  		$.ajax({ 
+					  type:"post",
+					  url:pubIP+"companyCertification/getCompanyWriteStateByUserToken",//v1.0
+					  cache:false,
+					  dataType: "json",
+					  headers: {
+					  	token: token
+					  },
+					  success: function(json){
+						//console.log(json.code);
+					    var rzType = null;
+					  	switch(json.data.type){
+							case 1:
+							  //未认证
+							  rzType = '-1';
+							  break;
+							case 2:
+							  //审核
+							  rzType = '-2';
+							  break;
+							case 3:
+							  //已认证
+							  rzType = '2';
+							  break;
+							case 4:
+							  rzType = '-1';
+							  break;
+							case 5:
+							  rzType = '-2';
+							  break;
+							case 6:
+							  rzType = '-2';
+							  break;
+							default:
+							  rzType = '-1';
+						}
+					  	localStorage.setItem('isOld',rzType);
+					  },
+					  error:function(xhr,statues,error){
+					      
+					  }
+				});
+		  		//localStorage.setItem('isOld','2');
+		  	}
+			companyId = json.data.companyId;
+			userId = json.data.ids;
+		  },
+		  error:function(xhr,statues,error){
+		      
+		  }
+	});
+}else{
+	localStorage.setItem('isOld','1');
 }
-
-
+//else{
+//	localStorage.setItem('isOld','1');
+//	if(location.href.indexOf('login') == -1){
+//		if(location.href.indexOf('index') == -1){
+//			$('#effect .contTitle span').text('您尚未登录');
+//			missedLogin() ;
+//		}
+//	}
+//}
 // 模拟下拉框
-$('.select').click(function(event){
-    if($(this).children('img').attr('src') == '../img/prl-selected.jpg'){
-        $(this).children('img').attr('src', '../img/prl-select.jpg')
-    } else {
-        $(this).children('img').attr('src', '../img/prl-selected.jpg')
-    }
 
-    event.stopPropagation();
-
-    $(this).children('ul').toggle();
-    var that = $(this);
-    that.find('li').each(function(){
-        $(this).mouseover(function(){
-            $(this).addClass('hovered')
-        });
-        $(this).mouseleave(function(){
-            $(this).removeClass('hovered')
-        });
-        if($(this).attr('data-index') == that.attr('data-selectedindex')){
-            $(this).css({'background': '#6ea3ff','color': '#fff'});
-            $(this).siblings('li').css({'background': '#fff','color': '#999'});
+var adct1 = document.getElementsByTagName('title')[0].getAttribute('adct1');
+$('.selectPub').click(function(event){
+	console.log($(this).attr("disabled"))
+	if($(this).attr("disabled")=="disabled"){return;}//不可选
+	if(adct1==1){
+        if($(this).children('img').attr('src') == '../img/prl-selected.jpg'){
+            $(this).children('img').attr('src', '../img/prl-select.jpg')
+        } else {
+            $(this).children('img').attr('src', '../img/prl-selected.jpg')
         }
-    });
+
+        event.stopPropagation();
+
+        $(this).children('ul').toggle();
+        var that = $(this);
+        that.find('li').each(function(){
+            $(this).mouseover(function(){
+                $(this).addClass('hovered')
+            });
+            $(this).mouseleave(function(){
+                $(this).removeClass('hovered')
+            });
+            if($(this).attr('data-index') == that.attr('data-selectedindex')){
+                $(this).css({'background': '#6ea3ff','color': '#fff'});
+                $(this).siblings('li').css({'background': '#fff','color': '#999'});
+            }
+        });
+	}else if(adct1==2){
+        if($(this).children('img').attr('src') == '../../img/prl-selected.jpg'){
+            $(this).children('img').attr('src', '../../img/prl-select.jpg')
+        } else {
+            $(this).children('img').attr('src', '../../img/prl-selected.jpg')
+        }
+
+        event.stopPropagation();
+
+        $(this).children('ul').toggle();
+        var that = $(this);
+        that.find('li').each(function(){
+            $(this).mouseover(function(){
+                $(this).addClass('hovered')
+            });
+            $(this).mouseleave(function(){
+                $(this).removeClass('hovered')
+            });
+            if($(this).attr('data-index') == that.attr('data-selectedindex')){
+                $(this).css({'background': '#6ea3ff','color': '#fff'});
+                $(this).siblings('li').css({'background': '#fff','color': '#999'});
+            }
+        });
+	}else if(adct1==0){
+        if($(this).children('img').attr('src') == './img/prl-selected.jpg'){
+            $(this).children('img').attr('src', './img/prl-select.jpg')
+        } else {
+            $(this).children('img').attr('src', './img/prl-selected.jpg')
+        }
+
+        event.stopPropagation();
+
+        $(this).children('ul').toggle();
+        var that = $(this);
+        that.find('li').each(function(){
+            $(this).mouseover(function(){
+                $(this).addClass('hovered')
+            });
+            $(this).mouseleave(function(){
+                $(this).removeClass('hovered')
+            });
+            if($(this).attr('data-index') == that.attr('data-selectedindex')){
+                $(this).css({'background': '#6ea3ff','color': '#fff'});
+                $(this).siblings('li').css({'background': '#fff','color': '#999'});
+            }
+        });
+	}
+
 
 }).mouseleave(function (event) {
-    $(this).children('img').attr('src', '../img/prl-select.jpg');
+    if(adct1==0){
+        $(this).children('img').attr('src', './img/prl-select.jpg');
+	}else if(adct1==1){
+        $(this).children('img').attr('src', '../img/prl-select.jpg');
+	}else if(adct1==2){
+        $(this).children('img').attr('src', '../../img/prl-select.jpg');
+    }
     $(this).children('ul').hide();
 });
-$('.select ul li').click(function(){
+
+$('.selectPub ul li').click(function(){
     event.stopPropagation();
     $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
     $(this).parent().parent().find('span').text($(this).text());
-    $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
-    $(this).parent().css('display','none');
-});
+    if(adct1==0){
+        $(this).parent().parent().children('img').attr('src', './img/prl-select.jpg')
+    }else if(adct1==1){
+        $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+    }else if(adct1==2){
+        $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+    }
 
 $(function () {
     $("header  .logo").click(function () {
@@ -162,3 +319,7 @@ $(".cf_select").click(function () {
 //         }
 //     })
 // })
+
+    $(this).parent().css('display','none');
+});
+
