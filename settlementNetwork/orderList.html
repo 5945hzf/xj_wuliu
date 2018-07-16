@@ -1,0 +1,142 @@
+<!--待分配-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆物流服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
+    <link rel="stylesheet" href="../css/orderList.css">
+    <style>
+
+    </style>
+    
+    
+</head>
+<body>
+    <div class="contbox">
+        <div class="topTitle">订单列表<div class="fr cfRefresh"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
+        <div class="inputBox">
+            <label for="">输入搜索</label><input class="orderNo input" type="text" placeholder="订单编号">
+            <label for="">货物类型</label>
+            <div class="goodsType input select" data-selectedindex="0"><span>全部</span><img src="../img/prl-select.jpg" >
+                <ul>
+                    <li data-index="1">待分配订单</li>
+                    <li data-index="2">进行中订单</li>
+                    <li data-index="3">完成待审核订单</li>
+                    <li data-index="3">已完成订单</li>
+                </ul>
+            </div>
+            <label for="">确认时间</label><input class="publishTime input" type="text" placeholder="请选择时间">
+            <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-left: 100px;">
+            <!--<input class="advancedRetrievalBtn btn input" type="button" value="高级检索">-->
+        </div>
+        <div class="opciationBox">
+            <div class="select displayNum" data-selectedindex="0"><span>显示条数</span><img src="../img/prl-select.jpg" alt="">
+                <ul>
+                    <li data-index="1">10</li>
+                    <li data-index="2">20</li>
+                    <li data-index="3">30</li>
+                </ul>
+            </div>
+            <input class="exportOrderBtn btn" type="button" value="导出订单">
+        </div>
+        <div class="listBox" style="overflow-x: auto;">
+            <table >
+                <thead>
+                    <tr>
+                        <th style="width: 56px;text-align: center;"></th>
+                        <th>订单编号</th>
+                        <th>开始时间</th>
+                        <th>项目名称</th>
+                        <th>客户公司名称</th>
+                        <th>项目类型</th>
+                        <th>始发地</th>
+                        <th>目的地</th>
+                        <th>订单状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr>
+                        <td><div class="cf_select"></div></td>
+                        <td>3001804091631062137</td>
+                        <td>2017-07-19 14:48</td>
+                        <td>项目名称</td>
+                        <td>化动力有限公司</td>
+                        <td>危化-氢氧化钠</td>
+                        <td>新疆-乌鲁木齐</td>
+                        <td>新疆-乌鲁木齐</td>
+                        <td>进行中订单</td>
+                        <td><span class="see seeDetail ll">查看订单</span><span class="btn ll sure">确认收货</span></td>
+                    </tr>
+                    <tr>
+                        <td><div class="cf_select"></div></td>
+                        <td>3001804091631062137</td>
+                        <td>2017-07-19 14:48</td>
+                        <td>项目名称</td>
+                        <td>化动力有限公司</td>
+                        <td>危化-氢氧化钠</td>
+                        <td>新疆-乌鲁木齐</td>
+                        <td>新疆-乌鲁木齐</td>
+                        <td>进行中订单</td>
+                        <td><span class="see seeDetail ll">查看订单</span><span class="btn ll sure">确认收货</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="bottomOperiat">
+            <span class="squre"></span>
+            <span class="selsectAll">全选</span>
+            <span class="closeBtn">关闭订单</span>
+            <span class="delBtn">删除订单</span>
+        </div>
+
+        <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
+            <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
+            <div class="pageJump">
+                <span class="allPageN">1/200</span>
+                <i style="margin-left: 12px;">共200页</i>，
+                <span>到第</span>
+                <input type="text"/>
+                <span>页</span>
+                <button type="button" class="button">GO</button>
+            </div>
+        </div>
+        <!--<div class="pageBox">-->
+        <!--共100张 当前为1页 共5页-->
+        <!--</div>-->
+    </div>
+
+
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+        Page({
+            num: 200,
+            elem: $('#page1'),
+            callback: function(n) {
+                console.log(n);
+            }
+        });
+        //查看详情
+        $(".seeDetail").click(function () {
+            window.location.href="./Order-detail.html";
+        })
+        // 模拟单选按钮
+        $('.bottomOperiat .squre').click(function(){
+            $(this).toggleClass('active');
+        });
+        $('.bottomOperiat .selsectAll').click(function(){
+            $('.bottomOperiat .squre').toggleClass('active');
+        });
+    </script>
+</body>
+</html>
