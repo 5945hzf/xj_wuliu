@@ -21,12 +21,12 @@
         <div class="topTitle">油卡补充申请<div class="fr cfRefresh"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
         <div class="inputBox">
             <label for="">输入搜索</label><input class="orderNo input" type="text" placeholder="订单编号">
-            <label for="">提交时间</label><input class="publishTime input" type="text" placeholder="请选择时间">
+            <label for="">提交时间</label><input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1">
             <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-left: 345px;">
         </div>
-        <div class="opciationBox clearFloat">
-            <div class="Lf">数据列表</div>
-        </div>
+        <!--<div class="opciationBox clearFloat">-->
+            <!--<div class="Lf">数据列表</div>-->
+        <!--</div>-->
         <div class="listBox">
             <table>
                 <thead>
@@ -48,7 +48,7 @@
                         <td>18500000000</td>
                         <td>备注</td>
                         <td>2017-07-19  14:48:38</td>
-                        <td><span class="btn ll">通过</span><span class="btn regect">驳回</span></td>
+                        <td><span class="btn ll">通过</span><span class="btn">驳回</span></td>
                     </tr>
                     <tr>
                         <td><div class="cf_select"></div></td>
@@ -57,7 +57,7 @@
                         <td>18500000000</td>
                         <td>备注</td>
                         <td>2017-07-19  14:48:38</td>
-                        <td><span class="btn ll">通过</span><span class="btn regect">驳回</span></td>
+                        <td><span class="btn ll">通过</span><span class="btn">驳回</span></td>
                     </tr>
                 </tbody>
             </table>
@@ -85,8 +85,33 @@
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
-
+    <script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
     <script type="text/javascript">
+        //Iframe 的高度
+        $(function () {
+            window.parent.$("#Iframe").css("height","923");
+        })
+        //        时间初始化
+        var startTime = '';
+        var endTime = '';
+        laydate({
+            elem: '#test1',
+            format: 'YYYY-MM-DD',
+            istime: true,
+            choose: function(dates){ //选择好日期的回调
+                startTime = dates;
+            }
+        });
+        laydate({
+            elem: '#test2',
+            format: 'YYYY-MM-DD',
+            istime: true,
+            choose: function(dates){ //选择好日期的回调
+                endTime = dates;
+            }
+        });
+        laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
+
         $('.objListBox>div:nth-child(5n)').css('margin-right','0');
         Page({
             num: 200,

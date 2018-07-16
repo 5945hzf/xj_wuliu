@@ -203,11 +203,14 @@
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
     <script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script type="text/javascript">
-
+    //Iframe 的高度
+    $(function () {
+        window.parent.$("#Iframe").css("height","810");
+    })
 
     laydate({
         elem: '#test1',
-        format: 'YYYY-MM-DD hh:mm:ss',
+        format: 'YYYY-MM-DD',
         istime: true,
         choose: function(dates){ //选择好日期的回调
             startTime1 = dates;
@@ -215,7 +218,7 @@
     })
     laydate({
         elem: '#test2',
-        format: 'YYYY-MM-DD hh:mm:ss',
+        format: 'YYYY-MM-DD',
         istime: true,
         choose: function(dates){ //选择好日期的回调
             endTime1 = dates;
@@ -225,7 +228,7 @@
     function lay(id) {
         laydate({
             elem: '#'+id,
-            format: 'YYYY-MM-DD hh:mm:ss',
+            format: 'YYYY-MM-DD',
             istime: true,
             choose: function(dates){ //选择好日期的回调
                 /*endTime1 = dates;*/

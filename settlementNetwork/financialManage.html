@@ -68,13 +68,13 @@
 </head>
 <body>
     <div class="contbox">
-        <div class="topTitle">财务管理<div class="fr"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
+        <div class="topTitle">财务管理<div class="fr cfRefresh"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
         <div class="inputBox">
             <input style="float: right;margin: 10px 13px 6px 0px;" class="searchResultBtn btn input" type="button" value="油卡充值">
             <input style="float: right;margin: 10px 13px 6px 0px;" class="searchResultBtn btn input" type="button" value="申请充值">
         </div>
         <div class="opciationBox">
-            <span style="margin-left: 20px;font-size: 14px;color: #282828;">数据列表</span>
+            <span style="margin-left: 20px;font-size: 14px;color: #282828;"></span>
             <div class="select displayNum" style="margin-right: 13px;" data-selectedindex="0"><span>排列方式</span><img src="../img/prl-select.jpg" alt="">
                 <ul>
                     <li data-index="1">10</li>
@@ -90,7 +90,7 @@
                 </ul>
             </div>
         </div>
-        <div class="listBox" style="height: 770px;">
+        <div class="listBox">
             <table style="margin: 0;">
                 <thead>
                     <tr>
@@ -138,6 +138,11 @@
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
 
     <script type="text/javascript">
+        //Iframe 的高度
+        $(function () {
+            window.parent.$("#Iframe").css("height","917");
+        })
+
         $('.objListBox>div:nth-child(5n)').css('margin-right','0');
         Page({
             num: 200,

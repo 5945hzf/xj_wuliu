@@ -445,6 +445,7 @@ button{
 	overflow: auto;
 }
 .select>ul>li{
+	text-align: left;
 	padding-left: 10px;
 	cursor: pointer;
 }
@@ -976,3 +977,4 @@ thead td,thead th{
 	min-height: 645px;height: 645px;
 }
 .cfRefresh{display: none;}
+.messages .select{width: 160px;}

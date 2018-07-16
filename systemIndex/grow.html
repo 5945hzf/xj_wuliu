@@ -24,7 +24,7 @@
     <div class="containerTitle">
         个人成长值
         <div style="float: right;">
-            <div class="Lf" style="width: 124px;height: 28px;"><input  style="width: 100%;height: 100%;" type="date"></div>
+            <div class="Lf" style="width: 124px;height: 28px;"><input style="margin-left: -50px;height: 28px;  line-height: 28px;" type="text" class="date-input laydate-icon" placeholder="请选择日期" id="test1"></div>
             <div class="search Lf">搜索</div>
             <div class="Lf" style="width: 146px;height: 26px;"> <input style="width: 100%;height: 100%;" type="text"></div>
             <div class="search Lf">搜索</div>
@@ -44,7 +44,7 @@
         <div class="containerTopRi"><a href="##" style="display: inline-block;height: 100%;width: 100%;">基本信息</a></div>
     </div>
 
-    <div class="jifenjilu">
+    <div class="jifenjilu listBox">
         <table style="font-size: 14px;">
             <thead>
                 <tr>
@@ -108,9 +108,34 @@
 <script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
-
+<script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
 
 <script type="text/javascript" >
+    //Iframe 的高度
+    $(function () {
+        window.parent.$("#Iframe").css("height","962");
+    })
+    //        时间初始化
+    var startTime = '';
+    var endTime = '';
+    laydate({
+        elem: '#test1',
+        format: 'YYYY-MM-DD',
+        istime: true,
+        choose: function(dates){ //选择好日期的回调
+            startTime = dates;
+        }
+    });
+    laydate({
+        elem: '#test2',
+        format: 'YYYY-MM-DD',
+        istime: true,
+        choose: function(dates){ //选择好日期的回调
+            endTime = dates;
+        }
+    });
+    laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
+
     $('.objListBox>div:nth-child(5n)').css('margin-right','0');
     Page({
         num: 200,

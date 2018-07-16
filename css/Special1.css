@@ -9,7 +9,7 @@ img{float: left;}
 .uploade{ border: 1px solid #ebe9ea;}
 a{color: #80acf8;}
 html,body{min-width: 972px;width: 972px;background-color: white;overflow: hidden;margin: auto;font-size: 14px;}
-.container{width:970px;border: 1px solid #f1f1f1;overflow-y: auto;overflow-x: hidden;}
+.container{width:970px;border: 1px solid #f1f1f1;overflow-y: auto;overflow-x: hidden;padding-bottom: 40px;}
 .header{padding: 18px 165px;border-bottom: 1px solid #f1f1f1;}
 .header>ul{overflow: hidden;width: 830px;}
 .header>ul>li{float: left;height: 18px;line-height: 18px;font-size: 16px;}

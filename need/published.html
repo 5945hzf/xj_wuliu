@@ -102,7 +102,7 @@
             <li data-index="3">类型3</li>
             </ul>
             </div>
-            <label for="">发布时间</label><input class="publishTime input" type="text" placeholder="请选择时间">
+            <label for="">发布时间</label><input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1">
 
             
             <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-left: 100px;">
@@ -119,7 +119,7 @@
             <input class="exportDemandBtn" type="button" value="导出订单">
             <div class="add">新增询单</div>
         </div>
-        <div class="listBox" style="height: 1118px;">
+        <div class="listBox" >
             <table>
                 <thead>
                     <tr>
@@ -188,8 +188,33 @@
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
-
+    <script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
     <script type="text/javascript">
+        //Iframe 的高度
+        $(function () {
+            window.parent.$("#Iframe").css("height","977");
+        })
+        //        时间初始化
+        var startTime = '';
+        var endTime = '';
+        laydate({
+            elem: '#test1',
+            format: 'YYYY-MM-DD',
+            istime: true,
+            choose: function(dates){ //选择好日期的回调
+                startTime = dates;
+            }
+        });
+        laydate({
+            elem: '#test2',
+            format: 'YYYY-MM-DD',
+            istime: true,
+            choose: function(dates){ //选择好日期的回调
+                endTime = dates;
+            }
+        });
+        laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
+
         $('.objListBox>div:nth-child(5n)').css('margin-right','0');
         Page({
             num: 200,

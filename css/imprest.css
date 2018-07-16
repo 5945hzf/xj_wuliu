@@ -47,11 +47,11 @@ body{
     height: 38px;
     box-sizing: border-box;
     margin-right: 12px;
-    padding-left: 10px;
+    /*padding-left: 10px;*/
     border: 1px solid #ebe9ea;
 }
 .inputBox>.orderNo{
-    width: 180px;
+    /*width: 180px;*/
 }
 .inputBox>.goodsType{
     line-height: 38px;
@@ -177,7 +177,7 @@ thead>tr{
     line-height: 34px;
     background-color: #fdfdfd;
 }
-tbody>tr{
+.listBox tbody>tr{
     height: 60px;
     line-height: 60px;
     border-top: 1px solid #ebe9ea;
@@ -259,7 +259,7 @@ tbody>tr>td>.btn{
     line-height: 76px;
     box-sizing: border-box;
 }
-.listBox{height: 417px;}
+/*.listBox{height: 417px;}*/
 .cf_select{
     margin: 0 auto;
     width: 13px;

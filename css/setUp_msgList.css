@@ -57,7 +57,7 @@ body{
     overflow: hidden;
     /* border: 1px solid #dedede; */
     width: 970px;;
-    min-height: 1086px;
+    /*min-height: 1086px;*/
 	margin-bottom: 5px;
 	margin: 0 auto;
 }
@@ -142,38 +142,37 @@ body{
 }
 .messages div{
 	float: left;
-	width: 33%;
-	text-align: center;
+	/*width: 33%;*/
+	/*text-align: center;*/
 	
 }
-.messages div span{
+.messages  label{
 	margin-left: 20px;
 	margin-right: 6px;
 	font-size: 16px;
 	color: #282828;
-}
-.messages div span{
 	float: left;
 }
 .messages div input{
-	width: 227px;
+	/*width: 227px;*/
 	height: 34px;
 	border: 1px solid #ebe9ea;
 }
 .messages div>div{
-	width: 227px;
-	height: 36px;
+	/*width: 227px;*/
+	box-sizing: border-box;
+	height: 38px;
 	border: 1px solid #ebe9ea;
 	display: inline-block;
-	margin-top: 20px;
-	line-height: 36px;
+	margin-top: 22px;
+	line-height: 38px;
     text-align: left;
     position: relative;
 }
 .messages div>div img{
-	position: absolute;
-	top: 8px;
-	right: 7px;
+	/*position: absolute;*/
+	/*top: 8px;*/
+	/*right: 7px;*/
 }
 .messages div>div label{
 	margin-left: 11px;
@@ -187,14 +186,14 @@ body{
 	border: none;
 }
 .mesgfirst input::-webkit-input-placeholder {
-    color: #282828;
+    /*color: #282828;*/
     font-size: 14px;
-    padding-left: 11px;
+    /*padding-left: 11px;*/
 }
 .mesglast input::-webkit-input-placeholder {
-    color: #999999;
+    /*color: #999999;*/
     font-size: 14px;
-    padding-left: 11px;
+    /*padding-left: 11px;*/
 }
 .record{
 	width: 968px;
@@ -209,7 +208,7 @@ body{
 	margin-left: 21px;
 	font-size: 16px;
 }
-.record div{
+.record .btnll{
 	float: right;
 	width: 102px;
 	height: 32px;
@@ -223,9 +222,9 @@ body{
 }
 
 .record div img{
-	position: absolute;
-	top: 8px;
-	right: 6px;
+	/*position: absolute;*/
+	/*top: 8px;*/
+	/*right: 6px;*/
 }
 
 .lookover{

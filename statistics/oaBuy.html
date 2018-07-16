@@ -95,7 +95,10 @@
 <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
 
 <script type="text/javascript">
-
+    //Iframe 的高度
+    $(function () {
+        window.parent.$("#Iframe").css("height","812");
+    })
     //查看详情
     $(".seeDetail").click(function () {
         window.location.href="./overdueDetail.html";

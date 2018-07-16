@@ -2,7 +2,7 @@ body{
     background-color: #ffffff;
 }
 .container{
-    height: 1477px;
+    /*height: 1477px;*/
     border: 1px solid #ebe9ea;
     width: 970px;
 }
@@ -15,7 +15,7 @@ body{
 .containerTopLeImg{margin-left: 57px;margin-right: 10px;width: 59px;height: 59px;}
 .containerTopLeImg img{width: 100%;height: 100%;}
 .containerTopRi{width: 281px;height: 95px;overflow: hidden;padding: 28px 20px 31px 19px;background-color: #fdfdfd;border-left: 1px solid #ebe9ea;}
-.jifenjilu{height: 1128px;color: #282828;}
+.jifenjilu{color: #282828;}
 .jifenjilu table{width: 100%;}
 .jifenjilu table thead{background-color: #fdfdfd;height: 44px; line-height: 44px;border-bottom:1px solid #ebe9ea;border-top:1px solid #ebe9ea; }
 .jifenjilu table thead tr td {text-align: center;}

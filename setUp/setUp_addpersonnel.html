@@ -106,12 +106,12 @@
 
 
 <script type="text/javascript" >
-	 
-	 $(".manage").click(function () {
-        $(this).parent().find("ul").toggle();
-        $(this).find('img').eq(0).attr('src',$(this).find('img').eq(0).attr('src')==="./img/cf_open.png"?"./img/cf_close.png":"./img/cf_open.png");
-//  	$(this).css("border-bottom","1px solid #f7f7f7")
-	 });
+    //Iframe 的高度
+    $(function () {
+        window.parent.$("#Iframe").css("height","914");
+    })
+
+
 </script>
 </body>
 </html>

@@ -73,7 +73,7 @@
         <div class="Lf">兑换记录</div>
     </div>
 
-    <div class="jifenjilu">
+    <div class="jifenjilu listBox">
         <table>
             <thead>
                 <tr>
@@ -140,6 +140,10 @@
 
 
 <script type="text/javascript" >
+    //Iframe 的高度
+    $(function () {
+        window.parent.$("#Iframe").css("height","1010");
+    })
     $('.objListBox>div:nth-child(5n)').css('margin-right','0');
     Page({
         num: 200,

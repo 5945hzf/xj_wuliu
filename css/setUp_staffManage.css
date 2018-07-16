@@ -57,7 +57,7 @@ body{
     overflow: hidden;
     border: 1px solid #dedede;
     width: 968px;;
-    min-height: 1102px;
+    /*min-height: 1102px;*/
     margin-bottom: 5px;
 }
 
@@ -139,17 +139,17 @@ body{
 }
 .messages div{
 	float: left;
-	width: 33%;
+	/*width: 33%;*/
 	text-align: center;
 	
 }
-.messages div span{
+.messages div label{
 	margin-left: 20px;
 	margin-right: 6px;
 	font-size: 16px;
 	color: #282828;
 }
-.messages div span{
+.messages div label{
 	float: left;
 	
 	font-size: 14px;
@@ -173,9 +173,9 @@ body{
     position: relative;
 }
 .messages div>div img{
-	position: absolute;
-	top: 8px;
-	right: 7px;
+	/*position: absolute;*/
+	/*top: 8px;*/
+	/*right: 7px;*/
 }
 .messages div>div label{
 	margin-left: 11px;

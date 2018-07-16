@@ -20,7 +20,7 @@
     	<!--头部-->
     	<div class="boxHead">
     		<div class="headLeft">实卡管理申请</div>
-    		<div class="headRight">
+    		<div class="headRight cfRefresh">
     			<img src="../img/yh_refresh2.png"/>
     			<span>刷新</span>
     		</div>
@@ -30,42 +30,56 @@
             <div class="yk_btn">油卡充值</div>
         </div>
     	<div class="record">
-    		<div>数据列表</div>
-    		<div>排序方式<img src="../img/cf_open.png"/></div>
-    		<div>显示条数<img src="../img/cf_open.png"/></div>
+    		<div></div>
+			<div class="goodsType input select" data-selectedindex="0"><span>排序方式</span><img src="../img/prl-select.jpg" >
+				<ul>
+					<li data-index="1">状态1</li>
+					<li data-index="2">状态2</li>
+					<li data-index="3">状态3</li>
+				</ul>
+			</div>
+			<div class="goodsType input select" data-selectedindex="0"><span>显示条数</span><img src="../img/prl-select.jpg" >
+				<ul>
+					<li data-index="1">状态1</li>
+					<li data-index="2">状态2</li>
+					<li data-index="3">状态3</li>
+				</ul>
+			</div>
     		<div>油卡列表</div>
     	</div>
-    	
-    	<table class="contentslist">
-	    	<thead>
-	    		<tr>
-	    			<th>订单号</th>
-	    			<th>金额</th>
-	    			<th>司机</th>
-	    			<th>申请时间</th>
-	    			<th>审批时间</th>
-	    			<th>操作</th>
-	    		</tr>
-	    	</thead>
-	    	<tbody>
-	    		<tr>
-	    			<td>EERR12344</td>
-	    			<td>¥1000000.00</td>
-	    			<td>母鸡</td>
-                    <td>2018-08-08  12：20</td>
-                    <td>2018-08-08  12：20</td>
-	    			<td><a class="lookover ll">已充值</a><a class="delect ll">已发卡</a></td>
-	    		</tr>
-	    		<tr>
-	    			<td>EERR12344</td>
-	    			<td>¥1000000.00</td>
-	    			<td>母鸡</td>
-                    <td>2018-08-08  12：20</td>
-                    <td>2018-08-08  12：20</td>
-	    			<td><a class="lookover ll">已充值</a><a class="delect ll">已发卡</a></td>
-	    		</tr>
-	    	</tbody>
-	    </table>
+    	<div class="listBox">
+			<table class="contentslist">
+				<thead>
+				<tr>
+					<th>订单号</th>
+					<th>金额</th>
+					<th>司机</th>
+					<th>申请时间</th>
+					<th>审批时间</th>
+					<th>操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>EERR12344</td>
+					<td>¥1000000.00</td>
+					<td>母鸡</td>
+					<td>2018-08-08  12：20</td>
+					<td>2018-08-08  12：20</td>
+					<td><a class="lookover ll">已充值</a><a class="delect ll">已发卡</a></td>
+				</tr>
+				<tr>
+					<td>EERR12344</td>
+					<td>¥1000000.00</td>
+					<td>母鸡</td>
+					<td>2018-08-08  12：20</td>
+					<td>2018-08-08  12：20</td>
+					<td><a class="lookover ll">已充值</a><a class="delect ll">已发卡</a></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
 		<div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
 			<ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
 			<div class="pageJump">
@@ -87,7 +101,10 @@
 
 
 <script type="text/javascript" >
-
+    //Iframe 的高度
+    $(function () {
+        window.parent.$("#Iframe").css("height","904");
+    })
     $('.objListBox>div:nth-child(5n)').css('margin-right','0');
     Page({
         num: 200,

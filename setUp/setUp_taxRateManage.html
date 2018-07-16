@@ -18,39 +18,66 @@
     	<!--头部-->
     	<div class="boxHead">
     		<div class="headLeft">税率设置</div>
-    		<div class="headRight">
+    		<div class="headRight cfRefresh">
     			<img src="../img/yh_refresh2.png"/>
     			<span>刷新</span>
     		</div>
     	</div>
     	<div class="record">
-    		<div>数据列表</div>
-    		<div>排序方式<img src="../img/cf_open.png"/></div>
-    		<div>显示条数<img src="../img/cf_open.png"/></div>
+    		<div></div>
+			<div class="select displayNum" data-selectedindex="0"><span>排序方式</span><img src="../img/prl-select.jpg" alt="">
+				<ul>
+					<li data-index="1">10</li>
+					<li data-index="2">20</li>
+					<li data-index="3">30</li>
+				</ul>
+			</div>
+			<div class="select displayNum" data-selectedindex="0"><span>显示条数</span><img src="../img/prl-select.jpg" alt="">
+				<ul>
+					<li data-index="1">10</li>
+					<li data-index="2">20</li>
+					<li data-index="3">30</li>
+				</ul>
+			</div>
+    		<!--<div>排序方式<img src="../img/cf_open.png"/></div>-->
+    		<!--<div>显示条数<img src="../img/cf_open.png"/></div>-->
     		<div>新增税率</div>
     	</div>
-    	
-    	<table class="contentslist">
-	    	<thead>
-	    		<tr>
-	    			<th>工资区间</th>
-	    			<th>税率</th>
-	    			<th>操作</th>
-	    		</tr>
-	    	</thead>
-	    	<tbody>
-	    		<tr>
-	    			<td>1-10</td>
-	    			<td>10%</td>
-	    			<td><a href="" class="lookover">编辑</a><a href="" class="delect">删除</a></td>
-                </tr>
-                <tr>
-	    			<td>1-10</td>
-	    			<td>10%</td>
-	    			<td><a href="" class="lookover">编辑</a><a href="" class="delect">删除</a></td>
-                </tr>
-	    	</tbody>
-	    </table>
+    	<div class="listBox">
+			<table class="contentslist">
+				<thead>
+				<tr>
+					<th>工资区间</th>
+					<th>税率</th>
+					<th>操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>1-10</td>
+					<td>10%</td>
+					<td><a href="" class="lookover">编辑</a><a href="" class="delect">删除</a></td>
+				</tr>
+				<tr>
+					<td>1-10</td>
+					<td>10%</td>
+					<td><a href="" class="lookover">编辑</a><a href="" class="delect">删除</a></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!--<div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">-->
+			<!--<ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>-->
+			<!--<div class="pageJump">-->
+				<!--<span class="allPageN">1/200</span>-->
+				<!--<i style="margin-left: 12px;">共200页</i>，-->
+				<!--<span>到第</span>-->
+				<!--<input type="text"/>-->
+				<!--<span>页</span>-->
+				<!--<button type="button" class="button">GO</button>-->
+			<!--</div>-->
+		<!--</div>-->
 		<div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
 			<ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
 			<div class="pageJump">
@@ -64,5 +91,23 @@
 		</div>
 
 	</div>
+	<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
+	<script type="text/javascript" >
+        //Iframe 的高度
+        $(function () {
+            window.parent.$("#Iframe").css("height","853");
+        })
+        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+        Page({
+            num: 200,
+            elem: $('#page1'),
+            callback: function(n) {
+                console.log(n);
+            }
+        });
+	</script>
 </body>
 </html>

@@ -71,9 +71,9 @@
                 <li class="clearfix">
                     <div class="left1 Lf"><i class="red">*</i>有效期:</div>
                     <div class="right1 Lf">
-                        <input type="text" class="date-input laydate-icon kuang start" style="text-indent: 0px;" placeholder="请选择日期" id="test1">
+                        <input type="text" class="date-input laydate-icon kuang start"  placeholder="请选择日期" id="test1">
                         <span style="height: 38px;line-height: 38px;">&nbsp;至&nbsp; </span>
-                        <input type="text" class="date-input laydate-icon kuang end" style="text-indent: 0px;" placeholder="请选择日期" id="test2">
+                        <input type="text" class="date-input laydate-icon kuang end" placeholder="请选择日期" id="test2">
                     </div>
                     <span class="ts">有效期不能为空</span>
                 </li>
@@ -149,9 +149,9 @@
                 <li class="clearfix">
                     <div class="left1 Lf"><i class="red">*</i>有效期:</div>
                     <div class="right1 Lf">
-                        <input type="text" class="date-input laydate-icon kuang start" style="text-indent: 0px;" placeholder="请选择日期" id="test3">
+                        <input type="text" class="date-input laydate-icon kuang start"  placeholder="请选择日期" id="test3">
                         <span style="height: 38px;line-height: 38px;">&nbsp;至&nbsp; </span>
-                        <input type="text" class="date-input laydate-icon kuang end" style="text-indent: 0px;" placeholder="请选择日期" id="test4">
+                        <input type="text" class="date-input laydate-icon kuang end"  placeholder="请选择日期" id="test4">
                     </div>
                     <span class="ts">有效期不能为空</span>
                 </li>
@@ -203,13 +203,16 @@
 
 <script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script type="text/javascript">
-
+    //Iframe 的高度
+    $(function () {
+        window.parent.$("#Iframe").css("height","1245");
+    })
     var startTime1 = '';
     var endTime1 = '';
 
     laydate({
         elem: '#test1',
-        format: 'YYYY-MM-DD hh:mm:ss',
+        format: 'YYYY-MM-DD',
         istime: true,
         choose: function(dates){ //选择好日期的回调
             startTime1 = dates;
@@ -217,7 +220,7 @@
     })
     laydate({
         elem: '#test2',
-        format: 'YYYY-MM-DD hh:mm:ss',
+        format: 'YYYY-MM-DD',
         istime: true,
         choose: function(dates){ //选择好日期的回调
             endTime1 = dates;
@@ -225,7 +228,7 @@
     })
     laydate({
         elem: '#test3',
-        format: 'YYYY-MM-DD hh:mm:ss',
+        format: 'YYYY-MM-DD',
         istime: true,
         choose: function(dates){ //选择好日期的回调
             startTime1 = dates;
@@ -233,7 +236,7 @@
     })
     laydate({
         elem: '#test4',
-        format: 'YYYY-MM-DD hh:mm:ss',
+        format: 'YYYY-MM-DD',
         istime: true,
         choose: function(dates){ //选择好日期的回调
             endTime1 = dates;
@@ -243,7 +246,7 @@
     function lay(id) {
         laydate({
             elem: '#'+id,
-            format: 'YYYY-MM-DD hh:mm:ss',
+            format: 'YYYY-MM-DD',
             istime: true,
             choose: function(dates){ //选择好日期的回调
                 /*endTime1 = dates;*/

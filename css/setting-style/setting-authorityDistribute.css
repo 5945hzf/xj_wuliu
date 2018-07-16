@@ -79,7 +79,7 @@ body{
 }
 
 /* listBox */
-.listBox .itemBox{
+.listBox1 .itemBox{
     border: 1px solid #ebe9ea;
     border-bottom: none;
     border-right: none;

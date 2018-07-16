@@ -171,12 +171,12 @@ table{
     color: #282828;
     margin-bottom: 80px;
 }
-thead>tr{
+.listBox thead>tr{
     height: 34px;
     line-height: 34px;
     background-color: #fdfdfd;
 }
-tbody>tr{
+.listBox tbody>tr{
     height: 60px;
     line-height: 60px;
     border-top: 1px solid #ebe9ea;

@@ -3,7 +3,7 @@ body{
 }
 .red{color: #f66132;}
 .container{
-    height: 1444px;
+    /*height: 1444px;*/
     border: 1px solid #ebe9ea;
     width: 970px;
 }
@@ -23,7 +23,7 @@ body{
 #jifen{color: #81afff;}
 .huiyuandengji{display: inline-block; background-color: #ffc22e;  width: 57px;height: 20px;line-height: 20px;font-size: 12px;color: #ffffff;text-align: center;}
 
-.jifenjilu{height: 1128px;color: #282828;}
+.jifenjilu{color: #282828;}
 .jifenjilu table{width: 100%;}
 .jifenjilu table thead{background-color: #fdfdfd;height: 44px; line-height: 44px;border-bottom:1px solid #ebe9ea;border-top:1px solid #ebe9ea; }
 .jifenjilu table thead tr td {text-align: center;}

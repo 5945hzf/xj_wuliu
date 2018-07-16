@@ -156,7 +156,7 @@
                         <input type="radio" name="type" id="t-chongzhi" value="2"><label for="t-chongzhi" name="t-chongzhi">充值</label>
                         <input type="radio" name="type" id="t-tixian" value="3"><label for="t-tixian" name="t-tixian" style="margin:0;">提现</label>
                     </div>
-                    <div class="timeBox"><span style="margin-right: 20px;">起止时间：</span><input type="text" name="" id=""><i class="transverseLine"></i><input type="text" name="" id=""></div>
+                    <div class="timeBox"><span style="margin-right: 20px;">起止时间：</span><input type="text" class="date-input laydate-icon" placeholder="请选择日期" id="test1"><i class="transverseLine"></i><input type="text" class="date-input laydate-icon" placeholder="请选择日期" id="test2"></div>
                     <div class="searchBtnBox"><span class="searchBtn">搜&nbsp;&nbsp;索</span></div>
                 </div>
             </div>
@@ -166,7 +166,7 @@
             <label style="margin-left: 45px;">支出（1）：<span class="red">-3000.00</span>元</label>
             <span class="downloadPayBtn">下载账单</span>
         </div>
-        <div class="listBox" style="height: 463px;">
+        <div class="listBox" >
             <table>
                 <thead>
                 <tr>
@@ -272,12 +272,34 @@
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
-
+        <script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
     <script type="text/javascript">
         //设置Iframe高度
         $(function () {
-            window.parent.$("#Iframe").css("height","1235");
+            window.parent.$("#Iframe").css("height","1354");
         })
+        //        时间初始化
+        var startTime = '';
+        var endTime = '';
+        laydate({
+            elem: '#test1',
+            format: 'YYYY-MM-DD',
+            istime: true,
+            choose: function(dates){ //选择好日期的回调
+                startTime = dates;
+            }
+        });
+        laydate({
+            elem: '#test2',
+            format: 'YYYY-MM-DD',
+            istime: true,
+            choose: function(dates){ //选择好日期的回调
+                endTime = dates;
+            }
+        });
+        laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
+
+
         $('.objListBox>div:nth-child(5n)').css('margin-right','0');
         Page({
             num: 200,

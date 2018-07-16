@@ -161,6 +161,9 @@ body{
     padding-left: 10px;
     cursor: pointer;
 }
+.select>ul>li{
+    text-align: left;
+}
 .select>ul>li.hovered{
     background: #ebe9ea !important;
     color: #fff !important;
