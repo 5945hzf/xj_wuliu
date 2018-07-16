@@ -101,22 +101,22 @@
         <div class="left1 Lf">
             票据收票账户
         </div>
-        <div class="right2 Lf">
+        <div class="right2 Lf" style="width: 723px; ">
             <ul>
                 <li>
                     <div class="left1 Lf"><i class="red">*</i>出金账户名称:</div>
                     <div class="right1 Lf"><input type="text" id="chujin_account_name2"></div>
-                    <div class="ts">出金账户名称不能为空</div>
+                    <div class="ts Lf" style="margin-left: 5px;">出金账户名称不能为空</div>
                 </li>
                 <li>
                     <div class="left1 Lf"><i class="red">*</i>出金账户账号:</div>
                     <div class="right1 Lf"><input type="text" id="chujin_account_account2"></div>
-                    <div class="ts">出金账户账号格式不正确</div>
+                    <div class="ts Lf" style="margin-left: 5px;">出金账户账号格式不正确</div>
                 </li>
                 <li>
                     <div class="left1 Lf"><i class="red">*</i>开户银行信息:</div>
                     <div class="right1 Lf"><input type="text" id="kaihu_bank_info2"></div>
-                    <div class="ts">开户银行信息不能为空</div>
+                    <div class="ts Lf" style="margin-left: 5px;">开户银行信息不能为空</div>
                 </li>
                 <li class="wj">
                     <div class="left1 Lf ml"><i class="red">*</i>企业认证协议(盖章文件):</div>
@@ -150,7 +150,10 @@
 
 <script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script type="text/javascript">
-
+    //Iframe 的高度
+    $(function () {
+        window.parent.$("#Iframe").css("height","861");
+    })
 var file_url = null;
 
 //不同浏览器下的路径不同

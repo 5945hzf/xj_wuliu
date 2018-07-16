@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="contbox">
-        <div class="topTitle">车辆合同<div class="fr"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
+        <div class="topTitle">车辆合同<div class="fr cfRefresh"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
         <div class="inputBox">
             <label for="">输入搜索</label><input class="orderNo input" type="text" placeholder="合同单号">
             <label for="">合同状态</label>
@@ -25,7 +25,7 @@
                     <li data-index="3">4</li>
                 </ul>
             </div>
-            <label for="">签订时间</label><input class="publishTime input" type="text" placeholder="请选择时间">
+            <label for="">签订时间</label><input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1">
             <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-left: 100px;">
             <!--<input class="advancedRetrievalBtn btn input" type="button" value="高级检索">-->
         </div>
@@ -40,7 +40,7 @@
             <input class="exportOrderBtn btn" type="button" value="导出列表">
             <input class="addBtn btn" type="button" value="新增合同">
         </div>
-        <div class="listBox" style="height: 1113px;">
+        <div class="listBox">
             <table>
                 <thead>
                     <tr>
@@ -72,8 +72,8 @@
                         <td>一年</td>
                         <td>2018-07-19 14:48:38</td>
                         <td>2018-07-19 14:48:38</td>
-                        <td class="zc">正常</td>
-                        <td><span class="btn ll">查看订单</span><span class="btn ll">合同变更</span><span class="delBtn">删除</span></td>
+                        <td class="">正常</td>
+                        <td><span class="btn ll">查看订单</span><span class="btn ll">合同变更</span><span class="btn">删除</span></td>
                     </tr>
                     <tr>
                         <td><span class="check_btn"></span></td>
@@ -83,8 +83,8 @@
                         <td>一年</td>
                         <td>2018-07-19 14:48:38</td>
                         <td>2018-07-19 14:48:38</td>
-                        <td class="zc">正常</td>
-                        <td><span class="btn ll">查看订单</span><span class="btn ll">合同变更</span><span class="delBtn">删除</span></td>
+                        <td class="">正常</td>
+                        <td><span class="btn ll">查看订单</span><span class="btn ll">合同变更</span><span class="btn">删除</span></td>
                     </tr>
                 </tbody>
             </table>
@@ -115,8 +115,33 @@
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
-
+    <script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
     <script type="text/javascript">
+        //Iframe 的高度
+        $(function () {
+            window.parent.$("#Iframe").css("height","977");
+        })
+        //        时间初始化
+        var startTime = '';
+        var endTime = '';
+        laydate({
+            elem: '#test1',
+            format: 'YYYY-MM-DD',
+            istime: true,
+            choose: function(dates){ //选择好日期的回调
+                startTime = dates;
+            }
+        });
+        laydate({
+            elem: '#test2',
+            format: 'YYYY-MM-DD',
+            istime: true,
+            choose: function(dates){ //选择好日期的回调
+                endTime = dates;
+            }
+        });
+        laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
+
         $('.objListBox>div:nth-child(5n)').css('margin-right','0');
         Page({
             num: 200,

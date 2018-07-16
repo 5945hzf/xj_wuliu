@@ -150,3 +150,15 @@ $(".cfRefresh").click(function () {
 $(".cf_select").click(function () {
     $(this).toggleClass("on");
 })
+
+// $(function () {
+//     //分页的  下面框的宽度
+//     $(".pagination li").each(function (idx,item) {
+//
+//         if($(item).find("a").text()=="上一页"||$(item).find("a").text()=="下一页"){
+//             $(item).find('a').css("width","70px");
+//         }else if($(item).find("a").text()=="首页"||$(item).find("a").text()=="尾页"){
+//             $(item).find('a').css("width","70px");
+//         }
+//     })
+// })

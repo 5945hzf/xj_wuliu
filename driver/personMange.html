@@ -28,59 +28,73 @@
     		</div>
     	</div>
     	<div class="record">
-    		<div>数据列表</div>
-    		<div>排序方式<img src="../img/cf_open.png"/></div>
-    		<div>显示条数<img src="../img/cf_open.png"/></div>
+    		<div></div>
+			<div class="select displayNum" data-selectedindex="0"><span>排序方式</span><img src="../img/prl-select.jpg" alt="">
+				<ul>
+					<li data-index="1">10</li>
+					<li data-index="2">20</li>
+					<li data-index="3">30</li>
+				</ul>
+			</div>
+			<div class="select displayNum" data-selectedindex="0"><span>显示条数</span><img src="../img/prl-select.jpg" alt="">
+				<ul>
+					<li data-index="1">10</li>
+					<li data-index="2">20</li>
+					<li data-index="3">30</li>
+				</ul>
+			</div>
     		<div >添加</div>
 			<div class="cf_btn Rt">批量导出</div>
 			<div class="cf_btn Rt">批量导入</div>
     	</div>
-    	
-    	<table class="contentslist">
-	    	<thead>
-	    		<tr>
-	    			<th>姓名</th>
-	    			<th>所属部门</th>
+    	<div class="listBox">
+			<table class="contentslist">
+				<thead>
+				<tr>
+					<th>姓名</th>
+					<th>所属部门</th>
 					<th>职务</th>
 					<th>身份证号</th>
 					<th>联系电话</th>
 					<th>总收入</th>
-	    			<th>入职时间</th>
-	    			<th>是否启用</th>
-	    			<th>操作</th>
-	    		</tr>
-	    	</thead>
-	    	<tbody>
-	    		<tr>
-	    			<td>王小二</td>
-	    			<td>车联管理</td>
-	    			<td>内部司机</td>
-					<td>210000000000000000</td>
-	    			<td>180000000000</td>
-					<td style="color: #FF7849;">100000</td>
-	    			<td> 2017-09-23 10：30：23 </td>
-    				<td class="chooseswitch">
-	    				<input id="checked_1" type="checkbox" class="switch" />
-            			<label for="checked_1"></label>
-	    			</td>
-	    			<td><a href="" class="lookover">编辑</a><a href="" class="delect">删除</a></td>
-	    		</tr>
-	    		<tr>
+					<th>入职时间</th>
+					<th>是否启用</th>
+					<th>操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
 					<td>王小二</td>
 					<td>车联管理</td>
 					<td>内部司机</td>
 					<td>210000000000000000</td>
 					<td>180000000000</td>
-					<td style="color: #FF7849;">100000</td>
+					<td >100000</td>
 					<td> 2017-09-23 10：30：23 </td>
 					<td class="chooseswitch">
 						<input id="checked_1" type="checkbox" class="switch" />
 						<label for="checked_1"></label>
 					</td>
-					<td><a href="" class="lookover">编辑</a><a href="" class="delect">删除</a></td>
-	    		</tr>
-	    	</tbody>
-	    </table>
+					<td><a href="" class="lookover" style="color: #6ea3f4;">编辑</a><a href="" class="delect" style="color: #6ea3f4;">删除</a></td>
+				</tr>
+				<tr>
+					<td>王小二</td>
+					<td>车联管理</td>
+					<td>内部司机</td>
+					<td>210000000000000000</td>
+					<td>180000000000</td>
+					<td>100000</td>
+					<td> 2017-09-23 10：30：23 </td>
+					<td class="chooseswitch">
+						<input id="checked_1" type="checkbox" class="switch" />
+						<label for="checked_1"></label>
+					</td>
+					<td ><a href="" class="lookover" style="color: #6ea3f4;">编辑</a><a href="" class="delect" style="color: #6ea3f4;">删除</a></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
 		<div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
 			<ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
 			<div class="pageJump">
@@ -102,6 +116,10 @@
 
 
 <script type="text/javascript" >
+    //Iframe 的高度
+    $(function () {
+        window.parent.$("#Iframe").css("height","853");
+    })
 
     $('.objListBox>div:nth-child(5n)').css('margin-right','0');
     Page({

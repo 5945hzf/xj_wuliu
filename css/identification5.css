@@ -8,7 +8,7 @@ a{color: #282828;}
 .containerTitle{height: 50px;line-height: 50px;font-size: 16px;color: #282828;border-bottom: 1px solid #f1f1f1;padding: 0 14px;}
 .containerTitle::after{content: "";display: block;clear: both;}
 html,body{min-width: 972px;width: 972px;height:980px;background-color: white;overflow: hidden;margin: auto;font-size: 14px;}
-.container{width:970px;border: 1px solid #f1f1f1;height: 975px;}
+.container{width:970px;border: 1px solid #f1f1f1;padding-bottom: 46px;}
 .header{padding-top:21px;padding-left:61px;height:62px;box-sizing:border-box;border-bottom: 1px solid #f1f1f1;}
 .header>ul{overflow: hidden;}
 .header>ul>li{float: left;height: 18px;line-height: 18px;font-size: 16px;}
@@ -40,7 +40,7 @@ html,body{min-width: 972px;width: 972px;height:980px;background-color: white;ove
 }
 
 .bottom1>.right2>ul>li.pay_pass {
-    width: 490px;
+    /*width: 490px;*/
 }
 
 /*清除浮动*/

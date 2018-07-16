@@ -691,6 +691,16 @@ footer .friendList a{
 	-ms-user-select: none;
 	user-select: none;
 	margin-right: 9px;
+	padding: 0;
+	width: 35px;
+	height: 42px;
+	line-height: 42px;
+}
+.pagination>li:nth-child(2)>a,.pagination>li:nth-last-child(2)>a{
+	width: 70px;
+}
+.pagination>li:nth-child(1)>a,.pagination>li:nth-last-child(1)>a{
+	width: 60px;
 }
 .pagination>li:first-child>a,.pagination>li:first-child>span{
 	margin-left:0;
@@ -958,3 +968,11 @@ input{line-height: 100%;}
 	background: url("../img/cf_selct.png") no-repeat;
 	background-size: 100% 100%;
 }
+thead td,thead th{
+	font-size: 14px;
+	font-weight: bold;
+}
+.listBox{
+	min-height: 645px;height: 645px;
+}
+.cfRefresh{display: none;}

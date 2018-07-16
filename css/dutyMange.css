@@ -57,7 +57,7 @@ body{
     overflow: hidden;
     border: 1px solid #dedede;
     width: 968px;;
-    min-height: 1030px;
+    /*min-height: 1030px;*/
     margin-bottom: 5px;
 }
 
@@ -110,9 +110,9 @@ body{
 .record div:nth-of-type(2){
     float: right;
     width: 102px;
-    height: 32px;
+    height: 34px;
     text-align: center;
-    line-height: 32px;
+    line-height: 34px;
     border: 1px solid #ebe8ea;
     margin-right: 13px;
     font-size: 14px;
@@ -122,9 +122,9 @@ body{
 .record div:nth-of-type(3){
     float: right;
     width: 102px;
-    height: 32px;
+    height: 34px;
     text-align: center;
-    line-height: 32px;
+    line-height: 34px;
     border: 1px solid #ebe8ea;
     margin-right: 6px;
     font-size: 14px;
@@ -143,14 +143,17 @@ body{
     margin-top: 8px;
 }
 .record div:nth-of-type(2) img,.record div:nth-of-type(3) img{
-    position: absolute;
-    top: 8px;
-    right: 6px;
+    /*position: absolute;*/
+    /*top: 8px;*/
+    /*right: 6px;*/
 }
 .contentslist{
     width: 100%;
     font-size: 14px;
     color: #282828;
+}
+.select>ul{
+    top:33px;
 }
 .contentslist thead tr{
     height: 52px;

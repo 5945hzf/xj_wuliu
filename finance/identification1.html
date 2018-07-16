@@ -220,7 +220,10 @@
 <script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
 
 <script>
-
+    //Iframe 的高度
+    $(function () {
+        window.parent.$("#Iframe").css("height","1722");
+    })
     var img_url1 = null;
     var img_url2 = null;
     var img_url3 = null;
@@ -487,7 +490,7 @@
     var endTime = '';
     laydate({
         elem: '#test1',
-        format: 'YYYY-MM-DD hh:mm:ss',
+        format: 'YYYY-MM-DD',
         istime: true,
         choose: function(dates){ //选择好日期的回调
             startTime = dates;
@@ -495,7 +498,7 @@
     });
     laydate({
         elem: '#test2',
-        format: 'YYYY-MM-DD hh:mm:ss',
+        format: 'YYYY-MM-DD',
         istime: true,
         choose: function(dates){ //选择好日期的回调
             endTime = dates;
