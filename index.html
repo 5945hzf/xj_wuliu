@@ -11,6 +11,18 @@
     <link rel="stylesheet" href="./css/swiper-3.4.2.min.css">
     <link rel="stylesheet" type="text/css" href="css/commin.css"/>
     <link rel="stylesheet" href="./css/index.css">
+    <style>
+        .caseCont .left ul li:hover .time div{color: #3894e4;}
+        .caseCont .left ul li:hover .newsItem div{color: #3894e4;}
+        .caseCont .left ul li:hover .newsItem p{color: #3894e4;}
+        @font-face {
+            font-family: "YourFont";
+            src: url('./font/impact.ttf');
+        }
+        .fontNum{
+            font-family: "YourFont";
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -143,9 +155,10 @@
     <div class="platFlow">
         <h4>平台流程</h4>
         <h4 style="color:#164597;font-weight: 100;font-size:28px;margin-bottom:25px;">PLATFORM PROCESS</h4>
-        <ul>
+        <ul class="clearFloat">
             <li class="listItem">
-                <img class="numImg" src="./img/in-plat01.png" alt="">
+                <!--<img class="numImg" src="./img/in-plat01.png" alt="">-->
+                <div class="numImg fontNum" style="color: #6099ff; font-size: 104px;top: -58px;">01<span style="display: inline-block;font-size: 26px;    margin-top: 20px;    vertical-align: text-top;">步</span></div>
                 <div class="imgBox">
                     <img src="./img/in-plat1.png" alt="">
                 </div>
@@ -156,7 +169,8 @@
                 </div>
             </li>
             <li class="listItem" style="margin-left: 215px;">
-                <img class="numImg" src="./img/in-plat03.png" alt="">
+                <!--<img class="numImg" src="./img/in-plat03.png" alt="">-->
+                <div class="numImg fontNum" style="color: #6099ff;font-size: 104px;top: -58px;">02<span style="display: inline-block;font-size: 26px;    margin-top: 20px;    vertical-align: text-top;">步</span></div>
                 <div class="imgBox">
                     <img src="./img/in-plat2.png" alt="">
                 </div>
@@ -167,7 +181,8 @@
                 </div>
             </li>
             <li class="listItem" style="margin-left: 271px;">
-                <img class="numImg" src="./img/in-plat02.png" alt="">
+                <!--<img class="numImg" src="./img/in-plat02.png" alt="">-->
+                <div class="numImg fontNum" style="color: #6099ff;font-size: 104px;top: -58px;">03<span style="display: inline-block;font-size: 26px;    margin-top: 20px;    vertical-align: text-top;">步</span></div>
                 <div class="imgBox">
                     <img src="./img/in-plat3.png" alt="">
                 </div>
@@ -178,7 +193,8 @@
                 </div>
             </li>
             <li class="listItem" style="margin-left: 200px;">
-                <img class="numImg" src="./img/in-plat04.png" alt="">
+                <!--<img class="numImg" src="./img/in-plat04.png" alt="">-->
+                <div class="numImg fontNum" style="color: #6099ff;font-size: 104px;top: -58px;">04<span style="display: inline-block;font-size: 26px;    margin-top: 20px;    vertical-align: text-top;">步</span></div>
                 <div class="imgBox">
                     <img src="./img/in-plat4.png" alt="">
                 </div>
@@ -454,6 +470,8 @@
         $(".cfnav").removeClass("on");
         $(this).addClass("on");
     })
+
+
     // 点击切换咨询
     $('.case .btn').click(function(){
         $('.case .btn').removeClass('actived');

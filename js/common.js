@@ -232,7 +232,7 @@ $(function () {
         window.location.href="./index.html";
     })
     $(".goUser").click(function () {
-        sessionStorage.setItem("cfsrc","./personal/mine.html");
+        sessionStorage.setItem("cfsrc","./systemIndex/mine.html");
         window.location.href="./account.html";
     })
 })

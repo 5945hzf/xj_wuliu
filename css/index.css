@@ -59,8 +59,10 @@ body{
 .jingyingBox{
     height: 322px;
     width: 100%;
-    background: url('../img/in-jingying.png') no-repeat center center/122% 100%;
+    background: url('../img/in-jingying.png') no-repeat;
     box-sizing: border-box;
+    background-position-x: center;
+    background-position-y: 50px;
 }
 .jingyingBox>ul{
     width: 1050px;
@@ -77,6 +79,7 @@ body{
     text-align: center;
 }
 .jingyingBox>ul>li>img{
+    opacity: 0;
     display: block;
     margin: 0 auto;
     width: 138px;

@@ -21,7 +21,7 @@
 <div class="topTitle">
     <div class="headerBot">
         <div class="mianCont">
-            <div class="logo Lf" onclick="goIndex()" style="width: 167px;height: 44px;margin: 0;margin-right: 8px;margin-left: 25px;"></div>
+            <div class="logo Lf" onclick="goIndex()" style="width: 167px;height: 44px;margin: 0;margin-right: 25px;margin-left: 25px;"></div>
             <div class="navList Lf">
                 <div class="cfnav cfnav1 on" onclick="showMangeList('.cfidx1')"><a href="##">首页</a></div>
                 <div class="cfnav cfnav2" onclick="showMangeList('.cfidx2')"><a href="##">需求</a></div>
@@ -50,10 +50,10 @@
             <li>
                 <a href="##" class="manage"><strong>系统首页</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
                 <ul class="manageList2">
-                    <li><a href="##" class="manageItem" data-src="./statistics/dataIndex.html?index=index" data-height="860">系统首页</a></li>
+                    <li><a href="##" class="manageItem" data-src="./systemIndex/mine.html" data-height="860">系统首页</a></li>
                     <li><a href="##" class="manageItem"  data-src="./systemIndex/grow.html"  data-height="1600">个人中心</a></li>
-                    <li><a href="##" class="manageItem" data-src="./systemIndex/integral.html" data-height="1479">积分兑换记录</a></li>
-                    <li><a href="##" class="manageItem" data-src="./systemIndex/myOrder.html" data-height="1420">会员商品订单</a></li>
+                    <!--<li><a href="##" class="manageItem" data-src="./systemIndex/integral.html" data-height="1479">积分兑换记录</a></li>-->
+                    <!--<li><a href="##" class="manageItem" data-src="./systemIndex/myOrder.html" data-height="1420">会员商品订单</a></li>-->
                     <li><a href="##" class="manageItem " data-src="./systemIndex/information.html" data-height="576">企业信息设置</a></li>
                 </ul>
             </li>
@@ -313,7 +313,7 @@
         //$(".manageList").css("display","none");
         //$(idx).css("display","block");
         if(idx==".cfidx1"){//首页
-            sessionStorage.setItem("cfsrc","./statistics/dataIndex.html?index=index");
+            sessionStorage.setItem("cfsrc","./systemIndex/mine.html");
         }else if(idx==".cfidx2"){//需求
             sessionStorage.setItem("cfsrc","./need/published.html");
         }else if(idx==".cfidx3"){//多订单
@@ -406,7 +406,7 @@
     //首次加载没有session时展示首页
     if(sessionStorage.getItem("cfsrc")){
     }else{
-        sessionStorage.setItem("cfsrc","./statistics/dataIndex.html?index=index");
+        sessionStorage.setItem("cfsrc","./systemIndex/mine.html");
     }
     showNav();
     function showNav() {
