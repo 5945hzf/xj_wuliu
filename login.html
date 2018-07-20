@@ -9,10 +9,11 @@
 	    <meta http-equiv="Pragma" content="no-cache">
 	    <meta name="format-detection" content="telephone=no" />
 		<title adct="login">新疆化学品经营服务平台</title>
-		<link rel="stylesheet" type="text/css" href="../css/commin.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/login.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
-		<!-- <link rel="stylesheet" type="text/css" href="../css/index.css"> -->
+
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commin.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
 		<style type="text/css">
 			.mianCont_box,.tabLinkMaxBox{display: none}
 			.topTitle>.logo1{
@@ -77,10 +78,11 @@
 			.usBox{margin-top: 46px;color: #282828;}
 			.usBox p{margin-bottom: 10px;}
 			.rightUsIner{padding: 0px 21px; box-sizing: border-box;font-size: 14px;}
+			.headerBot{display: none;}
 		</style>
 	</head>
 	<body>
-	<!-- <script src="../js/header.js" type="text/javascript" charset="utf-8"></script> -->
+	<script src="js/header.js" type="text/javascript" charset="utf-8"></script>
 		<!--<div class="maxWidth headBox">-->
 			<!--<div class="mianCont">-->
 				<!--<div class="Lf">-->
@@ -120,7 +122,7 @@
 		<!--</div>-->
 		<div class="topTitle mianCont">
 			<div class="logo1 Lf" style="margin-top: 21px;">
-				<a href="../index.html"><img src="../img/cf_logo1.png" alt=""></a>
+				<a href="index.html"><img src="img/logo.png" alt=""></a>
 			</div>
 			<div class="phone Rt">服务热线: <i style="color: #4E80F4;font-size: 22px;">4000-012-556</i> <i style="font-size: 14px;">（工作日9:00-19:00）</i></div>
 		</div>
@@ -134,13 +136,13 @@
 					<ul class="reg-box">
 						<li>
 							<div class="imgs">
-								<img src="../img/cf_zhanghao.png" alt="">
+								<img src="img/cf_zhanghao.png" alt="">
 							</div>
 							<input type="text" id="user"  placeholder="手机号/用户名" class="account" maxlength="11"/>
 						</li>
 						<li>
 							<div class="imgs">
-								<img src="../img/cf_pwd.png" alt="">
+								<img src="img/cf_pwd.png" alt="">
 							</div>
 							<input type="password" id="pwd" autocomplete = 'new-password'  placeholder="密码" class="account" maxlength="16" />
 
@@ -158,6 +160,7 @@
 			</div>
 		</div>
 
+	<!--<script src="../js/footer.js">	</script>-->
 		<div class="mainFooter mianCont">
 			<ul>
 				<li><a href="##">首 页</a></li>
@@ -174,11 +177,14 @@
 			</ul>
 			<div class="mainFooterQuanxian">Copyright © 2016 www.xjv56.com All Rights Reserved 新疆化学品经营服务平台版权所有   新ICP备 16003842号-1</div>
 		</div>
-		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" >
+		window.onload = function(){
+			localStorage.setItem("token","");
+		}
 				var isAuto=0;
 
 		  var mySwiper = new Swiper ('.swiper-container', {
@@ -188,7 +194,7 @@
           $(function () {
               if(localStorage.getItem("isAuto")==1){
               	if(localStorage.getItem('isOld') == 2){
-              		window.location.href = '../index.html';//直接跳到主页
+              		window.location.href = 'index.html';//直接跳到主页
               	}
               }
 
@@ -256,7 +262,8 @@
 	                if(json.code == '1'){
                         localStorage.setItem("isAuto",isAuto);
                         localStorage.setItem("token",json.data.token);
-	                	window.location.href = '../index.html';
+                        //sessionStorage.setItem("token",json.data.token);//hzf  20180716
+	                	window.location.href = 'index.html';
 						window.localStorage.setItem('data-logout', 'false');
 						$('#logout').show();
 	                }else{

@@ -978,3 +978,4 @@ thead td,thead th{
 }
 .cfRefresh{display: none;}
 .messages .select{width: 160px;}
+button{outline: none;}

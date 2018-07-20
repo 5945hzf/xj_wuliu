@@ -27,11 +27,13 @@
     	</div>
     	<div class="record">
     		<span></span>
-			<div class="select displayNum" data-selectedindex="0"><span>排序方式</span><img src="../img/prl-select.jpg" alt="">
+			<div class="select sort" data-selectedindex="0" style="width: 170px;"><span>排序方式</span><img src="../img/prl-select.jpg" alt="">
 				<ul>
-					<li data-index="1">10</li>
-					<li data-index="2">20</li>
-					<li data-index="3">30</li>
+					<li data-index="0">年审日期顺序</li>
+					<li data-index="1">初次上牌日期顺序</li>
+					<li data-index="2">初次上牌日期倒序</li>
+					<li data-index="3">车辆添加时间顺序</li>
+					<li data-index="4">车辆添加时间倒序</li>
 				</ul>
 			</div>
 			<div class="select displayNum" data-selectedindex="0"><span>显示条数</span><img src="../img/prl-select.jpg" alt="">
@@ -56,7 +58,7 @@
 					<th>车辆类型</th>
 					<th>车辆档案号</th>
 					<th>年审日期</th>
-					<th>车牌是否启用号</th>
+					<th>是否启用</th>
 					<th>车牌号</th>
 
 				</tr>
@@ -70,7 +72,7 @@
 					<td class="">车辆档案号</td>
 					<td>2017-11-11 05：12</td>
 					<td class="chooseswitch">
-						<input id="checked_1" type="checkbox" class="switch" />
+						<input id="checked_1" type="checkbox" class="switch"  checked="checked"/>
 						<label for="checked_1"></label>
 					</td>
 					<td><a>车辆详情</a><a class="lookover">编辑</a><a class="delect">删除</a></td>
@@ -83,7 +85,7 @@
 					<td class="">车辆档案号</td>
 					<td>2017-11-11 05：12</td>
 					<td class="chooseswitch">
-						<input id="checked_1" type="checkbox" class="switch" />
+						<input id="checked_2" type="checkbox" class="switch" />
 						<label for="checked_1"></label>
 					</td>
 					<td><a>车辆详情</a><a class="lookover">编辑</a><a class="delect">删除</a></td>
@@ -113,18 +115,102 @@
 
 
 <script type="text/javascript" >
-    //Iframe 的高度
+
     $(function () {
+        //Iframe 的高度
         window.parent.$("#Iframe").css("height","843");
+
     })
-    $('.objListBox>div:nth-child(5n)').css('margin-right','0');
-    Page({
-        num: 200,
-        elem: $('#page1'),
-        callback: function(n) {
-            console.log(n);
-        }
-    });
+
+
+    //进入页面加载数据
+    getData(1);
+	//获取数据
+    function getData(currentPage) {
+        $.ajax({
+            url: pubIP + 'tLogisticsVehicle/selectLogisticsVehicleList', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                //token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data:{
+                companyId:"9041805231046330013",
+                sort:$(".sort").attr("data-selectedindex"),
+                size:pageSize,
+                page:currentPage
+            },
+            success: function (res) {
+                if(res.code===1){
+                    //首次请求时 改变分页数据
+                    if(res.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
+                    if(currentPage===1){
+                        //修改底部分页
+						//debugger
+
+                        var pageNum=res.count/pageSize+(res.count%pageSize==0?0:1);
+                        $(".allPageN").attr("pageTotal",pageNum);
+                        $(".pageJump i").text("共"+pageNum+"页");
+                        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+                        Page({
+                            num: pageNum,
+                            elem: $('#page1'),
+                            callback: function(n) {
+                               // console.log(n);
+                                getData(n);//加载n页数据
+                            }
+                        });
+					}
+					//修改底部页数
+                    $(".allPageN").text((currentPage)+"/"+ $(".allPageN").attr("pageTotal"));
+					cf_dataRender(res.data)
+                }else{
+                    alert(res.msg);
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+    //渲染数据
+    function cf_dataRender(data) {
+        var str='';
+        $.each(data,function (idx,item) {
+			str+='<tr>';
+            str+='<td>'+item.carNo+'</td>';
+            if(item.type===0){
+                str+='<td>内部车辆</td>';
+            }else{
+                str+='<td>外部车辆</td>';
+            }
+            str+='<td>'+item.carBrand+'</td>';
+            str+='<td>'+item.carType+'</td>';
+            str+='<td>'+item.archivesNo+'</td>';
+            str+='<td>'+timestampToTime(item.annualVerificationDate)+'</td>';
+            if(item.status===0){
+                str+='<td class="chooseswitch"><input id="checked_'+idx+'" type="checkbox" name="status" class="switch" checked="checked" /><label for="checked_'+idx+'"></label></td>';
+			}else{
+                str+='<td class="chooseswitch"><input id="checked_'+idx+'" type="checkbox"  name="status" class="switch" /><label for="checked_'+idx+'"></label></td>';
+			}
+
+            str+='<td data-id="'+item.id+'"><a class="seeDetail">车辆详情</a><a class="lookover">编辑</a><a class="delect">删除</a></td>';
+            str+='</tr>';
+        })
+		$(".listBox tbody").html(str);
+    }
+    //选择排序方式
+	$(".select ul li").click(function () {
+        getData(1);
+    })
+    // 点击go刷新数据
+    $('.pageCont').on('click', '.button',function(){
+        var currentPage = $('.pageCont li.active>a').text();
+        getData(currentPage);
+    })
 </script>
 </body>
 </html>

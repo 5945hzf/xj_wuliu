@@ -1,12 +1,28 @@
 //var pubIP = 'http://api.xjv56.com/service/';
 var pubIP = 'http://192.168.1.80:7777/service/';
+var pubIP = 'http://192.168.1.199:7777/service/';
 //var token = 'ceshi123456';
 var token=localStorage.getItem("token");
 var pageSize=1;//分页的每页个数
 
 var companyId = null, userId = null ;
 
+//时间戳转时间格式
+function timestampToTime(timestamp) {
+    if(timestamp/100000000000>0){
+        var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+    }else{
+        var date = new Date(timestamp );//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+    }
 
+    Y = date.getFullYear() + '-';
+    M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+    D = date.getDate() + ' ';
+    h = date.getHours() + ':';
+    m = date.getMinutes() + ':';
+    s = date.getSeconds();
+    return Y+M+D;
+}
 // 对Date的扩展，将 Date 转化为指定格式的String
 // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
 // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) 
@@ -253,6 +269,12 @@ $(function () {
             $(item).find('a').css("width","70px");
         }else if($(item).find("a").text()=="首页"||$(item).find("a").text()=="尾页"){
             $(item).find('a').css("width","70px");
+        }
+    })
+    // 所有的显示条数 先隐藏
+    $(".select span").each(function (idx,item) {
+        if($(item).text()=="显示条数"){
+            $(item).parent().css("display","none");
         }
     })
 })

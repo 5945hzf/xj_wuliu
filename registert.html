@@ -9,10 +9,12 @@
 	    <meta http-equiv="Pragma" content="no-cache">
 	    <meta name="format-detection" content="telephone=no" />
 		<title adct="login">新疆化学品经营服务平台</title>
-		<link rel="stylesheet" type="text/css" href="../css/registert.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
-		<link rel="stylesheet" href="../css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/registert.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commin.css">
+		<link rel="stylesheet" href="css/index.css">
 		<style type="text/css">
+			.headerBot{display: none;}
 			body{
 				background: #ffffff;
 			}
@@ -106,17 +108,17 @@
 		</style>
 	</head>
 	<body>
-		<script src="../js/header.js" ></script>
+		<script src="js/header.js" ></script>
 
 		<div class="topTitle mianCont">
 			<div class="logo1 Lf" style="margin-top: 21px;">
-				<a href="../index.html" ><img src="../img/cf_logo1.png" alt=""></a>
+				<a href="index.html" ><img src="img/logo.png" alt=""></a>
 			</div>
 			<div class="phone Rt">服务热线: <i style="color: #4E80F4;font-size: 22px;">4000-012-556</i> <i style="font-size: 14px;">（工作日9:00-19:00）</i></div>
 		</div>
 		<div class="mainCenter" style="background-position: center center; ">
 			<div class="mainCenterRegist">
-				<div class="mainCenterRegistTitle"><div class="Lf title">欢迎注册</div><a href="./login.html" class="Rt login">马上登录</a></div>
+				<div class="mainCenterRegistTitle"><div class="Lf title">欢迎注册</div><a href="login.html" class="Rt login">马上登录</a></div>
 
 				<ul class="reg-box">
 					<li>
@@ -196,13 +198,19 @@
 				<li><a href="##">金融服务</a></li>
 			</ul>
 			<div class="mainFooterQuanxian">Copyright © 2016 www.xjv56.com All Rights Reserved 新疆化学品经营服务平台版权所有   新ICP备 16003842号-1</div>
-		</div>
+        </div>
+        <!-- 协议 -->
+        <div class="mask"></div>
+        <div class="xy_detail">
+            <img class="xy_close" src="img/cf_close1.png" alt="">
+            <div> </div>
+        </div>
 
-		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/register.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript" >
              //下载协议模板
             function down_moban(){
@@ -212,7 +220,10 @@
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
-                        location.href = data.data.fileUrl;
+                        //location.href = data.data.fileUrl;
+                        $(".mask").show();
+                        $(".xy_detail").show();
+                        $(".xy_detail div").html(data.data.content)
                     
                     },
                     error: function (err) {
@@ -220,6 +231,16 @@
                     }
                 })
             }
+            //关闭协议弹窗
+            
+            $(".xy_close").on("click",function(){
+                $(".mask").hide();
+                $(".xy_detail").hide();
+            })
+            $(".mask").on("click",function(){
+                $(".mask").hide();
+                $(".xy_detail").hide();
+            })
 
 			getCode();
 			//禁止输入中文
@@ -712,7 +733,7 @@
 					                if(json.code == '1'){
 				                        localStorage.setItem("isAuto",0);
 				                        localStorage.setItem("token",json.data.token);
-					                	   window.location.href='./registertSuccess.html';
+					                	   window.location.href='registertSuccess.html';
 					                }else{
 					                	//alert(json.msg)
 										$(".error").eq(0).text(json.msg);
