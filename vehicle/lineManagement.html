@@ -148,11 +148,11 @@
             success: function (res) {
                 if(res.code===1){
                     //首次请求时 改变分页数据
-					if(res.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
+                    if(res.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
                     if(currentPage===1 ){
                         //修改底部分页
                         //debugger
-                        var pageNum=res.count/pageSize+(res.count%pageSize==0?0:1);
+                        var pageNum=Math.ceil(res.count/pageSize);
                         $(".allPageN").attr("pageTotal",pageNum);
                         $(".pageJump i").text("共"+pageNum+"页");
                         $('.objListBox>div:nth-child(5n)').css('margin-right','0');
@@ -182,26 +182,28 @@
         var str='';
         $.each(data,function (idx,item) {
             str+='<tr>';
-            str+='<td>'+item.sendProvince+'</td>';
-            if(item.type===0){
-                str+='<td>内部车辆</td>';
-            }else{
-                str+='<td>外部车辆</td>';
-            }
-            str+='<td>'+item.carBrand+'</td>';
-            str+='<td>'+item.carType+'</td>';
-            str+='<td>'+item.archivesNo+'</td>';
-            str+='<td>'+timestampToTime(item.annualVerificationDate)+'</td>';
+            str+='<td>'+item.sendProvince+item.sendCity+'</td>';
+            str+='<td>'+item.receiveProvince+item.receiveCity+'</td>';
+            str+='<td>'+item.toCarPrice+'</td>';
+            str+='<td>'+item.loss+'</td>';
+            str+='<td>'+item.lossPrice+'</td>';
+            str+='<td>'+item.transportDistance+'</td>';
+            str+='<td>'+item.expectedDuration+'</td>';
+            str+='<td>'+item.num+'</td>';
             if(item.status===0){
                 str+='<td class="chooseswitch"><input id="checked_'+idx+'" type="checkbox" name="status" class="switch" checked="checked" /><label for="checked_'+idx+'"></label></td>';
             }else{
                 str+='<td class="chooseswitch"><input id="checked_'+idx+'" type="checkbox"  name="status" class="switch" /><label for="checked_'+idx+'"></label></td>';
             }
-
-            str+='<td data-id="'+item.id+'"><a class="seeDetail">车辆详情</a><a class="lookover">编辑</a><a class="delect">删除</a></td>';
+            str+='<td data-id="'+item.id+'"><a class="seeDetail">线路详情</a><a class="lookover">编辑</a><a class="delect">删除</a></td>';
             str+='</tr>';
         })
         $(".listBox tbody").html(str);
+        //详情
+        $(".seeDetail").click(function () {
+            sessionStorage.setItem("detailId",$(this).parent().attr("data-id"));
+            window.location.href="./lineDetails.html";
+        })
     }
     //选择排序方式
     $(".select ul li").click(function () {
@@ -212,6 +214,8 @@
         var currentPage = $('.pageCont li.active>a').text();
         getData(currentPage);
     })
+
+
 </script>
 </body>
 </html>

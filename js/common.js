@@ -3,10 +3,9 @@ var pubIP = 'http://192.168.1.80:7777/service/';
 var pubIP = 'http://192.168.1.199:7777/service/';
 //var token = 'ceshi123456';
 var token=localStorage.getItem("token");
-var pageSize=1;//分页的每页个数
-
+var pageSize=10;//分页的每页个数
 var companyId = null, userId = null ;
-
+companyId=9041805231046330013;
 //时间戳转时间格式
 function timestampToTime(timestamp) {
     if(timestamp/100000000000>0){

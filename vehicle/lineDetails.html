@@ -65,24 +65,25 @@
 
        
         <div class="dangerIntroduce infoBox">
-            <div class="title"><img src="../img/prl-titlelogo.png" width="29" height="28" alt="">企业信息</div>
+            <div class="title"><img src="../img/prl-titlelogo.png" width="29" height="28" alt="">车辆信息</div>
             <div class="contBox">
-                <div class="left ll">线路名称：<span>新疆到北京</span></div>
-                <div class="left mm">所属部门：<span>部门名称</span></div>
-                <div class="left rr">身&nbsp;&nbsp;份&nbsp;&nbsp;证：<span>12115151515155445454</span></div>
-                <div class="left ll">联系电话：<span>176145451516</span></div>
-                <div class="left mm">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;务：<span>司机</span></div>
-                <div class="left rr">入职时间：<span>2015-09-08 23：00</span></div>
-                <div class="left ll">未结工资：<span>¥10000.00</span></div>
-                <div class="left mm">本月工资：<span>¥10000.00</span></div>
+                <div class="left ll">线路名称：<span id="xlName">新疆到北京</span></div>
+                <div class="left mm">给&nbsp;&nbsp;车&nbsp;&nbsp;价：<span id="toCarPrice">部门名称</span></div>
+                <div class="left rr">扣&nbsp;&nbsp;损&nbsp;&nbsp;率：<span id="loss">12115151515155445454</span></div>
+                <div class="left ll">扣损单价：<span id="lossPrice">176145451516</span></div>
+                <div class="left mm">运&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;距：<span id="transportDistance">司机</span></div>
+                <div class="left rr">预计时长：<span id="expectedDuration">2015-09-08 23：00</span></div>
+                <div class="">发&nbsp;&nbsp;货&nbsp;&nbsp;地：<span id="fahuoAddress">¥10000.00</span></div>
+                <div class="">收&nbsp;&nbsp;货&nbsp;&nbsp;地：<span id="shouhuoAddress">¥10000.00</span></div>
             </div>
             
         </div>
        
         <div class="infoBox">
             <div class="title"><img src="../img/prl-titlelogo.png" width="29" height="28" alt="">线路车辆</div>
-            <table class="myTable">
-                <thead>
+            <div class="listBox">
+                <table class="myTable">
+                    <thead>
                     <tr>
                         <th>车牌号</th>
                         <th>车辆分类</th>
@@ -90,9 +91,9 @@
                         <th>车辆类型</th>
                         <th>车联档案号</th>
                         <th>年审日期</th>
-                    </tr> 
-                </thead>
-                <tbody>
+                    </tr>
+                    </thead>
+                    <tbody>
                     <tr>
                         <td>新B WER123</td>
                         <td>北京-朝阳区</td>
@@ -109,18 +110,159 @@
                         <td>3601541614616314</td>
                         <td>2017-07-19 14:48:38 </td>
                     </tr>
-                </tbody>
-                
-            </table>
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
+                <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
+                <div class="pageJump">
+                    <span class="allPageN">1/200</span>
+                    <i style="margin-left: 12px;">共200页</i>，
+                    <span>到第</span>
+                    <input type="text"/>
+                    <span>页</span>
+                    <button type="button" class="button">GO</button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
     <script>
         //Iframe 的高度
         $(function () {
-            window.parent.$("#Iframe").css("height","475");
+            window.parent.$("#Iframe").css("height",1072);
         })
+
+        //进入页面加载数据
+        getData1();
+        getData(1);
+        //获取数据
+        function getData1() {
+            $.ajax({
+                url: pubIP + 'tLogisticsVehicleRoute/selectByRouteId', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    //token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    companyId:"9041805231046330013",
+                    id:sessionStorage.getItem("detailId")
+                },
+                success: function (res) {
+                    if(res.code===1){
+                        cf_dataRender1(res.data)
+                    }else{
+                        alert(res.msg);
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+        //渲染数据
+        function cf_dataRender1(data) {
+            $("#xlName").text(data.routeName);
+            $("#expectedDuration").text(data.expectedDuration);
+            $("#lossPrice").text(data.lossPrice);
+            $("#toCarPrice").text(data.toCarPrice);
+            $("#loss").text(data.loss);
+            $("#transportDistance").text(data.transportDistance);
+            $("#fahuoAddress").text(data.sendProvince+"-"+data.sendCity+"-"+data.sendArea+"-"+data.sendAddress);
+            $("#shouhuoAddress").text(data.receiveProvince+"-"+data.receiveCity+"-"+data.receiveArea+"-"+data.receiveAddress);
+        }
+
+
+
+
+
+        //获取数据
+        function getData(currentPage) {
+            $.ajax({
+                url: pubIP + 'tLogisticsVehicleRoute/selectByCarList', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    //token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    companyId:"9041805231046330013",
+//                sort:$(".sort").attr("data-selectedindex"),
+                    routeId:sessionStorage.getItem("detailId"),
+                    size:pageSize,
+                    page:currentPage
+                },
+                success: function (res) {
+                    if(res.code===1){
+                        //首次请求时 改变分页数据
+                       if(res.data.length==0){
+                           $(".listBox tbody").html("");$(".pagination").parent().css("display","none");
+                           window.parent.$("#Iframe").css("height",979);
+                           return;
+                       }
+                        if(currentPage===1 ){
+                            //修改底部分页
+                            debugger
+                            var pageNum=Math.ceil(res.count/pageSize);
+                            $(".allPageN").attr("pageTotal",pageNum);
+                            $(".pageJump i").text("共"+pageNum+"页");
+                            $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+                            Page({
+                                num: pageNum,
+                                elem: $('#page1'),
+                                callback: function(n) {
+                                    // console.log(n);
+                                    getData(n);//加载n页数据
+                                }
+                            });
+                        }
+                        //修改底部页数
+                        $(".allPageN").text((currentPage)+"/"+ $(".allPageN").attr("pageTotal"));
+                        cf_dataRender(res.data)
+                    }else{
+                        alert(res.msg);
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+        //渲染数据
+        function cf_dataRender(data) {
+            var str='';
+            $.each(data,function (idx,item) {
+                str+='<tr>';
+                str+='<td>'+item.carNo+'</td>';
+                if(item.type==0){
+                    str+='<td>内部车辆</td>';
+                }else {
+                    str+='<td>外部车辆</td>';
+                }
+                str+='<td>'+item.carBrand+'</td>';
+                str+='<td>'+item.carType+'</td>';
+                str+='<td>'+item.archivesNo+'</td>';
+                str+='<td>'+timestampToTime(item.annualVerificationDate)+'</td>';
+                str+='</tr>';
+            })
+            $(".listBox tbody").html(str);
+        }
+        // 点击go刷新数据
+        $('.pageCont').on('click', '.button',function(){
+            var currentPage = $('.pageCont li.active>a').text();
+            getData(currentPage);
+        })
+
     </script>
 </body>
 </html>
