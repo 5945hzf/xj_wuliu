@@ -121,8 +121,7 @@
         window.parent.$("#Iframe").css("height","843");
 
     })
-
-
+var currentPage=1;
     //进入页面加载数据
     getData(1);
 	//获取数据
@@ -160,6 +159,7 @@
                             elem: $('#page1'),
                             callback: function(n) {
                                // console.log(n);
+                                currentPage=n;
                                 getData(n);//加载n页数据
                             }
                         });
@@ -180,7 +180,7 @@
     function cf_dataRender(data) {
         var str='';
         $.each(data,function (idx,item) {
-			str+='<tr>';
+			str+='<tr data-id="'+item.id+'">';
             str+='<td>'+item.carNo+'</td>';
             if(item.type===0){
                 str+='<td>内部车辆</td>';
@@ -191,7 +191,7 @@
             str+='<td>'+item.carType+'</td>';
             str+='<td>'+item.archivesNo+'</td>';
             str+='<td>'+timestampToTime(item.annualVerificationDate)+'</td>';
-            if(item.status===0){
+            if(item.status==0){
                 str+='<td class="chooseswitch"><input id="checked_'+idx+'" type="checkbox" name="status" class="switch" checked="checked" /><label for="checked_'+idx+'"></label></td>';
 			}else{
                 str+='<td class="chooseswitch"><input id="checked_'+idx+'" type="checkbox"  name="status" class="switch" /><label for="checked_'+idx+'"></label></td>';
@@ -206,16 +206,69 @@
             sessionStorage.setItem("detailId",$(this).parent().attr("data-id"));
             window.location.href="./vehicleDetail.html";
         })
+		//删除
+        $(".delect").click(function () {
+            upadtaState(1,this);
+        })
+		//启用和禁用
+        $(".chooseswitch input[type='checkbox']").change(function() {
+            console.log($(this).prop("checked"));
+            if($(this).prop("checked")){
+                upadtaState(2,this);
+			}else {
+                upadtaState(3,this);
+			}
+
+        });
     }
     //选择排序方式
 	$(".select ul li").click(function () {
+        currentPage=1;
         getData(1);
     })
     // 点击go刷新数据
     $('.pageCont').on('click', '.button',function(){
-        var currentPage = $('.pageCont li.active>a').text();
-        getData(currentPage);
+        var currentPage1 = $('.pageCont li.active>a').text();
+        currentPage=currentPage1;
+        getData(currentPage1);
     })
+//启用禁用 删除  事件
+	function upadtaState(type,that) {
+		$.ajax({
+            url: pubIP + 'tLogisticsVehicle/updateCarDoIng', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                //token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data:{
+                companyId:companyId,
+                sort:$(".sort").attr("data-selectedindex"),
+                carId:$(that).parents("tr").attr("data-id"),
+                type:type
+            },
+            success: function (res) {
+                if(res.code==1){
+					if(type==1){
+                        alert("删除车辆成功")
+					}else if(type==2){
+                        alert("启用车辆成功")
+                    }else if(type==3){
+                        alert("禁用车辆成功")
+                    }
+                    getData(currentPage);
+                }else{
+                    alert(res.msg);
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+		})
+    }
 </script>
 </body>
 </html>

@@ -155,7 +155,7 @@
     function cf_dataRender(data) {
         var str='';
         $.each(data,function (idx,item) {
-            str+='<tr>';
+            str+='<tr data-id="'+item.id+'">';
             str+='<td>'+item.name+'</td>';
             if(item.type==0){
                 str+='<td>内部车辆</td>';

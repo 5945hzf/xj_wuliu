@@ -181,7 +181,7 @@
     function cf_dataRender(data) {
         var str='';
         $.each(data,function (idx,item) {
-            str+='<tr>';
+            str+='<tr data-id="'+item.id+'">';
             str+='<td>'+item.sendProvince+item.sendCity+'</td>';
             str+='<td>'+item.receiveProvince+item.receiveCity+'</td>';
             str+='<td>'+item.toCarPrice+'</td>';

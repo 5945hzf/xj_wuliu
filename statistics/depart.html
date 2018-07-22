@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" CONTENT="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
     <meta name="format-detection" content="telephone=no" />
-    <title adct="2">新疆物流服务平台</title>
+    <title adct="2" adct1="1">新疆物流服务平台</title>
     <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
     <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
     <link rel="stylesheet" type="text/css" href="../css/addRequireMent.css"/>
@@ -16,6 +16,8 @@
         /*.container1,.container2,.container{}*/
         .container1,.container2{padding-bottom: 23px;border: 1px solid #EBE9EA;}
         .container2{margin-top: 22px;}
+        .select span{width: 65%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;display: inline-block;}
+        .error{color: red;font-size: 14px;width: 100%;height: 30px;margin-top: 10px;text-align: center;}
     </style>
 
 
@@ -24,7 +26,10 @@
 <body>
 <div class="container">
     <div class="containerTitle" style="border: 1px solid #EBE9EA;">
-        <div class="Lf"><img src="../img/addRequireTitle.png" alt=""><span>发布空车</span></div>
+        <div class="Lf">
+            <!--<img src="../img/addRequireTitle.png" alt="">-->
+            <span>发布空车</span>
+        </div>
         <!--<div class="Rt addLiShi">发布历史需求</div>-->
     </div>
     <div class="container1">
@@ -34,8 +39,8 @@
         <div class="clearFloat">
             <div class="container1Left Lf">
                 <div class="goodsWeight"><span class="cf_leftTitle Lf">载重/体积</span>
-                    <input type="text" style="width: 100px;margin-left: 3px;">
-                    <div class="select" data-selectedindex="1" style="margin-top: 0;width: 98px;float: right;">
+                    <input type="text" style="width: 100px;margin-left: 3px;" id="load">
+                    <div class="select" id="units" data-selectedindex="1" style="margin-top: 0;width: 98px;float: right;">
                         <span>千克</span>
                         <img src="../img/prl-select.jpg" alt="">
                         <ul>
@@ -47,26 +52,26 @@
                 </div>
                 <div class="che">
                     <span class="cf_leftTitle">车辆要求 </span>
-                    <input type="text" placeholder="长" style="width: 66px;">
-                    <input type="text" placeholder="宽" style="width: 65px;">
-                    <input type="text" placeholder="高" style="width: 66px;">
+                    <input id="longs" type="text" placeholder="长" style="width: 66px;">
+                    <input id="wide" type="text" placeholder="宽" style="width: 65px;">
+                    <input id="heights" type="text" placeholder="高" style="width: 66px;">
                 </div>
             </div>
             <div class="container1Cen Lf">
 
                 <div class="danPrice">
                     <span class="cf_leftTitle">单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价</span>
-                    <input style="width: 155px;" type="text"><span style="font-size: 14px;margin-left: 5px;">元</span>
+                    <input id="price" style="width: 155px;" type="text"><span style="font-size: 14px;margin-left: 5px;">元</span>
                 </div>
                 <div class="daohuo">
                     <span class="cf_leftTitle">载货类型 </span>
-                    <input type="text" style="width: 177px;">
+                    <input type="text" id="cargotype" style="width: 177px;">
                 </div>
             </div>
             <div class="container1Right Lf">
                 <div class="Chetype">
                     <span class="cf_leftTitle">车辆类型 </span>
-                    <div class="select" data-selectedindex="-1">
+                    <div class="select" id="carType" data-selectedindex="-1">
                         <span>请选择</span>
                         <img src="../img/prl-select.jpg" alt="">
                         <ul>
@@ -77,12 +82,12 @@
                 </div>
                 <div class="ordertype">
                     <span class="cf_leftTitle">接单类型 </span>
-                    <div class="select" data-selectedindex="-1">
-                        <span>请选择</span>
+                    <div id="taketype" class="select" data-selectedindex="1">
+                        <span>接单类型1</span>
                         <img src="../img/prl-select.jpg" alt="">
                         <ul>
-                            <li data-index="1">订单1</li>
-                            <li data-index="2">订单2</li>
+                            <li data-index="1">接单类型1</li>
+                            <li data-index="2">接单类型2</li>
                         </ul>
                     </div>
                 </div>
@@ -90,8 +95,8 @@
         </div>
         <div class="BH">
             <div class="daohuo">
-                <span class="cf_leftTitle Lf">发货时间 </span>
-                <div class="select" data-selectedindex="-1" style="float: left;width: 98px;margin-left: 5px;">
+                <span class="cf_leftTitle Lf">发货地点 </span>
+                <div class="select" id="province" data-selectedindex="-1" style="float: left;width: 98px;margin-left: 5px;">
                     <span>请选择</span>
                     <img src="../img/prl-select.jpg" alt="">
                     <ul>
@@ -99,7 +104,7 @@
                         <li data-index="2">小车</li>
                     </ul>
                 </div>
-                <div class="select" data-selectedindex="-1" style="float: left;width: 98px;">
+                <div class="select" id="city" data-selectedindex="-1" style="float: left;width: 98px;">
                     <span>请选择</span>
                     <img src="../img/prl-select.jpg" alt="">
                     <ul>
@@ -107,7 +112,7 @@
                         <li data-index="2">小车</li>
                     </ul>
                 </div>
-                <div class="select" data-selectedindex="-1" style="float: left;width: 98px;">
+                <div class="select" id="area" data-selectedindex="-1" style="float: left;width: 98px;">
                     <span>请选择</span>
                     <img src="../img/prl-select.jpg" alt="">
                     <ul>
@@ -115,15 +120,15 @@
                         <li data-index="2">小车</li>
                     </ul>
                 </div>
-                <input type="text" style="width: 177px;margin-left: 13px;">
+                <input id="send_address" type="text" style="width: 177px;margin-left: 13px;">
                 <span class="cf_leftTitle" style="margin-left: 85px;margin-right: 4px;">需求时效</span>
-                <input type="text" style="width: 178px;">
+                <input id="aging" type="text" style="width: 178px;">
             </div>
         </div>
         <div class="BH" style="margin-top: 22px;">
             <div class="daohuo">
-                <span class="cf_leftTitle Lf">距&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;离 </span>
-                <div class="select" data-selectedindex="-1" style="float: left;width: 98px;margin-left: 5px;">
+                <span class="cf_leftTitle Lf">收货地址</span>
+                <div class="select" id="province1" data-selectedindex="-1" style="float: left;width: 98px;margin-left: 5px;">
                     <span>请选择</span>
                     <img src="../img/prl-select.jpg" alt="">
                     <ul>
@@ -131,7 +136,7 @@
                         <li data-index="2">小车</li>
                     </ul>
                 </div>
-                <div class="select" data-selectedindex="-1" style="float: left;width: 98px;">
+                <div class="select" id="city1" data-selectedindex="-1" style="float: left;width: 98px;">
                     <span>请选择</span>
                     <img src="../img/prl-select.jpg" alt="">
                     <ul>
@@ -139,7 +144,7 @@
                         <li data-index="2">小车</li>
                     </ul>
                 </div>
-                <div class="select" data-selectedindex="-1" style="float: left;width: 98px;">
+                <div class="select" id="area1" data-selectedindex="-1" style="float: left;width: 98px;">
                     <span>请选择</span>
                     <img src="../img/prl-select.jpg" alt="">
                     <ul>
@@ -147,7 +152,7 @@
                         <li data-index="2">小车</li>
                     </ul>
                 </div>
-                <input type="text" style="width: 177px;margin-left: 13px;">
+                <input id="receive_address" type="text" style="width: 177px;margin-left: 13px;">
             </div>
         </div>
     </div>
@@ -157,21 +162,21 @@
         </div>
         <div class="fadantype Lf" style="margin-left: 38px;">
             <span class="cf_leftTitle">联&nbsp;&nbsp;系&nbsp;&nbsp;人 </span>
-            <input type="text" style="width: 215px;">
+            <input id="username" type="text" style="width: 215px;">
         </div>
         <div class="youxiaoqi Lf" style="margin-left: 40px;">
             <span class="cf_leftTitle">联系电话 </span>
-            <input type="text" style="width: 215px;">
+            <input id="phone" type="text" style="width: 215px;" onkeyup="this.value=this.value.replace(/[^0-9.]/g, '')" maxlength="11">
         </div>
     </div>
 
-
-    <div class="containerBot clearFloat">
+    <div class="error"></div>
+    <div class="containerBot clearFloat" style="padding-top: 0;margin-top: 20px;">
         <div style="">
             <span class="cf_sel"></span>
             <span style="font-size: 14px;color: #282828;">同意平台协议</span>
         </div>
-        <div class="sub">同意发货</div>
+        <div class="sub" onclick="sub()">确认发布</div>
     </div>
 
 </div>
@@ -189,17 +194,429 @@
     $(function () {
         window.parent.$("#Iframe").css("height","817");
     })
-    $('.objListBox>div:nth-child(5n)').css('margin-right','0');
-    Page({
-        num: 200,
-        elem: $('#page1'),
-        callback: function(n) {
-            console.log(n);
-        }
-    });
     $(".cf_sel").eq(0).click(function () {
         $(this).toggleClass("on");
     })
+    getProvence(0,true);//获取发货省市县
+    getProvence(1,true);//获取收货省市县
+    getCarType();//获取车辆类型
+
+
+    //提交  先做前台验证
+    function sub(){
+        if($("#load").val()==""){
+            $(".error").text("载重/体积不能为空");
+            return;
+        }else{
+            $(".error").text("");
+        }
+
+        if($("#price").val()==""){
+            $(".error").text("单价不能为空");
+            return;
+        }else{
+            $(".error").text("");
+        }
+
+        if($("#longs").val()==""){
+            $(".error").text("车辆长度不能为空");
+            return;
+        }else{
+            $(".error").text("");
+        }
+
+        if($("#wide").val()==""){
+            $(".error").text("车辆宽度不能为空");
+            return;
+        }else{
+            $(".error").text("");
+        }
+        if($("#heights").val()==""){
+            $(".error").text("车辆高度不能为空");
+            return;
+        }else{
+            $(".error").text("");
+        }
+
+
+
+
+        if($("#cargotype").val()==""){
+            $(".error").text("载货类型不能为空");
+            return;
+        }else{
+            $(".error").text("");
+        }
+
+        if($("#send_address").val()==""){
+            $(".error").text("发货详细地址不能为空");
+            return;
+        }else{
+            $(".error").text("");
+        }
+
+        if($("#aging").val()==""){
+            $(".error").text("需求时效不能为空");
+            return;
+        }else{
+            $(".error").text("");
+        }
+
+        if($("#receive_address").val()==""){
+            $(".error").text("收货详细地址不能为空");
+            return;
+        }else{
+            $(".error").text("");
+        }
+
+        if($("#username").val()==""){
+            $(".error").text("联系人不能为空");
+            return;
+        }else{
+            $(".error").text("");
+        }
+
+        if($("#phone").val()==""){
+            $(".error").text("联系人电话不能为空");
+            return;
+        }else if(!$("#phone").val().match(/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/)){
+            $(".error").text("联系人电话格式不正确");
+            return;
+        }else{
+            $(".error").text("");
+        }
+
+        if(!$(".cf_sel").hasClass("on")){
+            $(".error").text("请同意平台协议");
+            return;
+        }else{
+            $(".error").text("");
+        }
+
+        //发布空车
+        insertLogisticsVehicleEmpty();
+    }
+    //发布空车
+    function insertLogisticsVehicleEmpty() {
+        $.ajax({
+            url: pubIP + 'tLogisticsVehicleEmpty/insertLogisticsVehicleEmpty', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                //token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data:{
+                companyId:companyId,
+                type:$("#carType").attr("data-id"),
+                load:$("#load").val(),
+                units:$("#units span").text(),//单位&
+                price:$("#price").val(),       //单价&
+                cargotype: $("#cargotype").val(),           //载货类型&
+                longs:$("#longs").val(),                 //=长&
+                wide:$("#wide").val(),                       //=宽&
+                heights:$("#heights").val(),                     //=高&
+                taketype:$("#taketype span").text(),//=接单类型&
+                send_province:$("#province span").text(),//=发货省&
+                send_provinceid:$("#province").attr("data-proviceid"),//&
+                send_city:$("#city span").text(),//=发货市&
+                send_cityid:$("#city").attr("data-cityid"),//&
+                send_area:$("#area span").text(),//=发货区&
+                send_areaid:$("#area").attr("data-areaid"),//&
+                send_address:$("#send_address").val(),    //=详细地址&
+                receive_province:$("#province1 span").text(),//=收货省&
+                receive_provinceid:$("#province1").attr("data-proviceid"),//&
+                receive_city:$("#city1 span").text(),//=收货市&
+                receive_cityid:$("#city1").attr("data-cityid"),//&
+                receive_area:$("#area1 span").text(),//=收货区&
+                receive_areaid:$("#area1").attr("data-areaid"),//&
+                receive_address:$("#receive_address").val(),    //=收货详细地址&
+                aging:$("#aging").val(),    //=时效&
+                username:$("#username").val(),    //=联系人&
+                phone:$("#phone").val(),    //=联系电话`
+            },
+            success: function (res) {
+                if(res.code===1){
+                   alert("发布空车成功");
+                }else{
+                    alert(res.msg);
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+
+
+    //获取车辆类型
+    function getCarType() {
+        $.ajax({
+            url: pubIP + 'tLogisticsVehicle/selectCarTypeList', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                var str = '';
+                for (var i = 0; i < data.data.length; i++) {
+                    str += '<li  data-index="'+i+'" value="'+i+'" data-id="'+data.data[i].id+'">'+data.data[i].typeName+'</li>';
+                }
+                    $('#carType ul').html(str);
+
+                    $('#carType ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().attr('data-id', $(this).attr('data-id'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg');
+                        $(this).parent().css('display','none');
+                    });
+                    //默认选中
+                $("#carType").attr('data-selectedindex', 0);
+                $("#carType").attr('data-id', data.data[0].id);
+                $("#carType").find('span').text(data.data[0].typeName);
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+
+    }
+//查询省
+    function getProvence(type,isFirst) {
+        //type  0发货地  1收货地
+        /*查询所有省份*/
+        $.ajax({
+            url: pubIP + 'address/listProvince', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                var str = '';
+                for (var i = 0; i < data.data.length; i++) {
+                    str += '<li  data-index="'+i+'" value="'+i+'" data-proviceId="'+data.data[i].provinceid+'" data-province="'+data.data[i].province+'">'+data.data[i].province+'</li>';
+                }
+                if(type==0){
+                    $('#province ul').html(str);
+                    $('#province ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().attr('data-proviceid', $(this).attr('data-proviceid'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+                        var provinceID =$("#province").attr('data-proviceid');
+                        $('#city span').text('请选择市');
+                        $('#area span').html('请选择区');
+                        $('#area ul').html("");
+                        selectCity(type,provinceID);
+//                        $('#city').removeClass('id_id1');
+                    });
+
+                    //选中第一个
+                        $("#province").attr('data-selectedindex',0);
+                        $("#province").attr('data-proviceid', data.data[0].provinceid);
+                        $("#province").find('span').text(data.data[0].province);
+                        selectCity(type, data.data[0].provinceid);
+
+                }else if(type==1){
+                    $('#province1 ul').html(str);
+                    $('#province1 ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().attr('data-proviceid', $(this).attr('data-proviceid'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+                        var provinceID =$("#province1").attr('data-proviceid');
+                        $('#city1 span').text('请选择市');
+                        $('#area1 span').html('请选择区');
+                        $('#area1 ul').html("");
+                        selectCity(type,provinceID);
+//                        $('#city1').removeClass('id_id1');
+                    });
+
+                    //选中第一个
+                        $("#province1").attr('data-selectedindex',0);
+                        $("#province1").attr('data-proviceid', data.data[0].provinceid);
+                        $("#province1").find('span').text(data.data[0].province);
+                        selectCity(type, data.data[0].provinceid);
+
+                }
+
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+
+    }
+    /*查询所有城市*/
+    function selectCity(type,provinceID,$this) {
+        $.ajax({
+            url: pubIP + 'address/listCityByProvinceId', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            data: {provinceID: provinceID},
+            dataType: 'json',
+            success: function (data) {
+                console.log(data.data);
+                var str = '';
+                for (var i = 0; i < data.data.length; i++) {
+                    str += '<li data-index="'+i+'"  value="'+i+'" data-cityId="'+data.data[i].cityid+'" data-city="'+data.data[i].city+'">'+data.data[i].city+'</li>';
+                }
+               if(type==0){
+                   $('#city ul').html(str);
+                   $('#city ul li').click(function() {
+                       event.stopPropagation();
+                       $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                       $(this).parent().parent().attr('data-cityid', $(this).attr('data-cityid'));
+                       $(this).parent().parent().find('span').text($(this).text());
+                       $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg');
+                       $(this).parent().css('display', 'none');
+                       var cityID = $("#city").attr('data-cityid');
+                       $('#area span').text('请选择区');
+                       selectArea(type,cityID);
+                   })
+
+                   //选中第一个
+                   $("#city").attr('data-selectedindex',0);
+                   $("#city").attr('data-cityid', data.data[0].cityid);
+                   $("#city").find('span').text(data.data[0].city);
+                   selectArea(type, data.data[0].cityid);
+               }else if(type==1) {
+                   $('#city1 ul').html(str);
+                   $('#city1 ul li').click(function () {
+                       event.stopPropagation();
+                       $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                       $(this).parent().parent().attr('data-cityid', $(this).attr('data-cityid'));
+                       $(this).parent().parent().find('span').text($(this).text());
+                       $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                       $(this).parent().css('display', 'none');
+                       var cityID = $("#city1").attr('data-cityid');
+                       $('#area1 span').text('请选择区');
+                       selectArea(type,cityID);
+                   })
+                   //选中第一个
+                   $("#city1").attr('data-selectedindex',0);
+                   $("#city1").attr('data-cityid', data.data[0].cityid);
+                   $("#city1").find('span').text(data.data[0].city);
+                   selectArea(type, data.data[0].cityid);
+               }
+
+//                // 编辑回显城市
+//                if ($('#city').hasClass('id_id1')) {
+//                    var data_province = $this.parent().parent().find('td')[2];
+//                    $('#city ul li').each(function (index, element) {
+//                        if ($(this).attr('data-city') == $(data_province).attr('data-city')) {
+//                            //$(this)[0].selected = true;
+//                            $(this).parent().parent().attr("data-cityid",$(this).attr("data-cityid"));
+//                            $(this).parent().parent().attr("data-selectedindex",$(this).attr("data-index"));
+//                            $(this).parent().parent().find("span").text($(this).text());
+//                        }
+//                    });
+//
+//                    var cityID = $("#city").attr('data-cityid');
+//                    $('#area').addClass('id_id2');
+//                    selectArea(cityID, $this);
+//                }
+//                $('#city').parent().next().html('');
+
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+//    查询县
+    function selectArea(type,cityID) {
+        $.ajax({
+            url: pubIP + 'address/listAreaByCityID', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            data: {cityID: cityID},
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                var str = '';
+                for (var i = 0; i < data.data.length; i++) {
+                    str += '<li data-index="'+i+'" value="'+i+'" data-areaId="'+data.data[i].areaid+'" data-area="'+data.data[i].area+'">'+data.data[i].area+'</li>';
+                }
+
+                if(type==0){
+                    $('#area ul').html(str);
+                    $('#area ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().attr('data-areaId', $(this).attr('data-areaId'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+                        var areaID =$("#area").attr('data-areaId');
+                    });
+                    //选中第一个
+                    $("#area").attr('data-selectedindex',0);
+                    $("#area").attr('data-areaId', data.data[0].areaid);
+                    $("#area").find('span').text(data.data[0].area);
+                }else if(type==1){
+                    $('#area1 ul').html(str);
+                    $('#area1 ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().attr('data-cityid', $(this).attr('data-cityid'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+                        var areaID =$("#area1").attr('data-cityid');
+                    });
+
+                    //选中第一个
+                    $("#area1").attr('data-selectedindex',0);
+                    $("#area1").attr('data-areaId', data.data[0].areaid);
+                    $("#area1").find('span').text(data.data[0].area);
+                }
+
+//                //回显
+//                if ($('#area').hasClass('id_id2')) {
+//                    var data_province = $this.parent().parent().find('td')[2];
+//                    $('#area ul li').each(function (index, element) {
+//                        if ($(this).attr('data-area') == $(data_province).attr('data-area')) {
+//                            //  $(this)[0].selected = true;
+//                            $(this).parent().parent().attr("data-areaid",$(this).attr("data-areaid"));
+//                            $(this).parent().parent().attr("data-selectedindex",$(this).attr("data-index"));
+//                            $(this).parent().parent().find("span").text($(this).text())
+//                        }
+//                    });
+//                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
 </script>
 </body>
 </html>

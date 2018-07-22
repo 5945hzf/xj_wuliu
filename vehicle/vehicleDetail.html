@@ -27,25 +27,25 @@
         <div class="fr freshBtn cfRefresh"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷&nbsp;&nbsp;新</div>
     </div>
 
-    <div class="operator infoBox">
+    <div class="operator infoBox" id="carInfor">
         <div class="title"><img src="../img/prl-titlelogo.png" width="29" height="28" alt="">车辆信息</div>
         <div class="contBox">
             <div class="left ll">
-                <div>车&nbsp;&nbsp;牌&nbsp;&nbsp;号：<span id="carBrand">新BERER123</span></div>
-                <div>增加时间：<span>2015-09-08 12：20</span></div>
-                <div>车辆品牌：<span>XXXX牌</span></div>
-                <div>初次上牌日期：<span>2015-09-08 23:00</span></div>
+                <div>车&nbsp;&nbsp;牌&nbsp;&nbsp;号：<span id="carNo">新BERER123</span></div>
+                <div>增加时间：<span id="createTime">2015-09-08 12：20</span></div>
+                <div>车辆品牌：<span id="carBrand">XXXX牌</span></div>
+                <div>初次上牌日期：<span id="firstDate">2015-09-08 23:00</span></div>
             </div>
             <div class="left mm">
                 <div>车辆档案号：<span id="archivesNo">15544646</span></div>
-                <div>车&nbsp;&nbsp;架&nbsp;&nbsp;号：<span>15546266</span></div>
+                <div>车&nbsp;&nbsp;架&nbsp;&nbsp;号：<span id="frameNo">15546266</span></div>
                 <div>年审日期：<span id="annualVerificationDate">2015-09-08 12：20</span></div>
-                <div>保险日期：<span>2015-09-08 12：20</span></div>
+                <div>保险日期：<span id="insuranceDate">2015-09-08 12：20</span></div>
             </div>
             <div class="left rr">
                 <div>车辆类型：<span id="carType">危化-罐装车</span></div>
-                <div>发动机号：<span>126112</span></div>
-                <div>车辆载重：<span>150吨</span></div>
+                <div>发动机号：<span id="engineNo">126112</span></div>
+                <div>车辆载重：<span id="vehicleLoad">150吨</span></div>
             </div>
         </div>
     </div>
@@ -229,14 +229,26 @@
         $("#carType").text(data.carType);
         $("#annualVerificationDate").text(timestampToTime(data.annualVerificationDate));
         $("#archivesNo").text(data.archivesNo);
-
         $("#firstDate").text(timestampToTime(data.firstDate));
         $("#insuranceDate").text(timestampToTime(data.insuranceDate));
         $("#createTime").text(timestampToTime(data.createTime));
-        $("#loss").text(data.loss);
-        $("#transportDistance").text(data.transportDistance);
-        $("#fahuoAddress").text(data.sendProvince+"-"+data.sendCity+"-"+data.sendArea+"-"+data.sendAddress);
-        $("#shouhuoAddress").text(data.receiveProvince+"-"+data.receiveCity+"-"+data.receiveArea+"-"+data.receiveAddress);
+        $("#carNo").text(data.carNo);
+        $("#engineNo").text(data.engineNo);
+        $("#frameNo").text(data.frameNo);
+        $("#vehicleLoad").text(data.vehicleLoad);
+
+        var str="";
+        $.each(data1,function (idx,item) {
+            str='<div>'+item.name+'：<span>'+item.value+'</span></div>';
+            if(idx%3===0){
+                $("#carInfor .contBox .rr").append(str);
+            }else if(idx%3===1){
+                $("#carInfor .contBox .ll").append(str);
+            }else if(idx%3===2){
+                $("#carInfor .contBox .mm").append(str);
+            }
+
+        })
     }
 
 
