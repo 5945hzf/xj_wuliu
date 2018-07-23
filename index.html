@@ -25,54 +25,55 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="headerTop">
-            <div class="mianCont">
-                <div class="headerTopLeft Lf">
-                    <div>收藏本站</div>
-                    <div>您好,游客</div>
-                    <div><a href="login.html">登&nbsp;&nbsp;录</a><i style="margin: 0 20px;">|</i><a href="registert.html">注&nbsp;&nbsp;册</a></div>
-                </div>
-                <div class="headerTopRight Rt">
-                    <ul>
-                        <li>
-                            <div class="headerTopRightImg1 headerTopRightImg"></div>
-                            <div  class="Lf"><a href="account.html" class="goUser">用户中心</a></div>
-                        </li>
-                        <li class="liline"></li>
-                        <!--<li>-->
-                            <!--<div class="headerTopRightImg2 headerTopRightImg"></div>-->
-                            <!--<div  class="Lf"><a href="##">产品分类</a></div>-->
-                        <!--</li>-->
-                        <!--<li class="liline"></li>-->
-                        <li>
-                            <div class="headerTopRightImg3 headerTopRightImg"></div>
-                            <div  class="Lf"><a href="##">网址导航</a></div>
-                        </li>
-                        <li class="liline"></li>
-                        <li>
-                            <div class="headerTopRightImg4 headerTopRightImg"></div>
-                            <div class="Lf"><a href="javascript:;">供应商入驻</a></div>
-                        </li>
-                    </ul>
-                </div>
+<header>
+    <div class="headerTop">
+        <div class="mianCont">
+            <div class="headerTopLeft Lf">
+                <div>收藏本站</div>
+                <div id="userNamePub"></div>
+                <div id="loginPub" style="display: none;"><a href="login.html">登&nbsp;&nbsp;录</a><i style="margin: 0 20px;">|</i><a href="registert.html">注&nbsp;&nbsp;册</a></div>
+                <div class="exit" style="display: none;">退出</div>
+            </div>
+            <div class="headerTopRight Rt">
+                <ul>
+                    <li>
+                        <div class="headerTopRightImg1 headerTopRightImg"></div>
+                        <div  class="Lf"><a href="account.html" class="goUser">用户中心</a></div>
+                    </li>
+                    <li class="liline"></li>
+                    <!--<li>-->
+                    <!--<div class="headerTopRightImg2 headerTopRightImg"></div>-->
+                    <!--<div  class="Lf"><a href="##">产品分类</a></div>-->
+                    <!--</li>-->
+                    <!--<li class="liline"></li>-->
+                    <li>
+                        <div class="headerTopRightImg3 headerTopRightImg"></div>
+                        <div  class="Lf"><a href="">网址导航</a></div>
+                    </li>
+                    <li class="liline"></li>
+                    <li>
+                        <div class="headerTopRightImg4 headerTopRightImg"></div>
+                        <div class="Lf"><a href="javascript:;">供应商入驻</a></div>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="headerBot">
-            <div class="mianCont">
-                <div class="logo Lf" style="width: 243px;height: 63px;margin: 0;margin-right: 129px;margin-left: 30px;"></div>
-                <div class="navList Lf">
-                    <div class="cfnav cfnav1 on"><a href="./index.html">首页</a></div>
-                    <div class="cfnav cfnav2"><a href="##">明星贸易</a></div>
-                    <div class="cfnav cfnav3"><a href="./starCarrier.html">明星货运</a></div>
-                    <div class="cfnav cfnav4"><a href="##">金融租赁</a></div>
-                    <div class="cfnav cfnav5"><a href="./OAplatform.html">OA平台</a></div>
-                    <div class="cfnav cfnav6"><a href="./dangerousGoods_search.html">危化品查询</a></div>
-                    <!--<div class="cfnav cfnav7"><a href="##">交易平台</a></div>-->
-                </div>
+    </div>
+    <div class="headerBot">
+        <div class="mianCont">
+            <div class="logo Lf" style="width: 243px;height: 63px;margin: 0;margin-right: 129px;margin-left: 30px;"></div>
+            <div class="navList Lf">
+                <div class="cfnav cfnav1 on"><a href="index.html">首页</a></div>
+                <div class="cfnav cfnav2"><a href="starTrade.html">明星货主</a></div>
+                <div class="cfnav cfnav3"><a href="starCarrier.html">明星货运</a></div>
+                <div class="cfnav cfnav4"><a href="##">金融服务</a></div>
+                <!--<div class="cfnav cfnav5"><a href="./OAplatform.html">OA平台</a></div>-->
+                <div class="cfnav cfnav6"><a href="dangerousGoods_search.html">危化品查询</a></div>
+                <div class="cfnav cfnav7"><a href="##">交易平台</a></div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
     <!-- 轮播 -->
     <div class="swiperBox">
         <div class="swiper-container">
@@ -460,11 +461,38 @@
     </footer>
 
 <script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="./js/swiper-3.4.2.min.js"></script>
+<script src="js/swiper-3.4.2.min.js"></script>
 <script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 
 
 <script type="text/javascript" >
+    $(function () {
+        $.ajax({
+            type:"post",
+            url:pubIP+"user/getUserInfoByToken",//v1.0
+            cache:false,
+            dataType: "json",
+            async:false,
+            headers: {
+                token: localStorage.getItem("token")
+            },
+            success: function(json){
+                //console.log(json);
+                if(json.code == '1'){
+                    $("#loginPub").hide();
+                    $(".exit").show();
+                    $('#userNamePub').html('你好，'+json.data.loginName);
+                }else{
+                    $("#loginPub").show();
+                    $(".exit").hide();
+                }
+            },
+            error:function(xhr,statues,error){
+
+            }
+        });
+
+    })
 
     $(".cfnav").click(function () {
         $(".cfnav").removeClass("on");
@@ -478,7 +506,57 @@
         $(this).toggleClass('actived');
     });
     // 初始化swiper
-    window.onload=function(){
+//    window.onload=function(){
+//        var mySwiper = new Swiper('.swiper-container', {
+//            loop: true,
+//            autoplay :2000,
+//            pagination: '.swiper-pagination-custom',
+//            paginationType: 'custom',
+//            paginationCustomRender: function (swiper, current, total) {
+//                console.log(total, current)
+//                var customPaginationHtml = "";
+//                for(var i = 0; i < total; i++) {
+//                    //判断哪个分页器此刻应该被激活
+//                    if(i == (current - 1)) {
+//                        customPaginationHtml += '<span class="swiper-pagination-customs swiper-pagination-customs-active"></span>';
+//                    } else {
+//                        customPaginationHtml += '<span class="swiper-pagination-customs"></span>';
+//                    }
+//                    $('.swiper-pagination-custom').css({'width': 45*total+'px','margin-left':-45*total/2+'px'});
+//                }
+//                return customPaginationHtml;
+//            }
+//
+//        });
+//        // animate
+//        var $animate = $('#animate');
+//        var $opposite = $('#opposite');
+//        $(".wrap").hover(function(){
+//            $animate.removeClass();
+//            $opposite.removeClass();
+//            $animate.addClass("test");
+//            $opposite.addClass('test2');
+//        },function(){
+//            $animate.removeClass();
+//            $opposite.removeClass();
+//            $animate.addClass("test2");
+//            $opposite.addClass('test');
+//        });
+//
+//        $(".ourProduct li").hover(function(){
+//            $(this).find(".front").children().removeClass();
+//            $(this).find(".back").children().removeClass();
+//            $(this).find(".front").children().addClass("test");
+//            $(this).find(".back").children().addClass('test2');
+//        },function(){
+//            $(this).find(".front").children().removeClass();
+//            $(this).find(".back").children().removeClass();
+//            $(this).find(".front").children().addClass("test2");
+//            $(this).find(".back").children().addClass('test');
+//        });
+//
+//    }
+    $(function (){
         var mySwiper = new Swiper('.swiper-container', {
             loop: true,
             autoplay :2000,
@@ -486,17 +564,17 @@
             paginationType: 'custom',
             paginationCustomRender: function (swiper, current, total) {
                 console.log(total, current)
-                var customPaginationHtml = "";  
-                for(var i = 0; i < total; i++) {  
-                    //判断哪个分页器此刻应该被激活  
-                    if(i == (current - 1)) {  
-                        customPaginationHtml += '<span class="swiper-pagination-customs swiper-pagination-customs-active"></span>';  
-                    } else {  
-                        customPaginationHtml += '<span class="swiper-pagination-customs"></span>';  
-                    }  
+                var customPaginationHtml = "";
+                for(var i = 0; i < total; i++) {
+                    //判断哪个分页器此刻应该被激活
+                    if(i == (current - 1)) {
+                        customPaginationHtml += '<span class="swiper-pagination-customs swiper-pagination-customs-active"></span>';
+                    } else {
+                        customPaginationHtml += '<span class="swiper-pagination-customs"></span>';
+                    }
                     $('.swiper-pagination-custom').css({'width': 45*total+'px','margin-left':-45*total/2+'px'});
-                }  
-                return customPaginationHtml;  
+                }
+                return customPaginationHtml;
             }
 
         });
@@ -526,8 +604,8 @@
             $(this).find(".front").children().addClass("test2");
             $(this).find(".back").children().addClass('test');
         });
-        
-    }
+
+    })
     //发布空车
     function getOrder() {
         sessionStorage.setItem("cfsrc","./statistics/dataIndex.html");

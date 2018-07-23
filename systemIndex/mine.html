@@ -12,14 +12,40 @@
     <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
     <link rel="stylesheet" type="text/css" href="../css/mine.css"/>
     <style>
+        .mineLeft{width: 708px;}
+        .cf_btn{width: 120px;text-align: center;height: 40px;line-height: 40px;border-radius: 3px;background-color: #6ba1ff;color: white;}
+        .cf_btn:hover{background-color: #508aff;}
+        .cf_btn img{vertical-align: text-bottom;margin-right: 5px;}
 
+        .condition{margin-top: 15px;}
+        .time{border-radius: 5px;overflow: hidden;width: 269px;height: 38px;line-height: 38px;border: 1px solid #f1f0f1;}
+        .time .cf_btn{border-radius: 0;width: 89px;height: 38px;border-right: 1px solid #f1f0f1;background-color: #ffffff;color: #282828;font-size: 14px;}
+        .time .cf_btn:hover{background-color: #6ba1ff;color: white;}
+        .dataTime{margin-left: 20px;float: right;}
+
+        .orderItem{width: 90px; height: 90px;background-color: #6ba1ff;color: white;float: left;padding: 20px;margin-right: 14px;margin-top: 15px;}
+        .orderItem:hover{background-color: #488bff;color: white;}
+        .orderStatus{font-size: 12px;}
+        .orderStatus img{vertical-align: text-bottom;}
+        .orderNumber{font-size: 36px;font-weight: bold;}
+
+
+        .totalItem{width: 315px;height: 124px;border: 1px solid #f1f0f1;margin-top: 15px;margin-right: 8px;}
+        .totalLeft{border-right:1px solid #f1f0f1; height: 125px;padding: 0 15px;}
+        .totalTitle{width: 70px;height: 22px;line-height: 22px;border-radius: 11px;font-size: 12px;margin-top: 10px;}
+        .totalNumber{font-size: 45px;margin-top: 33px;}
+        .totalImgs{text-align: center;margin-top: 28px;}
+        .totalRight{padding-left: 10px;}
+
+        .myEacheerts{height: 249px;width: 668px;padding: 20px;border: 1px solid #f1f0f1;margin-top: 18px;}
+        .conTitleLeft img{margin-right: 2px;}
     </style>
 
 
 
 </head>
 <body>
-<div class="container">
+<div class="container clearFloat">
     <div class="mineLeft">
         <div class="mineLeftHeader">
             <div class="headerImgLe Lf" >
@@ -49,146 +75,167 @@
                         <i>危化</i>
                     </div>
                 </div>
-                <div class="fabu" onclick="window.location.href='../statistics/depart.html'"><img src="../img/cf_feiji.png" alt="">&nbsp;&nbsp;发布信息</div>
+                <div class="fabu" onclick="window.location.href='../statistics/depart.html'"><img src="../img/cf_feiji.png" alt="">&nbsp;&nbsp;发布空车</div>
             </div>
         </div>
         <div class="notice">
             <img src="../img/cf_laba2.png" alt="">
-            <i>加强体系建设，提升监督效能——学习贯彻习近平总书记在中央审计委员会第一次会议重要讲话</i>
+            <i style="color: red;">加强体系建设，提升监督效能——学习贯彻习近平总书记在中央审计委员会第一次会议重要讲话</i>
         </div>
 
-        <div class="MsgList">
-            <div class="msg1">
-                <img src="../img/cf_msg1.png" alt="">
-                <div class="Lf">
-                    <div>未读消息</div>
-                    <div class="num">99999</div>
-                </div>
+        <div class="condition clearFloat">
+            <div class="time clearFloat Lf">
+                <div class="cf_btn Lf">最近七日</div>
+                <div class="cf_btn Lf">最近一月</div>
+                <div class="cf_btn Lf" style="border-right: none;">最近三月</div>
             </div>
-            <div class="msg2">
-                <img src="../img/cf_msg2.png" alt="">
-                <div class="Lf">
-                    <div>昨日收账</div>
-                    <div class="num">99999</div>
-                </div>
+            <div class="dataTime Lf">
+                <span style="color: #666666;font-size: 14px;margin-right: 5px;">检索条件</span>
+                <input type="text" class="date-input laydate-icon kuang start" style="width: 129px;height: 38px;" placeholder="请选择日期" id="test1">
+                <span style="height: 38px;line-height: 38px;">&nbsp;-&nbsp; </span>
+                <input type="text" class="date-input laydate-icon kuang end" style="width: 129px;height: 38px;" placeholder="请选择日期" id="test2">
             </div>
-            <div class="msg3">
-                <img src="../img/cf_msg3.png" alt="">
-                <div class="Lf">
-                    <div>昨日出账</div>
-                    <div class="num">99999</div>
+            <div class="Rt cfRefresh" style="width: 92px;height: 36px;border: 1px solid #f1f1f1;line-height: 36px;margin-top: 4px;"><img style="margin: 12px 5px 0 15px;" src="../img/cf_shuaxin.png" alt="">刷新</div>
+        </div>
+        <div class="orderList clearFloat">
+            <div class="orderItem">
+                <div class="orderStatus">
+                    <img src="../img/cf_wenhao.png" alt=""><span>待确认</span>
                 </div>
+                <div style="text-align: center;margin-top: 12px;"><span class="orderNumber">2</span><span style="font-size: 16px;">笔</span></div>
+                <div style="font-size: 14px;text-align: center"><span class="orderWeight">20.00</span><span>吨</span></div>
             </div>
-            <div class="msg4">
-                <img src="../img/cf_msg4.png" alt="">
-                <div class="Lf">
-                    <div>可提现金额</div>
-                    <div class="num">99999</div>
+            <div class="orderItem">
+                <div class="orderStatus">
+                    <img src="../img/cf_wenhao.png" alt=""><span>未合作订单</span>
                 </div>
+                <div style="text-align: center;margin-top: 12px;"><span class="orderNumber">2</span><span style="font-size: 16px;">笔</span></div>
+                <div style="font-size: 14px;text-align: center"><span class="orderWeight">20.00</span><span>吨</span></div>
             </div>
-
+            <div class="orderItem">
+                <div class="orderStatus">
+                    <img src="../img/cf_wenhao.png" alt=""><span>已合作</span>
+                </div>
+                <div style="text-align: center;margin-top: 12px;"><span class="orderNumber">2</span><span style="font-size: 16px;">笔</span></div>
+                <div style="font-size: 14px;text-align: center"><span class="orderWeight">20.00</span><span>吨</span></div>
+            </div>
+            <div class="orderItem">
+                <div class="orderStatus">
+                    <img src="../img/cf_wenhao.png" alt=""><span>待分配</span>
+                </div>
+                <div style="text-align: center;margin-top: 12px;"><span class="orderNumber">2</span><span style="font-size: 16px;">笔</span></div>
+                <div style="font-size: 14px;text-align: center"><span class="orderWeight">20.00</span><span>吨</span></div>
+            </div>
+            <div class="orderItem" style="margin-right: 0">
+                <div class="orderStatus">
+                    <img src="../img/cf_wenhao.png" alt=""><span>进行中订单</span>
+                </div>
+                <div style="text-align: center;margin-top: 12px;"><span class="orderNumber">2</span><span style="font-size: 16px;">笔</span></div>
+                <div style="font-size: 14px;text-align: center"><span class="orderWeight">20.00</span><span>吨</span></div>
+            </div>
+            <div class="orderItem">
+                <div class="orderStatus">
+                    <img src="../img/cf_wenhao.png" alt=""><span>完成待审核</span>
+                </div>
+                <div style="text-align: center;margin-top: 12px;"><span class="orderNumber">2</span><span style="font-size: 16px;">笔</span></div>
+                <div style="font-size: 14px;text-align: center"><span class="orderWeight">20.00</span><span>吨</span></div>
+            </div>
+            <div class="orderItem">
+                <div class="orderStatus">
+                    <img src="../img/cf_wenhao.png" alt=""><span>已完成</span>
+                </div>
+                <div style="text-align: center;margin-top: 12px;"><span class="orderNumber">2</span><span style="font-size: 16px;">笔</span></div>
+                <div style="font-size: 14px;text-align: center"><span class="orderWeight">20.00</span><span>吨</span></div>
+            </div>
+            <div class="orderItem" style="margin-right: 0;">
+                <div class="orderStatus">
+                    <img src="../img/cf_wenhao.png" alt=""><span>结束订单</span>
+                </div>
+                <div style="text-align: center;margin-top: 12px;"><span class="orderNumber">2</span><span style="font-size: 16px;">笔</span></div>
+                <div style="font-size: 14px;text-align: center"><span class="orderWeight">20.00</span><span>吨</span></div>
+            </div>
         </div>
 
-        <div class="need">
-            <div>
-                <div>发布需求</div>
-                <div class="num">50</div>
+        <div class="totalList clearFloat">
+            <div class="totalItem Lf">
+                <div class="Lf totalLeft clearFloat">
+                    <div class="totalImgs">
+                        <img src="../img/cf_total1.png" alt="">
+                    </div>
+                    <div class="totalTitle cf_btn" style="background-color: #FF9F59;">订单数</div>
+                </div>
+                <div class="Lf totalRight">
+                    <div class="Lf totalNumber" style="color: #FF9F59;">7</div>
+                    <div class="Lf" style="margin-top: 44px;">
+                        <div>笔</div>
+                        <div><span class="totalWeight">1000.00</span><span>吨</span></div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <div>待确认需求</div>
-                <div class="num">21</div>
+            <div class="totalItem Rt">
+                <div class="Lf totalLeft clearFloat">
+                    <div class="totalImgs">
+                        <img src="../img/cf_total2.png" alt="">
+                    </div>
+                    <div class="totalTitle cf_btn" style="background-color: #FF6767;">在途车辆</div>
+                </div>
+                <div class="Lf totalRight">
+                    <div class="Lf totalNumber" style="color: #FF4242;">24</div>
+                    <div class="Lf" style="margin-top: 44px;">
+                        <div>笔</div>
+                        <div><span class="totalWeight">1000.00</span><span>吨</span></div>
+                    </div>
+                </div>
             </div>
-            <div class="line1"></div>
-            <div>
-                <div>已合作</div>
-                <div class="num">14</div>
+            <div class="totalItem Lf">
+                <div class="Lf totalLeft clearFloat">
+                    <div class="totalImgs">
+                        <img src="../img/cf_total3.png" alt="">
+                    </div>
+                    <div class="totalTitle cf_btn" style="background-color: #ACD180;">总金额</div>
+                </div>
+                <div class="Lf totalRight">
+                    <div class="Lf totalNumber" style="color: #84C339;">9</div>
+                    <div class="Lf" style="margin-top: 44px;">
+                        <div>笔</div>
+                        <div><span class="totalWeight">1000.00</span><span>吨</span></div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <div>待分配</div>
-                <div class="num">31</div>
+            <div class="totalItem Rt">
+                <div class="Lf totalLeft clearFloat">
+                    <div class="totalImgs">
+                        <img src="../img/cf_total4.png" alt="">
+                    </div>
+                    <div class="totalTitle cf_btn" style="background-color: #DC715B;">已结算</div>
+                </div>
+                <div class="Lf totalRight">
+                    <div class="Lf totalNumber" style="color: #DC715B">4</div>
+                    <div class="Lf" style="margin-top: 44px;">
+                        <div>笔</div>
+                        <div><span class="totalWeight">1000.00</span><span>吨</span></div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <div>进行中</div>
-                <div class="num">13</div>
-            </div>
-            <div>
-                <div>确认收货</div>
-                <div class="num">34</div>
-            </div>
-            <div>
-                <div>回款审核</div>
-                <div class="num">91</div>
-            </div>
-            <div>
-                <div>财务待结算</div>
-                <div class="num">03</div>
+            <div class="totalItem Lf clearFloat">
+                <div class="Lf totalLeft clearFloat">
+                    <div class="totalImgs">
+                        <img src="../img/cf_total5.png" alt="">
+                    </div>
+                    <div class="totalTitle cf_btn" style="background-color: #86B2FF;">待结算</div>
+                </div>
+                <div class="Lf totalRight">
+                    <div class="Lf totalNumber" style="color: #4F8BF3;">25</div>
+                    <div class="Lf" style="margin-top: 44px;">
+                        <div>笔</div>
+                        <div><span class="totalWeight">1000.00</span><span>吨</span></div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div style="margin-top: 10px;color: #666666;font-size: 14px;">常用功能</div>
-        <div class="GNList">
-            <div class="GN1 GN">
-                <i>广告位购买</i>
-                <img src="" alt="">
-            </div>
-            <div class="GN2 GN">
-                <i>发布订单</i>
-                <img src="" alt="">
-            </div>
-            <div class="GN3 GN">
-                <i>平台充值</i>
-                <img src="" alt="">
-            </div>
-            <div class="GN4 GN">
-                <i>平台提现</i>
-                <img src="" alt="">
-            </div>
-            <!--<div class="GN5 GN">-->
-                <!--<i>订单列表</i>-->
-                <!--<img src="" alt="">-->
-            <!--</div>-->
-            <!--<div class="GN6 GN">-->
-                <!--<i>保证金申请</i>-->
-                <!--<img src="" alt="">-->
-            <!--</div>-->
-            <!--<div class="GN7 GN">-->
-                <!--<i>平台充值</i>-->
-                <!--<img src="" alt="">-->
-            <!--</div>-->
-            <!--<div class="GN8 GN">-->
-                <!--<i>平台提现</i>-->
-                <!--<img src="" alt="">-->
-            <!--</div>-->
+        <div class="myEacheerts clearFloat" id="myEacheerts">
 
-        </div>
-
-        <div style="margin-top: 10px;color: #666666;font-size: 14px;margin-bottom: 5px;">更多服务</div>
-
-        <div class="serverList">
-            <div class="ser ser1">
-                <div class="imgs">
-                    <img src="../img/cf_ser1.png" alt="">
-                </div>
-                <div class="chTitle">OA管理</div>
-                <div class="EngTitle">OA management </div>
-                <div class="moreSer">更多平台管理 <img src="../img/cf_more.png" alt=""></div>
-            </div>
-            <div class="ser ser2">
-                <div class="imgs">
-                    <img src="../img/cf_ser2.png" alt="">
-                </div>
-                <div class="chTitle">广告展示</div>
-                <div class="EngTitle">Advertising display</div>
-                <div class="moreSer">更多商业机会 <img src="../img/cf_more.png" alt=""></div>
-            </div>
-            <div class="ser ser3">
-                <div class="imgs">
-                    <img src="../img/cf_ser3.png" alt="">
-                </div>
-                <div class="chTitle">交易商城</div>
-                <div class="EngTitle">Trading mall</div>
-                <div class="moreSer">更快捷 更方便 <img src="../img/cf_more.png" alt=""></div>
-            </div>
         </div>
     </div>
     <div class="mainRight">
@@ -256,13 +303,42 @@
 <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
-
-
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script type="text/javascript" >
     //Iframe 的高度
     $(function () {
-        window.parent.$("#Iframe").css("height","858");
+        window.parent.$("#Iframe").css("height","1315");
     })
+
+    laydate({
+        elem: '#test1',
+        format: 'YYYY-MM-DD',
+        istime: true,
+        choose: function(dates){ //选择好日期的回调
+            startTime1 = dates;
+        }
+    })
+    laydate({
+        elem: '#test2',
+        format: 'YYYY-MM-DD',
+        istime: true,
+        choose: function(dates){ //选择好日期的回调
+            endTime1 = dates;
+        }
+    })
+
+    function lay(id) {
+        laydate({
+            elem: '#'+id,
+            format: 'YYYY-MM-DD',
+            istime: true,
+            choose: function(dates){ //选择好日期的回调
+                /*endTime1 = dates;*/
+            }
+        })
+    }
 
     $(".cfnav").click(function () {
         $(".cfnav").removeClass("on");
@@ -292,6 +368,87 @@
         });
     })
 
+</script>
+
+<!-- 柱形图 -->
+<script type="text/javascript">
+    var dom = document.getElementById("myEacheerts");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    app.title = '堆叠柱状图';
+
+    option = {
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        legend: {
+            data:[
+                {name:'新成交客户', icon:'circle'},
+                {name:'老成交客户', icon:'circle'}
+            ]
+
+        },
+        grid: {
+            left: '0%',
+            right: '0%',
+            bottom: '0%',
+            top:"5%",
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ['9-12','9-13','9-14','9-15','9-16','9-17','9-18','9-19','9-20','9-21']
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value'
+            }
+        ],
+        series : [
+            {
+                name:'',
+                type:'bar',
+                barWidth : 25,
+                stack: '新成交客户',
+                // color: '#FD7725',
+                data:[1, 2, 3, 30, 8, 9, 10, 13, 15, 7],
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0,0,0,1,[
+                            {offset: 1, color: '#ff635f'},
+                            {offset: 0, color: '#ff8880'}
+                        ])
+                    }
+                }
+            },
+//                {
+//                    name:'新成交客户',
+//                    type:'bar',
+//                    stack: '新成交客户',
+//                    // color: '#61FFFE',
+//                    data:[0, 0, 0, 0, 0, 0, 3, 4, 10, 6],
+//                    itemStyle: {
+//                        normal: {
+//                            color: new echarts.graphic.LinearGradient(0,0,0,1,[
+////                                {offset: 0, color: '#61FFFE'},
+////                                {offset: 1, color: '#3CA8E5'}
+//                            ])
+//                        }
+//                    }
+//                }
+
+        ]
+    };
+    ;
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
 </script>
 </body>
 </html>

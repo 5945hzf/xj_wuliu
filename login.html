@@ -82,6 +82,7 @@
 		</style>
 	</head>
 	<body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/header.js" type="text/javascript" charset="utf-8"></script>
 		<!--<div class="maxWidth headBox">-->
 			<!--<div class="mianCont">-->
@@ -185,7 +186,7 @@
 		window.onload = function(){
 			localStorage.setItem("token","");
 		}
-				var isAuto=0;
+		var isAuto=0;
 
 		  var mySwiper = new Swiper ('.swiper-container', {
 			    loop: true,
@@ -206,7 +207,7 @@
                   }
                   $(this).toggleClass("active");
               })
-              $(".mainCenter") .css({"background-image":"url(../img/cf_loginBackGround.png)","background-size":"cover","min-width":"1230px","background-position":"center center"});
+              $(".mainCenter") .css({"background-image":"url(img/cf_loginBackGround.png)","background-size":"cover","min-width":"1230px","background-position":"center center"});
 //              $(".mainCenter") .css("background-size","cover");
           })
           
@@ -240,11 +241,11 @@
           	var pwd = $('#pwd').val();
           	if(user == ''){
           		//alert('请输入手机/用户名！');
-                $(".error").eq(0).css('background', 'url(../img/input_warning.png) no-repeat').css('background-position', 'left').text('请输入手机号/用户名！');
+                $(".error").eq(0).css('background', 'url(img/input_warning.png) no-repeat').css('background-position', 'left').text('请输入手机号/用户名！');
           		return false;
           	}else if(pwd == ''){
           		//alert('请输入密码！');
-                $(".error").eq(0).css('background', 'url(../img/input_warning.png) no-repeat').css('background-position', 'left').text('请输入密码！');
+                $(".error").eq(0).css('background', 'url(img/input_warning.png) no-repeat').css('background-position', 'left').text('请输入密码！');
           		return false;
           	}
           	$.ajax({ 

@@ -9,7 +9,7 @@
     <meta name="format-detection" content="telephone=no" />
     <title>新疆物流服务平台</title>
     <link rel="stylesheet" type="text/css" href="css/commin.css"/>
-    <link rel="stylesheet" href="./css/starCarrier.css">
+    <link rel="stylesheet" href="./css/starTrade.css">
     <style>
         #type span{
             width: 406px;
@@ -22,7 +22,7 @@
 <script src="js/header.js" type="text/javascript" charset="utf-8"></script>
 <div class="mianCont" style="margin-top: 10px;padding-bottom:16px;">
     <div class="leftTab">
-        <div class="tabHead">金牌货运</div>
+        <div class="tabHead">金牌货主</div>
         <ul id="tuijian">
             <li class="active">物流公司甲</li>
             <li>物流公司乙</li>
@@ -126,24 +126,11 @@
                 <button type="button" class="button">GO</button>
             </div>
         </div>
-        <!--<div class="pagesBox">-->
-            <!--<span>GO</span>-->
-            <!--<input type="text">-->
-            <!--<ul>-->
-                <!--<li class="actived">1</li>-->
-                <!--<li>2</li>-->
-                <!--<li>3</li>-->
-                <!--<li>4</li>-->
-                <!--<li>5</li>-->
-                <!--<li>下一页</li>-->
-                <!--<li>末页</li>-->
-            <!--</ul>-->
-        <!--</div>-->
     </div>
 </div>
 
 <script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+
 <script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 
@@ -151,13 +138,13 @@
 <script type="text/javascript" >
     $(function () {
         $(".cfnav").removeClass("on");
-        $(".cfnav3").addClass("on");
+        $(".cfnav2").addClass("on");
     })
 
 
     var currentPage=1;
     //进入页面加载数据
-    getProvence();//获取省市县三级 ---》获取类型  ----》获取数据列表
+    getProvence();//获取省----》获取类型------》获取数据列表
     getTuijian();//获取推荐
 
     //获取数据
@@ -176,7 +163,7 @@
             data:{
                 size:pageSize,
                 page:currentPage,
-                ty:4,//1:明星贸易 2:明星货运
+                ty:1,//1:明星贸易 2:明星货运
                 cityId:$("#cityList .actived").attr("data-proviceid"),
                 type:$("#type .actived").attr("data-type_id"),
                 companyName:$("#companyName").val(),
@@ -246,7 +233,7 @@
         //详情
         $(".carrierList li").click(function () {
             sessionStorage.setItem("detailId",$(this).attr("data-id"));
-            window.location.href="./freightDetails.html";
+            window.location.href="./starTradeDetail.html";
         })
     }
 

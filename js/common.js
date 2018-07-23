@@ -84,6 +84,34 @@ function popEffectLogin() {
 		}
 	}
 }
+//退出 按钮
+$(document).on('click', '.exit', function() {
+    $.ajax({
+        type: "get",
+        url: pubIP + "user/logoutByToken",//v1.0
+        cache: false,
+        dataType: "json",
+        headers: {
+            token: localStorage.getItem("token")
+        },
+        success: function (data) {
+            console.log(data);
+            if (data.code == 1) {
+                window.localStorage.removeItem('token');
+                console.log(window.localStorage.getItem('isOld'));
+                // window.localStorage.setItem('data-logout', 'true');
+                $('.exit').hide();
+                $("#loginPub").show();
+                $('#userNamePub').html('你好，游客');
+                location.href = 'login.html';
+            }
+
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+})
 
 function cf_popEffectClose1(that) {
 	$(that).parent().parent().parent().css("display","none");
@@ -205,6 +233,9 @@ function cf_popEffectClose1(that) {
 //		}
 //	}
 //}
+
+
+
 // 模拟下拉框
 $('.select').click(function(event){
     if($(this).children('img').attr('src') == '../img/prl-selected.jpg'){
