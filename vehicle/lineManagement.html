@@ -129,6 +129,7 @@
     getData(1);
     //获取数据
     function getData(currentPage) {
+        $(".listBox tbody").html("");//必须先置空
         $.ajax({
             url: pubIP + 'tLogisticsVehicleRoute/selectVehicleRouteList', /*v1.0*/
             type: 'post',
@@ -149,6 +150,7 @@
                 if(res.code===1){
                     //首次请求时 改变分页数据
                     if(res.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
+                    $(".pagination").parent().css("display","block");
                     if(currentPage===1 ){
                         //修改底部分页
                         //debugger

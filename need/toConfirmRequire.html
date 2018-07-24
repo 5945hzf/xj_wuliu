@@ -211,14 +211,6 @@
 
 
 
-
-        //查看详情
-        $(".seeDetail").click(function () {
-            window.location.href="./toConfirmRequire-detail.html";
-        })
-
-
-
         //搜索按钮
         $(".searchResultBtn").click(function () {
             getData(1);
@@ -231,7 +223,7 @@
         function getData(currentPage) {
             $(".listBox tbody").html("");//所有条件查询列表 必须先置空
             $.ajax({
-                url: pubIP + 'wlLogisticsDemand/queryPageForConfirmedByCarrier', /*v1.0*/
+                url: pubIP + 'wlLogisticsDemand/queryPageForConfirmedBySupplier', /*v1.0*/
                 type: 'get',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -251,10 +243,11 @@
                     if(res.code===1){
                         //首次请求时 改变分页数据
                         if(res.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
+                        $(".pagination").parent().css("display","block");
                         if(currentPage===1){
                             //修改底部分页
                             //debugger
-                            var pageNum=Math.ceil(res.total/pageSize);
+                            var pageNum=Math.ceil(res.data.total/pageSize);
                             $(".allPageN").attr("pageTotal",pageNum);
                             $(".pageJump i").text("共"+pageNum+"页");
                             $('.objListBox>div:nth-child(5n)').css('margin-right','0');
@@ -270,7 +263,7 @@
                         }
                         //修改底部页数
                         $(".allPageN").text((currentPage)+"/"+ $(".allPageN").attr("pageTotal"));
-                        cf_dataRender(res.data)
+                        cf_dataRender(res.data.data)
                     }else{
                         alert(res.msg);
                     }
@@ -288,7 +281,7 @@
                 str+='<td><div class="cf_select"></div></td>';
                 str+='<td>'+item.transactionOrderId+'</td>';
                 str+='<td>'+item.createtime+'</td>';
-                str+='<td>'+item.createtime+'</td>';//需要改成报价时间字段
+                str+='<td>'+item.quotedTime+'</td>';//需要改成报价时间字段
                 str+='<td>'+item.goodsType+'</td>';
                 str+='<td>'+item.goodsName+'</td>';
                 str+='<td>'+item.sendProvince+'-'+item.sendCity+'</td>';

@@ -1,6 +1,7 @@
 //var pubIP = 'http://api.xjv56.com/service/';
-var pubIP = 'http://192.168.1.80:7777/service/';
-var pubIP = 'http://192.168.1.199:7777/service/';
+
+// var pubIP = 'http://192.168.1.199:7777/service/';
+var pubIP = 'https://xj.wl.api.hg.jergavin.com/service/';
 //var token = 'ceshi123456';
 var token=localStorage.getItem("token");
 var pageSize=10;//分页的每页个数
@@ -316,7 +317,8 @@ $(function () {
         }
     })
 })
-
+//查询按钮 统一设置样式
+$(".searchResultBtn.btn.input").css({"float":"right","margin-top":"11px","margin-left":"0","margin-right":"8px"});
 //     $(this).parent().css('display','none');
 // });
 

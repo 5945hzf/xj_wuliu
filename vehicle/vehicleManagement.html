@@ -126,6 +126,7 @@ var currentPage=1;
     getData(1);
 	//获取数据
     function getData(currentPage) {
+        $(".listBox tbody").html("");
         $.ajax({
             url: pubIP + 'tLogisticsVehicle/selectLogisticsVehicleList', /*v1.0*/
             type: 'post',
@@ -146,6 +147,7 @@ var currentPage=1;
                 if(res.code===1){
                     //首次请求时 改变分页数据
                     if(res.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
+                    $(".pagination").parent().css("display","block");
                     if(currentPage===1){
                         //修改底部分页
 						//debugger
