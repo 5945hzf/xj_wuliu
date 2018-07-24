@@ -290,6 +290,14 @@ $(".cfRefresh").click(function () {
 $(".cf_select").click(function () {
     $(this).toggleClass("on");
 })
+//全选
+$('.cf_selsectAll').click(function(){
+    if($(this).hasClass("on")){
+        $(this).parent().prev().find("table").find(".cf_select").addClass("on");
+    }else{
+        $(this).parent().prev().find(".cf_select").removeClass("on");
+    }
+});
 
 $(function () {
     //分页的  下面框的宽度

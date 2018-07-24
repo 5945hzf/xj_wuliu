@@ -114,7 +114,7 @@
                         <th>货物名称</th>
                         <th>始发地</th>
                         <th>目的地</th>
-                        <th>保证金</th>
+                        <!--<th>保证金</th>-->
                         <th>操作</th>
                     </tr>
                 </thead>
@@ -147,7 +147,7 @@
             </table>
         </div>
         <div class="bottomOperiat">
-            <span class="squre"></span>
+            <span class="cf_select cf_selsectAll"></span>
             <span class="selsectAll">全选</span>
             <span class="closeBtn">关闭订单</span>
             <span class="delBtn">删除订单</span>
@@ -216,22 +216,23 @@
         $(".seeDetail").click(function () {
             window.location.href="./toConfirmRequire-detail.html";
         })
-        // 模拟单选按钮
-        $('.bottomOperiat .squre').click(function(){
-            $(this).toggleClass('active');
-        });
-        $('.bottomOperiat .selsectAll').click(function(){
-            $('.bottomOperiat .squre').toggleClass('active');
-        });
+
+
+
+        //搜索按钮
+        $(".searchResultBtn").click(function () {
+            getData(1);
+        })
 
         var currentPage=1;
         //进入页面加载数据
         getData(1);
         //获取数据
         function getData(currentPage) {
+            $(".listBox tbody").html("");//所有条件查询列表 必须先置空
             $.ajax({
                 url: pubIP + 'wlLogisticsDemand/queryPageForConfirmedByCarrier', /*v1.0*/
-                type: 'post',
+                type: 'get',
                 headers: {
                     Accept: "application/json; charset=utf-8",
                     //token: token
@@ -242,8 +243,8 @@
                 data:{
                     companyId:companyId,
                     pageSize:pageSize,
-//                    demandNo:$("input.orderNo.input").val(),
-//                    startDate:$(".startDate").val(),
+                    demandNo:$("input.orderNo.input").val(),
+                    startDate:$(".startDate").val(),
                     pageIdx:currentPage
                 },
                 success: function (res) {
@@ -253,8 +254,7 @@
                         if(currentPage===1){
                             //修改底部分页
                             //debugger
-
-                            var pageNum=Math.ceil(res.count/pageSize);
+                            var pageNum=Math.ceil(res.total/pageSize);
                             $(".allPageN").attr("pageTotal",pageNum);
                             $(".pageJump i").text("共"+pageNum+"页");
                             $('.objListBox>div:nth-child(5n)').css('margin-right','0');
@@ -284,46 +284,42 @@
         function cf_dataRender(data) {
             var str='';
             $.each(data,function (idx,item) {
-                str+='<tr data-id="'+item.id+'">';
-                str+='<td>'+item.carNo+'</td>';
-                if(item.type===0){
-                    str+='<td>内部车辆</td>';
-                }else{
-                    str+='<td>外部车辆</td>';
-                }
-                str+='<td>'+item.carBrand+'</td>';
-                str+='<td>'+item.carType+'</td>';
-                str+='<td>'+item.archivesNo+'</td>';
-                str+='<td>'+timestampToTime(item.annualVerificationDate)+'</td>';
-                if(item.status==0){
-                    str+='<td class="chooseswitch"><input id="checked_'+idx+'" type="checkbox" name="status" class="switch" checked="checked" /><label for="checked_'+idx+'"></label></td>';
-                }else{
-                    str+='<td class="chooseswitch"><input id="checked_'+idx+'" type="checkbox"  name="status" class="switch" /><label for="checked_'+idx+'"></label></td>';
-                }
-
-                str+='<td data-id="'+item.id+'"><a class="seeDetail">车辆详情</a><a class="lookover">编辑</a><a class="delect">删除</a></td>';
+                str+='<tr data-id="'+item.transactionOrderId+'">';
+                str+='<td><div class="cf_select"></div></td>';
+                str+='<td>'+item.transactionOrderId+'</td>';
+                str+='<td>'+item.createtime+'</td>';
+                str+='<td>'+item.createtime+'</td>';//需要改成报价时间字段
+                str+='<td>'+item.goodsType+'</td>';
+                str+='<td>'+item.goodsName+'</td>';
+                str+='<td>'+item.sendProvince+'-'+item.sendCity+'</td>';
+                str+='<td>'+item.receiveProvince+'-'+item.receiveCity+'</td>';
+                str+='<td><span class="seeDetail ll">查看详情</span><span class="ll">更改报价</span></td></td>';
                 str+='</tr>';
             })
             $(".listBox tbody").html(str);
+            //模拟点击 框
+            $(".listBox .cf_select").click(function () {
+                $(this).toggleClass("on");
+            })
             //详情
             $(".seeDetail").click(function () {
-                sessionStorage.setItem("detailId",$(this).parent().attr("data-id"));
-                window.location.href="./vehicleDetail.html";
+                sessionStorage.setItem("detailId",$(this).parents("tr").attr("data-id"));
+                window.location.href="./toConfirmRequire-detail.html";
             })
-            //删除
-            $(".delect").click(function () {
-                upadtaState(1,this);
-            })
-            //启用和禁用
-            $(".chooseswitch input[type='checkbox']").change(function() {
-                console.log($(this).prop("checked"));
-                if($(this).prop("checked")){
-                    upadtaState(2,this);
-                }else {
-                    upadtaState(3,this);
-                }
-
-            });
+//            //删除
+//            $(".delect").click(function () {
+//                upadtaState(1,this);
+//            })
+//            //启用和禁用
+//            $(".chooseswitch input[type='checkbox']").change(function() {
+//                console.log($(this).prop("checked"));
+//                if($(this).prop("checked")){
+//                    upadtaState(2,this);
+//                }else {
+//                    upadtaState(3,this);
+//                }
+//
+//            });
         }
         //选择排序方式
         $(".select ul li").click(function () {

@@ -12,8 +12,18 @@
     <link rel="stylesheet" href="./css/starTrade.css">
     <style>
         #type span{
-            width: 406px;
-            text-align: left;
+            width: 256px;
+        }
+        .carrierList li .middle{
+            position: relative;
+            height: 260px;
+        }
+        .briefIntroduction{
+            position: absolute;
+            bottom: 20px;
+            max-height: 74px;
+            overflow: hidden;
+
         }
     </style>
 </head>
@@ -55,10 +65,10 @@
             <li style="border-bottom: 1px solid #dedede;">
                 <div class="left">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</div>
                 <div class="right" id="type">
-                    <span class="actived">全部</span>
-                    <span>综合服务</span>
-                    <span>广告宣传</span>
-                    <span>综合服务</span>
+                    <!--<span class="actived">全部</span>-->
+                    <span data-id="9001805260008040002">危险化学品经营许可证</span>
+                    <span data-id="9001805260008040003">危险化学品生产许可证</span>
+                    <span data-id="9001806251600150004">危险化学品使用许可证</span>
                 </div>
             </li>
             <!--<li>-->
@@ -136,6 +146,7 @@
 
 <script src="js/pager.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" >
+    //控制头部状态
     $(function () {
         $(".cfnav").removeClass("on");
         $(".cfnav2").addClass("on");
@@ -149,6 +160,14 @@
 
     //获取数据
     function getData(currentPage) {
+        var ziZhitype="";
+        var first=1;
+        $("#type .actived").each(function (idx,item) {
+            if(first!=1){
+                ziZhitype+=',';
+            }
+            ziZhitype+=$(item).attr("data-id");
+        })
         $(".carrierList").html("");//////////////////////所有的查询前必须先把列表置空
         $.ajax({
             url: pubIP + 'wltCompanyUp/selectCompanyList', /*v1.0*/
@@ -165,7 +184,7 @@
                 page:currentPage,
                 ty:1,//1:明星贸易 2:明星货运
                 cityId:$("#cityList .actived").attr("data-proviceid"),
-                type:$("#type .actived").attr("data-type_id"),
+                type:ziZhitype,
                 companyName:$("#companyName").val(),
                 address:$("#address").val()
             },
@@ -237,6 +256,12 @@
         })
     }
 
+    $("#type span").click(function () {
+        $(this).toggleClass("actived");
+//        $(this).addClass("actived");
+        currentPage=1;
+        getData(1);
+    })
     // 点击go刷新数据
     $('.pageCont').on('click', '.button',function(){
         var currentPage1 = $('.pageCont li.active>a').text();
@@ -276,7 +301,8 @@
                     currentPage=1;
                     getData(1);
                 })
-                getType();//获取类型
+                getData(1);//获取列表数据
+//                getType();//获取类型
             },
             error: function(err){
                 console.log(err);
@@ -284,7 +310,7 @@
         });
 
     }
-    //获取九大类
+    //获取九大类  这里不需要
     function getType() {
         $.ajax({
             url: pubIP + 'chemicalType/getChemicalType', /*v1.0*/
