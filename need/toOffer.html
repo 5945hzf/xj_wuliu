@@ -208,17 +208,159 @@
                 console.log(n);
             }
         });
-        //查看详情
-        $(".seeDetail").click(function () {
-            window.location.href="./toOfferDetail.html";
+
+
+        //搜索按钮
+        $(".searchResultBtn").click(function () {
+            getData(1);
         })
-        // 模拟单选按钮
-        $('.bottomOperiat .squre').click(function(){
-            $(this).toggleClass('active');
-        });
-        $('.bottomOperiat .selsectAll').click(function(){
-            $('.bottomOperiat .squre').toggleClass('active');
-        });
+
+        var currentPage=1;
+        //进入页面加载数据
+        getData(1);
+        //获取数据
+        function getData(currentPage) {
+            $(".listBox tbody").html("");//所有条件查询列表 必须先置空
+            $.ajax({
+                url: pubIP + 'wlLogisticsDemand/queryPageForConfirmedBySupplier', /*v1.0*/
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    //token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    companyId:companyId,
+                    pageSize:pageSize,
+                    demandNo:$("input.orderNo.input").val(),
+                    startDate:$(".startDate").val(),
+                    pageIdx:currentPage
+                },
+                success: function (res) {
+                    if(res.code===1){
+                        //首次请求时 改变分页数据
+                        if(res.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
+                        $(".pagination").parent().css("display","block");
+                        if(currentPage===1){
+                            //修改底部分页
+                            //debugger
+                            var pageNum=Math.ceil(res.data.total/pageSize);
+                            $(".allPageN").attr("pageTotal",pageNum);
+                            $(".pageJump i").text("共"+pageNum+"页");
+                            $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+                            Page({
+                                num: pageNum,
+                                elem: $('#page1'),
+                                callback: function(n) {
+                                    // console.log(n);
+                                    currentPage=n;
+                                    getData(n);//加载n页数据
+                                }
+                            });
+                        }
+                        //修改底部页数
+                        $(".allPageN").text((currentPage)+"/"+ $(".allPageN").attr("pageTotal"));
+                        cf_dataRender(res.data.data)
+                    }else{
+                        alert(res.msg);
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+        //渲染数据
+        function cf_dataRender(data) {
+            var str='';
+            $.each(data,function (idx,item) {
+                str+='<tr data-id="'+item.transactionOrderId+'">';
+                str+='<td><div class="cf_select"></div></td>';
+                str+='<td>'+item.transactionOrderId+'</td>';
+                str+='<td>'+item.createtime+'</td>';
+                str+='<td>'+item.quotedTime+'</td>';//需要改成报价时间字段
+                str+='<td>'+item.goodsType+'</td>';
+                str+='<td>'+item.goodsName+'</td>';
+                str+='<td>'+item.sendProvince+'-'+item.sendCity+'</td>';
+                str+='<td>'+item.receiveProvince+'-'+item.receiveCity+'</td>';
+                str+='<td><span class="seeDetail ll">查看详情</span><span class="ll">更改报价</span></td></td>';
+                str+='</tr>';
+            })
+            $(".listBox tbody").html(str);
+            //模拟点击 框
+            $(".listBox .cf_select").click(function () {
+                $(this).toggleClass("on");
+            })
+            //详情
+            $(".seeDetail").click(function () {
+                sessionStorage.setItem("detailId",$(this).parents("tr").attr("data-id"));
+                window.location.href="./toConfirmRequire-detail.html";
+            })
+//            //删除
+//            $(".delect").click(function () {
+//                upadtaState(1,this);
+//            })
+//            //启用和禁用
+//            $(".chooseswitch input[type='checkbox']").change(function() {
+//                console.log($(this).prop("checked"));
+//                if($(this).prop("checked")){
+//                    upadtaState(2,this);
+//                }else {
+//                    upadtaState(3,this);
+//                }
+//
+//            });
+        }
+        //选择排序方式
+        $(".select ul li").click(function () {
+            currentPage=1;
+            getData(1);
+        })
+        // 点击go刷新数据
+        $('.pageCont').on('click', '.button',function(){
+            var currentPage1 = $('.pageCont li.active>a').text();
+            currentPage=currentPage1;
+            getData(currentPage1);
+        })
+        //启用禁用 删除  事件
+        function upadtaState(type,that) {
+            $.ajax({
+                url: pubIP + 'tLogisticsVehicle/updateCarDoIng', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    //token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    companyId:companyId,
+                    sort:$(".sort").attr("data-selectedindex"),
+                    carId:$(that).parents("tr").attr("data-id"),
+                    type:type
+                },
+                success: function (res) {
+                    if(res.code==1){
+                        if(type==1){
+                            alert("删除车辆成功")
+                        }else if(type==2){
+                            alert("启用车辆成功")
+                        }else if(type==3){
+                            alert("禁用车辆成功")
+                        }
+                        getData(currentPage);
+                    }else{
+                        alert(res.msg);
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            })
+        }
     </script>
 </body>
 </html>

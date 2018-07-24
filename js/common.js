@@ -316,7 +316,8 @@ $(function () {
         }
     })
 })
-
+//查询按钮 统一设置样式
+$(".searchResultBtn.btn.input").css({"float":"right","margin-top":"11px","margin-left":"0","margin-right":"8px"});
 //     $(this).parent().css('display','none');
 // });
 

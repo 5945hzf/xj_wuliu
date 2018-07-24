@@ -351,7 +351,7 @@
                 var that=$(this).eq(0);
                 var text=$(this).eq(0).val();
                 $.ajax({
-                    url: pubIP + 'user/validImgCode', /*v1.0*/
+                    url: pubIP + 'userCarriers/validImgCode', /*v1.0*/
                     type: 'post',
                     headers: {
                         Accept: "application/json; charset=utf-8",
@@ -385,7 +385,7 @@
                 var text = $(this).eq(0).val();
                // $("#SMScode").attr("disabled", "disabled");
                 $.ajax({
-                    url: pubIP + 'user/validSmsCode', /*v1.0*/
+                    url: pubIP + 'userCarriers/validSmsCode', /*v1.0*/
                     type: 'post',
                     headers: {
                         Accept: "application/json; charset=utf-8",
@@ -520,7 +520,7 @@
 
                 sessionStorage["imgCodeRedisKey"]=timestamp+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10);
                 console.log(sessionStorage["imgCodeRedisKey"]);
-                $("#checkImg").attr("src",pubIP+"codeImage/ImageCodePic?imgCodeRedisKey="+sessionStorage["imgCodeRedisKey"]);
+                $("#checkImg").attr("src",pubIP+"codeImageCarriers/ImageCodePic?imgCodeRedisKey="+sessionStorage["imgCodeRedisKey"]);
             }
           //获短信取验证码前
             function getSMSCode(){
@@ -561,7 +561,7 @@
             //获短信取验证码前验证用户名
           function yanZhengUser() { //验证用户名是否存在
              $.ajax({
-                 url: pubIP + 'user/validLoginName', /*v1.0*/
+                 url: pubIP + 'userCarriers/validLoginName', /*v1.0*/
                  type: 'post',
                  headers: {
                      Accept: "application/json; charset=utf-8",
@@ -588,7 +588,7 @@
             //获短信取验证码前验证手机号
           function yanZhengPhone() { //验证手机号是否存在
               $.ajax({
-                  url: pubIP + 'user/validMobile', /*v1.0*/
+                  url: pubIP + 'userCarriers/validMobile', /*v1.0*/
                   type: 'post',
                   headers: {
                       Accept: "application/json; charset=utf-8",
@@ -615,7 +615,7 @@
             //获短信取验证码
           function getSCode() {
               $.ajax({
-                  url: pubIP + 'user/getMessageCode', /*v1.0*/
+                  url: pubIP + 'userCarriers/getMessageCode', /*v1.0*/
                   type: 'post',
                   headers: {
                       Accept: "application/json; charset=utf-8",
@@ -701,7 +701,7 @@
 			  }
 				leav=leav+parseInt(numC)+parseInt(strC)+parseInt(str_C);//安全等级
               $.ajax({
-                  url: pubIP + 'user/userRegister', /*v1.1*/
+                  url: pubIP + 'userCarriers/userRegister', /*v1.1*/
                   type: 'post',
                   headers: {
                       Accept: "application/json; charset=utf-8",
@@ -721,7 +721,7 @@
                       if(data.code==1){
                       		$.ajax({ 
 					          type:"post",
-					          url:pubIP+"user/login",//v1.0
+					          url:pubIP+"userCarriers/login",//v1.0
 					          cache:false,
 					          dataType: "json",
 					          data:{
