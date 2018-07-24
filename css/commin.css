@@ -969,6 +969,16 @@ input{line-height: 100%;}
 	background: url("../img/cf_selct.png") no-repeat;
 	background-size: 100% 100%;
 }
+.bottomOperiat .cf_select {
+	border: 1px solid #ebe9ea;
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	margin-left: 20px;
+	margin-right: 8px;
+	margin-top: 23px;
+	border-radius: 3px;
+}
 thead td,thead th{
 	font-size: 14px;
 	font-weight: bold;

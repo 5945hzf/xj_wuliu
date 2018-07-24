@@ -23,6 +23,9 @@
             background-image: url('./img/sc-1.png');
             background-size: cover;
         }
+        .dangerClass{
+            height: 133px;
+        }
     </style>
 </head>
 <body>
@@ -68,6 +71,12 @@
 
 
 <script type="text/javascript" >
+    //控制头部状态
+    $(function () {
+        $(".cfnav").removeClass("on");
+        $(".cfnav2").addClass("on");
+    })
+
     getTuijian();//获取tuijian
 
     getData();
@@ -104,7 +113,7 @@
                 }
                 str+='</div>'
                 str+='<div class="address">'+item.province+'-'+item.city+'</div>'
-                str+='<div class="briefIntroduction">企业简介：'+item.briefIntroduction+'</div>'
+//                str+='<div class="briefIntroduction">企业简介：'+item.briefIntroduction+'</div>'
                 str+='</div>'
                 $("#compInfor").html(str);
                 $(".companyDetail").html(item.briefIntroduction);
@@ -126,7 +135,7 @@
             },
             cache: false,
             data:{
-                type:'1',//1:承运商 2:供应商
+                type:'2',//1:承运商 2:供应商
             },
             ansyc: false,
             dataType: 'json',
