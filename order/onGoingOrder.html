@@ -92,6 +92,27 @@
             background-size: 100% 100%;
         }
         tr .btn{margin: 0 6px;}
+
+
+        .cfRefresh {
+            display: block; 
+        }
+        
+        .pageJump input[type="text"] {
+            text-align: center;
+            text-indent: 0px;
+        }
+
+        .cf_select {
+            background: url('');
+            cursor: pointer;
+        }
+
+        span.select_all {
+            margin-left: 21px;
+            margin-right: 7px;
+        }
+
     </style>
     
     
@@ -105,10 +126,10 @@
             <label for="">货物类型</label>
             <div class="goodsType input select" data-selectedindex="0"><span>全部</span><img src="../img/prl-select.jpg" >
                 <ul>
-                    <li data-index="1">待分配订单</li>
-                    <li data-index="2">进行中订单</li>
-                    <li data-index="3">完成待审核订单</li>
-                    <li data-index="3">已完成订单</li>
+                    <li data-index="1">全部</li>
+                    <li data-index="2">普化品</li>
+                    <li data-index="3">危化品</li>
+                    <li data-index="4">特殊品</li>
                 </ul>
             </div>
             <label for="">发车时间</label><input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1">
@@ -118,8 +139,8 @@
             <div class="select displayNum" data-selectedindex="0"><span>显示条数</span><img src="../img/prl-select.jpg" alt="">
                 <ul>
                     <li data-index="1">10</li>
-                    <li data-index="2">20</li>
-                    <li data-index="3">30</li>
+                    <li data-index="2">30</li>
+                    <li data-index="3">50</li>
                 </ul>
             </div>
             <input class="exportOrderBtn btn" type="button" value="导出订单">
@@ -140,8 +161,8 @@
                         <th>操作</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody id="orderListInfo">
+                    <!-- <tr>
                         <td><div class="cf_select"></div></td>
                         <td>3001804091631062137</td>
                         <td>2017-07-19 14:48</td>
@@ -164,13 +185,14 @@
                         <td>北京-朝阳区</td>
                         <td>100</td>
                         <td><span class="btn seeDetail">查看订单</span><span class="btn sure">确认送达</span><span class="btn updata">更改车辆</span><span class="btn cancel">取消订单</span></td>
-                    </tr>
+                    </tr> -->
 
                 </tbody>
             </table>
         </div>
         <div class="bottomOperiat">
-            <span class="squre"></span>
+            <!-- <span class="squre"></span> -->
+            <span class="select_all"><img src="../img/cf_noselect.png" alt=""></span>
             <span class="selsectAll">全选</span>
             <span class="closeBtn">关闭订单</span>
             <span class="delBtn">删除订单</span>
@@ -178,8 +200,8 @@
         <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
             <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
             <div class="pageJump">
-                <span class="allPageN">1/200</span>
-                <i style="margin-left: 12px;">共200页</i>，
+                <span class="allPageN">1/1</span>
+                <i style="margin-left: 12px;">共<span class="total">1</span>页</i>，
                 <span>到第</span>
                 <input type="text"/>
                 <span>页</span>
@@ -196,6 +218,23 @@
     <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
     <script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
+    <script src="../js/template.js"></script>
+    <script type="text/html" id="orderListTpl">
+        <%for(i in list) {%>
+        <tr>
+            <td><div class="cf_select"><img src="../img/cf_noselect.png" alt=""></div></td>
+            <td><%=list[i].orderNo%></td>
+            <td><%=list[i].tloUpdateTime%></td>
+            <td><%=list[i].goodsType%></td>
+            <td><%=list[i].goodsName%></td>
+            <td><%=list[i].goodsNum%><%=list[i].goodsUnit%></td>
+            <td><%=list[i].sendAddress%></td>
+            <td><%=list[i].receiveAddress%></td>
+            <td></td>
+            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看订单</span><span class="btn sure">确认送达</span><span class="btn updata">更改车辆</span><span class="btn cancel cancel_order" data-tloId="<%=list[i].tloId%>">取消订单</span></td>
+        </tr>
+        <%}%>
+    </script>
     <script type="text/javascript">
         //Iframe 的高度
         $(function () {
@@ -223,21 +262,220 @@
         laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
 
         $('.objListBox>div:nth-child(5n)').css('margin-right','0');
-        Page({
-            num: 200,
-            elem: $('#page1'),
-            callback: function(n) {
-                console.log(n);
+        // Page({
+        //     num: 200,
+        //     elem: $('#page1'),
+        //     callback: function(n) {
+        //         console.log(n);
+        //     }
+        // });
+        
+
+        // 点击多选框
+        $(document).on('click', '.cf_select', function() {
+
+            if ($(this).find('img').attr('src') == '../img/cf_noselect.png') {
+                $(this).find('img').attr('src', '../img/cf_selct.png');
+            } else {
+                $(this).find('img').attr('src', '../img/cf_noselect.png');
             }
+
         });
-        //查看详情
-        $(".seeDetail").click(function () {
-            window.location.href="./onGoingOrder-detail.html";
-        })
+
+        // 点击全选
+        $(document).on('click', '.bottomOperiat .select_all', function(){
+
+            if ($(this).find('img').attr('src') == '../img/cf_noselect.png') {
+                $(this).find('img').attr('src', '../img/cf_selct.png');
+
+                $('#orderListInfo .cf_select img').each(function(i ,e) {
+                    $(this).attr('src', '../img/cf_selct.png');
+                });
+
+            } else {
+                $(this).find('img').attr('src', '../img/cf_noselect.png');
+
+                $('#orderListInfo .cf_select img').each(function(i ,e) {
+                    $(this).attr('src', '../img/cf_noselect.png');
+                });
+
+            }
+
+        });
+
+
+
+        var isFirst = true;
+
+        var isSearch = 0;
+
+        // 点击进入订单详情
+        $(document).on('click', '.seeDetail', function() {
+            window.localStorage.setItem('data-companyId', $(this).attr('data-companyId'));
+            window.localStorage.setItem('data-tloId', $(this).attr('data-tloId'));
+            window.localStorage.setItem('data-orderNo', $(this).attr('data-orderNo'));
+            window.location.href = "onGoingOrder-detail.html";
+
+        });
+
+
+        //显示条数
+        $('.displayNum ul li').click(function(){
+            isSearch=1;
+            order_list(1 , '', '', '', $('.displayNum span').text());
+        });
+        
+
+        //点击查询
+        $(document).on('click', '.searchResultBtn', function() {
+            
+            var orderNo = $('.orderNo').val();
+            var goodsType = $('.goodsType span').text();
+            var publishTime = $('.publishTime').val();
+            if (goodsType == '全部' ) {
+                console.log(goodsType);
+                goodsType = '';
+            }
+            
+            isSearch=1;
+            order_list(1, orderNo, goodsType, publishTime, 10);
+
+        });
+
+        
+
+        order_list(1 , '', '', '', 10);
+
+        //待分配订单列表
+        function order_list(num, orderNo, goodsType, publishTime, size) {
+            $('#orderListInfo').html('');
+            $.ajax({
+                url: pubIP + 'order/getAllocatedList',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    companyId: companyId,
+                    page: num,
+                    size: size,
+                    status: 1,
+                    orderNo: orderNo,
+                    time: publishTime,
+                    goodType: goodsType
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log(json);
+
+                    if (json.code == 1) {
+                        if (json.data.length != 0) {
+                            for (var i = 0; i < json.data.length; i++) {
+                            
+                                json.data[i].tloCreateTime = new Date(json.data[i].tloCreateTime).Format("yyyy-MM-dd hh:mm");
+                            }
+                            
+
+                            var result = template('orderListTpl', {list: json.data});
+                            $('#orderListInfo').html(result);
+
+                           
+                            if (isSearch == 1) {
+                                // if (isFirst) {
+                                    Page({
+                                        num: json.totalPage,
+                                        elem: $('#page1'),
+                                        callback: function(n) {
+                                            order_list(n, orderNo, goodsType, publishTime, size);
+                                        }
+                                    });
+                                    
+                                    $('.total').text(json.totalPage);
+                                    isFirst = false;
+
+                                // }
+
+                                $('.allPageN').text(num+1+'/'+json.totalPage);
+                            }
+
+                            isSearch = 0;
+
+                            if (isFirst) {
+
+                                Page({
+                                    num: json.totalPage,
+                                    elem: $('#page1'),
+                                    callback: function(n) {
+                                        order_list(n, orderNo, goodsType, publishTime, size);
+                                    }
+                                });
+                                
+                                $('.total').text(json.totalPage);
+
+                                isFirst = false;
+                            }
+
+                            $('.allPageN').text(num+'/'+json.totalPage);
+                        } else {
+                            $('.pageJump').css('display', 'none');    
+                        }
+                    } else {
+                        $('.pageJump').css('display', 'none');
+                    }
+
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+
+            });
+        }
+
+
+        // 取消订单
+        $(document).on('click', '.cancel_order', function() {
+
+            var tloId = $(this).attr('data-tloId');
+
+            $.ajax({
+                url: pubIP + 'order/updateCarrierCancelOrder',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    id: tloId
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log(json);
+
+                    if (json.code == 1) {
+                        $(window.parent.document).find('.modelBox12 p').html('<span>订单取消成功!</span>');
+                        window.parent.showModelBox('.modelBox12');
+                    }
+
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+
+        });
+
+        $(window.parent.document).on('click', '.modelBox12 .ook4', function() {
+            
+            window.location.reload();
+        });
+
         // 模拟单选按钮
-        $('.bottomOperiat .squre').click(function(){
-            $(this).toggleClass('active');
-        });
+        // $('.bottomOperiat .squre').click(function(){
+        //     $(this).toggleClass('active');
+        // });
         $('.bottomOperiat .selsectAll').click(function(){
             $('.bottomOperiat .squre').toggleClass('active');
         });
