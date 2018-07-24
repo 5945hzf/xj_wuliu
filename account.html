@@ -300,6 +300,58 @@
     </div>
 </div>
 
+<!--35.添加部门-->
+<div class="modelBox35" style="font-size: 14px;">
+    <div class="modelCont" style="width: 655px;height: 500px;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>添加部门</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent clearFloat" style="width: 100%;height: 407px;font-size: 14px;padding-top: 43px; ">
+            <div >
+                <span style="display: inline-block; width: 135px;text-align: right;">部门名称：</span>
+                <input type="text" placeholder="33333"  style="height: 36px;width: 205px;border: 1px solid #dbdbdc;">
+            </div>
+            <div class="clearFloat" style="margin-top: 25px;">
+                <span style="display: block; width: 135px;text-align: right;float: left;">职能描述：</span>
+                <textarea name="" id="" cols="30" rows="10" style="height: 185px;width: 483px;border: 1px solid #dbdbdc;"></textarea>
+            </div>
+            <div class="clearFloat" style="margin-top: 32px;">
+                <span class=" cf_btn cancel cfClose" style="display: inline-block;margin-left: 135px;" >取消</span>
+                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 41px;line-height: 41px; ">确定</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--37.调价申请--发起调令-->
+<div class="modelBox37" style="font-size: 14px;">
+    <div class="modelCont" style="width: 655px;height: 500px;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>调价申请</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent clearFloat" style="width: 100%;height: 407px;font-size: 14px;padding-top: 43px; ">
+            <div>
+                <span style="display: inline-block; width: 135px;text-align: right;"><i style="color: red;">* </i>合同原价：</span>
+                <span style="color: #666666;">¥100 元／公里／吨</span>
+            </div>
+            <div style="margin-top: 25px;">
+                <span style="display: inline-block; width: 135px;text-align: right;"><i style="color: red;">* </i>更改单价：</span>
+                <input type="text" placeholder="33333"  style="height: 36px;width: 205px;border: 1px solid #dbdbdc;">
+                <span style="color: #666666;margin-left: 15px;">元／公里／吨</span>
+            </div>
+            <div class="clearFloat" style="margin-top: 25px;">
+                <span style="display: block; width: 135px;text-align: right;float: left;"><i style="color: red;">* </i>调价原因：</span>
+                <textarea name="" id="" cols="30" rows="10" style="height: 185px;width: 483px;border: 1px solid #dbdbdc;"></textarea>
+            </div>
+            <div class="clearFloat" style="margin-top: 32px;">
+                <span class=" cf_btn cancel cfClose" style="display: inline-block;margin-left: 135px;" >取消</span>
+                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 41px;line-height: 41px;">确定申请</span>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <script src="./js/footer.js" type="text/javascript" charset="utf-8"></script>
@@ -308,6 +360,23 @@
 <script type="text/javascript" >
     $(".manageList").css("display","none");
 
+
+    function close1(that) {
+        $(that).parents(".pop").css("display","none")
+    }
+    //所有 弹框的 x 关闭
+    $("img.close").click(function () {
+        $(this).parents(".modelCont").parent().css("display","none");
+    })
+    //所有 弹框的 返回按钮 关闭  （需要加上类名 cfClose）
+    $(".cfClose").click(function () {
+        $(this).parents(".modelCont").parent().css("display","none");
+    })
+
+    // showModelBox('.modelBox37');
+    function showModelBox(cls) {
+        $(cls).css("display","block");
+    }
 
 
     function showMangeList(idx) {//设置每个页面的  初始加载页面， cfsrc  必须是 和data-src 一致

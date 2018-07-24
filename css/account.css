@@ -168,3 +168,156 @@ header>.headerBot{display: none;}
     color: #5992f3;
 }
 
+
+
+
+
+
+
+
+
+
+/* 模态框 */
+.modelBox{
+    z-index: 9999;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modelCont{
+    position: absolute;
+    width: 450px;
+    min-height: 276px;
+    left: 50%;
+    top: 50%;
+    /*margin-left: -225px;
+    margin-top: -200px;*/
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);
+    font-family: 'microsoft yahei';
+    /* background-color: red; */
+}
+.modeltitle{
+    width: 450px;
+    height: 50px;
+    background-image: url(../img/gsxq.gif);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    color: #5690f6;
+    line-height: 50px;
+}
+.modeltitle span{
+    margin-left: 16px;
+}
+
+.modelcontent, .cont{
+    width: 450px;
+    min-height: 226px;
+    background-image: url('../img/gsxq_cont.gif');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    font-size: 18px;
+}
+
+.modelBtnBox{
+    width: 302px;
+    height: 45px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+.modelbtn{
+    float: left;
+    width: 145px;
+    height: 45px;
+    border: 1px solid #5690f6;
+    font-size: 18px;
+    color: #fff;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 18px auto 0 80px;
+}
+
+.modelbtn.ml75 {
+    margin: 18px auto 0 75px;
+}
+
+.modelbtn.modelbtn2 {
+    margin: 18px 0px;
+}
+
+.modelbtn.modelbtn2.ml10 {
+    margin-left: 10px;
+}
+
+
+
+.modelBox0, .modelBox1, .modelBox2, .modelBox3, .modelBox4, .modelBox5, .modelBox6, .modelBox7, .modelBox8, .modelBox9, .modelBox10, .modelBox11, .modelBox12, .modelBox13, .modelBox14, .modelBox15, .modelBox16, .modelBox17, .modelBox18, .modelBox19, .modelBox20, .modelBox21, .modelBox22, .modelBox23, .modelBox24, .modelBox25, .modelBox26, .modelBox27, .modelBox28,.modelBox29,.modelBox30,.modelBox31,.modelBox32,.modelBox33,.modelBox34,.modelBox35,.modelBox36,.modelBox37,.modelBox38,.modelBox39,.modelBox40,.modelBox41,.modelBox42,.modelBox43,.modelBox44,.modelBox45,.modelBox46,.modelBox47,.modelBox48,.modelBox49,.modelBox50,.modelBox51,.modelBox52,.modelBox53,.modelBox54,.modelBox55,.closeRequirement, .okClose, #renzheng1, #addCustomerRelationship, #lijiBaoming, #activityDetail {
+    z-index: 9999;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.modelBox3 .modelcontent p, .modelBox4 .modelcontent p, .modelBox5 .modelcontent p, .modelBox6 .modelcontent p, .modelBox7 .modelcontent p, .modelBox10 .modelcontent p, .modelBox14 .modelcontent p, .modelBox15 .modelcontent p, .modelBox16 .modelcontent p, .modelBox18 .modelcontent p, .modelBox19 .modelcontent p, .modelBox20 .modelcontent p, .modelBox21 .modelcontent p,  .modelBox23 .modelcontent p, .modelBox24 .modelcontent p, .modelBox25 .modelcontent p, .modelBox26 .modelcontent p, .modelBox27 .modelcontent p,.modelBox28 .modelcontent p,.modelBox29 .modelcontent p,.modelBox30 .modelcontent p,.modelBox31 .modelcontent p,.modelBox32 .modelcontent p,.modelBox33 .modelcontent p,.modelBox34 .modelcontent p,.modelBox35 .modelcontent p,.modelBox36 .modelcontent p,.modelBox37 .modelcontent p,.modelBox38 .modelcontent p,.modelBox39 .modelcontent p,.modelBox40 .modelcontent p,.modelBox41 .modelcontent p,.modelBox42 .modelcontent p,.modelBox43 .modelcontent p,.modelBox44 .modelcontent p,.modelBox45 .modelcontent p,.modelBox46 .modelcontent p,.modelBox47 .modelcontent p,.modelBox48 .modelcontent p,.modelBox49 .modelcontent p,.modelBox50 .modelcontent p,.modelBox51 .modelcontent p,.modelBox52 .modelcontent p,.modelBox53 .modelcontent p,.modelBox54 .modelcontent p,.modelBox55 .modelcontent p, .okClose p, #renzheng1 p {
+    text-align: center;
+}
+
+/*清除浮动*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.modelBox34 .cfClose,.modelBox35 .cfClose,.modelBox36 .cfClose,.modelBox37 .cfClose,.modelBox38 .cfClose,.modelBox39 .cfClose,.modelBox40 .cfClose,.modelBox41 .cfClose,.modelBox42 .cfClose,.modelBox43 .cfClose,.modelBox44 .cfClose,.modelBox48 .cfClose{color: #666666;background-color: white;width: 190px;height: 39px;line-height: 39px;margin-right: 20px;border: 1px solid #dbdbdc; }
+.modelBox34 .cfClose:hover,.modelBox35 .cfClose:hover,.modelBox36 .cfClose:hover,.modelBox37 .cfClose:hover,.modelBox38 .cfClose:hover,.modelBox39 .cfClose:hover,.modelBox40 .cfClose:hover,.modelBox41 .cfClose:hover,.modelBox42 .cfClose:hover,.modelBox43 .cfClose:hover,.modelBox44 .cfClose:hover,.modelBox45 .cfClose:hover,.modelBox46 .cfClose:hover,.modelBox47 .cfClose:hover{color: white;background-color: #5388ff;border-color: #5388ff;}
+/*蓝色字体返回*/
+.modelBox42 .cfClose,.modelBox43 .cfClose{
+    background:inherit;border: 1px solid #5992f3;width: 140px;
+}
+.modelBox44 .cfClose{
+    background:#5690f6;color: white;margin: auto;border: 1px solid #5690f6;margin-top: 35px;
+}
+.modelBox45 .cfClose{
+    color: #5690f6;
+}
+.modelBox46 .cfClose,.modelBox47 .cfClose{
+    background-color: #5690f6;
+}
+.modelBox48 .modelbtn,.modelBox49 .modelbtn {background-color: #5690f6;}
+
+
+.cf_btn{width: 120px;height: 40px;line-height: 40px; cursor: pointer; text-align: center;border-radius: 3px;background-color: #6ba1ff;color: white;}
+.cf_btn:hover{background-color: #5388ff;color: white;}
+.cf_btnA{color: #6ba1ff;}
