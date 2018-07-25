@@ -989,3 +989,26 @@ thead td,thead th{
 .cfRefresh{display: none;}
 .messages .select{width: 160px;}
 button{outline: none;}
+
+
+/*清除浮动*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
