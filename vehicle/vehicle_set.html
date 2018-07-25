@@ -109,7 +109,7 @@
             type: 'post',
             headers: {
                 Accept: "application/json; charset=utf-8",
-                //token: token
+                token: token
             },
             cache: false,
             ansyc: true,
@@ -170,7 +170,7 @@
                 str+='<td class="chooseswitch"><input id="checked_'+idx+'" type="checkbox"  name="status" class="switch" /><label for="checked_'+idx+'"></label></td>';
             }
             str+='<td>'+item.sort+'</td>';
-            str+='<td data-id="'+item.id+'"><a class="lookover">编辑</a><a class="delect">删除</a></td>';
+            str+='<td data-id="'+item.id+'"><a class="lookover" style="color: #6ba1ff;">编辑</a><a class="delect" style="color: #6ba1ff;">删除</a></td>';
             str+='</tr>';
         })
        $(".listBox tbody").html(str);

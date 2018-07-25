@@ -101,15 +101,15 @@
         <div class="topTitle">财务待结算订单<div class="fr cfRefresh"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
         <div class="inputBox">
             <label for="">输入搜索</label><input class="orderNo input" type="text" placeholder="订单编号">
-            <label for="">订单状态</label>
-            <div class="goodsType input select" data-selectedindex="0"><span>全部</span><img src="../img/prl-select.jpg" >
-                <ul>
-                    <li data-index="1">待分配订单</li>
-                    <li data-index="2">进行中订单</li>
-                    <li data-index="3">完成待审核订单</li>
-                    <li data-index="3">已完成订单</li>
-                </ul>
-            </div>
+            <!--<label for="">订单状态</label>-->
+            <!--<div class="goodsType input select" data-selectedindex="0"><span>全部</span><img src="../img/prl-select.jpg" >-->
+                <!--<ul>-->
+                    <!--<li data-index="1">待分配订单</li>-->
+                    <!--<li data-index="2">进行中订单</li>-->
+                    <!--<li data-index="3">完成待审核订单</li>-->
+                    <!--<li data-index="3">已完成订单</li>-->
+                <!--</ul>-->
+            <!--</div>-->
             <label for="">提交时间</label><input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1">
             <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-left: 100px;">
             <!--<input class="advancedRetrievalBtn btn input" type="button" value="高级检索">-->
@@ -229,17 +229,109 @@
                 console.log(n);
             }
         });
-        //查看详情
-        $(".seeDetail").click(function () {
-            window.location.href="./financeNotAuditOrder-detail.html";
+//        //查看详情
+//        $(".seeDetail").click(function () {
+//            window.location.href="./financeNotAuditOrder-detail.html";
+//        })
+//        // 模拟单选按钮
+//        $('.bottomOperiat .squre').click(function(){
+//            $(this).toggleClass('active');
+//        });
+//        $('.bottomOperiat .selsectAll').click(function(){
+//            $('.bottomOperiat .squre').toggleClass('active');
+//        });
+
+
+        //进入页面加载数据
+        getData(1);
+        //获取数据
+        function getData(currentPage) {
+            $(".listBox tbody").html("");
+            $.ajax({
+                url: pubIP + 'order/getFinancialSettlementList', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    companyId:"9041805231046330013",
+                    orderNo:$(".orderNo.input").val(),
+                    status:1,//公司类型 0 供应商 1 承运商
+                    time:$("#test1").val(),
+                    goodType:"",
+//                sort:$(".sort").attr("data-selectedindex"),
+                    size:pageSize,
+                    page:currentPage
+                },
+                success: function (res) {
+                    if(res.code===1){
+                        //首次请求时 改变分页数据
+                        if(res.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
+                        $(".pagination").parent().css("display","block");
+                        if(currentPage===1 ){
+                            //修改底部分页
+                            //debugger
+                            var pageNum=Math.ceil(res.count/pageSize);
+                            $(".allPageN").attr("pageTotal",pageNum);
+                            $(".pageJump i").text("共"+pageNum+"页");
+                            $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+                            Page({
+                                num: pageNum,
+                                elem: $('#page1'),
+                                callback: function(n) {
+                                    // console.log(n);
+                                    getData(n);//加载n页数据
+                                }
+                            });
+                        }
+                        //修改底部页数
+                        $(".allPageN").text((currentPage)+"/"+ $(".allPageN").attr("pageTotal"));
+                        cf_dataRender(res.data)
+                    }else{
+                        alert(res.msg);
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+        //渲染数据
+        function cf_dataRender(data) {
+            var str='';
+            $.each(data,function (idx,item) {
+                str+='<tr data-id="'+item.tloId+'">';
+                str+='<td>'+item.orderNo+'</td>';
+                str+='<td>'+item.startDate+'</td>';
+                str+='<td>'+item.goodsType+'</td>';
+                str+='<td>'+item.goodsName+'</td>';
+                str+='<td>'+item.goodsNum+'</td>';
+                str+='<td>'+item.sendProvince+'-'+item.sendCity+'</td>';
+                str+='<td>'+item.receiveProvince+'-'+item.receiveCity+'</td>';
+                str+='<td>'+item.tlosettlementAmount+'</td>';
+                str+='<td><span class="btn seeDetail">查看订单</span></td>';
+                str+='</tr>';
+            })
+            $(".listBox tbody").html(str);
+            //详情
+            $(".seeDetail").click(function () {
+                sessionStorage.setItem("detailId",$(this).parent().attr("data-id"));
+                window.location.href="./financeNotAuditOrder-detail.html";
+            })
+        }
+        //选择排序方式
+        $(".select ul li").click(function () {
+            getData(1);
         })
-        // 模拟单选按钮
-        $('.bottomOperiat .squre').click(function(){
-            $(this).toggleClass('active');
-        });
-        $('.bottomOperiat .selsectAll').click(function(){
-            $('.bottomOperiat .squre').toggleClass('active');
-        });
+        // 点击go刷新数据
+        $('.pageCont').on('click', '.button',function(){
+            var currentPage = $('.pageCont li.active>a').text();
+            getData(currentPage);
+        })
     </script>
 </body>
 </html>
