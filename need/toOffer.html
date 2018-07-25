@@ -227,22 +227,22 @@
                 type: 'get',
                 headers: {
                     Accept: "application/json; charset=utf-8",
-                    //token: token
+                    token: token
                 },
                 cache: false,
                 ansyc: true,
                 dataType: 'json',
                 data:{
-                    companyId:companyId,
                     pageSize:pageSize,
                     demandNo:$("input.orderNo.input").val(),
                     startDate:$(".startDate").val(),
-                    pageIdx:currentPage
+                    pageIdx:currentPage,
+                    goodsName:$("#goodsName").val()
                 },
                 success: function (res) {
                     if(res.code===1){
                         //首次请求时 改变分页数据
-                        if(res.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
+                        if(res.data.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
                         $(".pagination").parent().css("display","block");
                         if(currentPage===1){
                             //修改底部分页
@@ -277,7 +277,7 @@
         function cf_dataRender(data) {
             var str='';
             $.each(data,function (idx,item) {
-                str+='<tr data-id="'+item.transactionOrderId+'">';
+                str+='<tr data-id="'+item.id+'">';
                 str+='<td><div class="cf_select"></div></td>';
                 str+='<td>'+item.transactionOrderId+'</td>';
                 str+='<td>'+item.createtime+'</td>';
@@ -328,11 +328,11 @@
         //启用禁用 删除  事件
         function upadtaState(type,that) {
             $.ajax({
-                url: pubIP + 'tLogisticsVehicle/updateCarDoIng', /*v1.0*/
+                url: pubIP + 'wlLogisticsDemand/queryPageForQuoted', /*v1.0*/
                 type: 'post',
                 headers: {
                     Accept: "application/json; charset=utf-8",
-                    //token: token
+                    token: token
                 },
                 cache: false,
                 ansyc: true,
