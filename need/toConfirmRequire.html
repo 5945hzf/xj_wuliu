@@ -273,7 +273,7 @@
                 <!--</div>-->
 
                 <div class="baojia" style="text-align: center;margin-top: 60px;"><span>企业报价</span><input type="text" id="quotedPrice"></div>
-                <div class="btn sure"  style="margin: 0 auto;margin-top: 30px; width: 80px;height: 30px;line-height: 30px;border-radius: 3px;text-align: center;color: #ffffff;background-color: #6ea3f4;">确认报价</div>
+                <div class="btn sure1"  style="margin: 0 auto;margin-top: 30px; width: 80px;height: 30px;line-height: 30px;border-radius: 3px;text-align: center;color: #ffffff;background-color: #6ea3f4;">确认报价</div>
             </div>
         </div>
     </div>
@@ -478,9 +478,9 @@
         }
 
         ////////////////////////////////选择公司弹框
-        $(".sure").click(function () {
+        $(".sure1").click(function () {
             $.ajax({
-                url: pubIP + 'service/wlDemandQuoted/demandQuoted', /*v1.0*/
+                url: pubIP + 'wlDemandQuoted/demandQuoted', /*v1.0*/
                 type: 'post',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -490,7 +490,7 @@
                 ansyc: true,
                 dataType: 'json',
                 data:{
-                    demandid:$("#demandid").text(),
+                    demandid:sessionStorage.getItem("detailId") ,
                     quotedPrice:$("#quotedPrice").val()
                 },
                 success: function (res) {
@@ -567,7 +567,7 @@
             $("#receiveCompanyname").text(data.receiveCompanyname);
         }
 
-        //获取报价公司列表
+        //获取报价公司列表  暂时不用
         function getDataCompanyList() {
             $("#baoJiaompany").html("");
             $.ajax({
