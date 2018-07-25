@@ -13,7 +13,18 @@
     <link rel="stylesheet" type="text/css" href="../css/identification2.css"/>
     <style type="text/css">
 
+        .header>ul>li>a.active{color: #80acf8;}
+        .header {
+            padding-top: 21px;
+            height: 62px;
+            box-sizing: border-box;
+            border-bottom: none;
+        }
 
+        .header li {
+            width: 20%;
+        }
+        
     </style>
 </head>
 <body>
@@ -25,50 +36,50 @@
     <div class="header">
         <ul>
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">1</div>
+                <a href="./identification1.html">
+                    <!-- <div class="Lf orange">1</div> -->
                     企业基本信息
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf orange">2</div>
+                <a class="active" href="./identification2.html">
+                    <!-- <div class="Lf lan">2</div> -->
                     运营者信息
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">3</div>
+                <a href="./identification3.html">
+                    <!-- <div class="Lf lan">3</div> -->
                     发票信息
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">4</div>
+                <a href="./identification4.html">
+                    <!-- <div class="Lf lan">4</div> -->
                     出金账户绑定
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">5</div>
+                <a href="./identification5.html">
+                    <!-- <div class="Lf lan">5</div> -->
                     财务信息
                 </a>
             </li>
         </ul>
     </div>
-
+    <div><img style="display: block;width: 100%;" src="../img/identification2_hzf.png" alt=""></div>
 
     <div class="bottom1">
         <div class="left1 Lf">
@@ -96,14 +107,14 @@
                     <div class="right1 Lf">
                         <div class="uploade Lf">
                             <i style=""></i>
-                            <img src="../img/list_logo.png" alt="" id="zhengjian_preview1">
-                            <input type="file" id="zhengjian_pic1"  onchange="xmTanUploadImg1(this);">
+                            <!-- <img src="../img/list_logo.png" alt="" id="zhengjian_preview1"> -->
+                            <input type="file" id="zhengjian_pic1">
                             <input type="hidden" name="" value="" id="zhengjian_hidden1">
                         </div>
                         <div class="uploade Lf">
                             <i style=""></i>
-                            <img src="../img/list_logo.png" alt="" id="zhengjian_preview2">
-                            <input type="file" id="zhengjian_pic2"  onchange="xmTanUploadImg2(this);">
+                            <!-- <img src="../img/list_logo.png" alt="" id="zhengjian_preview2"> -->
+                            <input type="file" id="zhengjian_pic2">
                             <input type="hidden" name="" value="" id="zhengjian_hidden2">
                         </div>
                         <span class="ts"></span>
@@ -113,13 +124,14 @@
             </ul>
 
             <div class="btn weiRenZheng next_btn">下一步</div>
-            <!--<div class="btn yiRenZheng update_btn">修改企业信息</div>-->
-            <div class="" style="margin-left: 155px;margin-top: 32px;">
+            <div class="btn update_btn">修改企业信息</div>
+            <div class="btn next_btn_update">下一步</div>
+            <div class="" style="margin-left: 179px;margin-top: 32px;">
                 <img src="../img/qq.png" alt="" style="vertical-align: bottom; float: none;">
-                <a href="##" style="color: #5590f6;">客服QQ</a>
+                <a href="##">客服QQ</a>
                 <span>(工作日10 : 00 - 19 : 00)</span>
             </div>
-            <div style="margin-left:155px;margin-top: 5px;">认证过程中如有疑问，可致电 <a href="##" style="color: #5590f6;">400-1234567</a></div>
+            <div style="margin-left:155px;margin-top: 5px;">认证过程中如有疑问，可致电 <a href="##">4000-012-556</a></div>
         </div>
     </div>
 </div>
@@ -134,6 +146,46 @@
     $(function () {
         window.parent.$("#Iframe").css("height","740");
     })
+$(document).on('change','#zhengjian_pic1,#zhengjian_pic2',function(){
+            xmTanUploadImg11(this);
+        })
+        
+        function xmTanUploadImg11(obj) {
+            var file = obj.files[0];
+            if (file.size >= 2097152) {
+                alert('上传的图片超过了2MB');
+                return;
+            }
+    
+            var formdata=new FormData();
+    
+            formdata.append('file', file);
+            
+            $.ajax({
+                url: uplodImgPath,
+                type: 'post',
+                processData: false,  // 告诉jQuery不要去处理发送的数据
+                contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+                data: formdata,
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    //console.log(data);
+                    $(obj).parent().css({
+                            'background':'url('+data.url+') no-repeat',
+                            'background-position':'center',
+                            'background-size':'contain',
+                            'background-color':'#f6f6f6'
+                    });
+                    $(obj).parent().find('input[type="hidden"]').val(data.url);
+                    $(obj).parent().parent().next().css('display', 'none');
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+    
+        }
 
     var img_url6 = null;
     var img_url7 = null;
@@ -181,7 +233,7 @@ function xmTanUploadImg1(obj) {
 
 
     $.ajax({
-        url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+        url: uplodImgPath,
         type: 'post',
         processData: false,  // 告诉jQuery不要去处理发送的数据
         contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
@@ -223,7 +275,7 @@ function xmTanUploadImg2(obj) {
 
 
     $.ajax({
-        url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+        url: uplodImgPath,
         type: 'post',
         processData: false,  // 告诉jQuery不要去处理发送的数据
         contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
@@ -286,25 +338,65 @@ $(function () {
                     if (data.data.type == 7) {  //等待审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
+                        $(".next_btn").css('display', 'none');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
+                        $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在等待审核');
+                        window.parent.tan6();
+
                     } else if (data.data.type == 2) {  //正在审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
+                        $(window.parent.document).find('.modelBox6 .info p span').html('运营者信息审核中');
+                        window.parent.tan6();
+
                     } else if (data.data.type == 3) {  //已认证
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
 
                     } else if (data.data.type == 4) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
+                        
                     } else if (data.data.type == 5) {  //企业资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 6) {  //出金账户资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 1) {  //没有提交
                         $('.weiRenZheng').css('display', 'block');
                         $(".update_btn").addClass('xiaoshi');
+                        $('.next_btn_update').css('display', 'none');
+                        if (data.data.state > 2) {
+                            $('.weiRenZheng').css('display', 'none');
+                            $('.next_btn_update').css('display', 'block');
+                        }
                     }                   
                     
                 },
@@ -339,14 +431,17 @@ $(function () {
             }
 
             
-            if ($('#zhengjian_preview1').attr('src') == '../img/list_logo.png' && $('#zhengjian_preview2').attr('src') == '../img/list_logo.png') {
-                $('#zhengjian_preview2').parent().next().html('证件不能为空');
+            if ($('#zhengjian_hidden1').val() == '' && $('#zhengjian_hidden2').val() == '') {
+                $('#zhengjian_hidden2').parent().next().html('证件不能为空');
                 return;
             }
 
             var run_person_name = $('#run_person_name').val();
             var phone = $('#phone').val();
             var email = $('#email').val();
+
+            img_url6 = $('#zhengjian_hidden1').val();
+            img_url7 = $('#zhengjian_hidden2').val();
             
 
             if ($('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '') {
@@ -380,7 +475,7 @@ $(function () {
                     }
                 });
             } else {
-                $('#zhengjian_preview2').parent().next().html('图片正在上传');
+                $('#zhengjian_pic2').parent().next().html('图片正在上传');
             }
 
         });
@@ -414,29 +509,78 @@ $(function () {
         });
 
         $('#zhengjian_pic1').on('blur', function () {
-            if ($('#zhengjian_preview1').attr('src') == '../img/list_logo.png' && $('#zhengjian_preview2').attr('src') == '../img/list_logo.png') {
-                $('#zhengjian_preview2').parent().next().html('证件不能为空');
+            if ($('#zhengjian_hidden1').val() == '' && $('#zhengjian_hidden2').val() == '') {
+                $('#zhengjian_hidden2').parent().next().html('证件不能为空');
             } else {
-                $('#zhengjian_preview2').parent().next().html('');
+                $('#zhengjian_hidden2').parent().next().html('');
             }
         });
 
         $('#zhengjian_pic2').on('blur', function () {
-            if ($('#zhengjian_preview2').attr('src') == '../img/list_logo.png' && $('#zhengjian_preview1').attr('src') == '../img/list_logo.png') {
-                $('#zhengjian_preview2').parent().next().html('证件不能为空');
+            if ($('#zhengjian_hidden2').val() == '' && $('#zhengjian_hidden1').val() == '') {
+                $('#zhengjian_hidden2').parent().next().html('证件不能为空');
             } else {
-                $('#zhengjian_preview2').parent().next().html('');
+                $('#zhengjian_hidden2').parent().next().html('');
             }
         });
 
+        //是否是修改
+        $.ajax({
+            url: pubIP + 'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                type: 'B',
+                companyId: companyId,
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                console.log(data.data.company.qualificationStatus);
 
-        if (window.localStorage.getItem('add-flag') == 'true') {
+                // if (data.data.company.qualificationStatus != 0) {
+            
+                //     $('input[type=file]').attr('disabled',true);
+                //     $('input[type=text]').attr('disabled',true);
+                //     $('input[type=radio]').attr('disabled',true);
 
+                //     update_info();
+                // }
+                // if (data.data.company.state != 0) { //未审核
+                //     update_info();
+                // } else {
+                //     $('.weiRenZheng.next_btn').css('display', 'none');
+                //     $('.next_btn_update').css('display', 'block');
+                //     update_info();
+                // }
+
+                if (data.data.company.state == -1) { //未提交
+                    $('.weiRenZheng.next_btn').css('display', 'block');
+                    $('.next_btn_update').css('display', 'none');
+                } else if (data.data.company.state == 0) { //待审核
+                    $('.weiRenZheng.next_btn').css('display', 'none');
+                    $('.next_btn_update').css('display', 'none');
+                }
+                    update_info();
+
+                
+                
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+        // if (window.localStorage.getItem('add-flag') == 'true') {
+
+        function update_info() {
             $(".weiRenZheng").addClass('xiaoshi');
 
-            $('.header ul li a').each(function (i, ele) {
-                $(this)[0].href = './identification'+(i+1)+'.html';
-            });
+        
 
             //v1.0
             $.ajax({
@@ -457,17 +601,27 @@ $(function () {
                         console.log(data);
 
                         $('#run_person_name').val(data.data.company.operator);
-                        $('#phone').val(data.data.company.financePhoneNumber);
+                        $('#phone').val(data.data.company.operatorContact);
                         $('#email').val(data.data.company.operatorMail);
 
-                        $('#zhengjian_preview1').attr('src', data.data.picInfos[5].picUrl);
-                        $('#zhengjian_preview1').attr('data-picId6', data.data.picInfos[5].ids);
+                        $('#zhengjian_pic1').parent().css({
+                            'background': 'url('+data.data.picInfos[5].picUrl+') no-repeat',
+                            'background-position':'center',
+                            'background-size':'contain',
+                            'background-color':'#f6f6f6'
+                        });
+                        $('#zhengjian_pic1').attr('data-picId6', data.data.picInfos[5].ids);
 
-                        $('#zhengjian_preview2').attr('src', data.data.picInfos[6].picUrl);
-                        $('#zhengjian_preview2').attr('data-picId7', data.data.picInfos[6].ids);
+                        $('#zhengjian_pic2').parent().css({
+                            'background': 'url('+data.data.picInfos[6].picUrl+') no-repeat',
+                            'background-position':'center',
+                            'background-size':'contain',
+                            'background-color':'#f6f6f6'
+                        });
+                        $('#zhengjian_pic2').attr('data-picId7', data.data.picInfos[6].ids);
 
-                        $('#zhengjian_hidden1').val(data.data.picInfos[5].ids);
-                        $('#zhengjian_hidden2').val(data.data.picInfos[6].ids);
+                        $('#zhengjian_hidden1').val(data.data.picInfos[5].picUrl);
+                        $('#zhengjian_hidden2').val(data.data.picInfos[6].picUrl);
 
                     } else {
                         alert(data.msg);
@@ -477,10 +631,10 @@ $(function () {
                     console.log(err);
                 }
             });
-
         }
+        // }
 
-        $(document).on('click', '.yiRenZheng.btn', function () {
+        $(document).on('click', '.yiRenZheng.btn, .next_btn_update', function () {
             
             if ($('#run_person_name').val() == '') {
                 $('#run_person_name').parent().next().html('运营者名字不能为空');
@@ -498,8 +652,8 @@ $(function () {
             }
 
             
-            if ($('#zhengjian_preview1').attr('src') == '../img/list_logo.png' && $('#zhengjian_preview2').attr('src') == '../img/list_logo.png') {
-                $('#zhengjian_preview2').parent().next().html('证件不能为空');
+            if ($('#zhengjian_hidden1').val() == '' && $('#zhengjian_hidden2').val() == '') {
+                $('#zhengjian_hidden2').parent().next().html('证件不能为空');
                 return;
             }
 
@@ -507,9 +661,11 @@ $(function () {
             var phone = $('#phone').val();
             var email = $('#email').val();
 
-            var picId6 = $('#zhengjian_preview1').attr('data-picid6');
-            var picId7 = $('#zhengjian_preview2').attr('data-picid7');
+            var picId6 = $('#zhengjian_pic1').attr('data-picid6');
+            var picId7 = $('#zhengjian_pic2').attr('data-picid7');
             
+            img_url6 = $('#zhengjian_hidden1').val();
+            img_url7 = $('#zhengjian_hidden2').val();
 
             if ($('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '') {
                 //v1.0
@@ -535,7 +691,12 @@ $(function () {
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
-                        window.parent.update_runPerson();
+
+                        if ($('.next_btn_update').css('display') == 'block') {
+                            window.location.href = "identification3.html";
+                        } else {
+                            window.parent.update_runPerson();
+                        }
 
                        /* window.location.href = 'identification3.html';*/
 
@@ -549,6 +710,22 @@ $(function () {
         });
 
     });
+
+
+
+$(window.parent.document).on('click', '.ok_ok, .ook1', function () {
+    
+    window.location.reload();
+});
+
+    //修改企业信息(放开可修改)
+    $(document).on('click','.update_btn',function(){
+        $('input[type=file]').attr('disabled',false);
+        $('input[type=text]').attr('disabled',false);
+        $('input[type=radio]').attr('disabled',false);
+        $(this).addClass('yiRenZheng');
+        $(this).text('修改完成');
+    })
 </script>
 </body>
 </html>

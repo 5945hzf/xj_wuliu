@@ -1,12 +1,12 @@
 //var pubIP = 'http://api.xjv56.com/service/';
 
-// var pubIP = 'http://192.168.1.199:7777/service/';
-var pubIP = 'https://xj.wl.api.hg.jergavin.com/service/';
+var pubIP = 'http://192.168.1.199:7777/service/';
+// var pubIP = 'https://xj.wl.api.hg.jergavin.com/service/';
 //var token = 'ceshi123456';
 var token=localStorage.getItem("token");
 var pageSize=10;//分页的每页个数
 var companyId = null, userId = null ;
-companyId=9041805231046330013;
+
 //时间戳转时间格式
 function timestampToTime(timestamp) {
     if(timestamp/100000000000>0){
@@ -118,127 +118,130 @@ function cf_popEffectClose1(that) {
 	$(that).parent().parent().parent().css("display","none");
 }
 
-// if(token){
-// 	//底部信息ajax
-// 	$.ajax({
-// 		  type:"post",
-// 		  url:pubIP+"platform/getPlatformInfo",//v1.0
-// 		  cache:false,
-// 		  dataType: "json",
-// 		  headers: {
-// 		  	token: token
-// 		  },
-// 		  success: function(json){
-// 		    //console.log(json.code);
-// 		  	$('.kfPhone').text(json.data.customerMobile);
-// 		  	$('.kfEm').text(json.data.customerEmail);
-// 		  },
-// 		  error:function(xhr,statues,error){
-//
-// 		  }
-// 	});
-//
-// 	//isOld token
-// 	//2 ok 已认证
-// 	//0 超时
-// 	//1 未登录
-// 	//-1 未认证
-// 	//-2 审核中
-// 	$.ajax({
-// 		  type:"post",
-// 		  url:pubIP+"user/getUserInfoByToken",//v1.0
-// 		  cache:false,
-// 		  dataType: "json",
-// 		  async:false,
-// 		  headers: {
-// 		  	token: token
-// 		  },
-// 		  success: function(json){
-// 		    //console.log(json.data);
-// 			//是否超时
-//
-// 		    if(json.code == 401){
-// 		    		localStorage.setItem('isOld','0');
-// 		  		if(location.href.indexOf('login') == -1){
-// 		  			if(location.href.indexOf('index') == -1){
-// 		  				if(location.href.indexOf('account') != -1 || location.href.indexOf('shopManage') != -1){
-// 		  					$("#effect" , parent.document).show();
-// 		  				}else{
-// 		  					missedLogin() ;
-// 		  				}
-// 		  			}
-// 		  		}
-// 		  	}else{
-// 		  		//是否认证
-// 		  		$.ajax({
-// 					  type:"post",
-// 					  url:pubIP+"companyCertification/getCompanyWriteStateByUserToken",//v1.0
-// 					  cache:false,
-// 					  dataType: "json",
-// 					  headers: {
-// 					  	token: token
-// 					  },
-// 					  success: function(json){
-// 						//console.log(json.code);
-// 					    var rzType = null;
-// 					  	switch(json.data.type){
-// 							case 1:
-// 							  //未认证
-// 							  rzType = '-1';
-// 							  break;
-// 							case 2:
-// 							  //审核
-// 							  rzType = '-2';
-// 							  break;
-// 							case 3:
-// 							  //已认证
-// 							  rzType = '2';
-// 							  break;
-// 							case 4:
-// 							  rzType = '-1';
-// 							  break;
-// 							case 5:
-// 							  rzType = '-2';
-// 							  break;
-// 							case 6:
-// 							  rzType = '-2';
-// 							  break;
-// 							default:
-// 							  rzType = '-1';
-// 						}
-// 					  	localStorage.setItem('isOld',rzType);
-// 					  },
-// 					  error:function(xhr,statues,error){
-//
-// 					  }
-// 				});
-// 		  		//localStorage.setItem('isOld','2');
-// 		  	}
-// 			companyId = json.data.companyId;
-// 			userId = json.data.ids;
-// 		  },
-// 		  error:function(xhr,statues,error){
-//
-// 		  }
-// 	});
-// }else{
-// 	localStorage.setItem('isOld','1');
-// }
+if(token){
+	//底部信息ajax
+	$.ajax({
+		  type:"post",
+		  url:pubIP+"platform/getPlatformInfo",//v1.0
+		  cache:false,
+		  dataType: "json",
+		  headers: {
+		  	token: token
+		  },
+		  success: function(json){
+		    //console.log(json.code);
+		  	$('.kfPhone').text(json.data.customerMobile);
+		  	$('.kfEm').text(json.data.customerEmail);
+		  },
+		  error:function(xhr,statues,error){
 
-//else{
-//	localStorage.setItem('isOld','1');
-//	if(location.href.indexOf('login') == -1){
-//		if(location.href.indexOf('index') == -1){
-//			$('#effect .contTitle span').text('您尚未登录');
-//			missedLogin() ;
-//		}
-//	}
-//}
+		  }
+	});
+
+	//isOld token
+	//2 ok 已认证
+	//0 超时
+	//1 未登录
+	//-1 未认证
+	//-2 审核中
+	$.ajax({
+		  type:"post",
+		  url:pubIP+"userCarriers/getUserInfoByToken",//v1.0
+		  cache:false,
+		  dataType: "json",
+		  async:false,
+		  headers: {
+		  	token: token
+		  },
+		  success: function(json){
+		    //console.log(json.data);
+			//是否超时
+
+		    if(json.code == 401){
+		    		localStorage.setItem('isOld','0');
+		  		if(location.href.indexOf('login') == -1){
+		  			if(location.href.indexOf('index') == -1){
+		  				if(location.href.indexOf('account') != -1 || location.href.indexOf('shopManage') != -1){
+		  					$("#effect" , parent.document).show();
+		  				}else{
+		  					missedLogin() ;
+		  				}
+		  			}
+		  		}
+		  	}else{
+		  		//是否认证
+		  		$.ajax({
+					  type:"post",
+					  url:pubIP+"companyCertification/getCompanyWriteStateByUserToken",//v1.0
+					  cache:false,
+					  dataType: "json",
+					  headers: {
+					  	token: token
+					  },
+					  success: function(json){
+						//console.log(json.code);
+					    var rzType = null;
+					  	switch(json.data.type){
+							case 1:
+							  //未认证
+							  rzType = '-1';
+							  break;
+							case 2:
+							  //审核
+							  rzType = '-2';
+							  break;
+							case 3:
+							  //已认证
+							  rzType = '2';
+							  break;
+							case 4:
+							  rzType = '-1';
+							  break;
+							case 5:
+							  rzType = '-2';
+							  break;
+							case 6:
+							  rzType = '-2';
+							  break;
+							default:
+							  rzType = '-1';
+						}
+					  	localStorage.setItem('isOld',rzType);
+					  },
+					  error:function(xhr,statues,error){
+
+					  }
+				});
+		  		//localStorage.setItem('isOld','2');
+		  	}
+			companyId = json.data.companyId;
+			userId = json.data.ids;
+		  },
+		  error:function(xhr,statues,error){
+
+		  }
+	});
+}else{
+	localStorage.setItem('isOld','1');
+}
+
+// else{
+// 	localStorage.setItem('isOld','1');
+// 	if(location.href.indexOf('login') == -1){
+// 		if(location.href.indexOf('index') == -1){
+// 			$('#effect .contTitle span').text('您尚未登录');
+// 			missedLogin() ;
+// 		}
+// 	}
+// }
 
 
 
 // 模拟下拉框
 $('.select').click(function(event){
+
+    if($(this).attr("disabled")=="disabled"){return;}//不可选
+
     if($(this).children('img').attr('src') == '../img/prl-selected.jpg'){
         $(this).children('img').attr('src', '../img/prl-select.jpg')
     } else {

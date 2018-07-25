@@ -12,7 +12,18 @@
     <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
     <link rel="stylesheet" type="text/css" href="../css/identification3.css"/>
     <style type="text/css">
+        
+        .header>ul>li>a.active{color: #80acf8;}
+        .header {
+            padding-top: 21px;
+            height: 62px;
+            box-sizing: border-box;
+            border-bottom: none;
+        }
 
+        .header li {
+            width: 20%;
+        }
 
     </style>
 </head>
@@ -25,50 +36,50 @@
     <div class="header">
         <ul>
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">1</div>
+                <a href="./identification1.html">
+                    <!-- <div class="Lf orange">1</div> -->
                     企业基本信息
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">2</div>
+                <a href="./identification2.html">
+                    <!-- <div class="Lf lan">2</div> -->
                     运营者信息
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf orange">3</div>
+                <a class="active" href="./identification3.html">
+                    <!-- <div class="Lf lan">3</div> -->
                     发票信息
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">4</div>
+                <a href="./identification4.html">
+                    <!-- <div class="Lf lan">4</div> -->
                     出金账户绑定
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">5</div>
+                <a href="./identification5.html">
+                    <!-- <div class="Lf lan">5</div> -->
                     财务信息
                 </a>
             </li>
         </ul>
     </div>
-
+    <div><img style="display: block;width: 100%;" src="../img/identification3_hzf.png" alt=""></div>
 
     <div class="bottom1">
         <div class="right2 Lf">
@@ -101,13 +112,14 @@
             </ul>
 
             <div class="btn weiRenZheng next_btn">下一步</div>
-            <!--<div class="btn yiRenZheng update_btn">修改企业信息</div>-->
-            <div class="" style="margin-left: 210px;margin-top: 32px;">
-                <img src="../img/qq.png" alt="" style="vertical-align: bottom; float: none;">
-                <a href="##" style="color: #5590f6;">客服QQ</a>
+            <div class="btn next_btn_update">下一步</div>
+            <div class="btn update_btn">修改企业信息</div>
+            <div class="" style="margin-left: 212px;margin-top: 32px;">
+                <img src="../img/qq.png" alt="" style="float: none; vertical-align: bottom;">
+                <a href="##">客服QQ</a>
                 <span>(工作日10 : 00 - 19 : 00)</span>
             </div>
-            <div style="margin-left:210px;margin-top: 5px;">认证过程中如有疑问，可致电 <a href="##" style="color: #5590f6;">400-1234567</a></div>
+            <div style="margin-left:188px;margin-top: 5px;">认证过程中如有疑问，可致电 <a href="##">4000-012-556</a></div>
         </div>
     </div>
 </div>
@@ -144,24 +156,61 @@
                     if (data.data.type == 7) {  //等待审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
+                        $('.next_btn_update').css('display', 'none');
+                        $(".next_btn").css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
+                        $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在等待审核');
+                        window.parent.tan6();
+
                     } else if (data.data.type == 2) {  //正在审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
+                        $(window.parent.document).find('.modelBox6 .info p span').html('发票信息审核中');
+                        window.parent.tan6();
+
                     } else if (data.data.type == 3) {  //已认证
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 4) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 5) {  //企业资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 6) {  //出金账户资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 1) {  //没有提交
                         $('.weiRenZheng').css('display', 'block');
                         $(".update_btn").addClass('xiaoshi');
+                        if (data.data.state > 3) {
+                            $('.weiRenZheng').css('display', 'none');
+                            $('.next_btn_update').css('display', 'block');
+                        }
                     }
                     
                 },
@@ -181,10 +230,12 @@
     $(document).on('click', '.weiRenZheng.btn', function () {
 
         var nashui_num_reg = $('#nashui_num').val();
-        var reg = /^\d+$/;
+        var reg = /^[A-Z0-9]+$/;;
         if (reg.test(nashui_num_reg) != true) {
-            $('#nashui_num').parent().next().html('纳税识别号必须为数字');
+            $('#nashui_num').parent().next().html('只能是数字和大写字母');
             return false;
+        } else {
+            $('#nashui_num').parent().next().html('');
         }
 
         var qiye_phone1 = $('#qiye_phone').val();
@@ -212,6 +263,8 @@
             $('#address').parent().next().html('地址不能为空');
             return;
         }
+
+        console.log('....');
 
         var nashui_num = $('#nashui_num').val();
         var qiye_phone = $('#qiye_phone').val();
@@ -251,9 +304,9 @@
 
     $('#nashui_num').on('blur', function () {
         var nashui_num_reg = $(this).val();
-        var reg = /^\d+$/;
+        var reg = /^[A-Z0-9]+$/;;
         if (reg.test(nashui_num_reg) != true) {
-            $(this).parent().next().html('纳税识别号必须为数字');
+            $(this).parent().next().html('只能是数字和大写字母');
             return false;
         } else {
             $(this).parent().next().html('');
@@ -302,15 +355,7 @@
         }
     });
 
-    if (window.localStorage.getItem('add-flag') == 'true') {
-
-        $(".weiRenZheng").addClass('xiaoshi');
-
-        $('.header ul li a').each(function (i, ele) {
-            $(this)[0].href = './identification'+(i+1)+'.html';
-        });
-
-        //v1.0
+        //是否是修改
         $.ajax({
             url: pubIP + 'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
             type: 'post',
@@ -319,39 +364,92 @@
                 token: token
             },
             data: {
+                type: 'C',
                 companyId: companyId,
-                type: 'C'
             },
             cache: false,
             dataType: 'json',
             success: function (data) {
-                if (data.code == 1) {
-                    console.log(data);
+                console.log(data);
+                console.log(data.data.company.qualificationStatus);
 
-                    $('#nashui_num').val(data.data.company.taxId);
-                    $('#qiye_phone').val(data.data.company.taxNumber);
-                    $('#qiye_kaihu_bank').val(data.data.company.accountBank);
-                    $('#qiye_bank_account').val(data.data.company.accountId);
-                    $('#address').val(data.data.company.accountAddress);
+               
+                // if (data.data.company.state == 0) { //未提交
+                //     update_info();
+                //     $('.weiRenZheng.next_btn').css('display', 'block');
+                //     $('.next_btn_update').css('display', 'none');
+                // } else {
+                //     update_info();
+                // }
 
-                    
-                } else {
-                    alert(data.msg);
+                if (data.data.company.state == -1) { //未提交
+                    $('.weiRenZheng.next_btn').css('display', 'block');
+                    $('.next_btn_update').css('display', 'none');
+                } else if (data.data.company.state == 0) { //待审核
+                    $('.weiRenZheng.next_btn').css('display', 'none');
+                    $('.next_btn_update').css('display', 'none');
                 }
+
+                 update_info();
+                
             },
             error: function (err) {
                 console.log(err);
             }
         });
-    }
 
-    $(document).on('click', '.yiRenZheng.btn', function () {
+    // if (window.localStorage.getItem('add-flag') == 'true') {
 
-            var nashui_num_reg = $('#nashui_num').val();
-        var reg = /^\d+$/;
+        function update_info() {
+            $(".weiRenZheng").addClass('xiaoshi');
+
+          
+
+            //v1.0
+            $.ajax({
+                url: pubIP + 'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    companyId: companyId,
+                    type: 'C'
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    if (data.code == 1) {
+                        console.log(data);
+
+                        $('#nashui_num').val(data.data.company.taxId);
+                        $('#qiye_phone').val(data.data.company.taxNumber);
+                        $('#qiye_kaihu_bank').val(data.data.company.accountBank);
+                        $('#qiye_bank_account').val(data.data.company.accountId);
+                        $('#address').val(data.data.company.accountAddress);
+
+                        
+                    } else {
+                        alert(data.msg);
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+    // }
+
+    $(document).on('click', '.yiRenZheng.btn, .next_btn_update', function () {
+
+        var nashui_num_reg = $('#nashui_num').val();
+        var reg = /^[A-Z0-9]+$/;;
         if (reg.test(nashui_num_reg) != true) {
-            $('#nashui_num').parent().next().html('纳税识别号必须为数字');
+            $('#nashui_num').parent().next().html('只能是数字和大写字母');
             return false;
+        } else {
+            $('#nashui_num').parent().next().html('');
         }
 
         var qiye_phone1 = $('#qiye_phone').val();
@@ -407,7 +505,13 @@
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-                window.parent.update_runFapiao();
+
+                if ($('.next_btn_update').css('display') == 'block') {
+                    window.location.href = "identification4.html";
+                } else {
+                    window.parent.update_runFapiao();
+                }
+                
             },
             error: function (err) {
                 console.log(err);
@@ -417,6 +521,20 @@
     });
 
 });
+
+$(window.parent.document).on('click', '.ok_ok, .ook2', function () {
+
+    window.location.reload();
+});
+
+//修改企业信息(放开可修改)
+    $(document).on('click','.update_btn',function(){
+        $('input[type=file]').attr('disabled',false);
+        $('input[type=text]').attr('disabled',false);
+        $('input[type=radio]').attr('disabled',false);
+        $(this).addClass('yiRenZheng');
+        $(this).text('修改完成');
+    })
 </script>
 </body>
 </html>

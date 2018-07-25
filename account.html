@@ -12,8 +12,43 @@
     <link rel="stylesheet" type="text/css" href="./css/commin.css"/>
     <link rel="stylesheet" type="text/css" href="./css/account.css"/>
     <style>
+
+        .modelBoxshenhezhong, .modelBoxyijujue, .modelBoxqiyesecond, .modelBoxchujinsecond, .modelBoxaddsuccess, .modelBoxaddteshu, .modelBoxaddqita, .modelBoxtiao_tan, .modelBoxupdate_chujin, .modelBoxupdate_qiye, .modelBoxupdate_runPerson, .modelBoxupdate_runFapiao, .modelBoxupdate_runcaiwu, .modelBoxdelzizhi, .modelBoxzihzishenhe, .modelBoxweipass, .modelBoxjujue_teshu, .modelBox0, .modelBoxweixian, .modelBoxweirenzheng, .modelBoxdengdai {
+            z-index: 9999;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modelBoxshenhezhong p, .modelBoxyijujue p, .modelBoxqiyesecond p, .modelBoxchujinsecond p, .modelBoxaddsuccess p, .modelBoxaddteshu p, .modelBoxaddqita p, .modelBoxtiao_tan p, .modelBoxupdate_chujin p, .modelBoxupdate_qiye p, .modelBoxupdate_runPerson p, .modelBoxupdate_runFapiao p, .modelBoxupdate_runcaiwu p, .modelBoxdelzizhi p, .modelBoxzihzishenhe p, .modelBoxweipass p, .modelBoxjujue_teshu p, .modelBox0 p, .modelBoxweixian p, .modelBoxweirenzheng p, .modelBoxdengdai p {
+            text-align: center;
+
+        }
+
+        .img_div {
+            width: 100%; 
+            height: 42px; 
+            text-align: center; 
+            padding-top: 40px; 
+            margin-bottom: 19px;
+            overflow: hidden;
+        }
+
+        .modelcontent p {
+            color: #949495;
+            font-size: 14px;
+            padding: 0 80px;
+        }
+
+        .modelcontent p span {
+            color: #5992f3;
+        }
         
-        .modelBox1 input[type="file"] {
+        .modelBox1 input[type="file"], .modelBox12 input[type="file"], .modelBox13 input[type="file"] {
             position: absolute;
             top: 0;
             left: 0;
@@ -98,6 +133,12 @@
             text-align: right;
         }
 
+        span.span_width74 {
+            display: inline-block;
+            width: 74px;
+            text-align: right;
+        }
+
         .order_info_ul ul {
             display: inline-block;
             width: 33%;
@@ -117,6 +158,79 @@
             width: 33%;
             display: inline-block;
         }
+
+        .tbody tr {
+            border-top: 1px solid #ebe9ea;
+            height: 60px;
+            line-height: 60px;
+        }
+
+        .tbody {
+            color: #282828;
+            font-size: 12px;
+        }
+
+        .thead {
+            background-color: #fdfdfd;
+            height: 34px;
+            line-height: 34px;
+            color: #282828;
+            font-size: 12px;
+        }
+
+        .thead td, .tbody td {
+            text-align: center;
+        }
+        
+        .ul li {
+            float: left;
+            width: 33.33%;
+        }
+
+        .ul li span {
+            color: #666;
+        }
+
+        .baojia_title {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #282828;
+        }
+
+        .upload_fapiao_div .upload_fapiao>div {
+            margin-left: 30px;
+        }
+
+        .upload_fapiao_div .upload_fapiao:nth-child(4n+1)>div {
+            margin-left: 0px;
+        }
+
+        .btn_moban {
+            width: 90px;
+            height: 38px;
+            background: #6ea3ff;
+            color: #fff;
+            font-size: 14px;
+            line-height: 38px;
+            text-align: center;
+            display: inline-block;
+            border-radius: 2px;
+        }
+
+        .btn_moban:hover {
+            background: #5388ff;
+            color: #fff;
+        }
+
+        .tbody_tr tr {
+            border-bottom: 1px solid #ebe9ea;
+        }
+
+        .tbody_tr tr:last-child {
+            border-bottom: none;
+        }
+
 
     </style>
 </head>
@@ -153,13 +267,31 @@
     <div class="manageList Lf cfidx1" data-idx=".cfnav1">
         <ul class="manageList1">
             <li>
-                <a href="##" class="manage"><strong>系统首页</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+               <!--  <a href="##" class="manage"><strong>系统首页</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
                 <ul class="manageList2">
                     <li><a href="##" class="manageItem" data-src="./systemIndex/mine.html" data-height="860">系统首页</a></li>
-                    <li><a href="##" class="manageItem"  data-src="./systemIndex/grow.html"  data-height="1600">个人中心</a></li>
+                    <li><a href="##" class="manageItem"  data-src="./systemIndex/grow.html"  data-height="1600">个人中心</a></li> -->
                     <!--<li><a href="##" class="manageItem" data-src="./systemIndex/integral.html" data-height="1479">积分兑换记录</a></li>-->
                     <!--<li><a href="##" class="manageItem" data-src="./systemIndex/myOrder.html" data-height="1420">会员商品订单</a></li>-->
-                    <li><a href="##" class="manageItem " data-src="./systemIndex/information.html" data-height="576">企业信息设置</a></li>
+                    <!-- <li><a href="##" class="manageItem " data-src="./systemIndex/information.html" data-height="576">企业信息设置</a></li> -->
+                    
+                <a href="##" class="manage"><strong>个人中心</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem" data-src="./systemIndex/mine.html" data-height="860">企业基本信息</a></li>
+                    <li><a href="##" class="manageItem"  data-src="./systemIndex/grow.html"  data-height="1600">个人中心</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="##" class="manage"><strong>用户中心</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem"  data-src="./systemIndex/grow.html"  data-height="1600">个人资料</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="##" class="manage"><strong>企业资质</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
+                <ul class="manageList2">
+                    <li><a href="##" class="manageItem"  data-src="./finance/identification1.html"  data-height="1600">企业认证</a></li>
+                    <li><a href="##" class="manageItem"  data-src="./finance/Special1.html"  data-height="1600">资质认证</a></li>
                 </ul>
             </li>
         </ul>
@@ -832,7 +964,1029 @@
         </div>
     </div>
 </div>
-    
+
+<!-- 金额结算 -->
+<div class="modelBox7" style="font-size: 14px;">
+    <div class="modelCont" style="width: 650px;height: 555px;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>金额结算</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent clearFloat" style="width: 548px; height: 510px; border: 1px solid #ebe9ea;padding: 15px 50px 0 50px; ">
+            <table style="border: 1px solid #ebe9ea; width: 550px;">
+                <thead class="thead">
+                    <tr>
+                        <td style="width: 60px; text-align: center;"><img src="img/cf_noselect.png"></td>
+                        <td>订单编号</td>
+                        <td>完成时间</td>
+                        <td>总金额</td>
+                        <td>待结算金额</td>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    <tr>
+                        <td style="width: 60px; text-align: center;"><img src="img/cf_noselect.png"></td>
+                        <td>3001804091631062137</td>
+                        <td>2017-07-19 14:48</td>
+                        <td>危化-罐装</td>
+                        <td>4000吨</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 60px; text-align: center;"><img src="img/cf_noselect.png"></td>
+                        <td>3001804091631062137</td>
+                        <td>2017-07-19 14:48</td>
+                        <td>危化-罐装</td>
+                        <td>4000吨</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 60px; text-align: center;"><img src="img/cf_noselect.png"></td>
+                        <td>3001804091631062137</td>
+                        <td>2017-07-19 14:48</td>
+                        <td>危化-罐装</td>
+                        <td>4000吨</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top: 15px;color: #666666; font-size: 14px;"><span style="color: #282828;" class="span_width modelBox34LeftTitle fl">总&nbsp;金&nbsp;额：&nbsp;</span>
+                <span style="margin-left: 5px;">订单已提交成功</span>
+            </div>
+            <div style="margin-top: 15px;color: #666666; font-size: 14px;"><span style="color: #282828;" class="span_width modelBox34LeftTitle fl">支付方式：&nbsp;</span>
+                <input type="radio" name="pay_method">现汇
+                <input type="radio" name="pay_method">承兑
+            </div>
+            <div style="margin-top: 15px;color: #666666; font-size: 14px;"><span style="color: #282828;" class="span_width modelBox34LeftTitle fl">承兑方式：&nbsp;</span>
+                <input type="radio" name="chengdui_method">中信银行
+                <input type="radio" name="chengdui_method">库尔勒银行
+            </div>
+            <div style="margin-top: 15px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="span_width modelBox34LeftTitle fl">现汇金额：&nbsp;</span>
+                <input type="text" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; margin-left: 5px;">
+                <span style="margin-left: 20px;">可用余额：￥1111212</span>
+            </div>
+            <div class="clearFloat" style="text-align: center;margin-top: 50px;">
+                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; font-size: 16px;">确认支付</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 新增口车款 -->
+<div class="modelBox8" style="font-size: 14px;">
+    <div class="modelCont" style="width: 650px;height: 555px;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>新增扣车款</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent clearFloat" style="width: 598px; height: 448px; border: 1px solid #ebe9ea;padding: 15px 50px 0 0px; ">
+            <div style="margin-top: 50px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="span_width modelBox34LeftTitle fl">扣车款名称：&nbsp;</span>
+                <input type="text" placeholder="订单编号/项目名称" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; margin-left: 5px;">
+            </div>
+            <div class="clearfix" style="margin-top: 25px;color: #666666;line-height: 40px; font-size: 14px;"><span class="span_width modelBox34LeftTitle fl" style="color: #282828;">描&nbsp;&nbsp;述：&nbsp;</span>
+                <textarea name="" id="" cols="50" rows="10" placeholder="请输入内容" style="width: 470px; text-indent: 10px; border: 1px solid #dbdbdc; overflow: hidden; float: left; margin-left: 5px;"></textarea>
+            </div>
+            <div class="clearFloat" style="text-align: center;margin-top: 29px;">
+                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确定新增</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 回款审核 -->
+<div class="modelBox9" style="font-size: 14px;">
+    <div class="modelCont" style="width: 650px;height: 555px;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>回款审核</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent clearFloat" style="width: 598px; height: 448px; border: 1px solid #ebe9ea;padding: 15px 50px 0 0px; ">
+            <div style="margin-top: 25px; color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="span_width modelBox34LeftTitle fl">合同结算金额：&nbsp;</span>
+                <span>￥100000000.00</span>
+            </div>
+            <div style="margin-top: 10px; color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="span_width modelBox34LeftTitle fl">实际结算金额：&nbsp;</span>
+                <span>￥100000000.00</span>
+            </div>
+            <div class="clearfix" style="margin-top: 25px;color: #666666;line-height: 40px; font-size: 14px;"><span class="span_width modelBox34LeftTitle fl" style="color: #282828;">备&nbsp;&nbsp;注：&nbsp;</span>
+                <textarea name="" id="" cols="50" rows="10" placeholder="备注信息" style="width: 470px; text-indent: 10px; border: 1px solid #dbdbdc; overflow: hidden; float: left; margin-left: 5px;"></textarea>
+            </div>
+            <div class="clearFloat" style="text-align: center;margin-top: 50px;font-size: 16px;">
+                <span class=" cf_btn cancel cfClose quxiao" style="display: inline-block; margin-left: 55px;" >取消</span>
+                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">金额确认</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 新增订单 -->
+<div class="modelBox10" style="font-size: 14px;">
+    <div class="modelCont" style="width: 825px;height: 560px;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>新增订单</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent clearFloat" style="width: 725px;height: 450px;font-size: 14px;padding: 15px 50px 0 50px; ">
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class=" fl clearfix"><span class="modelBox34LeftTitle" style="display: block;">输入搜索：&nbsp;</span>
+                    <div class="selectPub" data-selectedindex="-1" style="width: 218px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 120px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">订单编号/项目名称</span><img src="img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">1</li>
+                            <li data-index="2">2</li>
+                            <li data-index="3">3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle" style="display: block;">始发地：&nbsp;</span>
+                    <div class="selectPub" data-selectedindex="-1" style=" width: 218px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 120px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">订单编号/项目名称</span><img src="img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">1</li>
+                            <li data-index="2">2</li>
+                            <li data-index="3">3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>   
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class=" fl clearfix"><span class="modelBox34LeftTitle" style="display: block;">订单状态：&nbsp;</span>
+                    <div class="selectPub" data-selectedindex="-1" style="width: 218px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 120px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">订单编号/项目名称</span><img src="img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">1</li>
+                            <li data-index="2">2</li>
+                            <li data-index="3">3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle" style="display: block;">项目类别：&nbsp;</span>
+                    <div class="selectPub" data-selectedindex="-1" style=" width: 218px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 120px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">全部</span><img src="img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">1</li>
+                            <li data-index="2">2</li>
+                            <li data-index="3">3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class=" fl clearfix"><span class="modelBox34LeftTitle" style="display: block;">目的地：&nbsp;</span>
+                    <div class="selectPub" data-selectedindex="-1" style="width: 218px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 120px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">全部</span><img src="img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">1</li>
+                            <li data-index="2">2</li>
+                            <li data-index="3">3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle" style="display: block;">提交时间：&nbsp;</span>
+                    <div class="selectPub" data-selectedindex="-1" style=" width: 218px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 120px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择时间</span><img src="img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">1</li>
+                            <li data-index="2">2</li>
+                            <li data-index="3">3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clearFloat" style="text-align: center;margin-top: 80px;">
+                <span class=" cf_btn cancel cfClose quxiao" style="display: inline-block;" >重置</span>
+                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">开始检索</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 查看报价 -->
+<div class="modelBox11" style="font-size: 14px;">
+    <div class="modelCont" style="width: 1058px;height: 560px;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>查看报价</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent clearFloat" style="width: 958px;height: 540px;font-size: 14px;padding: 15px 50px 0 50px; ">
+            <div class="baijia_one">
+                <div class="baojia_title">第一次报价</div>
+                <div style="width: 968px; height: 57px; border: 1px solid #ebe9ea; line-height: 57px; padding-left: 38px; box-sizing: border-box;">
+                    <ul class="ul clearfix">
+                        <li>报价时间：<span>2015-09-09 12:30</span></li>
+                        <li>报价：<span>120元/吨</span></li>
+                        <li>结果：<span>推送中</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="baijia_one">
+                <div class="baojia_title">第一次报价</div>
+                <div style="width: 968px; height: 57px; border: 1px solid #ebe9ea; line-height: 57px; padding-left: 38px; box-sizing: border-box;">
+                    <ul class="ul clearfix">
+                        <li>报价时间：<span>2015-09-09 12:30</span></li>
+                        <li>报价：<span>120元/吨</span></li>
+                        <li>结果：<span>推送中</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top: 105px;color: #666666; font-size: 14px; line-height: 40px; text-align: center;"><span style="color: #282828;" class="span_width modelBox34LeftTitle">报价：&nbsp;</span>
+                <input type="text" placeholder="111" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; margin-left: 5px;">
+                <span style="margin-left: 10px;">元/吨</span>
+            </div>
+            <div class="clearFloat" style="text-align: center;margin-top: 50px;">
+                <span class=" cf_btn cancel cfClose quxiao" style="display: inline-block;" >取消</span>
+                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认报价</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 添加车辆/编辑汽车 -->
+<div class="modelBox12" style="font-size: 14px;">
+    <div class="modelCont" style="width: 846px;height: 790px;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>添加车辆/编辑汽车</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent clearFloat" style="width: 744px; font-size: 14px; height: 795px; border: 1px solid #ebe9ea;padding: 15px 50px 0 50px; ">
+            <div style="padding-right: 80px; box-sizing: border-box;">
+                <div class="clearfix">
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">车辆类型：&nbsp;</span>
+                        <div class="selectPub" data-selectedindex="-1" style="float: left;width: 96px; margin-right: 6px; margin-top: 0px;">
+                            <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">九类</span><img src="img/prl-select.jpg" alt="">
+                            <ul>
+                                <li data-index="1">1</li>
+                                <li data-index="2">2</li>
+                                <li data-index="3">3</li>
+                            </ul>
+                        </div>
+                        <div class="selectPub" data-selectedindex="-1" style="float: left;width: 96px; margin-top: 0px;">
+                            <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">二十五项</span><img src="img/prl-select.jpg" alt="">
+                            <ul>
+                                <li data-index="1">1</li>
+                                <li data-index="2">2</li>
+                                <li data-index="3">3</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr ml90 clearfix"><span class="modelBox34LeftTitle fl">车牌号：&nbsp;</span>
+                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">车辆品牌：&nbsp;</span>
+                        <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 6px; margin-top: 0px;">
+                            <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                            <ul>
+                                <li data-index="1">1</li>
+                                <li data-index="2">2</li>
+                                <li data-index="3">3</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">车辆档案号：&nbsp;</span>
+                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">车&nbsp;&nbsp;架&nbsp;号：&nbsp;</span>
+                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    </div>
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">发动机号：&nbsp;</span>
+                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    </div>
+                </div> 
+                <div class="clearfix">
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">年审日期：&nbsp;</span>
+                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    </div>
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">初次上牌日期：&nbsp;</span>
+                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    </div>
+                </div>  
+                <div class="clearfix">
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">保险日期：&nbsp;</span>
+                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    </div>
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">车辆载重：&nbsp;</span>
+                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">线路选择：&nbsp;</span>
+                        <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 6px; margin-top: 0px;">
+                            <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                            <ul>
+                                <li data-index="1">1</li>
+                                <li data-index="2">2</li>
+                                <li data-index="3">3</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">购买金额：&nbsp;</span>
+                        <input type="text" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">保险金额：&nbsp;</span>
+                        <input type="text" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    </div>
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl" style="width: 96px; text-align: right;">保险年限：&nbsp;</span>
+                        <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
+                            <span style="display: inline-block;max-width: 70px;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                            <ul>
+                                <li data-index="1">1</li>
+                                <li data-index="2">2</li>
+                                <li data-index="3">3</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">上传发票：&nbsp;</span>
+                        <div class="fl">
+                            <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative;">
+                                <input type="file">
+                            </div>
+                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">行驶证</div>
+                        </div>
+                        <div class="fl">
+                            <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative; margin-left: 30px;">
+                                <input type="file">
+                            </div>
+                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">车辆运营证</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearFloat" style="text-align: center;margin-top: 50px;">
+                    <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认提交</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 添加路线 -->
+<div class="modelBox13" style="font-size: 14px;">
+    <div class="modelCont" style="width: 846px;height: 525px;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>添加路线</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent clearFloat" style="width: 744px; font-size: 14px; height: 475px; border: 1px solid #ebe9ea;padding: 45px 50px 0 50px; ">
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">发&nbsp;&nbsp;货&nbsp;地：&nbsp;</span>
+                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">到货地：&nbsp;</span>
+                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+            </div>
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">给&nbsp;&nbsp;车&nbsp;价：&nbsp;</span>
+                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 6px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">1</li>
+                            <li data-index="2">2</li>
+                            <li data-index="3">3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">扣损率：&nbsp;</span>
+                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+            </div>
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">扣损单价：&nbsp;</span>
+                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 6px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">1</li>
+                            <li data-index="2">2</li>
+                            <li data-index="3">3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">远距：&nbsp;</span>
+                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+            </div>  
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">预计时长：&nbsp;</span>
+                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 6px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">1</li>
+                            <li data-index="2">2</li>
+                            <li data-index="3">3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>  
+            <div class="clearFloat" style="text-align: center;margin-top: 79px;">
+                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">新增</span>
+            </div> 
+        </div>
+    </div>
+</div>
+
+<!-- 新增订单 -->
+<div class="modelBox14" style="font-size: 14px;">
+    <div class="modelCont" style="width: 846px;height: 660px; overflow: hidden; overflow-y: auto;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>添加路线</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent clearFloat" style="width: 744px; font-size: 14px; height: auto; border: 1px solid #ebe9ea;padding: 45px 50px 50px 50px; ">
+            
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">司机类型：&nbsp;</span>
+                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">1</li>
+                            <li data-index="2">2</li>
+                            <li data-index="3">3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">部门：&nbsp;</span>
+                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">1</li>
+                            <li data-index="2">2</li>
+                            <li data-index="3">3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle span_width74 fl">职务：&nbsp;</span>
+                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">1</li>
+                            <li data-index="2">2</li>
+                            <li data-index="3">3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">所在车辆：&nbsp;</span>
+                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">1</li>
+                            <li data-index="2">2</li>
+                            <li data-index="3">3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle span_width74 fl">姓名：&nbsp;</span>
+                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">身份证号：&nbsp;</span>
+                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+            </div>
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle span_width74 fl">住址：&nbsp;</span>
+                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">电话：&nbsp;</span>
+                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+            </div>
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">驾驶证号：&nbsp;</span>
+                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">货物资格证号：&nbsp;</span>
+                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+            </div>
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle span_width74 fl">银行卡：&nbsp;</span>
+                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">登陆账号：&nbsp;</span>
+                    <input type="text" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+            </div>
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">登录密码：&nbsp;</span>
+                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">薪资：&nbsp;</span>
+                    <input type="text" placeholder="333" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+            </div>
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">保险状态：&nbsp;</span>
+                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div>
+            </div>
+            <div class="clearfix">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">上传发票：&nbsp;</span>
+                    <div class="fl upload_fapiao_div" style="width: 610px;">
+                        <div class="fl upload_fapiao">
+                            <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative;">
+                                <input type="file">
+                            </div>
+                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">驾驶证</div>
+                        </div>
+                        <div class="fl upload_fapiao">
+                            <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative; ">
+                                <input type="file">
+                            </div>
+                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">上传发票</div>
+                        </div>
+                        <div class="fl upload_fapiao">
+                            <div class="add_img" style="height: 128px;width: 128px;border: 1px solid #dbdbdc; background: url('img/cf_add.png') no-repeat; position: relative; background-size: contain">
+                                
+                            </div>
+                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">上传发票</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearFloat" style="text-align: center;margin-top: 50px;">
+                <span class=" cf_btn cancel cfClose quxiao" style="display: inline-block;" >取消</span>
+                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认新增</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 油卡充值2 -->
+<div class="modelBox15" style="font-size: 14px;">
+    <div class="modelCont" style="width: 652px;height: 550px; overflow: hidden; overflow-y: auto;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>油卡充值</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent clearFloat" style="width: 550px; font-size: 14px; height: auto; border: 1px solid #ebe9ea;padding: 45px 50px 50px 50px; ">
+            <div style="color: #e71212;">
+                <span style="display: inline-block; width: 32%;">平台金额：30</span>
+                <span style="display: inline-block; width: 33%;">充值金额：￥300.00</span>
+                <span style="display: inline-block; width: 33%;">平台金额：￥300.00</span>
+            </div>
+
+            <div class="clearfix" style="margin-top: 17px; margin-bottom: 11px;">
+                <div class="fr">
+                    <span class="btn_moban">批量模版</span>
+                    <span class="btn_moban" style="margin-left: 10px;">模版上传</span>
+                </div>
+            </div>
+            <div style="height: 216px; width: 547px; border: 1px solid #ebe9ea;">
+                <table style="width: 100%;">
+                    <thead style="height: 34px; background: #fdfdfd; line-height: 34px;">
+                        <tr style="border-bottom: 1px solid #ebe9ea; ">
+                            <td style="color: #282828; text-align: center; width: 70px;">编号</td>
+                            <td style="color: #282828; text-align: center;">油卡号</td>
+                            <td style="color: #282828; text-align: center;">充值金额</td>
+                        </tr>
+                    </thead>
+                    <tbody style="width: 100%;" class="tbody_tr">
+                        <tr style="height: 60px; line-height: 60px;">
+                            <td style="text-align: center;">1</td>
+                            <td style="text-align: center;">
+                                <input type="text" style="height: 36px; width: 190px; border: 1px solid #ebe9ea;">
+                            </td>
+                            <td style="text-align: center;">
+                                <input type="text" style="height: 36px; width: 190px; border: 1px solid #ebe9ea;">
+                            </td>
+                        </tr>
+                        <tr style="height: 60px; line-height: 60px;">
+                            <td style="text-align: center;">2</td>
+                            <td style="text-align: center;">
+                                <input type="text" style="height: 36px; width: 190px; border: 1px solid #ebe9ea;">
+                            </td>
+                            <td style="text-align: center;">
+                                <input type="text" style="height: 36px; width: 190px; border: 1px solid #ebe9ea;">
+                            </td>
+                        </tr>
+                        <tr style="height: 60px; line-height: 60px;">
+                            <td style="text-align: center;">3</td>
+                            <td style="text-align: center;">
+                                <input type="text" style="height: 36px; width: 190px; border: 1px solid #ebe9ea;">
+                            </td>
+                            <td style="text-align: center;">
+                                <input type="text" style="height: 36px; width: 190px; border: 1px solid #ebe9ea;">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clearFloat" style="text-align: center;margin-top: 38px;">
+                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认充值</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 油卡充值1 -->
+<div class="modelBox16" style="font-size: 14px;">
+    <div class="modelCont" style="width: 652px;height: 550px; overflow: hidden; overflow-y: auto;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>油卡充值</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent clearFloat" style="width: 550px; font-size: 14px; height: auto; border: 1px solid #ebe9ea;padding: 45px 50px 50px 50px; ">
+            <div style="color: #e71212;">
+                <span style="display: inline-block; width: 32%;">平台金额：￥300.00</span>
+            </div>
+            <div style="margin-top: 30px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="modelBox34LeftTitle">申请金额：</span>
+                <input type="text" placeholder="111" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; ">
+                <span style="margin-left: 20px;">元/吨/公里</span>
+            </div>
+            <div class="clearfix" style="margin-top: 25px;color: #666666;line-height: 40px; font-size: 14px;"><span style="width: 68px;text-align: right;" class="modelBox34LeftTitle fl" style="color: #282828;">备&nbsp;&nbsp;注：</span>
+                <textarea name="" id="" cols="50" rows="10" placeholder="备注信息" style="width: 470px; text-indent: 10px; border: 1px solid #dbdbdc; overflow: hidden; float: left; margin-left: 5px;"></textarea>
+            </div>
+            <div class="clearFloat" style="text-align: center;margin-top: 29px;">
+                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">申请充值</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="modelBoxweixian">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/cf_denger1.png" alt=""></div>
+               <!--  <p><span>危险化学品认证信息审核中</span>，请等待危险化学品认证审核通过后，再进行特殊资质认证！</p> -->
+               <p><span>危险化学品认证信息正在审核或未进行危险化学品认证！</span></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBoxweirenzheng">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/cf_denger1.png" alt=""></div>
+                <p>未进行危险化学品认证，请先进行危险化学品认证！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 企业认证基本信息是否审核 -->
+<div class="modelBoxdengdai">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/cf_denger1.png" alt=""></div>
+                <p>企业认证正在等待审核中</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 企业认证正在审核中 -->
+<div class="modelBoxshenhezhong">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/cf_denger1.png" alt=""></div>
+                <p>企业认证正在审核中</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modelBoxyijujue">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info jujue">
+                <div class="img_div"><img style="float: none;" src="img/cf_denger1.png" alt=""></div>
+                <p>企业认证的审核<span>未通过</span>，请重新修改提交</p>
+                <div class="jujue_liyou">拒绝理由：<span>这是拒绝理由信息~</span></div>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBoxqiyesecond">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/cf_denger1.png" alt=""></div>
+                <p><span>企业基本信息正在审核中</span>，请耐心等待！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBoxchujinsecond">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/cf_denger1.png" alt=""></div>
+                <p><span>出金账户资料正在审核中</span>，请耐心等待!</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBoxaddsuccess">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/gsxq_success.gif" alt=""></div>
+                <p><span>企业认证信息提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBoxaddteshu">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/gsxq_success.gif" alt=""></div>
+                <p><span>特殊资质认证提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBoxaddqita">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/gsxq_success.gif" alt=""></div>
+                <p><span>其他资质认证提交成功！</span></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBoxtiao_tan">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/cf_denger1.png" alt=""></div>
+                <p>欢迎回来，请继续您的填写企业信息！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBoxupdate_chujin">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/gsxq_success.gif" alt=""></div>
+                <p><span>出金账户修改提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm ook4">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBoxupdate_qiye">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/gsxq_success.gif" alt=""></div>
+                <p><span>企业信息修改提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm ook">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBoxupdate_runPerson">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/gsxq_success.gif" alt=""></div>
+                <p>运营者信息修改成功！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm ook1">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBoxupdate_runFapiao">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/gsxq_success.gif" alt=""></div>
+                <p>发票信息修改成功！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm ook2">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBoxupdate_runcaiwu">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/gsxq_success.gif" alt=""></div>
+                <p>财务信息修改成功！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm ook3">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 删除资质 -->
+<div class="modelBoxdelzizhi">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/gsxq_success.gif" alt=""></div>
+                <p style="text-align:center;">删除成功！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm ok_ok1">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 资质正在审核 -->
+<div class="modelBoxzihzishenhe">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/cf_denger1.png" alt=""></div>
+                <p><span>资质正在审核</span>，请您耐心等待！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 危险化学品认证资质审核未通过 -->
+<div class="modelBoxweipass">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/cf_denger1.png" alt=""></div>
+                <p><span>危险化学品资质认证审核未通过</span>，请您重新填写进行认证！</p>
+                <p class="jj_yuanying" style="color: red;font-size: 14px;text-align: left;">拒绝理由：<span></span></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 特殊资质审核未通过 -->
+<div class="modelBoxjujue_teshu">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/cf_denger1.png" alt=""></div>
+                <p><span>特殊资质认证审核未通过</span>，请您重新填写进行认证！</p>
+                <p class="jj_yuanying2" style="color: red;font-size: 14px;text-align: left;">拒绝理由：<span></span></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script src="./js/footer.js" type="text/javascript" charset="utf-8"></script>
 <script src="./js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
@@ -853,10 +2007,27 @@
         $(this).parents(".modelCont").parent().css("display","none");
     })
 
-    showModelBox('.modelBox6');
+    $(document).on('click', '.confirm', function () {
+        $(this).parent().parent().parent().parent().css('display', 'none');
+    });
+
+
+    //showModelBox('.modelBox16');
     function showModelBox(cls) {
         $(cls).css("display","block");
     }
+
+    // 点击添加上传发票
+    $(document).on('click', '.add_img', function() {
+
+        $(this).parent().before('<div class="fl upload_fapiao">'
+                        +'<div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative;">'
+                            +'<input type="file">'
+                        +'</div>'
+                        +'<div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">上传发票</div>'
+                    +'</div>');
+
+    });
 
 
     function showMangeList(idx) {//设置每个页面的  初始加载页面， cfsrc  必须是 和data-src 一致
@@ -1022,7 +2193,111 @@ function close1(that) {
     $(that).parents(".pop").css("display","none")
 }
 
+// 危险化学品认证提交成功
+    function tan() {
+        $('.modelBox0').css('display', 'block');
+    }
 
+    //危险化学品认证信息审核中，请等待危险化学品认证审核通过后，再进行特殊资质认证！
+    function tan1() {
+        $('.modelBoxweixian').css('display', 'block');
+    }
+
+    // 未进行危险化学品认证，请先进行危险化学品认证！
+    function tan2() {
+        $('.modelBoxweirenzheng').css('display', 'block');
+    }
+
+    //等待审核
+    function tan3() {
+        $('.modelBoxdengdai').css('display', 'block');
+    }
+
+    //审核中
+    function tan4() {
+        $('.modelBoxshenhezhong').css('display', 'block');
+    }
+
+    //已拒绝
+    function tan5() {
+        $('.modelBoxyijujue').css('display', 'block');
+    }
+
+    //企业资料二次审核中
+    function tan6() {
+        $('.modelBoxqiyesecond').css('display', 'block');
+    }
+
+    //出金账户资料二次审核中
+    function tan7() {
+        $('.modelBoxchujinsecond').css('display', 'block');
+    }
+
+    //添加企业认证提交后的弹框
+    function add_tan() {
+        $('.modelBoxaddsuccess').css('display', 'block');
+    }
+
+    //特殊资质认证提交后的弹框
+    function teshu_tan() {
+        $('.modelBoxaddteshu').css('display', 'block');
+    }
+
+    //其他资质认证提交后的弹框
+    function other_tan() {
+        $('.modelBoxaddqita').css('display', 'block');
+    }
+
+    function tiao_tan () {
+        $('.modelBoxtiao_tan').css('display', 'block');
+    }
+
+    //修改出金账户成功
+    function update_chujin() {
+        $('.modelBoxupdate_chujin').css('display', 'block');
+    }
+
+    //修改企业信息成功
+    function update_qiye() {
+        $('.modelBoxupdate_qiye').css('display', 'block');
+    }
+
+    //修改运营者信息成功
+    function update_runPerson() {
+        $('.modelBoxupdate_runPerson').css('display', 'block');
+    }
+
+    //修改发票信息成功
+    function update_runFapiao() {
+        $('.modelBoxupdate_runFapiao').css('display', 'block');
+    }
+
+    //修改财务信息成功
+    function update_runcaiwu() {
+        $('.modelBoxupdate_runcaiwu').css('display', 'block');
+    }
+
+    //删除资质
+    function del() {
+        $('.modelBoxdelzizhi').css('display', 'block');
+    }
+
+    //资质正在审核
+    function shenhe() {
+        $('.modelBoxzihzishenhe').css('display', 'block');
+    }
+
+    //危险化学品认证资质已拒绝
+    function jujue_weixian(reasons) {
+        $(".jj_yuanying span").html(reasons);
+        $('.modelBoxweipass').css('display', 'block');
+    }
+
+    //特殊认证资质已拒绝
+    function jujue_teshu(reasons) {
+        $(".jj_yuanying2 span").html(reasons);
+        $('.modelBoxjujue_teshu').css('display', 'block');
+    }
 
 
 </script>
