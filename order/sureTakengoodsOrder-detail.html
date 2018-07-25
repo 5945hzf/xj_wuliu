@@ -53,6 +53,10 @@
             background-repeat: no-repeat;
             background-position: right center;
         }
+
+        .contlistone .ll {
+            width: 340px;
+        }
     </style>
 </head>
 <body>
@@ -66,8 +70,8 @@
 
         <div class="requireInfo infoBox">
             <div class="title"><img src="../img/prl-titlelogo.png" width="29" height="28" alt="">订单信息</div>
-            <div class="contBox">
-                <div class="contlist contlistone">
+            <div class="contBox" id="orderInfo">
+                <!-- <div class="contlist contlistone">
                     <div class="left ll">
                         <div>订单编号：<span>201707196369321</span></div>
                         <div>发布时间：<span>2015-09-08 23:00</span></div>
@@ -93,13 +97,13 @@
                         <div>车辆类型：<span>罐装车</span></div>
                         <div>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：<span>备注信息</span></div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="companyInfo infoBox">
             <div class="title"><img src="../img/prl-titlelogo.png" width="29" height="28" alt="">企业信息</div>
-            <div class="contBox">
-                <ul>
+            <div class="contBox" id="qiyeInfo">
+                <!-- <ul>
                     <li class="left ll">发货公司：<span class="blue">化动力有限公司</span></li>
                     <li class="left mm">联&nbsp;&nbsp;系&nbsp;&nbsp;人：<span>王小二</span></li>
                     <li class="left rr">联系电话：<span>18500000000</span></li>
@@ -110,24 +114,24 @@
                     <li class="left mm">联&nbsp;&nbsp;系&nbsp;&nbsp;人：<span>王小二</span></li>
                     <li class="left rr">联系电话：<span>18500000000</span></li>
                     <li>详细地址：<span>新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情</span></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
         <div class="baojiaCompany infoBox">
             <div class="title"><img src="../img/prl-titlelogo.png" width="29" height="28" alt="">物流公司</div>
             <div class="contBox">
                 <ul>
-                    <li class="left ll">发货公司：<span class="blue">化动力有限公司</span></li>
-                    <li class="left mm">联&nbsp;&nbsp;系&nbsp;&nbsp;人：<span>王小二</span></li>
-                    <li class="left rr">联系电话：<span>18500000000</span></li>
-                    <li>详细地址：<span>新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情</span></li>
+                    <li class="left ll">发货公司：<span class="blue wuliu_info_companyname">化动力有限公司</span></li>
+                    <li class="left mm">联&nbsp;&nbsp;系&nbsp;&nbsp;人：<span class="wuliu_info_user">王小二</span></li>
+                    <li class="left rr">联系电话：<span class="wuliu_info_phone">18500000000</span></li>
+                    <li>详细地址：<span class="wuliu_info_address">新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情</span></li>
                 </ul>
             </div>
         </div>
         <div class="operator infoBox">
             <div class="title"><img src="../img/prl-titlelogo.png" width="29" height="28" alt="">车辆信息</div>
-            <div class="contBox">
-                <div class="left ll">
+            <div class="contBox" id="carInfo">
+                <!-- <div class="left ll">
                     <div>车&nbsp;&nbsp;牌&nbsp;&nbsp;号：<span>新BERER123</span></div>
                     <div>状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态：<span>化公司</span></div>
                 </div>
@@ -137,32 +141,35 @@
                 </div>
                 <div class="left rr">
                     <div>预计到达：<span>2015-09-08 12：20</span></div>
+                </div> -->
+            </div>
+        </div>
+        <div class="car_more">
+            <div class="operator infoBox">
+                <div class="contBox">
+                    <div class="left ll">
+                        <div>车&nbsp;&nbsp;牌&nbsp;&nbsp;号：<span>新BERER123</span></div>
+                        <div>状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态：<span>化公司</span></div>
+                    </div>
+                    <div class="left mm">
+                        <div>分配时间：<span>2015-09-08 12：20</span></div>
+                        <div>磅&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单：<span style="color:#6ba1ff;cursor: pointer;">查&nbsp;&nbsp;看</span></div>
+                    </div>
+                    <div class="left rr">
+                        <div>预计到达：<span>2015-09-08 12：20</span></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="operator infoBox">
-            <div class="contBox">
-                <div class="left ll">
-                    <div>车&nbsp;&nbsp;牌&nbsp;&nbsp;号：<span>新BERER123</span></div>
-                    <div>状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态：<span>化公司</span></div>
-                </div>
-                <div class="left mm">
-                    <div>分配时间：<span>2015-09-08 12：20</span></div>
-                    <div>磅&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单：<span style="color:#6ba1ff;cursor: pointer;">查&nbsp;&nbsp;看</span></div>
-                </div>
-                <div class="left rr">
-                    <div>预计到达：<span>2015-09-08 12：20</span></div>
-                </div>
-            </div>
-        </div>
+        
         <div class="operator infoBox">
             <div class="title"><img src="../img/prl-titlelogo.png" width="29" height="28" alt="">操作人员</div>
             <div class="contBox">
                 <div class="left ll">
-                    <div>接&nbsp;&nbsp;单&nbsp;&nbsp;人：<span>新B</span></div>
+                    <div>接&nbsp;&nbsp;单&nbsp;&nbsp;人：<span class="jiedan_person">新B</span></div>
                 </div>
                 <div class="left mm">
-                    <div>发单人员：<span>王小二</span></div>
+                    <div>发单人员：<span class="fadan_person">王小二</span></div>
                 </div>
             </div>
         </div>
@@ -170,11 +177,266 @@
     </div>
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/html" id="orderTpl">
+        <div class="contlist contlistone">
+            <div class="left ll">
+                <div>订单编号：<span><%=orderNo%></span></div>
+                <div>发布时间：<span><%=createTime%></span></div>
+                <div>装车时间：<span><%=startDate%></span></div>
+            </div>
+            <div class="left rr">
+                <div>始&nbsp;&nbsp;发&nbsp;&nbsp;地：<span><%=sendAddress%></span></div>
+                <div class="desti">目&nbsp;&nbsp;的&nbsp;&nbsp;地：<span class="destination"><%=receiveAddress%></span></div>
+            </div>
+        </div>
+        <div class="contlist contlisttwo">
+            <div class="left ll">
+                <div>货物类型：<span><%=goodsType%></span></div>
+                <div>重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：<span><%=goodsNum%><%=goodsUnit%></span></div>
+                <div>支付方式：<%=paymentType%></div>
+                <!-- <div>保&nbsp;&nbsp;证&nbsp;&nbsp;金：<span>¥1000.00</span></div> -->
+            </div>
+            <div class="left mm">
+                <div>包装类型：<span>罐装</span></div>
+                <div>开&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票：<span><%=invoiceType%></span></div>
+                <!-- <div>结算方式：<span><%=paymentMode%></span></div> -->
+                <!-- <div>缴纳方式：<span>抵扣</span></div> -->
+            </div>
+            <div class="left rr">
+                <div>货物名称：<span><%=goodsName%></span></span></div>
+                <div>车辆类型：<span><%=carType%></span></span></div>
+                <!-- <div>回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单：
+                <%if (receipt == 0) {%>
+                <span>不需要</span>
+                <%} else if(receipt == 1) {%>            
+                <span>需要</span>
+                <%}%>    
+                </div> -->
+                <div>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：<span><%=goodsRemark%></span></div>
+            </div>
+        </div>
+    </script>
+    <script type="text/html" id="qiyeTpl">
+        <ul>
+            <li class="left ll">发货公司：<span class="blue"><%=sendCompanyName%></span></li>
+            <li class="left mm">联&nbsp;&nbsp;系&nbsp;&nbsp;人：<span><%=sendUser%></span></li>
+            <li class="left rr">联系电话：<span><%=sendPhone%></span></li>
+            <li style="display: block; width: 100%;">详细地址：<span><%=sendAddress%></span></li>
+        </ul>
+        <ul>
+            <li class="left ll">收货公司：<span class="blue"><%=receiveCompanyName%></span></li>
+            <li class="left mm">联&nbsp;&nbsp;系&nbsp;&nbsp;人：<span><%=receiveUser%></span></li>
+            <li class="left rr">联系电话：<span><%=receivePhone%></span></li>
+            <li>详细地址：<span><%=receiveAddress%></span></li>
+        </ul>
+    </script>
     <script>
         //Iframe 的高度
         $(function () {
             window.parent.$("#Iframe").css("height","1058");
         })
+
+        $(document).on('click', '.closeBtn', function() {
+
+            window.location.href = 'sureTakengoodsOrder.html';
+
+        });
+
+        // $(document).on('click', '.look_more_info', function() {
+
+        //     window.parent.location.href = '../dangerousGoods_detail.html';
+
+        // });
+
+        // 订单id
+        var tloId = window.localStorage.getItem('data-tloId');
+
+        //订单编号
+        var orderNo = window.localStorage.getItem('data-orderNo');
+
+        //危化品id
+        var dataCompanyId = window.localStorage.getItem('data-companyId');
+
+        // 详情信息
+        $.ajax({
+            url: pubIP + 'order/getOrderByid',
+            type: 'get',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                tloid: tloId
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+
+                if (json.code == 1) {
+
+                    json.data.createTime = new Date(json.data.createTime).Format("yyyy-MM-dd hh:mm");
+                    json.data.startDate = new Date(json.data.startDate).Format("yyyy-MM-dd hh:mm");
+                    
+                    var orderResult = template('orderTpl', json.data);
+                    $('#orderInfo').html(orderResult);
+
+                    var qiyeResult = template('qiyeTpl', json.data);
+                    $('#qiyeInfo').html(qiyeResult);
+
+                    $('.wuliu_info_companyname').text(json.data.sendCompanyName);
+                    $('.wuliu_info_user').text(json.data.sendUser);
+                    $('.wuliu_info_phone').text(json.data.sendPhone);
+                    $('.wuliu_info_address').text(json.data.sendAddress);
+
+                    $('.fadan_person').text(json.data.createBy);
+
+                    $('.jiedan_person').text(json.data.tloCreateBy);
+
+                }
+
+            },
+            error: function(err) {
+                console.log(err);
+            }
+
+        });
+
+        //车辆信息
+        $.ajax({
+            url: pubIP + 'order/getCarUserListByOrderId',
+            type: 'get',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                orderId: tloId
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+
+                if (json.code == 1) {
+
+                    for (var i = 0; i < json.data.length; i++) {
+                        json.data[i].planStartDate = new Date(json.data[i].planStartDate).Format("yyyy-MM-dd hh:mm");
+                        json.data[i].planEndDate = new Date(json.data[i].planEndDate).Format("yyyy-MM-dd hh:mm");
+                    }
+
+                    // var carResult = template('carTpl', {list1: json.data});
+                    // $('#carInfo').html(carResult);
+                    
+                    if (json.data.length < 2) {
+                        $('.chepaihao1').text(json.data.carNo);
+                        $('.fenpei_time').text(json.data.planStartDate);
+                        $('.yuji_arrive').text(json.data.planEndDate);
+
+                    } else {
+                        $('.chepaihao1').text(json.data[0].carNo);
+                        $('.fenpei_time').text(json.data[0].planStartDate);
+                        $('.yuji_arrive').text(json.data[0].planEndDate);
+
+                        $('.car_more').css('display', 'block');
+
+                        var str = '';
+                        for (var j = 1; j < json.data.length; j++) {
+                            str += '<div class="operator infoBox">'
+                                +'<div class="contBox">'
+                                    +'<div class="left ll">'
+                                        +'<div>车&nbsp;&nbsp;牌&nbsp;&nbsp;号：<span>'+json.data[j].carNo+'</span></div>'
+                                    +'</div>'
+                                    +'<div class="left mm">'
+                                        +'<div>分配时间：<span>'+json.data[j].planStartDate+'</span></div>'
+                                    +'</div>'
+                                    +'<div class="left rr">'
+                                        +'<div>预计到达：<span>'+json.data[j].planEndDate+'</span></div>'
+                                    +'</div>'
+                                +'</div>'
+                            +'</div>';
+                        }
+
+                        $('.car_more').html(str);
+
+                    }
+                    
+                }
+
+            },
+            error: function(err) {
+                console.log(err);
+            }
+
+        });
+
+        // 合同信息
+        $.ajax({
+            url: pubIP + 'tContractTrade/selectByOrderNo',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                orderNo: orderNo
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+
+                if (json.code == 1) {
+
+                    json.data.createTime = new Date(json.data.createTime).Format("yyyy-MM-dd hh:mm");
+                    json.data.signDate = new Date(json.data.signDate).Format("yyyy-MM-dd hh:mm");
+
+                    $('.hetong_company').text(json.data.receiveCompanyname);
+                    $('.qianding_time').text(json.data.signDate);
+                    $('.upload_time').text(json.data.createTime);
+
+                    $('.seehetong a').attr('download', json.data2.url);
+                }
+
+            },
+            error: function(err) {
+                console.log(err);
+            }
+
+        });
+
+        // 发票信息
+        $.ajax({
+            url: pubIP + 'order/queryInvoiceInfo',
+            type: 'get',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                companyId: dataCompanyId
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+
+                if (json.code == 1) {
+
+                    $('.nashui').text(json.data.taxNumber);
+                    $('.qiye_phone').text(json.data.taxId);
+                    $('.qiye_kaihu_bank').text(json.data.accountBank);
+                    $('.qiye_bank').text(json.data.accountId);
+                    $('.address').text(json.data.companyAddress);
+                }
+
+            },
+            error: function(err) {
+                console.log(err);
+            }
+
+        });
     </script>
 </body>
 </html>
