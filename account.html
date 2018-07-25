@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" CONTENT="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
     <meta name="format-detection" content="telephone=no" />
-    <title adct="acount">新疆化学品经营服务平台</title>
+    <title adct1="acount" adct="首页">新疆化学品经营服务平台</title>
     <link rel="stylesheet" type="text/css" href="./css/commin.css"/>
     <link rel="stylesheet" type="text/css" href="./css/account.css"/>
     <style>
@@ -302,8 +302,8 @@
             <li>
                 <a href="##" class="manage"><strong>订单管理</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
                 <ul class="manageList2">
-                    <li><a href="##" class="manageItem" data-src="./need/published.html" data-height="1447">已发布询盘</a></li>
-                    <li><a href="##" class="manageItem " data-src="./need/overdue.html" data-height="1447">过期询盘</a></li>
+                    <!--<li><a href="##" class="manageItem" data-src="./need/published.html" data-height="1447">已发布询盘</a></li>-->
+                    <!--<li><a href="##" class="manageItem " data-src="./need/overdue.html" data-height="1447">过期询盘</a></li>-->
                     <li><a href="##" class="manageItem" data-src="./need/toOffer.html" data-height="1447">待报价需求</a></li>
                     <li><a href="##" class="manageItem " data-src="./need/toConfirmRequire.html" data-height="1447">待确认需求</a></li>
                 </ul>
@@ -2101,7 +2101,7 @@
         if(idx==".cfidx1"){//首页
             sessionStorage.setItem("cfsrc","./systemIndex/mine.html");
         }else if(idx==".cfidx2"){//需求
-            sessionStorage.setItem("cfsrc","./need/published.html");
+            sessionStorage.setItem("cfsrc","./need/toOffer.html");
         }else if(idx==".cfidx3"){//多订单
             sessionStorage.setItem("cfsrc","./order/totalOrderList.html");
         }else if(idx==".cfidx4"){//订单
