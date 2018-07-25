@@ -57,33 +57,34 @@
             <div class="contBox">
                 <div class="contlist contlistone">
                     <div class="left ll">
-                        <div>需求编号：<span>201707196369321</span></div>
-                        <div>发布时间：<span>2015-09-08 23:00</span></div>
-                        <div>装车时间：<span>2015-09-08 23:00</span></div>
+                        <div>需求编号：<span id="demandNo">201707196369321</span></div>
+                        <div>发布时间：<span id="createTime">2015-09-08 23:00</span></div>
+                        <!--<div>装车时间：<span>2015-09-08 23:00</span></div>-->
                     </div>
                     <div class="left rr">
-                        <div>始&nbsp;&nbsp;发&nbsp;&nbsp;地：<span>新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情</span></div>
-                        <div class="desti">目&nbsp;&nbsp;的&nbsp;&nbsp;地：<span class="destination">新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情中华人民共和国北京市东城区朝阳花园</span></div>
+                        <div>始&nbsp;&nbsp;发&nbsp;&nbsp;地：<span class="sendAddress">新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情</span></div>
+                        <div class="desti">目&nbsp;&nbsp;的&nbsp;&nbsp;地：<span  class="destination receiveAddresss">新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情中华人民共和国北京市东城区朝阳花园</span></div>
                     </div>
                 </div>
                 <div class="contlist contlisttwo">
                     <div class="left ll">
-                        <div>货物类型：<span>危化</span></div>
-                        <div>重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：<span>150吨</span></div>
-                        <div>支付方式：预付</div>
-                        <div>保&nbsp;&nbsp;证&nbsp;&nbsp;金：<span>¥1000.00</span></div>
+                        <div>货物类型：<span id="goodsType">危化</span></div>
+                        <div>重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：<span id="goodsWeight">150吨</span></div>
+                        <!--<div>支付方式：<span>预付</span></div>-->
+                        <!--<div>保&nbsp;&nbsp;证&nbsp;&nbsp;金：<span>¥1000.00</span></div>-->
+                        <div>结算方式：<span id="paymentMode	">现汇</span></div>
                     </div>
                     <div class="left mm">
-                        <div>包装类型：<span>罐装</span></div>
-                        <div>开&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票：<span>普票</span></div>
-                        <div>结算方式：<span>现汇</span></div>
-                        <div>缴纳方式：<span>抵扣</span></div>
+                        <div>包装类型：<span id="packageType">罐装</span></div>
+                        <div>开&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票：<span id="invoiceType">普票</span></div>
+                        <div>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：<span id="goodsRemark" style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;width: 231px;display: inline-block;    height: 21px;">备注信息</span></div>
+                        <!--<div>缴纳方式：<span>抵扣</span></div>-->
                     </div>
                     <div class="left rr">
-                        <div>货物名称：<span>片碱</span></span></div>
-                        <div>车辆类型：<span>罐装车</span></span></div>
-                        <div>回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单：<span>需要</span></span></div>
-                        <div>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：<span>备注信息</span></div>
+                        <div>货物名称：<span class="goodsName">片碱</span></div>
+                        <div>车辆类型：<span id="carType">罐装车</span></div>
+                        <!--<div>回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单：<span>需要</span></span></div>-->
+
                     </div>
                 </div>
             </div>
@@ -116,6 +117,63 @@
         $(function () {
             window.parent.$("#Iframe").css("height","654");
         })
+        getData();
+        //获取数据
+        function getData() {
+            $.ajax({
+                url: pubIP + 'wlLogisticsDemand/query', /*v1.0*/
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    id:sessionStorage.getItem("detailId")
+                },
+                success: function (res) {
+                    if(res.code===1){
+                        cf_dataRender(res.data)
+                    }else{
+                        alert(res.msg);
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+        //渲染数据
+        function cf_dataRender(data) {
+            $("#demandNo").text(data.demandNo);
+            $("#createTime").text(data.createTime);
+            $(".sendAddress").eq(0).text(data.sendProvince+"-"+data.sendCity+"-"+data.sendArea+"-"+data.sendAddress);
+            $(".sendAddress").eq(1).text(data.sendProvince+"-"+data.sendCity+"-"+data.sendArea+"-"+data.sendAddress);
+            $(".receiveAddresss").eq(0).text(data.receiveProvince+"-"+data.receiveCity+"-"+data.receiveArea+"-"+data.receiveAddress);
+            $(".receiveAddresss").eq(1).text(data.receiveProvince+"-"+data.receiveCity+"-"+data.receiveArea+"-"+data.receiveAddress);
+            $("#goodsType").text(data.goodsType);
+            if(data.goodsUnit=="重量/吨"){
+                $("#goodsWeight").text(data.goodsNum+'吨');
+            }else{
+                $("#goodsWeight").text(data.goodsNum+'m³');
+            }
+            $("#packageType").text(data.packageType);
+            $("#invoiceType").text(data.invoiceType);
+            $("#paymentMode").text(data.paymentMode);
+            $(".goodsName").eq(0).text(data.goodsName);
+            $(".goodsName").eq(1).text(data.goodsName);
+            $("#carType").text(data.carType);
+            $("#goodsRemark").text(data.goodsRemark);
+            $("#sendUser").text(data.sendUser);
+            $("#sendPhone").text(data.sendPhone );
+            $("#sendCompanyname").text(data.sendCompanyname);
+            $("#receiveUser").text(data.receiveUser);
+            $("#receivePhone").text(data.receivePhone);
+            $("#receiveCompanyname").text(data.receiveCompanyname);
+        }
     </script>
 </body>
 </html>
