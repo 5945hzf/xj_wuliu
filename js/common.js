@@ -89,7 +89,7 @@ function popEffectLogin() {
 $(document).on('click', '.exit', function() {
     $.ajax({
         type: "get",
-        url: pubIP + "user/logoutByToken",//v1.0
+        url: pubIP + "userCarriers/logoutByToken",//v1.0
         cache: false,
         dataType: "json",
         headers: {
