@@ -183,9 +183,9 @@
 		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" >
-		window.onload = function(){
+		$(function(){
 			localStorage.setItem("token","");
-		}
+		})
 		var isAuto=0;
 
 		  var mySwiper = new Swiper ('.swiper-container', {
@@ -218,9 +218,12 @@
           	}
           })
 
-          $(document).on('focus', '.reg-box>li', function () {
-          	$(this).addClass('shadow');
-          });
+        $(document).on('focus', '.reg-box>li', function () {
+            if(!$(this).hasClass("autoLogin")){
+                $(this).addClass('shadow');
+            }
+
+        });
 
           $(document).on('blur', '.reg-box>li', function () {
           	$(this).removeClass('shadow');
