@@ -93,15 +93,16 @@
     <div class="contbox">
         <div class="topTitle">已发布寻盘<div class="fr cfRefresh"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
         <div class="inputBox">
-            <label for="">输入搜索</label><input class="orderNo input" type="text" placeholder="订单编号／商品货号">
-            <label for="">车辆类型</label>
-            <div class="goodsType input select" data-selectedindex="0"><span>全部</span><img src="../img/prl-select.jpg" >
-            <ul>
-            <li data-index="1">类型1</li>
-            <li data-index="2">类型2</li>
-            <li data-index="3">类型3</li>
-            </ul>
-            </div>
+            <label for="">输入搜索</label><input class="orderNo input" type="text" placeholder="需求编号">
+            <label for="">输入搜索</label><input id="goodsName" class=" input" type="text" placeholder="商品名称">
+            <!--<label for="">车辆类型</label>-->
+            <!--<div class="goodsType input select" data-selectedindex="0"><span>全部</span><img src="../img/prl-select.jpg" >-->
+            <!--<ul>-->
+            <!--<li data-index="1">类型1</li>-->
+            <!--<li data-index="2">类型2</li>-->
+            <!--<li data-index="3">类型3</li>-->
+            <!--</ul>-->
+            <!--</div>-->
             <label for="">发布时间</label><input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1">
 
             
@@ -252,7 +253,8 @@
                     pageSize:pageSize,
                     demandNo:$("input.orderNo.input").val(),
                     startDate:$(".startDate").val(),
-                    pageIdx:currentPage
+                    pageIdx:currentPage,
+                    goodsName:$("#goodsName").val()
                 },
                 success: function (res) {
                     if(res.code===1){
