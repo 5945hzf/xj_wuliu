@@ -19,10 +19,16 @@
             height: 62px;
             box-sizing: border-box;
             border-bottom: none;
+            padding-left: 0px;
         }
 
         .header li {
             width: 20%;
+            text-align: center;
+        }
+
+        .center1>ul>li>.right1>.uploade, .bottom1>.right2>ul>li>.right1>.uploade, .select {
+            background: #FAFAFA;
         }
         
     </style>
@@ -125,7 +131,7 @@
 
             <div class="btn weiRenZheng next_btn">下一步</div>
             <div class="btn update_btn">修改企业信息</div>
-            <div class="btn next_btn_update">下一步</div>
+            <div class="btn next_btn_update">下一步xiu</div>
             <div class="" style="margin-left: 179px;margin-top: 32px;">
                 <img src="../img/qq.png" alt="" style="vertical-align: bottom; float: none;">
                 <a href="##">客服QQ</a>
@@ -178,7 +184,9 @@ $(document).on('change','#zhengjian_pic1,#zhengjian_pic2',function(){
                             'background-color':'#f6f6f6'
                     });
                     $(obj).parent().find('input[type="hidden"]').val(data.url);
-                    $(obj).parent().parent().next().css('display', 'none');
+                    
+                    $(obj).parent().parent().find('.ts').css('display', 'none');
+
                 },
                 error: function (err) {
                     console.log(err);
@@ -344,6 +352,8 @@ $(function () {
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
 
+                        update_info();
+
                         $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在等待审核');
                         window.parent.tan6();
 
@@ -354,6 +364,8 @@ $(function () {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
 
                         $(window.parent.document).find('.modelBox6 .info p span').html('运营者信息审核中');
                         window.parent.tan6();
@@ -366,6 +378,8 @@ $(function () {
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
 
+                        update_info();
+
                     } else if (data.data.type == 4) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
@@ -373,6 +387,7 @@ $(function () {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+                        update_info();
 
                         
                     } else if (data.data.type == 5) {  //企业资料二次审核中
@@ -382,6 +397,8 @@ $(function () {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
                     } else if (data.data.type == 6) {  //出金账户资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
@@ -389,13 +406,17 @@ $(function () {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
                     } else if (data.data.type == 1) {  //没有提交
                         $('.weiRenZheng').css('display', 'block');
                         $(".update_btn").addClass('xiaoshi');
                         $('.next_btn_update').css('display', 'none');
                         if (data.data.state > 2) {
+                            // debugger;
                             $('.weiRenZheng').css('display', 'none');
                             $('.next_btn_update').css('display', 'block');
+                            update_info();
                         }
                     }                   
                     
@@ -510,17 +531,17 @@ $(function () {
 
         $('#zhengjian_pic1').on('blur', function () {
             if ($('#zhengjian_hidden1').val() == '' && $('#zhengjian_hidden2').val() == '') {
-                $('#zhengjian_hidden2').parent().next().html('证件不能为空');
+                $('#zhengjian_hidden2').parent().parent().find('.ts').html('证件不能为空');
             } else {
-                $('#zhengjian_hidden2').parent().next().html('');
+                $('#zhengjian_hidden2').parent().parent().find('.ts').html('');
             }
         });
 
         $('#zhengjian_pic2').on('blur', function () {
             if ($('#zhengjian_hidden2').val() == '' && $('#zhengjian_hidden1').val() == '') {
-                $('#zhengjian_hidden2').parent().next().html('证件不能为空');
+                $('#zhengjian_hidden2').parent().parent().find('.ts').html('证件不能为空');
             } else {
-                $('#zhengjian_hidden2').parent().next().html('');
+                $('#zhengjian_hidden2').parent().parent().find('.ts').html('');
             }
         });
 
@@ -558,14 +579,14 @@ $(function () {
                 //     update_info();
                 // }
 
-                if (data.data.company.state == -1) { //未提交
-                    $('.weiRenZheng.next_btn').css('display', 'block');
-                    $('.next_btn_update').css('display', 'none');
-                } else if (data.data.company.state == 0) { //待审核
-                    $('.weiRenZheng.next_btn').css('display', 'none');
-                    $('.next_btn_update').css('display', 'none');
-                }
-                    update_info();
+                // if (data.data.company.state == -1) { //未提交
+                //     $('.weiRenZheng.next_btn').css('display', 'block');
+                //     $('.next_btn_update').css('display', 'none');
+                // } else if (data.data.company.state == 0) { //待审核
+                //     $('.weiRenZheng.next_btn').css('display', 'none');
+                //     $('.next_btn_update').css('display', 'none');
+                // }
+                    // update_info();
 
                 
                 
@@ -668,6 +689,8 @@ $(function () {
             img_url7 = $('#zhengjian_hidden2').val();
 
             if ($('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '') {
+                console.log(picId6);
+                console.log(picId7);
                 //v1.0
                 $.ajax({
                     url: pubIP + 'companyCertification/addCompanyBaseInfo',

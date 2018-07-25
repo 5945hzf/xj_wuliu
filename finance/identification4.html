@@ -12,7 +12,19 @@
     <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
     <link rel="stylesheet" type="text/css" href="../css/identification4.css"/>
     <style type="text/css">
+        .header>ul>li>a.active{color: #80acf8;}
+        .header {
+            padding-top: 21px;
+            height: 62px;
+            box-sizing: border-box;
+            border-bottom: none;
+            padding-left: 0px;
+        }
 
+        .header li {
+            width: 20%;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -24,51 +36,52 @@
     <div class="header">
         <ul>
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">1</div>
+                <a href="./identification1.html">
+                    <!-- <div class="Lf orange">1</div> -->
                     企业基本信息
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">2</div>
+                <a href="./identification2.html">
+                    <!-- <div class="Lf lan">2</div> -->
                     运营者信息
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">3</div>
+                <a href="./identification3.html">
+                    <!-- <div class="Lf lan">3</div> -->
                     发票信息
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf orange">4</div>
+                <a class="active" href="./identification4.html">
+                    <!-- <div class="Lf lan">4</div> -->
                     出金账户绑定
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">5</div>
+                <a href="./identification5.html">
+                    <!-- <div class="Lf lan">5</div> -->
                     财务信息
                 </a>
             </li>
         </ul>
     </div>
+    <div><img style="display: block;width: 100%;" src="../img/identification4_hzf.png" alt=""></div>
 
-    <div class="bottom1">
+    <div class="bottom1" style="margin-top: 15px;">
         <div class="left1 Lf">
             提现出金账户
         </div>
@@ -92,8 +105,8 @@
             </ul>
         </div>
         <div class="right3 Lf" style="margin-top: 30px;">
-            <div style="font-size: 12px;width: 135px;height: 73px;margin-left: 55px; color: #666; line-height: 20px;">所有赎回中、支付中、 融资中、提票中和托收中的总金额每笔交易资金， 都将在银行全称记录。</div>
-            <div style="margin-left: 32px;margin-top: 14px;font-size: 14px; "><img style="width: 13px;height: 13px;margin-top: 3px; vertical-align: bottom;" src="../img/wenhao.png" alt=""><a style="color: #5590f6;" href="">为什么要进行出金账户绑定</a></div>
+            <div class="jieshi" style="display: none;font-size: 12px;width: 150px;height: 73px;margin-left: 55px; color: #666; line-height: 20px;">所有赎回中、支付中、 融资中、提票中和托收中的总金额每笔交易资金， 都将在银行全称记录。</div>
+            <div class="showjieshi" style="margin-left: 32px;margin-top: 14px;font-size: 14px; "><img style="width: 13px;height: 13px;margin-top: 3px; vertical-align: bottom;" src="../img/wenhao.png" alt=""><a style="color: #80acf8;">为什么要进行出金账户绑定</a></div>
         </div>
     </div>
 
@@ -106,40 +119,44 @@
                 <li>
                     <div class="left1 Lf"><i class="red">*</i>出金账户名称:</div>
                     <div class="right1 Lf"><input type="text" id="chujin_account_name2"></div>
-                    <div class="ts Lf" style="margin-left: 5px;">出金账户名称不能为空</div>
+                    <div class="ts">出金账户名称不能为空</div>
                 </li>
                 <li>
                     <div class="left1 Lf"><i class="red">*</i>出金账户账号:</div>
                     <div class="right1 Lf"><input type="text" id="chujin_account_account2"></div>
-                    <div class="ts Lf" style="margin-left: 5px;">出金账户账号格式不正确</div>
+                    <div class="ts">出金账户账号格式不正确</div>
                 </li>
                 <li>
                     <div class="left1 Lf"><i class="red">*</i>开户银行信息:</div>
                     <div class="right1 Lf"><input type="text" id="kaihu_bank_info2"></div>
-                    <div class="ts Lf" style="margin-left: 5px;">开户银行信息不能为空</div>
+                    <div class="ts">开户银行信息不能为空</div>
                 </li>
                 <li class="wj">
-                    <div class="left1 Lf ml"><i class="red">*</i>企业认证协议(盖章文件):</div>
+                    <div class="left1 Lf ml"><i class="red">*</i>企业认证协议(盖章pdf文件):</div>
                     <div class="right1 Lf" style="position: relative;">
-                        <input type="text" placeholder="将盖好公章的文件上传" id="wenjian_name"><a href="##" style="margin-left: 27px; margin-right: 27px;">模板下载</a>
-                        <input type="file" id="wenjian" onchange="upload_file(this);">
+                        <input type="text" placeholder="将盖好公章的文件上传" id="wenjian_name"><a href="##"  onclick="down_moban()" style="margin-left: 27px; margin-right: 27px;">模板下载</a>
+                        <input type="file" id="wenjian" accept="application/pdf" onchange="upload_file(this);">
                     </div>
                     <div class="ts mml">协议不能为空</div>
                 </li>
             </ul>
 
             <div class="btn weiRenZheng next_btn">下一步</div>
-            <!--<div class="btn yiRenZheng update_btn">修改企业信息</div>-->
+            <div class="btn next_btn_update">下一步</div>
+            <div class="btn update_btn xiugai">修改企业信息</div>
             <div class="update_btn2">
-                <span class="submit_btn">提交</span>
-                <span class="cancel_btn">取消</span>
+                <!-- <span class="submit_btn">提交</span>
+                <span class="cancel_btn">取消</span> -->
+                <div class="btn submit_btn">修改完成</div>
             </div>
-            <div class="" style="margin-left: 177px;margin-top: 32px;">
-                <img src="../img/qq.png" alt="" style="float: none; vertical-align: bottom;">
-                <a href="##" style="color: #5590f6;">客服QQ</a>
-                <span>(工作日10 : 00 - 19 : 00)</span>
+            <div style="margin-left: 115px;">
+                <div class="" style="width: 356px; margin-top: 32px;text-align: center;">
+                    <img src="../img/qq.png" alt="" style="float: none; vertical-align: bottom;">
+                    <a href="##">客服QQ</a>
+                    <span>(工作日10 : 00 - 19 : 00)</span>
+                </div>
+                <div style="width: 356px; text-align: center;margin-top: 5px;">认证过程中如有疑问，可致电 <a href="##">4000-012-556</a></div>
             </div>
-            <div style="margin-left: 154px;margin-top: 5px;">认证过程中如有疑问，可致电 <a href="##" style="color: #5590f6;">400-1234567</a></div>
         </div>
     </div>
 </div>
@@ -154,6 +171,41 @@
     $(function () {
         window.parent.$("#Iframe").css("height","861");
     })
+//右侧解释
+$(".showjieshi").on("click",function(){
+    $(".jieshi").toggle();
+})
+//下载协议模板
+function down_moban(){
+        $.ajax({
+            url: pubIP + 'agreement/findAgreementInfo?agreementId=2',
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                //console.log(data);
+                var thisUrl = data.data.fileUrl;
+                $.ajax({
+                    url: downIP + 'bfile/fileDown.htm',
+                    type: 'post',
+                    data:{
+                        fileUrl: thisUrl
+                    },
+                    dataType: 'json',
+                    success: function (data1) {
+                        console.log("+++++++++++++++++++++========");
+                        console.log(data1);
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                })
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+    }
+
 var file_url = null;
 
 //不同浏览器下的路径不同
@@ -185,7 +237,7 @@ function upload_file(obj) {
     formdata.append('file', obj.files[0]);
 
     $.ajax({
-        url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+        url: uplodImgPath,
         type: 'post',
         processData: false,  // 告诉jQuery不要去处理发送的数据
         contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
@@ -195,6 +247,7 @@ function upload_file(obj) {
         success: function (data) {
             // console.log(data);
             file_url = data.url;
+            $('#wenjian_name').parent().next().html('文件正在上传').css('display', 'none');
         },
         error: function (err) {
             console.log(err);
@@ -223,25 +276,90 @@ function upload_file(obj) {
                     if (data.data.type == 7) {  //等待审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
+                        $('.next_btn_update').css('display', 'none');
+                        $(".next_btn").css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
+                        $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在等待审核');
+                        window.parent.tan6();
+
                     } else if (data.data.type == 2) {  //正在审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
+
+                        $(window.parent.document).find('.modelBox6 .info p span').html('出金账户资料审核中');
+                        window.parent.tan6();
+
                     } else if (data.data.type == 3) {  //已认证
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
                     } else if (data.data.type == 4) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
+
+                        data.data.reasons = $.parseJSON(data.data.reasons);
+                        // data.data.reasons.msg = $.parseJSON(data.data.reasons.msg);
+                        // console.log(data.data.reasons.msg.userName);
+
+                        if (data.data.reasons.auditNum == '2') {
+                            $(window.parent.document).find('.jujue p').html('出金账户资料的审核<span>未通过</span>，请重新修改提交');
+                        }
+
+                        $(window.parent.document).find('.jujue_liyou span').html(data.data.reasons.reasons);
+                        window.parent.tan5();
+                        
+
+
                     } else if (data.data.type == 5) {  //企业资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
+
                     } else if (data.data.type == 6) {  //出金账户二次审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
-                       /* window.parent.tan7();*/
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
+
+                        window.parent.tan7();
                     } else if (data.data.type == 1) {  //没有提交
                         $('.weiRenZheng').css('display', 'block');
                         $(".update_btn").addClass('xiaoshi');
+                         $('.next_btn_update').css('display', 'none');
+                        if (data.data.state > 4) {
+                            $('.weiRenZheng').css('display', 'none');
+                            $('.next_btn_update').css('display', 'block');
+                            update_info();
+                        }
                     }
                     
                 },
@@ -403,62 +521,124 @@ function upload_file(obj) {
             }
         });
 
+        //是否是修改
+        $.ajax({
+            url: pubIP + 'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                type: 'D',
+                companyId: companyId,
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                console.log(data.data.company.qualificationStatus);
+
+                // if (data.data.company.qualificationStatus != 0) {
+
+                //     $('input[type=file]').attr('disabled',true);
+                //     $('input[type=text]').attr('disabled',true);
+                //     $('input[type=radio]').attr('disabled',true);
+
+                //     update_info();
+                // }
+
+                // if (data.data.company.state != 0) { //未审核
+                //     update_info();
+                // } else {
+                //     $('.weiRenZheng.next_btn').css('display', 'none');
+                //     $('.next_btn_update').css('display', 'block');
+                //     update_info();
+                // }
+
+                // if (data.data.company.state == 0) { //未提交
+                //     update_info();
+                //     $('.weiRenZheng.next_btn').css('display', 'block');
+                //     $('.next_btn_update').css('display', 'none');
+                // } else {
+                //     update_info();
+                // }
+
+
+                // if (data.data.company.state == -1) { //未提交
+                //     $('.weiRenZheng.next_btn').css('display', 'block');
+                //     $('.next_btn_update').css('display', 'none');
+                // } else if (data.data.company.state == 0) { //待审核
+                //     $('.weiRenZheng.next_btn').css('display', 'none');
+                //     $('.next_btn_update').css('display', 'none');
+                // }
+
+                // update_info();
+
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
 /*        if ($('.btn.weiRenZheng.next_btn').hasClass('xiaoshi')) {*/
-        if (window.localStorage.getItem('add-flag') == 'true'){
+        // if (window.localStorage.getItem('add-flag') == 'true'){
 
-            $(".weiRenZheng").addClass('xiaoshi');
+            function update_info(){
+                $(".weiRenZheng").addClass('xiaoshi');
 
-            $('.header ul li a').each(function (i, ele) {
-                $(this)[0].href = './identification'+(i+1)+'.html';
-            });
+               
 
-            //v1.0
-            $.ajax({
-                url: pubIP + 'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
-                type: 'post',
-                headers: {
-                    Accept: "application/json; charset=utf-8",
-                    token: token
-                },
-                data: {
-                    companyId: companyId,
-                    type: 'D'
-                },
-                cache: false,
-                dataType: 'json',
-                success: function (data) {
-                    if (data.code == 1) {
-                        console.log(data);
+                //v1.0
+                $.ajax({
+                    url: pubIP + 'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
+                    type: 'post',
+                    headers: {
+                        Accept: "application/json; charset=utf-8",
+                        token: token
+                    },
+                    data: {
+                        companyId: companyId,
+                        type: 'D'
+                    },
+                    cache: false,
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.code == 1) {
+                            console.log(data);
 
-                        $('#chujin_account_name1').val(data.data[0].bankName);
-                        $('#chujin_account_account1').val(data.data[0].bankNo);
-                        $('#kaihu_bank_info1').val(data.data[0].accountName);
+                            $('#chujin_account_name1').val(data.data.accounts[0].bankName);
+                            $('#chujin_account_account1').val(data.data.accounts[0].bankNo);
+                            $('#kaihu_bank_info1').val(data.data.accounts[0].accountName);
 
-                        $('#chujin_account_name2').val(data.data[1].bankName);
-                        $('#chujin_account_account2').val(data.data[1].bankNo);
-                        $('#kaihu_bank_info2').val(data.data[1].accountName);
-                        
-                        
-                    } else {
-                        alert(data.msg);
+                            $('#chujin_account_name2').val(data.data.accounts[1].bankName);
+                            $('#chujin_account_account2').val(data.data.accounts[1].bankNo);
+                            $('#kaihu_bank_info2').val(data.data.accounts[1].accountName);
+                            
+                            
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err);
                     }
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
+                });
+            }
 
-        }
+            
 
-         $(document).on('click', '.yiRenZheng.btn.update_btn', function () {
+        // }
+
+         $(document).on('click', '.btn.update_btn', function () {
             $('.wj').css('display', 'block');
             $(this).css('display', 'none');
             $('.update_btn2').css('display', 'block');
+            
         });
 
 
-        $(document).on('click', '.submit_btn', function () {
-
+        $(document).on('click', '.submit_btn, .next_btn_update', function () {
             if ($('#chujin_account_name1').val() == '') {
                 $('#chujin_account_name1').parent().next().css('display', 'block');
                 return;
@@ -496,18 +676,21 @@ function upload_file(obj) {
                 $('#kaihu_bank_info2').parent().next().css('display', 'block');
                 return;
             }
+            if ($('.next_btn_update').css('display') != 'block') {
+                if ($('#wenjian_name').val() == '') {
+                    $('#wenjian_name').parent().next().css('display', 'block');
+                    return;
+                }
 
-            if ($('#wenjian_name').val() == '') {
-                $('#wenjian_name').parent().next().css('display', 'block');
-                return;
             }
-
+            
             var chujin_account_name1 = $('#chujin_account_name1').val();
             var chujin_account_account1 = $('#chujin_account_account1').val();
             var kaihu_bank_info1 = $('#kaihu_bank_info1').val();
             var chujin_account_name2 = $('#chujin_account_name2').val();
             var chujin_account_account2 = $('#chujin_account_account2').val();
             var kaihu_bank_info2 = $('#kaihu_bank_info2').val();
+
 
             if (file_url != null) {
                 $('#wenjian_name').parent().next().css('display', 'none');
@@ -535,25 +718,79 @@ function upload_file(obj) {
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
-                        window.parent.update_chujin();
-                        window.location.reload();
+
+                        if ($('.next_btn_update').css('display') == 'block') {
+                            window.location.href = "identification4.html";
+                        } else {
+                            window.parent.update_chujin();
+                        }
+                        
                     },
                     error: function (err) {
                         console.log(err);
                     }
                 });
             } else {
-                $('#wenjian_name').parent().next().html('文件正在上传').css('display', 'block');
-            }
-            
+                if ($('.next_btn_update').css('display') == 'block') {
+                    $.ajax({
+                        url: pubIP + 'companyCertification/addCompanyBaseInfo',
+                        type: 'post',
+                        headers: {
+                            Accept: "application/json; charset=utf-8",
+                            token: token
+                        },
+                        data: {
+                            submit_type: 'D',
+                            companyId: companyId,
+                            bankName1: kaihu_bank_info1,
+                            bankNo1: chujin_account_account1,
+                            accountName1: chujin_account_name1,
+                            bankName2: kaihu_bank_info2,
+                            bankNo2: chujin_account_account2,
+                            accountName2: chujin_account_name2,
+                            accountType1: 1,
+                            accountType2: 3
+                        },
+                        cache: false,
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+
+                            if ($('.next_btn_update').css('display') == 'block') {
+                                window.location.href = "identification5.html";
+                            } else {
+                                window.parent.update_chujin();
+                            }
+                            
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                } else {
+                    $('#wenjian_name').parent().next().html('文件正在上传').css('display', 'block');
+                }
+                
+            } 
 
         });
 
     });
 
 
+    $(window.parent.document).on('click', '.ok_ok, .ook4', function () {
+        
+        window.location.reload();
+    });
 
-
+    //修改企业信息(放开可修改)
+    $(document).on('click','.update_btn',function(){
+        $('input[type=file]').attr('disabled',false);
+        $('input[type=text]').attr('disabled',false);
+        $('input[type=radio]').attr('disabled',false);
+        $(this).addClass('yiRenZheng');
+        $(this).text('修改完成');
+    })
 
 
 
