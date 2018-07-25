@@ -91,6 +91,25 @@
             background: url("../img/cf_selct.png") no-repeat;
             background-size: 100% 100%;
         }
+
+        .cfRefresh {
+            display: block; 
+        }
+        
+        .pageJump input[type="text"] {
+            text-align: center;
+            text-indent: 0px;
+        }
+
+        .cf_select {
+            background: url('');
+            cursor: pointer;
+        }
+
+        span.select_all {
+            margin-left: 21px;
+            margin-right: 7px;
+        }
     </style>
     
     
@@ -103,10 +122,10 @@
             <label for="">货物类型</label>
             <div class="goodsType input select" data-selectedindex="0"><span>全部</span><img src="../img/prl-select.jpg" >
                 <ul>
-                    <li data-index="1">待分配订单</li>
-                    <li data-index="2">进行中订单</li>
-                    <li data-index="3">完成待审核订单</li>
-                    <li data-index="3">已完成订单</li>
+                    <li data-index="1">全部</li>
+                    <li data-index="2">普化品</li>
+                    <li data-index="3">危化品</li>
+                    <li data-index="4">特殊品</li>
                 </ul>
             </div>
             <label for="">提交时间</label><input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1">
