@@ -1,8 +1,14 @@
 //var pubIP = 'http://api.xjv56.com/service/';
 
-var pubIP = 'http://192.168.1.199:7777/service/';
+var pubIP = 'http://192.168.1.165:7777/service/';
+var pub = 'http://192.168.1.80:7777/service/';
 // var pubIP = 'https://xj.wl.api.hg.jergavin.com/service/';
 //var token = 'ceshi123456';
+
+// 上传图片路径
+// var uplodImgPath = 'http://192.168.1.80:8680/bfile/fileUpload.htm';
+var uplodImgPath = 'http://file.xjv56.com/bfile/fileUpload.htm';
+
 var token=localStorage.getItem("token");
 var pageSize=10;//分页的每页个数
 var companyId = null, userId = null ;
@@ -69,12 +75,12 @@ function popEffectLogin() {
 	var isOld = localStorage.getItem('isOld');
 	if(isOld == '0' || isOld == '1'){
 		if(adct=="首页"){
-	        window.location.href='./login/login.html';
+	        window.location.href='./login.html';
 		}else{
 			if(location.href.indexOf('account') != -1){
-				parent.location.href = '../login/login.html';
+				parent.location.href = './login.html';
 			}else{	
-				window.location.href='../login/login.html';
+				window.location.href='../login.html';
 			}
 		}
 	}else if(isOld == '-1'){
