@@ -231,6 +231,18 @@
             border-bottom: none;
         }
 
+        .model_ul li {
+            color: #333333;
+        }
+
+        .model_ul li span {
+            color: #666666;
+        }
+
+        .div_ul li {
+            line-height: 33px;
+        }
+
 
     </style>
 </head>
@@ -1609,7 +1621,54 @@
     </div>
 </div>
 
-
+<!-- 分配车辆 -->
+<div class="modelBox17" style="font-size: 14px;">
+    <div class="modelCont" style="width: 1060px;height: 550px; overflow: hidden; overflow-y: auto;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>订单信息</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent clearFloat" style="width: 1010px; font-size: 14px; height: auto; border: 1px solid #ebe9ea;padding: 45px 50px 50px 29px; ">
+            <div class="div_ul" style="width: 968px; height: 247px; border: 1px solid #ebe9ea; padding-left: 40px;padding-top: 10px; box-sizing: border-box;">
+                <div class="clearfix model_ul">
+                    <div class="" style="display: inline-block; width: 33%; float: left;">
+                        <ul>
+                            <li>订单编号：<span>201707196369321</span></li>
+                            <li>发布时间：<span>2015-06-07 23:00</span></li>
+                            <li>装车时间：<span>2015-06-07 23:00</span></li>
+                        </ul>
+                    </div>
+                    <div style="display: inline-block; float: left;">
+                        <ul>
+                            <li>始发地：<span>新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情</span></li>
+                            <li class="clearfix"><i class="fl">目的地：</i><span style="display: inline-block; width: 328px; float: left;">新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情中华人民共和国北京市东城区朝阳花园</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="order_info_ul">
+                   <ul>
+                       <li>货物类型：<span>危化</span></li>
+                       <li>重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：<span>150吨</span></li>
+                       <li>支付方式：<span>预付</span></li>
+                       <li>保证金：<span>￥1000.00</span></li>
+                   </ul>
+                   <ul>
+                       <li>包装类型：<span>灌装</span></li>
+                       <li>开&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票：<span>普票</span></li>
+                       <li>结算方式：<span>现汇</span></li>
+                       <li>缴纳方式：<span>抵扣</span></li>
+                   </ul>
+                   <ul>
+                       <li>货物名称：<span>片碱</span></li>
+                       <li>车辆类型：<span>罐装车</span></li>
+                       <li>回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单：<span>预付</span></li>
+                       <li>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：<span>备注信息</span></li>
+                   </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -2077,7 +2136,7 @@
     });
 
 
-    // showModelBox('.ok_success');
+    //showModelBox('.modelBox17');
     function showModelBox(cls) {
         $(cls).css("display","block");
     }
