@@ -135,8 +135,8 @@
             <div class="select displayNum" data-selectedindex="0"><span>显示条数</span><img src="../img/prl-select.jpg" alt="">
                 <ul>
                     <li data-index="1">10</li>
-                    <li data-index="2">20</li>
-                    <li data-index="3">30</li>
+                    <li data-index="2">30</li>
+                    <li data-index="3">50</li>
                 </ul>
             </div>
             <input class="exportOrderBtn btn" type="button" value="导出订单">
@@ -145,7 +145,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 56px;text-align: center;"></th>
+                        <!-- <th style="width: 56px;text-align: center;"></th> -->
                         <th>订单编号</th>
                         <th>发车时间</th>
                         <th>货物类型</th>
@@ -157,8 +157,8 @@
                         <th>操作</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody id="orderListInfo">
+                    <!-- <tr>
                         <td><div class="cf_select"></div></td>
                         <td>3001804091631062137</td>
                         <td>2017-07-19 14:48</td>
@@ -181,21 +181,21 @@
                         <td>北京-朝阳区</td>
                         <td>100</td>
                         <td><span class="btn ll seeDetail">查看订单</span></td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
-        <div class="bottomOperiat">
+        <!-- <div class="bottomOperiat">
             <span class="squre"></span>
             <span class="selsectAll">全选</span>
             <span class="closeBtn">关闭订单</span>
             <span class="delBtn">删除订单</span>
-        </div>
+        </div> -->
         <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
             <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
             <div class="pageJump">
-                <span class="allPageN">1/200</span>
-                <i style="margin-left: 12px;">共200页</i>，
+                <span class="allPageN">1/1</span>
+                <i style="margin-left: 12px;">共<span class="total">1</span>页</i>，
                 <span>到第</span>
                 <input type="text"/>
                 <span>页</span>
@@ -209,6 +209,24 @@
     <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
     <script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
+    <script src="../js/template.js"></script>
+    <script type="text/html" id="orderListTpl">
+        <%for(i in list) {%>
+        <tr>
+            <!-- <td><div class="cf_select"><img src="../img/cf_noselect.png" alt=""></div></td> -->
+            <td><%=list[i].orderNo%></td>
+            <td><%=list[i].tloCreateTime%></td>
+            <td><%=list[i].goodsType%></td>
+            <td><%=list[i].goodsName%></td>
+            <td><%=list[i].sendAddress%></td>
+            <td><%=list[i].receiveAddress%></td>
+            <td><%=list[i].companyName%></td>
+            <td><%=list[i].goodsNum%><%=list[i].goodsUnit%></td>
+            <td><%=list[i].unitPrice%></td>
+            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看详情</span></td>
+        </tr>
+        <%}%>
+    </script>
     <script type="text/javascript">
         //Iframe 的高度
         $(function () {
@@ -236,17 +254,199 @@
         laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
 
         $('.objListBox>div:nth-child(5n)').css('margin-right','0');
-        Page({
-            num: 200,
-            elem: $('#page1'),
-            callback: function(n) {
-                console.log(n);
-            }
+        // Page({
+        //     num: 200,
+        //     elem: $('#page1'),
+        //     callback: function(n) {
+        //         console.log(n);
+        //     }
+        // });
+
+        var isFirst = true;
+
+        var isSearch = 0;
+
+        // 点击进入订单详情
+        $(document).on('click', '.seeDetail', function() {
+            window.localStorage.setItem('data-companyId', $(this).attr('data-companyId'));
+            window.localStorage.setItem('data-tloId', $(this).attr('data-tloId'));
+            window.localStorage.setItem('data-orderNo', $(this).attr('data-orderNo'));
+            window.location.href = "sureTakengoodsOrder-detail.html";
+
         });
-        //查看详情
-        $(".seeDetail").click(function () {
-            window.location.href="./sureTakengoodsOrder-detail.html";
-        })
+
+
+        // 确认收货
+        $(document).on('click', '.ok_shouhuo', function() {
+            
+           $(window.parent.document).find('.modelBox36 .hetong_jiesuan_money').text($(this).attr('data-tloContractAmount'));
+
+           $(window.parent.document).find('.modelBox36 .ok_shouhuo').attr('orderId', $(this).attr('data-tloId'));
+
+           $(window.parent.document).find('.modelBox36 .shiji_jiesuan_money').val('');
+
+           $(window.parent.document).find('.modelBox36 textarea').val('');
+            
+            window.parent.showModelBox('.modelBox36');
+
+        });
+
+        // 点击弹框内的确认收货
+        $(window.parent.document).on('click', '.ok_shouhuo', function() {
+
+            var orderid = $(this).attr('orderid');
+
+            var money = $(this).parent().parent().find('.shiji_jiesuan_money').val();
+            var remark = $(this).parent().parent().find('textarea').val();
+
+            $.ajax({
+                url: pubIP + 'order/confirmTakeGoodsOrder',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    orderId: orderid,
+                    amount: money,
+                    remark: remark
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log(json);
+
+                    if (json.code == 1) {
+                        $(window.parent.document).find('.modelBox36').css('display', 'none');
+                        $(window.parent.document).find('.modelBox12 p').html('<span>确认收货成功!</span>');
+                        window.parent.showModelBox('.modelBox12');
+                    }
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+
+        });
+
+        $(window.parent.document).on('click', '.modelBox12 .ook4', function() {
+            
+            window.location.reload();
+        });
+
+        //点击查询
+        //显示条数
+        $('.displayNum ul li').click(function(){
+            isSearch=1;
+            order_list(1 , '', '', '', $('.displayNum span').text());
+        });
+        
+
+        //点击查询
+        $(document).on('click', '.searchResultBtn', function() {
+            
+            var orderNo = $('.orderNo').val();
+            var goodsType = $('.goodsType span').text();
+            var publishTime = $('.publishTime').val();
+            if (goodsType == '全部' ) {
+            
+                goodsType = '';
+            }
+            
+            isSearch=1;
+            order_list(1, orderNo, goodsType, publishTime, 10);
+
+        });
+
+        
+        order_list(1 , '', '', '', 10);
+
+        //订单进行中列表
+        function order_list(num, orderNo, goodsType, publishTime, size) {
+            $('#orderListInfo').html('');
+            $.ajax({
+                url: pubIP + 'order/getCollectGoodsList',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    companyId: companyId,
+                    page: num,
+                    size: size,
+                    status: 0,
+                    orderNo: orderNo,
+                    time: publishTime,
+                    goodType: goodsType
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log(json);
+
+                    if (json.code == 1) {
+                        if (json.data.length != 0) {
+                            for (var i = 0; i < json.data.length; i++) {
+                                json.data[i].tloUpdateTime = new Date(json.data[i].tloUpdateTime).Format("yyyy-MM-dd hh:mm");
+                            }
+                            
+
+                            var result = template('orderListTpl', {list: json.data});
+                            $('#orderListInfo').html(result);
+
+                           
+                            if (isSearch == 1) {
+                                // if (isFirst) {
+                                    Page({
+                                        num: json.totalPage,
+                                        elem: $('#page1'),
+                                        callback: function(n) {
+                                            order_list(n, orderNo, goodsType, publishTime, size);
+                                        }
+                                    });
+                                    
+                                    $('.total').text(json.totalPage);
+                                    isFirst = false;
+
+                                // }
+
+                                $('.allPageN').text(num+1+'/'+json.totalPage);
+                            }
+
+                            isSearch = 0;
+
+                            if (isFirst) {
+
+                                Page({
+                                    num: json.totalPage,
+                                    elem: $('#page1'),
+                                    callback: function(n) {
+                                        order_list(n, orderNo, goodsType, publishTime, size);
+                                    }
+                                });
+                                
+                                $('.total').text(json.totalPage);
+
+                                isFirst = false;
+                            }
+
+                            $('.allPageN').text(num+'/'+json.totalPage);
+                        } else {
+                            $('.pageJump').css('display', 'none');
+                        }
+                    } else {
+                        $('.pageJump').css('display', 'none');
+                    }
+
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+
+            });
+        }
+
         // 模拟单选按钮
         $('.bottomOperiat .squre').click(function(){
             $(this).toggleClass('active');

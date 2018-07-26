@@ -1065,11 +1065,11 @@
                 <span>￥100000000.00</span>
             </div>
             <div class="clearfix" style="margin-top: 25px;color: #666666;line-height: 40px; font-size: 14px;"><span class="span_width modelBox34LeftTitle fl" style="color: #282828;">备&nbsp;&nbsp;注：&nbsp;</span>
-                <textarea name="" id="" cols="50" rows="10" placeholder="备注信息" style="width: 470px; text-indent: 10px; border: 1px solid #dbdbdc; overflow: hidden; float: left; margin-left: 5px;"></textarea>
+                <textarea name="" id="" class="beizhu_info" cols="50" rows="10" placeholder="备注信息" style="width: 470px; text-indent: 10px; border: 1px solid #dbdbdc; overflow: hidden; float: left; margin-left: 5px;"></textarea>
             </div>
             <div class="clearFloat" style="text-align: center;margin-top: 50px;font-size: 16px;">
                 <span class=" cf_btn cancel cfClose quxiao" style="display: inline-block; margin-left: 55px;" >取消</span>
-                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">金额确认</span>
+                <span class=" cf_btn money_ok" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">金额确认</span>
             </div>
         </div>
     </div>
@@ -1987,6 +1987,24 @@
     </div>
 </div>
 
+<div class="ok_success">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/gsxq_success.gif" alt=""></div>
+                <p><span>金额确认成功！</span></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script src="./js/footer.js" type="text/javascript" charset="utf-8"></script>
 <script src="./js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
@@ -2059,7 +2077,7 @@
     });
 
 
-    //showModelBox('.modelBox16');
+    // showModelBox('.ok_success');
     function showModelBox(cls) {
         $(cls).css("display","block");
     }

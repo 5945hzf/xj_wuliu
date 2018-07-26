@@ -80,6 +80,25 @@
             box-sizing: border-box;
         }
         /*.listBox{height: 1116px;}*/
+
+        .cfRefresh {
+            display: block; 
+        }
+        
+        .pageJump input[type="text"] {
+            text-align: center;
+            text-indent: 0px;
+        }
+
+        .cf_select {
+            background: url('');
+            cursor: pointer;
+        }
+
+        span.select_all {
+            margin-left: 21px;
+            margin-right: 7px;
+        }
     </style>
     
     
@@ -89,7 +108,7 @@
         <div class="topTitle">完成订单<div class="fr cfRefresh"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
         <div class="inputBox">
             <label for="">输入搜索</label><input class="orderNo input" type="text" placeholder="订单编号">
-            <label for="">订单状态</label>
+            <!-- <label for="">订单状态</label>
             <div class="goodsType input select" data-selectedindex="0"><span>全部</span><img src="../img/prl-select.jpg" >
                 <ul>
                     <li data-index="1">待分配订单</li>
@@ -97,8 +116,8 @@
                     <li data-index="3">完成待审核订单</li>
                     <li data-index="3">已完成订单</li>
                 </ul>
-            </div>
-            <label for="">提交时间</label><input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1">
+            </div> -->
+            <label for="">提交时间</label><input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1" class="time_inp">
             <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-left: 100px;">
             <!--<input class="advancedRetrievalBtn btn input" type="button" value="高级检索">-->
         </div>
@@ -116,7 +135,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 56px;text-align: center;"></th>
+                        <!-- <th style="width: 56px;text-align: center;"></th> -->
                         <td>订单编号</td>
                         <td>完成时间</td>
                         <td>货物类型</td>
@@ -128,8 +147,8 @@
                         <td>操作</td>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody class="myTbody">
+                    <!-- <tr>
                         <td><div class="cf_select"></div></td>
                         <td>3001804091631062137</td>
                         <td>2017-07-19 14:48</td>
@@ -140,29 +159,18 @@
                         <td>北京-朝阳区</td>
                         <td>12</td>
                         <td><span class="btn seeDetail">查看订单</span></td>
-                    </tr>
-                    <tr>
-                        <td><div class="cf_select"></div></td>
-                        <td>3001804091631062137</td>
-                        <td>2017-07-19 14:48</td>
-                        <td>危化-罐装</td>
-                        <td>氢氧化钠</td>
-                        <td>1500吨</td>
-                        <td>新疆-乌鲁木齐</td>
-                        <td>北京-朝阳区</td>
-                        <td>12</td>
-                        <td><span class="btn seeDetail">查看订单</span></td>
-                    </tr>
+                    </tr> -->
+               
 
                 </tbody>
             </table>
         </div>
-        <div class="bottomOperiat">
+        <!-- <div class="bottomOperiat">
             <span class="squre"></span>
             <span class="selsectAll">全选</span>
             <span class="closeBtn">关闭订单</span>
             <span class="delBtn">删除订单</span>
-        </div>
+        </div> -->
         <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
             <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
             <div class="pageJump">
@@ -209,15 +217,7 @@
             }
         });
         laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
-
-        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
-        Page({
-            num: 200,
-            elem: $('#page1'),
-            callback: function(n) {
-                console.log(n);
-            }
-        });
+         
         //查看详情
         $(".seeDetail").click(function () {
             window.location.href="./finishedOrder-detail.html";
@@ -229,6 +229,98 @@
         $('.bottomOperiat .selsectAll').click(function(){
             $('.bottomOperiat .squre').toggleClass('active');
         });
+
+         //列表
+         getData(1);
+        //获取数据
+        function getData(currentPage) {
+            $(".listBox tbody").html("");//必须先置空
+            $.ajax({
+                url: pubIP + 'order/getplaceOrderList', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    companyId:companyId,
+                    orderNo: $(".orderNo").val(),
+                    time: $(".time_inp").val(),
+                    status: '',
+                    size:pageSize,
+                    page:currentPage
+                },
+                success: function (res) {
+                    console.log(res)
+                    if(res.code===1){
+                        //首次请求时 改变分页数据
+                        if(res.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
+                        $(".pagination").parent().css("display","block");
+                        if(currentPage===1 ){
+                            //修改底部分页
+                            //debugger
+                            var pageNum=Math.ceil(res.count/pageSize);
+                            $(".allPageN").attr("pageTotal",pageNum);
+                            $(".pageJump i").text("共"+pageNum+"页");
+                            $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+                            Page({
+                                num: pageNum,
+                                elem: $('#page1'),
+                                callback: function(n) {
+                                    // console.log(n);
+                                    getData(n);//加载n页数据
+                                }
+                            });
+                        }
+                        //修改底部页数
+                        $(".allPageN").text((currentPage)+"/"+ $(".allPageN").attr("pageTotal"));
+                        cf_dataRender(res.data)
+                    }else{
+                        alert(res.msg);
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+        //渲染数据
+        function cf_dataRender(data) {
+            
+            var str='';
+            $.each(data,function (idx,item) {
+                item.tloUpdateTime = new Date(item.tloUpdateTime).Format("yyyy-MM-dd");
+                str+='<tr data-id="'+item.tloId+'">';
+                str+='<td>'+item.orderNo+'</td>';
+                str+='<td>'+item.tloUpdateTime+'</td>';
+                str+='<td>'+item.goodsType+'</td>';
+                str+='<td>'+item.goodsName+'</td>';
+                str+='<td>'+item.goodsNum +item.goodsUnit+'</td>';
+                str+='<td>'+item.sendProvince+item.sendCity+'</td>';
+                str+='<td>'+item.receiveProvince+item.receiveCity+'</td>';
+                str+='<td>2</td>';
+                str+='<td class="btn" style="color: #6ba1ff;">查看订单</td>';
+                str+='</tr>';
+            })
+            $(".myTbody").html(str);
+            //详情
+            $(".btn").click(function () {
+                sessionStorage.setItem("tloId",$(this).parent().attr("data-id"));
+                window.location.href="finishedOrder-detail.html";
+            })
+        }
+        //选择排序方式
+        $(".select ul li").click(function () {
+            getData(1);
+        })
+        // 点击go刷新数据
+        $('.pageCont').on('click', '.button',function(){
+            var currentPage = $('.pageCont li.active>a').text();
+            getData(currentPage);
+        })
     </script>
 </body>
 </html>
