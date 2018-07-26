@@ -71,6 +71,49 @@
             background: url("../img/cf_selct.png") no-repeat;
             background-size: 100% 100%;
         }
+
+        .modelBox0{
+            z-index: 9999;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modelCont{
+            position: absolute;
+            width: 450px;
+            min-height: 276px;
+            left: 50%;
+            top: 50%;
+            /*margin-left: -225px;
+            margin-top: -200px;*/
+            margin-left: 0 !important;
+            margin-top: 0 !important;
+            transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);
+            font-family: 'microsoft yahei';
+            /* background-color: red; */
+
+        }
+        .modeltitle{
+            width: 450px;
+            height: 50px;
+            background-image: url(../img/gsxq.gif);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            font-size: 16px;
+            color: #5690f6;
+            line-height: 50px;
+        }
+        .modelcontent{
+            width: 450px;
+            background-image: url('../img/gsxq_cont.gif');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -90,7 +133,7 @@
                 <!--</ul>-->
             <!--</div>-->
             
-            <input class=" btn input" type="button" value="关闭订单" style="margin-left: 23px;">
+            <!--<input class=" btn input" type="button" value="关闭订单" style="margin-left: 23px;">-->
             <input class="searchResultBtn btn input" type="button" value="查询结果">
         </div>
         <div class="opciationBox">
@@ -169,7 +212,72 @@
         <!--共100张 当前为1页 共5页-->
         <!--</div>-->
     </div>
+    <!--//报价-->
+    <div class="modelBox0 " style="">
+        <div class="modelCont" style="width: 800px;height: 390px;">
+            <div class="modeltitle" style="width: 780px;padding-left: 20px;">
+                <span>需求信息</span>
+                <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+            </div>
+            <div class="modelcontent"  style="width: 780px;height: 340px;padding-left: 20px;font-size: 16px;padding-top: 20px;">
+                <div class="requireInfo infoBox">
+                    <!--<div class="title"><img src="../img/prl-titlelogo.png" width="29" height="28" alt="">需求信息</div>-->
+                    <div class="contBox" style="line-height: 30px;">
+                        <div class="contlist contlistone clearFloat">
+                            <div class="Lf " style="width: 250px;">
+                                <div>需求编号：<span id="demandNo">201707196369321</span></div>
+                                <div>发布时间：<span id="createTime">2015-09-08 23:00</span></div>
+                                <!--<div>装车时间：<span>2015-09-08 23:00</span></div>-->
+                            </div>
+                            <div class="Lf " style="width: 520px;">
+                                <div><span style="vertical-align: top;">始&nbsp;&nbsp;发&nbsp;&nbsp;地：</span><span class="sendAddress" style="display: inline-block;width: 400px;">新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情</span></div>
+                                <div class="desti"><span style="vertical-align: top;">目&nbsp;&nbsp;的&nbsp;&nbsp;地：</span><span  class="destination receiveAddresss" style="display: inline-block;width: 400px;">新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情中华人民共和国北京市东城区朝阳花园</span></div>
+                            </div>
+                        </div>
+                        <div class="contlist contlisttwo clearFloat">
+                            <div class="Lf " style="width: 252px;">
+                                <div>货物类型：<span id="goodsType">危化</span></div>
+                                <div>重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：<span id="goodsWeight">150吨</span></div>
+                                <!--<div>支付方式：<span>预付</span></div>-->
+                                <!--<div>保&nbsp;&nbsp;证&nbsp;&nbsp;金：<span>¥1000.00</span></div>-->
+                                <div>结算方式：<span id="paymentMode	">现汇</span></div>
+                            </div>
+                            <div class="Lf " style="width: 250px;">
+                                <div>包装类型：<span id="packageType">罐装</span></div>
+                                <div>开&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票：<span id="invoiceType">普票</span></div>
+                                <div style="width: 500px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：<span id="goodsRemark" style="">备注信息</span></div>
+                                <!--<div>缴纳方式：<span>抵扣</span></div>-->
+                            </div>
+                            <div class="Lf " style="width: 250px;" >
+                                <div>货物名称：<span class="goodsName">片碱</span></div>
+                                <div>车辆类型：<span id="carType">罐装车</span></div>
+                                <!--<div>回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单：<span>需要</span></span></div>-->
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="baojiaCompany infoBox" style="width: 755px;border: 1px solid #e0e0e0;margin-top: 20px;padding-left: 5px;  ">-->
+                <!--&lt;!&ndash;<div class="title"><img src="../img/prl-titlelogo.png" width="29" height="28" alt="">报价公司</div>&ndash;&gt;-->
+                <!--<div class="contBox" id="baoJiaompany" style="height: 173px;overflow-y: auto;">-->
+                <!--<ul class="clearFloat" style="padding: 5px 0;">-->
+                <!--<li class="Lf " style="width: 292px;">公司名称：<span >化动力有限公司</span></li>-->
+                <!--<li class="Lf" style="width: 292px;">报&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价：<span >120元/吨</span></li>-->
+                <!--<li class="Lf "><span class=" btn blue ll">选&nbsp;&nbsp;择</span><span class="del btn" style="margin-left: 20px;">删&nbsp;&nbsp;除</span></li>-->
+                <!--</ul>-->
+                <!--<ul class="clearFloat" style="padding: 5px 0;">-->
+                <!--<li class="Lf " style="width: 292px;">公司名称：<span >化动力有限公司</span></li>-->
+                <!--<li class="Lf" style="width: 292px;">报&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价：<span >120元/吨</span></li>-->
+                <!--<li class="Lf "><span class=" btn blue ll">选&nbsp;&nbsp;择</span><span class="del btn" style="margin-left: 20px;">删&nbsp;&nbsp;除</span></li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <div class="baojia" style="text-align: center;margin-top: 60px;"><span>企业报价</span><input type="text" id="quotedPrice"></div>
+                <div class="btn sure1"  style="margin: 0 auto;margin-top: 30px; width: 80px;height: 30px;line-height: 30px;border-radius: 3px;text-align: center;color: #ffffff;background-color: #6ea3f4;">确认报价</div>
+            </div>
+        </div>
+    </div>
 
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
@@ -286,7 +394,7 @@
                 str+='<td>'+item.goodsName+'</td>';
                 str+='<td>'+item.sendProvince+'-'+item.sendCity+'</td>';
                 str+='<td>'+item.receiveProvince+'-'+item.receiveCity+'</td>';
-                str+='<td><span class="seeDetail ll">查看详情</span><span class="ll">更改报价</span></td></td>';
+                str+='<td><span class="seeDetail ll">查看详情</span><span class="ll updataBaojia1">更改报价</span></td>';
                 str+='</tr>';
             })
             $(".listBox tbody").html(str);
@@ -298,6 +406,14 @@
             $(".seeDetail").click(function () {
                 sessionStorage.setItem("detailId",$(this).parents("tr").attr("data-id"));
                 window.location.href="./toConfirmRequire-detail.html";
+            })
+            //更改报价
+            $(".updataBaojia1").click(function () {
+                sessionStorage.setItem("detailId",$(this).parents("tr").attr("data-id"));
+                $(".modelBox0").show();
+                getDataCompanyList()
+                getDataSelect()
+
             })
 //            //删除
 //            $(".delect").click(function () {
@@ -361,6 +477,195 @@
                     console.log(err);
                 }
             })
+        }
+
+
+        ////////////////////////////////选择公司弹框
+        $(".sure1").click(function () {
+            $.ajax({
+                url: pubIP + 'wlDemandQuoted/demandQuoted', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    demandid:sessionStorage.getItem("detailId") ,
+                    quotedPrice:$("#quotedPrice").val()
+                },
+                success: function (res) {
+                    if(res.code===1){
+                        alert("修改报价成功")
+                        location.reload();
+                    }else{
+                        alert(res.msg);
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        })
+
+        //获取更改报价弹框数据
+        function getDataSelect() {
+            $.ajax({
+                url: pubIP + 'wlLogisticsDemand/query', /*v1.0*/
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    id:sessionStorage.getItem("detailId")
+                },
+                success: function (res) {
+                    if(res.code===1){
+                        cf_dataRenderSelect(res.data)
+                    }else{
+                        alert(res.msg);
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+        //选择公司  弹框 关闭
+        $("img.close").click(function () {
+            $(this).parents(".modelCont").parent().hide();
+        })
+        //渲染更改报价弹框数据
+        function cf_dataRenderSelect(data) {
+            $("#demandNo").text(data.demandNo);
+            $("#createTime").text(data.createTime);
+            $(".sendAddress").eq(0).text(data.sendProvince+"-"+data.sendCity+"-"+data.sendArea+"-"+data.sendAddress);
+            $(".sendAddress").eq(1).text(data.sendProvince+"-"+data.sendCity+"-"+data.sendArea+"-"+data.sendAddress);
+            $(".receiveAddresss").eq(0).text(data.receiveProvince+"-"+data.receiveCity+"-"+data.receiveArea+"-"+data.receiveAddress);
+            $(".receiveAddresss").eq(1).text(data.receiveProvince+"-"+data.receiveCity+"-"+data.receiveArea+"-"+data.receiveAddress);
+            $("#goodsType").text(data.goodsType);
+            if(data.goodsUnit=="重量/吨"){
+                $("#goodsWeight").text(data.goodsNum+'吨');
+            }else{
+                $("#goodsWeight").text(data.goodsNum+'m³');
+            }
+            $("#packageType").text(data.packageType);
+            $("#invoiceType").text(data.invoiceType);
+            $("#paymentMode").text(data.paymentMode);
+            $(".goodsName").eq(0).text(data.goodsName);
+            $(".goodsName").eq(1).text(data.goodsName);
+            $("#carType").text(data.carType);
+            $("#goodsRemark").text(data.goodsRemark);
+            $("#sendUser").text(data.sendUser);
+            $("#sendPhone").text(data.sendPhone );
+            $("#sendCompanyname").text(data.sendCompanyname);
+            $("#receiveUser").text(data.receiveUser);
+            $("#receivePhone").text(data.receivePhone);
+            $("#receiveCompanyname").text(data.receiveCompanyname);
+        }
+
+        //获取报价公司列表  暂时不用
+        function getDataCompanyList() {
+            $("#baoJiaompany").html("");
+            $.ajax({
+                url: pubIP + 'wlDemandQuoted/queryList', /*v1.0*/
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    demandid:sessionStorage.getItem("detailId")
+                },
+                success: function (res) {
+                    if(res.code===1){
+                        var  str="";
+                        $.each(res.data.data,function (idx,item) {
+                            str+='<ul class="clearFloat" style="padding: 5px 0;"  data-id='+item.id+'>';
+                            str+='<li class="Lf" style="width: 292px;">公司名称：<span >'+item.companyname+'</span></li>';
+                            str+='<li class="Lf" style="width: 292px;">报&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价：<span id="unitPrice">'+item.quotedPrice+'元/吨</span></li>'
+                            str+='<li class="Lf" data-id="'+item.demandid+'" data-demandid="'+item.demandid+'" data-companyid="'+item.companyid+'"><span class=" btn blue sel" style="color: #6ea3f4;">选&nbsp;&nbsp;择</span><span class="del btn" style="margin-left: 20px;">删&nbsp;&nbsp;除</span></li>'
+                            str+="</ul>"
+                        })
+                        $("#baoJiaompany").html(str);
+                        //选择公司
+                        $(".sel").click(function () {
+                            var demandid= $(this).parent().attr("data-demandid")
+                            var companyid=$(this).parent().attr("data-companyid")
+                            $.ajax({
+                                url: pubIP + 'wlDemandQuoted/queryList', /*v1.0*/
+                                type: 'get',
+                                headers: {
+                                    Accept: "application/json; charset=utf-8",
+                                    token: token
+                                },
+                                cache: false,
+                                ansyc: true,
+                                dataType: 'json',
+                                data:{
+                                    demandid:demandid,
+                                    companyid:companyid,
+                                },
+                                success: function (res) {
+                                    if(res.code==1){
+                                        alert("选择公司成功");
+                                    }else{
+                                        alert(res.msg);
+                                    }
+
+                                },
+                                error: function(err){
+                                    console.log(err);
+                                }
+                            });
+                        })
+                        //删除公司
+                        $(".del").click(function () {
+                            var id= $(this).parent().attr("data-id")
+                            $.ajax({
+                                url: pubIP + 'wlDemandQuoted/updateForRejectCompany', /*v1.0*/
+                                type: 'post',
+                                headers: {
+                                    Accept: "application/json; charset=utf-8",
+                                    token: token
+                                },
+                                cache: false,
+                                ansyc: true,
+                                dataType: 'json',
+                                data:{
+                                    id:id,
+                                },
+                                success: function (res) {
+                                    if(res.code==1){
+                                        alert("删除公司成功");
+                                        location.reload();
+                                    }else{
+                                        alert(res.msg);
+                                    }
+
+                                },
+                                error: function(err){
+                                    console.log(err);
+                                }
+                            });
+                        })
+                    }else{
+                        alert(res.msg);
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
         }
     </script>
 </body>

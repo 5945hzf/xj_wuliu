@@ -148,7 +148,7 @@
             <table style="width: 1280px;">
                 <thead>
                     <tr>
-                        <th style="width: 56px;text-align: center;"></th>
+                        <!-- <th style="width: 56px;text-align: center;"></th> -->
                         <th>订单编号</th>
                         <th>接货时间</th>
                         <th>货物类型</th>
@@ -191,13 +191,13 @@
                 </tbody>
             </table>
         </div>
-        <div class="bottomOperiat">
-            <!-- <span class="squre"></span> -->
+        <!-- <div class="bottomOperiat">
+            
             <span class="select_all"><img src="../img/cf_noselect.png" alt=""></span>
             <span class="selsectAll">全选</span>
             <span class="closeBtn">关闭订单</span>
             <span class="delBtn">删除订单</span>
-        </div>
+        </div> -->
 
         <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
             <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
@@ -224,7 +224,7 @@
     <script type="text/html" id="orderListTpl">
         <%for(i in list) {%>
         <tr>
-            <td><div class="cf_select"><img src="../img/cf_noselect.png" alt=""></div></td>
+            <!-- <td><div class="cf_select"><img src="../img/cf_noselect.png" alt=""></div></td> -->
             <td><%=list[i].orderNo%></td>
             <td><%=list[i].tloCreateTime%></td>
             <td><%=list[i].goodsType%></td>

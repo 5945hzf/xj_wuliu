@@ -300,6 +300,7 @@ $(function () {
 $(".cfRefresh").click(function () {
     location.reload();
 })
+$(".cfRefresh").hide();
 //模拟点击 框
 $(".cf_select").click(function () {
     $(this).toggleClass("on");

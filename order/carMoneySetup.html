@@ -115,6 +115,89 @@
             console.log(n);
         }
     });
+
+    //进入页面加载数据
+    getData(1);
+    //获取数据
+    function getData(currentPage) {
+        $(".listBox tbody").html("");
+        $.ajax({
+            url: pubIP + 'buckle/getDeductMoneyList', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data:{
+                companyId:"9041805231046330013",
+//              	orderId:$(".sort").attr("data-selectedindex"),
+//                status:,
+                size:pageSize,
+                page:currentPage
+            },
+            success: function (res) {
+                if(res.code===1){
+                    //首次请求时 改变分页数据
+                    if(res.data.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
+                    $(".pagination").parent().css("display","block");
+                    if(currentPage===1 ){
+                        //修改底部分页
+                        //debugger
+                        var pageNum=Math.ceil(res.count/pageSize);
+                        $(".allPageN").attr("pageTotal",pageNum);
+                        $(".pageJump i").text("共"+pageNum+"页");
+                        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+                        Page({
+                            num: pageNum,
+                            elem: $('#page1'),
+                            callback: function(n) {
+                                // console.log(n);
+                                getData(n);//加载n页数据
+                            }
+                        });
+                    }
+                    //修改底部页数
+                    $(".allPageN").text((currentPage)+"/"+ $(".allPageN").attr("pageTotal"));
+                    cf_dataRender(res.data.data)
+                }else{
+                    alert(res.msg);
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+    //渲染数据
+    function cf_dataRender(data) {
+        var str='';
+        $.each(data,function (idx,item) {
+            str+='<tr data-id="'+item.id+'">';
+            str+='<td>'+item.name+'</td>';
+            str+='<td>'+item.remark+'</td>';
+            if(item.status===0){
+                str+='<td class="chooseswitch"><input id="checked_'+idx+'" type="checkbox" name="status" class="switch" checked="checked" /><label for="checked_'+idx+'"></label></td>';
+            }else{
+                str+='<td class="chooseswitch"><input id="checked_'+idx+'" type="checkbox"  name="status" class="switch" /><label for="checked_'+idx+'"></label></td>';
+            }
+            str+='<td>'+idx+'</td>';
+            str+='<td data-id="'+item.id+'"><a class="lookover" style="color: #6ea3f4;">编辑</a><a class="delect" style="color: #6ea3f4;">删除</a></td>';
+            str+='</tr>';
+        })
+        $(".listBox tbody").html(str);
+    }
+    //选择排序方式
+    $(".select ul li").click(function () {
+        getData(1);
+    })
+    // 点击go刷新数据
+    $('.pageCont').on('click', '.button',function(){
+        var currentPage = $('.pageCont li.active>a').text();
+        getData(currentPage);
+    })
 </script>
 </body>
 </html>
