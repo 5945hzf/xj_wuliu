@@ -231,11 +231,11 @@
             border-bottom: none;
         }
 
-        .model_ul li {
+        .model_ul li, .order_info_ul li {
             color: #333333;
         }
 
-        .model_ul li span {
+        .model_ul li span, .order_info_ul li span {
             color: #666666;
         }
 
@@ -244,6 +244,85 @@
         }
 
 
+        /* inputBox */
+        .inputBox{
+            height: 60px;
+            border-bottom: 1px solid #ebe9ea;
+            padding-left: 20px;
+            box-sizing: border-box;
+            line-height: 60px;
+            font-size: 14px;
+            color: #282828;
+        }
+        .inputBox label{
+            margin-right: 7px;
+        }
+        .inputBox>.input{
+            height: 38px;
+            box-sizing: border-box;
+            margin-right: 12px;
+            /*padding-left: 10px;*/
+            border: 1px solid #ebe9ea;
+        }
+        .inputBox>.orderNo{
+            width: 180px;
+        }
+        .inputBox>.goodsType{
+            line-height: 38px;
+            display: inline-block;
+            width: 160px;
+            position: relative;
+            color: #999;
+            background: #fff;
+            cursor: pointer;
+            float: none;
+        }
+        .inputBox>.goodsType>img{
+            float: right;
+            width: 13px;
+            height: 7px;
+            margin-top: 15px;
+            margin-right: 9px;
+        }
+        .inputBox>.goodsType>ul{
+            display: none;
+            position: absolute;
+            top: 37px;
+            left: -1px;
+            line-height: 38px;
+            width: 160px;
+            box-sizing: border-box;
+            border: 1px solid #ebe9ea;
+            border-top: none;
+        }
+        .inputBox>.goodsType>ul>li{
+            background: #fff;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+        /* .inputBox>.goodsType>ul>li:hover{
+            background: #ebe9ea;
+            color: #fff;
+        } */
+        .publishTime{
+            width: 160px;
+        }
+        .inputBox>.btn{
+            outline: none;
+            border: none;
+            padding: 0;
+            text-align: center;
+            width: 94px;
+            color: #fff;
+            background: #6ba1ff;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .listBox tr {
+            height: 61px; 
+            border-bottom: 1px solid #ebe9ea;
+        }
     </style>
 </head>
 <body>
@@ -1628,7 +1707,7 @@
             <span>订单信息</span>
             <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
         </div>
-        <div class="modelcontent clearFloat" style="width: 1010px; font-size: 14px; height: auto; border: 1px solid #ebe9ea;padding: 45px 50px 50px 29px; ">
+        <div class="modelcontent clearFloat" style="width: 969px; font-size: 14px; height: 900; border: 1px solid #ebe9ea;padding: 45px 50px 50px 29px; ">
             <div class="div_ul" style="width: 968px; height: 247px; border: 1px solid #ebe9ea; padding-left: 40px;padding-top: 10px; box-sizing: border-box;">
                 <div class="clearfix model_ul">
                     <div class="" style="display: inline-block; width: 33%; float: left;">
@@ -1665,6 +1744,78 @@
                        <li>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：<span>备注信息</span></li>
                    </ul>
                 </div>
+            </div>
+            <div class="inputBox" style="margin-top: 10px; border: 1px solid #ebe9ea;">
+                <label for="">输入搜索</label><input class="orderNo input" type="text" placeholder="订单编号">
+                <label for="">货物类型</label>
+                <div class="goodsType input select" data-selectedindex="0"><span>全部</span><img src="../img/prl-select.jpg" >
+                    <ul>
+                        <li data-index="1">全部</li>
+                        <li data-index="2">普化品</li>
+                        <li data-index="3">危化品</li>
+                        <li data-index="4">特殊品</li>
+                    </ul>
+                </div>
+                <label for="">确认时间</label>
+                <input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1">
+                <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-left: 115px;">
+                <!--<input class="advancedRetrievalBtn btn input" type="button" value="高级检索">-->
+                <div class="listBox">
+                    <table style="width: 970px;">
+                        <thead>
+                            <tr>
+                                <th>车牌号</th>
+                                <th>载重</th>
+                                <th>类型</th>
+                                <th>状态</th>
+                                <th>路线</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3001804091631062137</td>
+                                <td>2017-07-19 14:48</td>
+                                <td>氢氧化钠</td>
+                                <td>危化-罐装</td>
+                                <td>化动力有限公司</td>
+                                <td>危化-氢氧化钠</td>
+                            </tr>
+                            <tr>
+                                <td>3001804091631062137</td>
+                                <td>2017-07-19 14:48</td>
+                                <td>氢氧化钠</td>
+                                <td>危化-罐装</td>
+                                <td>化动力有限公司</td>
+                                <td>危化-氢氧化钠</td>
+                            </tr>
+                            <tr>
+                                <td>3001804091631062137</td>
+                                <td>2017-07-19 14:48</td>
+                                <td>氢氧化钠</td>
+                                <td>危化-罐装</td>
+                                <td>化动力有限公司</td>
+                                <td>危化-氢氧化钠</td>
+                            </tr>
+                            <tr>
+                                <td>3001804091631062137</td>
+                                <td>2017-07-19 14:48</td>
+                                <td>氢氧化钠</td>
+                                <td>危化-罐装</td>
+                                <td>化动力有限公司</td>
+                                <td>危化-氢氧化钠</td>
+                            </tr>
+                            <tr>
+                                <td>3001804091631062137</td>
+                                <td>2017-07-19 14:48</td>
+                                <td>氢氧化钠</td>
+                                <td>危化-罐装</td>
+                                <td>化动力有限公司</td>
+                                <td>危化-氢氧化钠</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
             </div>
         </div>
     </div>
