@@ -108,7 +108,7 @@
             <label for="" style="margin-left: 10px;">提交时间</label><input type="text" class="date-input laydate-icon publishTime input time_inp" placeholder="请选择日期" id="test1">
             <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-top: 10px;float: right;">
         </div>
-        <div class="opciationBox" style="padding-right: 8px;">
+        <!-- <div class="opciationBox" style="padding-right: 8px;">
             <div class="select displayNum" data-selectedindex="0"><span>显示条数</span><img src="../img/prl-select.jpg" alt="">
                 <ul>
                     <li data-index="1">10</li>
@@ -116,7 +116,7 @@
                     <li data-index="3">30</li>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <div class="listBox">
             <table>
                 <thead>
@@ -133,7 +133,7 @@
                 </thead>
                 <tbody class="myTbody">
                     <!-- <tr>
-                        <!-- <td><div class="cf_select"></div></td> -->
+                        <td><div class="cf_select"></div></td>
                         <td>3001804091631062137</td>
                         <td>化动力有限公司</td>
                         <td>2017-07-19 14:48</td>
@@ -223,7 +223,7 @@
                 ansyc: true,
                 dataType: 'json',
                 data:{
-                    companyId:"9041805231046330013",
+                    companyId:companyId,
                     orderId: $(".orderNo").val(),
                     time: $(".time_inp").val(),
                     size:pageSize,
@@ -274,7 +274,7 @@
                 str+='<td>'+item.oldPrice+'</td>';
                 str+='<td>'+item.quotedPrice+'</td>';
                 str+='<td>'+item.quotesSatus+'</td>';
-                str+='<td class="btn">查看详情</td>';
+                str+='<td class="btn" style="color: #6ba1ff;">查看详情</td>';
                 str+='</tr>';
             })
             $(".myTbody").html(str);
