@@ -1,7 +1,9 @@
 //var pubIP = 'http://api.xjv56.com/service/';
 
 var pubIP = 'http://192.168.1.199:7777/service/';
+var pubIP = 'http://wl.api.xjv56.com/service/';
 var pub = 'http://192.168.1.80:7777/service/';
+var ip = 'http://wl.api.xjv56.com/service/';
 // var pubIP = 'https://xj.wl.api.hg.jergavin.com/service/';
 //var token = 'ceshi123456';
 
@@ -72,28 +74,31 @@ if(adct1=="acount"){
 
 //当返回code为401时需要调用此方法
 function missedLogin() {
-    $("#effect").css("display","block");
+    // $("#effect").css("display","block");
+    window.top.$("#effect").show();
 }
+
 //跳回登录页
 function popEffectLogin() {
 	var isOld = localStorage.getItem('isOld');
-	if(isOld == '0' || isOld == '1'){
-		if(adct=="首页"){
-	        window.location.href='login.html';
-		}else{
-			if(location.href.indexOf('account') != -1){
-				parent.location.href = 'login.html';
-			}else{	
-				window.location.href='login.html';
-			}
-		}
-	}else if(isOld == '-1'){
-		if(adct=="首页"){
-	        window.location.href='account/account.html';
-		}else{
-			window.location.href='../account/account.html';
-		}
-	}
+    window.top.location.href='login.html';
+	// if(isOld == '0' || isOld == '1'){
+	// 	if(adct=="首页"){
+	//         window.location.href='login.html';
+	// 	}else{
+	// 		if(location.href.indexOf('account') != -1){
+	// 			parent.location.href = 'login.html';
+	// 		}else{
+	// 			window.location.href='login.html';
+	// 		}
+	// 	}
+	// }else if(isOld == '-1'){
+	// 	if(adct=="首页"){
+	//         window.location.href='account/account.html';
+	// 	}else{
+	// 		window.location.href='../account/account.html';
+	// 	}
+	// }
 }
 //退出 按钮
 $(document).on('click', '.exit', function() {
@@ -126,6 +131,7 @@ $(document).on('click', '.exit', function() {
 
 function cf_popEffectClose1(that) {
 	$(that).parent().parent().parent().css("display","none");
+    window.top.location.href='login.html';
 }
 
 if(token){
@@ -233,6 +239,7 @@ if(token){
 	});
 }else{
 	localStorage.setItem('isOld','1');
+    missedLogin() ;
 }
 
 // else{
