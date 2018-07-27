@@ -514,7 +514,7 @@
                 <a href="##" class="manage"><strong>个人中心</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
                 <ul class="manageList2">
                     <li><a href="##" class="manageItem" data-src="./systemIndex/mine.html" data-height="860">企业基本信息</a></li>
-                    <li><a href="##" class="manageItem"  data-src="./systemIndex/grow.html"  data-height="1600">个人中心</a></li>
+                    <li><a href="##" class="manageItem"  data-src="./systemIndex/information.html"  data-height="1600">企业信息设置</a></li>
                 </ul>
             </li>
             <li>
@@ -884,17 +884,18 @@
         <div class="modelcontent clearFloat" style="width: 100%;height: 395px;font-size: 14px;padding-top: 31px; ">
             <div>
                 <span style="display: inline-block; width: 135px;text-align: right;">签订日期：</span>
-                <input type="text" placeholder="2016.02.26"  style="height: 36px;width: 480px;border: 1px solid #dbdbdc;">
+                <input type="text" placeholder="2016.02.26" class="qianding_time" style="height: 36px;width: 480px;border: 1px solid #dbdbdc;">
             </div>
             <div style="margin-top: 25px;" class="clearfix">
                 <span style="float: left; width: 135px;text-align: right;">上传合同：</span>
+                <input type="hidden" value="" id="upload_hetong_hidden">
                 <div style="position: relative; height: 130px;width: 130px; margin-left: 5px; border: 1px solid #dbdbdc; float: left;">
                 </div>
-                <div style="position: relative; display: inline-block;margin-top: 114px; margin-left: 10px; cursor: pointer;"><input type="file"><span style="color: #6ea3ff;">上传</span></div>
+                <div style="position: relative; display: inline-block;margin-top: 114px; margin-left: 10px; cursor: pointer;"><input type="file" id="upload_hetong"><span style="color: #6ea3ff;">上传</span></div>
             </div>
-            <div class="clearFloat" style="text-align: center;margin-top: 32px;">
-                <span class=" cf_btn cancel cfClose" style="display: inline-block;" >取消</span>
-                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 41px;line-height: 41px; ">确定</span>
+            <div class="clearFloat" style="text-align: center;margin-top: 70px;">
+                <span class=" cf_btn cancel cfClose quxiao" style="display: inline-block;" >取消</span>
+                <span class=" cf_btn ok_upload" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确定</span>
             </div>
         </div>
     </div>
@@ -2654,6 +2655,52 @@
         $(this).parent().parent().parent().parent().css('display', 'none');
     });
 
+    //上传合同
+    $(document).on('change', '#upload_hetong', function() {
+
+        xmTanUploadImg1(this);
+
+    });
+
+
+    function xmTanUploadImg1(obj) {
+        var file = obj.files[0];
+        if (file.size >= 2097152) {
+            alert('上传的图片超过了2MB');
+            return;
+        }
+
+        var formdata=new FormData();
+
+        formdata.append('file', file);
+        
+        $.ajax({
+            url: uplodImgPath,
+            type: 'post',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            data: formdata,
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                $(obj).parent().prev().css({
+                        'background':'url('+data.url+') no-repeat',
+                        'background-position':'center',
+                        'background-size':'contain',
+                        'background-color':'#f6f6f6'
+                });
+                // $(obj).parent().find('input[type="hidden"]').val(data.url);
+                // $(obj).parent().parent().next().css('display', 'none');
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+    }
+
+
     $.ajax({
         url: pubIP + 'companyCertification/getCompanyWriteStateByUserToken',
         type: 'post',
@@ -2702,7 +2749,7 @@
     });
 
 
-    //showModelBox('.modelBox18');
+    // showModelBox('.modelBox2');
     function showModelBox(cls) {
         $(cls).css("display","block");
     }
