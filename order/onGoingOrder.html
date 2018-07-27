@@ -230,7 +230,7 @@
             <td><%=list[i].sendAddress%></td>
             <td><%=list[i].receiveAddress%></td>
             <td><%=list[i].carType%></td>
-            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看订单</span><span class="btn sure">确认送达</span><span class="btn updata">更改车辆</span><span class="btn cancel cancel_order" data-tloId="<%=list[i].tloId%>">取消订单</span></td>
+            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看订单</span><span class="btn sure" data-tloId="<%=list[i].tloId%>">确认送达</span><span class="btn updata">更改车辆</span><span class="btn cancel cancel_order" data-tloId="<%=list[i].tloId%>">取消订单</span></td>
         </tr>
         <%}%>
     </script>
@@ -268,7 +268,62 @@
         //         console.log(n);
         //     }
         // });
-        
+
+
+        //确认送达
+        $(document).on('click', '.sure', function() {
+
+            var tloId = $(this).attr('data-tloId');
+
+            // 详情信息
+            $.ajax({
+                url: pubIP + 'order/getOrderByid',
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    tloid: tloId
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log(json);
+
+                    json.data.createTime = new Date(json.data.createTime).Format("yyyy-MM-dd hh:mm");
+                    json.data.startDate = new Date(json.data.startDate).Format("yyyy-MM-dd hh:mm");
+
+                    $(window.parent.document).find('.order_no').text(json.data.orderNo);
+                    $(window.parent.document).find('.publish_time').text(json.data.createTime);
+                    $(window.parent.document).find('.zhuangche_time').text(json.data.startDate);
+
+                    $(window.parent.document).find('.start_address').text(json.data.sendAddress);
+                    $(window.parent.document).find('.end_address').text(json.data.receiveAddress);
+                    $(window.parent.document).find('.good_type').text(json.data.goodsType);
+                    $(window.parent.document).find('.zhongliang').text(json.data.goodsNum+json.data.goodsUnit);
+
+                    $(window.parent.document).find('.pay_method2').text(json.data.paymentType);
+                    
+                    $(window.parent.document).find('.baozhuang_type').text(json.data.packageType);
+                    $(window.parent.document).find('.kaipiao').text(json.data.invoiceType);
+                    
+                    $(window.parent.document).find('.good_name').text(json.data.goodsName);
+
+                    $(window.parent.document).find('.car_type').text(json.data.carType);
+                    $(window.parent.document).find('.beizhu').text(json.data.goodsRemark);
+
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+
+            //window.parent.showModelBox('.modelBox18');
+
+        });
+
+
 
         // 点击多选框
         $(document).on('click', '.cf_select', function() {
