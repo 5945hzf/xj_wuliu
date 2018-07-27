@@ -294,6 +294,7 @@ $('.select ul li').click(function(){
     $(this).parent().css('display','none');
 });
 
+
 $(function () {
     $("header  .logo").click(function () {
         window.location.href="./index.html";

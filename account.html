@@ -144,13 +144,13 @@
             width: 33%;
         }
 
-        .modelBox6 ul li {
+        .modelBox6 ul li, .modelBox18 ul li {
             color: #333;
             font-size: 14px;
             line-height: 33px;
         }
         
-        .modelBox6 ul li span {
+        .modelBox6 ul li span, .modelBox18 ul li {
             color: #666;
         }
 
@@ -248,7 +248,7 @@
         .inputBox{
             height: 60px;
             border-bottom: 1px solid #ebe9ea;
-            padding-left: 20px;
+            padding-left: 70px;
             box-sizing: border-box;
             line-height: 60px;
             font-size: 14px;
@@ -319,10 +319,142 @@
             border-radius: 3px;
         }
 
-        .listBox tr {
+        .listBox1 thead tr {
+            height: 34px;
+            line-height: 34px;
+            background: #fdfdfd;
+        }
+
+        .listBox1 table {
+            border: 1px solid #ebe9ea;
+        }
+
+        .listBox1 tr {
             height: 61px; 
+            line-height: 61px;
+            border-bottom: 1px solid #ebe9ea;
+            text-align: center;
+        }
+
+        
+        .car_num {
+            border: 1px solid #9bbffe;
+            width: 127px;
+            height: 34px;
+            text-align: center;
+            line-height: 34px;
+            vertical-align: middle;
+            position: relative;
+            display: inline-block;
+            margin-left: 30px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .car_num img {
+            position: absolute;
+            right: -9px;
+            top: -9px;
+            cursor: pointer;
+        }
+
+        .order_info_ul2 {
+            width: 160px;
+            margin-top: 23px;
+            text-align: center;
+        }
+
+        .modelBox18 .order_info_ul2 li {
+            height: 39px;
+            border-top: 1px solid #ebe9ea;
+            border-left: 1px solid #ebe9ea;
+            color: #999999;
+            line-height: 39px;
+        }
+
+        .modelBox18 .order_info_ul2 li:last-child {
             border-bottom: 1px solid #ebe9ea;
         }
+
+        .modelBox18 .order_info_ul2 li.current {
+            background: #6ea3ff;
+            color: #fff;
+        }
+
+        .order_info_div {
+            margin-top: 23px;
+            border: 1px solid #ebe9ea;
+            width: 807px;
+            height: auto;
+            float: left;
+        }
+
+        .order_info_div .info_title {
+            background: url('./img/order_info_bg.png') no-repeat;
+            width: 780px;
+            height: 123px;
+            background-size: cover;
+            margin-left: 13px;
+            margin-top: 14px;
+            margin-bottom: 15px;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        .info_title li {
+            float: left;
+            text-align: center;
+            padding-top: 30px;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .info_title li.span {
+            width: 1px;
+            display: inline-block; 
+            height: 40px; 
+            width: 1px; 
+            background: #f1f1f1;
+            margin-top: 52px;
+        }
+
+        .info_title li.w {
+            width: 32%;
+        }
+
+        .info_title li.w div span {
+            font-size: 24px;
+        }
+
+        .info_title .ml {
+            padding-left: 62px;
+        }
+
+        .order_detail {
+            width: 778px;
+            height: auto;
+            margin-left: 18px;
+        }
+
+        #oranger {
+            height: 37px;
+            border-bottom: 1px solid #f5f3f4;
+        }
+
+        #oranger li {
+            float: left;
+            width: 25%;
+            text-align: center;
+            font-size: 14px;
+            color: #666666;
+        }
+
+        #oranger .hover {
+            background: #6ea3ff;
+            color: #fff;
+        }
+
     </style>
 </head>
 <body>
@@ -1704,12 +1836,188 @@
 <div class="modelBox17" style="font-size: 14px;">
     <div class="modelCont" style="width: 1060px;height: 550px; overflow: hidden; overflow-y: auto;">
         <div class="modeltitle" style="width: 100%;">
+            <span>分配车辆</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent" style="width: 1058px; font-size: 14px; height: auto; border: 1px solid #ebe9ea;">
+            <div class="clearFloat" style="padding: 45px 50px 50px 29px; ">
+                <div class="div_ul" style="width: 979px; height: 247px; border: 1px solid #ebe9ea; padding-left: 40px;padding-top: 10px; box-sizing: border-box;">
+                    <div class="clearfix model_ul">
+                        <div class="" id="fenpei_info" style="display: inline-block; width: 33%; float: left;">
+                            <ul>
+                                <li>订单编号：<span>201707196369321</span></li>
+                                <li>发布时间：<span>2015-06-07 23:00</span></li>
+                                <li>装车时间：<span>2015-06-07 23:00</span></li>
+                            </ul>
+                        </div>
+                        <div style="display: inline-block; float: left;" id="fenpei_info1">
+                            <ul>
+                                <li>始发地：<span>新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情</span></li>
+                                <li class="clearfix"><i class="fl">目的地：</i><span style="display: inline-block; width: 328px; float: left;">新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情中华人民共和国北京市东城区朝阳花园</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="order_info_ul" id="fenpei_info2">
+                       <ul>
+                           <li>货物类型：<span>危化</span></li>
+                           <li>重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：<span>150吨</span></li>
+                           <li>支付方式：<span>预付</span></li>
+                           <li>保证金：<span>￥1000.00</span></li>
+                       </ul>
+                       <ul>
+                           <li>包装类型：<span>灌装</span></li>
+                           <li>开&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票：<span>普票</span></li>
+                           <li>结算方式：<span>现汇</span></li>
+                           <li>缴纳方式：<span>抵扣</span></li>
+                       </ul>
+                       <ul>
+                           <li>货物名称：<span>片碱</span></li>
+                           <li>车辆类型：<span>罐装车</span></li>
+                           <li>回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单：<span>预付</span></li>
+                           <li>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：<span>备注信息</span></li>
+                       </ul>
+                    </div>
+                </div>
+                <div class="inputBox" style="margin-top: 24px; border: 1px solid #ebe9ea; border-bottom: none;">
+                    <label for="">输入搜索</label><input class="orderNo input" type="text" placeholder="订单编号">
+                    <label for="">货物类型</label>
+                    <div class="goodsType input selectPub" data-selectedindex="0"><span>全部</span><img src="img/prl-select.jpg" >
+                        <ul>
+                            <li data-index="1">全部</li>
+                            <li data-index="2">普化品</li>
+                            <li data-index="3">危化品</li>
+                            <li data-index="4">特殊品</li>
+                        </ul>
+                    </div>
+                    <label for="">确认时间</label>
+                    <input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1">
+                    <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-left: 10px;">
+                    <!--<input class="advancedRetrievalBtn btn input" type="button" value="高级检索">-->
+                </div>
+                <div class="listBox1">
+                    <table style="width: 979px;">
+                        <thead>
+                            <tr>
+                                <th>车牌号</th>
+                                <th>载重</th>
+                                <th>类型</th>
+                                <th>状态</th>
+                                <th>路线</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3001804091631062137</td>
+                                <td>2017-07-19 14:48</td>
+                                <td>氢氧化钠</td>
+                                <td>化动力有限公司</td>
+                                <td>危化-氢氧化钠</td>
+                            </tr>
+                            <tr>
+                                <td>3001804091631062137</td>
+                                <td>2017-07-19 14:48</td>
+                                <td>氢氧化钠</td>
+                                <td>化动力有限公司</td>
+                                <td>危化-氢氧化钠</td>
+                            </tr>
+                            <tr>
+                                <td>3001804091631062137</td>
+                                <td>2017-07-19 14:48</td>
+                                <td>氢氧化钠</td>
+                                <td>化动力有限公司</td>
+                                <td>危化-氢氧化钠</td>
+                            </tr>
+                            <tr>
+                                <td>3001804091631062137</td>
+                                <td>2017-07-19 14:48</td>
+                                <td>氢氧化钠</td>
+                                <td>化动力有限公司</td>
+                                <td>危化-氢氧化钠</td>
+                            </tr>
+                            <tr>
+                                <td>3001804091631062137</td>
+                                <td>2017-07-19 14:48</td>
+                                <td>氢氧化钠</td>
+                                <td>化动力有限公司</td>
+                                <td>危化-氢氧化钠</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="" style="width: 690px; margin: 0 auto;">
+                    <div class="clearfix">
+                        <div style="margin-top: 32px;color: #666666;line-height: 36px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">车辆选择：&nbsp;</span>
+                            <div class="selectPub" id="selectInfo" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px; background: #fff;">
+                                <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                                <ul>
+                                    <li data-index="1">1</li>
+                                    <li data-index="2">2</li>
+                                    <li data-index="3">3</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">预计到货时间：</span>
+                            <input type="text" placeholder="111" id="selectInput" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl"><span style="color: #282828;" class="modelBox34LeftTitle">司机选择：</span>
+                            <input type="text" placeholder="111" id="selectInput2" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        </div>
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">公里数：</span>
+                            <input type="text" placeholder="111" id="selectInput3" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl"><span style="color: #282828;" class="modelBox34LeftTitle">押运选择：</span>
+                            <input type="text" placeholder="111" id="selectInput4" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        </div>
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">现金：</span>
+                            <input type="text" placeholder="111" id="selectInput5" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl"><span style="color: #282828;display: inline-block; width: 70px; text-align: right;" class="modelBox34LeftTitle">安全员：</span>
+                            <input type="text" placeholder="111" id="selectInput6" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        </div>
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">油卡：</span>
+                            <input type="text" placeholder="111" id="selectInput7" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl"><span style="color: #282828;" class="modelBox34LeftTitle">货物类型：</span>
+                            <input type="text" placeholder="111" id="selectInput8" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        </div>
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">蓝券：</span>
+                            <input type="text" placeholder="111" id="selectInput9" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        </div>
+                    </div>
+                    <div class="clearFloat" style="text-align: center;margin-top: 50px;">
+                        <span class=" cf_btn" id="ok_car_info" style="display: inline-block; width: 192px;height: 41px;line-height: 40px; margin-left: 20px; ">确认车辆信息</span>
+                    </div>
+                </div>
+            </div>
+            <div class="" id="car_info" style="padding: 16px 125px 12px 95px; border-top: 1px solid #ebe9ea; border-bottom: 1px solid #ebe9ea; background: #f4f7fc;">
+                <div class="car_num"><span>新B WERTTT</span><img src="img/close_btn.png" alt=""></div>
+                <div class="car_num"><span>新B WERTTT</span><img src="img/close_btn.png" alt=""></div>
+            </div>
+            <div class="clearFloat" style="text-align: center;margin-top: 39px; margin-bottom: 21px;">
+                <span class=" cf_btn" id="ok_fenpei" style="display: inline-block; width: 192px;height: 41px;line-height: 40px;">确认分配</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 确认送达 -->
+<div class="modelBox18" style="font-size: 14px;">
+    <div class="modelCont" style="width: 1060px;height: 625px;">
+        <div class="modeltitle" style="width: 100%;">
             <span>订单信息</span>
             <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
         </div>
-        <div class="modelcontent clearFloat" style="width: 969px; font-size: 14px; height: 900; border: 1px solid #ebe9ea;padding: 45px 50px 50px 29px; ">
-            <div class="div_ul" style="width: 968px; height: 247px; border: 1px solid #ebe9ea; padding-left: 40px;padding-top: 10px; box-sizing: border-box;">
-                <div class="clearfix model_ul">
+        <div class="modelcontent clearFloat" style="width:980px;height: 560px;font-size: 14px;padding: 15px 50px 0 30px; ">
+            <div style="height: 246px; width: 968px; border: 1px solid #ebe9ea;padding-left: 40px; padding-top: 8px; box-sizing: border-box; margin-top: 17px;">
+               <div class="clearfix">
                     <div class="" style="display: inline-block; width: 33%; float: left;">
                         <ul>
                             <li>订单编号：<span>201707196369321</span></li>
@@ -1723,8 +2031,8 @@
                             <li class="clearfix"><i class="fl">目的地：</i><span style="display: inline-block; width: 328px; float: left;">新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情中华人民共和国北京市东城区朝阳花园</span></li>
                         </ul>
                     </div>
-                </div>
-                <div class="order_info_ul">
+               </div>
+               <div class="order_info_ul">
                    <ul>
                        <li>货物类型：<span>危化</span></li>
                        <li>重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：<span>150吨</span></li>
@@ -1743,86 +2051,60 @@
                        <li>回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单：<span>预付</span></li>
                        <li>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：<span>备注信息</span></li>
                    </ul>
-                </div>
+               </div>
             </div>
-            <div class="inputBox" style="margin-top: 10px; border: 1px solid #ebe9ea;">
-                <label for="">输入搜索</label><input class="orderNo input" type="text" placeholder="订单编号">
-                <label for="">货物类型</label>
-                <div class="goodsType input select" data-selectedindex="0"><span>全部</span><img src="../img/prl-select.jpg" >
-                    <ul>
-                        <li data-index="1">全部</li>
-                        <li data-index="2">普化品</li>
-                        <li data-index="3">危化品</li>
-                        <li data-index="4">特殊品</li>
+            <div class="clearfix">
+                <div class="fl">
+                    <ul class="order_info_ul2">
+                        <li class="current">新bw12356（内部）</li>
+                        <li>新bw12356（内部）</li>
+                        <li>新bw12356（内部）</li>
                     </ul>
                 </div>
-                <label for="">确认时间</label>
-                <input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1">
-                <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-left: 115px;">
-                <!--<input class="advancedRetrievalBtn btn input" type="button" value="高级检索">-->
-                <div class="listBox">
-                    <table style="width: 970px;">
-                        <thead>
-                            <tr>
-                                <th>车牌号</th>
-                                <th>载重</th>
-                                <th>类型</th>
-                                <th>状态</th>
-                                <th>路线</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>3001804091631062137</td>
-                                <td>2017-07-19 14:48</td>
-                                <td>氢氧化钠</td>
-                                <td>危化-罐装</td>
-                                <td>化动力有限公司</td>
-                                <td>危化-氢氧化钠</td>
-                            </tr>
-                            <tr>
-                                <td>3001804091631062137</td>
-                                <td>2017-07-19 14:48</td>
-                                <td>氢氧化钠</td>
-                                <td>危化-罐装</td>
-                                <td>化动力有限公司</td>
-                                <td>危化-氢氧化钠</td>
-                            </tr>
-                            <tr>
-                                <td>3001804091631062137</td>
-                                <td>2017-07-19 14:48</td>
-                                <td>氢氧化钠</td>
-                                <td>危化-罐装</td>
-                                <td>化动力有限公司</td>
-                                <td>危化-氢氧化钠</td>
-                            </tr>
-                            <tr>
-                                <td>3001804091631062137</td>
-                                <td>2017-07-19 14:48</td>
-                                <td>氢氧化钠</td>
-                                <td>危化-罐装</td>
-                                <td>化动力有限公司</td>
-                                <td>危化-氢氧化钠</td>
-                            </tr>
-                            <tr>
-                                <td>3001804091631062137</td>
-                                <td>2017-07-19 14:48</td>
-                                <td>氢氧化钠</td>
-                                <td>危化-罐装</td>
-                                <td>化动力有限公司</td>
-                                <td>危化-氢氧化钠</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="order_info_div">
+                    <div class="info_title">
+                        <ul class="clearfix">
+                            <li class="w">
+                                <div>总&nbsp;&nbsp;&nbsp;&nbsp;计：</div>
+                                <div class="ml">￥<span>600.00</span></div>
+                            </li>
+                            <li class="span">
+                                <span"></span>
+                            </li>
+                            <li class="w">
+                                <div>总支付：</div>
+                                <div class="ml">￥<span>800.00</span></div>
+                            </li>
+                            <li class="span">
+                                <span></span>
+                            </li>
+                            <li class="w">
+                                <div>税&nbsp;&nbsp;&nbsp;&nbsp;后：</div>
+                                <div class="ml">￥<span>600.00</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="order_detail">
+                        <div class="centera">
+                            <ul id="oranger"> 
+                                <li class="hover">预付款</li>
+                                <li>运单信息</li>
+                                <li>扣款项</li>
+                                <li>结算</li>
+                            </ul>
+                            <div id="tablea" class="tablea">
+                                <div class="box">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
             </div>
+            
         </div>
     </div>
 </div>
-
-
-
 
 
 
@@ -2219,9 +2501,27 @@
 <script src="./js/footer.js" type="text/javascript" charset="utf-8"></script>
 <script src="./js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="./js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" >
+
+
+    $(".tablea").find(".box:first").show();    //为每个BOX的第一个元素显示        
+    $("#oranger li").on("click",function(){ //给a标签添加事件  
+        var index=$(this).index();  //获取当前a标签的个数  
+        $(this).parent().next().find(".box").hide().eq(index).show(); //返回上一层，在下面查找css名为box隐藏，然后选中的显示  
+        $(this).addClass("hover").siblings().removeClass("hover"); //a标签显示，同辈元素隐藏
+
+    });
     $(".manageList").css("display","none");
 
+    laydate({
+        elem: '#test1',
+        format: 'YYYY-MM-DD',
+        istime: false,
+        choose: function(dates){ //选择好日期的回调
+            console.log(dates);
+        }   
+    });
 
     function close1(that) {
         $(that).parents(".pop").css("display","none")
@@ -2287,7 +2587,7 @@
     });
 
 
-    //showModelBox('.modelBox17');
+    //showModelBox('.modelBox18');
     function showModelBox(cls) {
         $(cls).css("display","block");
     }
