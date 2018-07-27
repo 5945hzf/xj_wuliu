@@ -234,7 +234,7 @@
             <td><%=list[i].companyName%></td>
             <td><%=list[i].goodsNum%><%=list[i].goodsUnit%></td>
             <td><%=list[i].unitPrice%></td>
-            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看详情</span><span class="btn ll">分配车辆</span><span class="btn cancel_order" data-tloId="<%=list[i].tloId%>">取消订单</span><span class="btn" style="margin-left: 12px;">上传合同</span></td>
+            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看详情</span><span class="btn ll" onclick="fenPei('<%=list[i].tloId%>')">分配车辆</span><span class="btn cancel_order" data-tloId="<%=list[i].tloId%>">取消订单</span><span class="btn" style="margin-left: 12px;">上传合同</span></td>
         </tr>
         <%}%>
     </script>
@@ -481,6 +481,98 @@
         $('.bottomOperiat .selsectAll').click(function(){
             $('.bottomOperiat .squre').toggleClass('active');
         });
+
+
+        //分配车辆
+        function fenPei(id){
+            window.parent.$(".modelBox17").show();
+            getData(id);
+        }
+
+        //获取数据
+        function getData(id) {
+            $.ajax({
+                url: pubIP + 'wlLogisticsDemand/query', /*v1.0*/
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    id:id
+                },
+                success: function (res) {
+                    if(res.code===1){
+                        cf_dataRender(res.data)
+                    }else{
+                        alert(res.msg);
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+        //渲染数据
+        function cf_dataRender(data) {
+            window.parent.$("#demandNo").text(data.demandNo);
+            window.parent.$("#createTime").text(data.createTime);
+            window.parent.$("#createTime1").text(data.createTime);
+            window.parent.$(".sendAddress").eq(0).text(data.sendProvince+"-"+data.sendCity+"-"+data.sendArea+"-"+data.sendAddress);
+            window.parent.$(".sendAddress").eq(1).text(data.sendProvince+"-"+data.sendCity+"-"+data.sendArea+"-"+data.sendAddress);
+            window.parent.$(".receiveAddresss").eq(0).text(data.receiveProvince+"-"+data.receiveCity+"-"+data.receiveArea+"-"+data.receiveAddress);
+            window.parent.$(".receiveAddresss").eq(1).text(data.receiveProvince+"-"+data.receiveCity+"-"+data.receiveArea+"-"+data.receiveAddress);
+            window.parent.$("#goodsType").text(data.goodsType);
+            if(data.goodsUnit=="重量/吨"){
+                window.parent.$("#goodsWeight").text(data.goodsNum+'吨');
+            }else{
+                window.parent.$("#goodsWeight").text(data.goodsNum+'m³');
+            }
+            window.parent.$("#packageType").text(data.packageType);
+            window.parent.$("#invoiceType").text(data.invoiceType);
+            window.parent.$("#paymentMode").text(data.paymentMode);
+            window.parent.$(".goodsName").eq(0).text(data.goodsName);
+            window.parent.$(".goodsName").eq(1).text(data.goodsName);
+            window.parent.$("#carType").text(data.carType);
+            window.parent.$("#goodsRemark").text(data.goodsRemark);
+            window.parent.$("#sendUser").text(data.sendUser);
+            window.parent.$("#sendPhone").text(data.sendPhone );
+            window.parent.$("#sendCompanyname").text(data.sendCompanyname);
+            window.parent.$("#receiveUser").text(data.receiveUser);
+            window.parent.$("#receivePhone").text(data.receivePhone);
+            window.parent.$("#receiveCompanyname").text(data.receiveCompanyname);
+            window.parent.$("#demandEndTime").text(data.demandEndTime);
+        }
+        // 点击删除车辆
+        window.parent.$(".car_num img").click(function () {
+            if($(this).parents(".car_num").parent().find(".car_num").length==1){
+                $(this).parents(".car_num").parent().hide();
+                window.parent.$("#ok_fenpei").hide();
+            }
+            $(this).parents(".car_num").remove();
+        })
+        //点击添加车辆
+
+
+        window.parent.document.getElementById("ok_car_info").click(function () {
+            //需要添加接口数据
+            window.parent.$("#car_info").append("<div class=\"car_num\"><span>新B WERTTT</span><img src=\"img/close_btn.png\" alt=\"\"></div>");
+
+            //不需要添加接口数据部分
+            window.parent.$("#ok_fenpei").show();
+            window.parent.$("#car_info").show();
+            window.parent.$(".car_num img").click(function () {
+                if($(this).parents(".car_num").parent().find(".car_num").length==1){
+                    $(this).parents(".car_num").parent().hide();
+                    window.parent.$("#ok_fenpei").hide();
+                }
+                $(this).parents(".car_num").remove();
+            })
+        })
     </script>
 </body>
 </html>
