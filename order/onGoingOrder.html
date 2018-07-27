@@ -269,6 +269,13 @@
         //     }
         // });
 
+        //上传合同
+        $(document).on('click', '.updata', function() {
+
+            window.parent.showModelBox('.modelBox1');
+
+
+        });
 
         //确认送达
         $(document).on('click', '.sure', function() {
@@ -319,7 +326,50 @@
                 }
             });
 
-            //window.parent.showModelBox('.modelBox18');
+            //获取车辆信息
+            $.ajax({
+                url: pubIP + 'order/getCarUserListByOrderId',
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    orderId: tloId
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log(json);
+
+                    if (json.code == 1) {
+
+                        var str = '';
+                        for (var i = 0; i < json.data.length; i++) {
+                            json.data[i].planStartDate = new Date(json.data[i].planStartDate).Format("yyyy-MM-dd hh:mm");
+                            json.data[i].planEndDate = new Date(json.data[i].planEndDate).Format("yyyy-MM-dd hh:mm");
+
+                            if (json.data[i].tlvType == 0) {
+                                json.data[i].tlvType = '内部';
+                            } else if (json.data[i].tlvType == 1) {
+                                json.data[i].tlvType = '外部';
+                            }
+
+                            str += '<li>'+json.data[i].carNo+'（'+json.data[i].tlvType+'）</li>';
+
+                        }
+                        $(window.parent.document).find('.order_info_ul2').html(str);
+
+                    }
+
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+
+            });
+
+            window.parent.showModelBox('.modelBox18');
 
         });
 
