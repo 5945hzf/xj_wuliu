@@ -230,7 +230,7 @@
             <td><%=list[i].sendAddress%></td>
             <td><%=list[i].receiveAddress%></td>
             <td><%=list[i].carType%></td>
-            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看订单</span><span class="btn sure" data-tloId="<%=list[i].tloId%>">确认送达</span><span class="btn updata">更改车辆</span><span class="btn cancel cancel_order" data-tloId="<%=list[i].tloId%>">取消订单</span></td>
+            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看订单</span><span class="btn sure" data-tloId="<%=list[i].tloId%>">确认送达</span><span class="btn updata" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-sendCompanyId="<%=list[i].sendCompanyId%>" data-sendCompanyName="<%=list[i].sendCompanyName%>" data-receiveCompanyId="<%=list[i].receiveCompanyId%>" data-receiveCompanyName="<%=list[i].receiveCompanyName%>">更改车辆</span><span class="btn cancel cancel_order" data-tloId="<%=list[i].tloId%>">取消订单</span></td>
         </tr>
         <%}%>
     </script>
@@ -272,9 +272,51 @@
         //上传合同
         $(document).on('click', '.updata', function() {
 
+            // var tloId = $(this).attr('data-tloId');
+            // var orderNo = $(this).attr('data-orderNo');
+            // var sendCompanyId = $(this).attr('data-sendCompanyId');
+            // var sendCompanyName = $(this).attr('data-sendCompanyName');
+            // var receiveCompanyId = $(this).attr('data-receiveCompanyId');
+            // var receiveCompanyName = $(this).attr('data-receiveCompanyName');
+
             window.parent.showModelBox('.modelBox1');
 
+        });
 
+        $(window.parent.document).on('click', '.ok_upload', function() {
+            // console.log('..');
+            $.ajax({
+                url: pubIP + 'tContractTrade/insertWLtContractTrade',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    orderid: $('.updata').attr('data-tloId'),
+                    orderNo: $('.updata').attr('data-orderNo'),
+                    sendCompanyid: $('.updata').attr('data-sendCompanyId'),
+                    sendCompanyname: $('.updata').attr('data-sendCompanyName'),
+                    receiveCompanyid: $('.updata').attr('data-receiveCompanyId'),
+                    receiveCompanyname: $('.updata').attr('data-receiveCompanyName'),
+                    url: $(window.parent.document).find('#upload_hetong_hidden').val(),
+                    type: 1,
+                    signDate: $(window.parent.document).find('.qianding_time').val()
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log(json);
+                    if (json.data == 1) {
+                        $(window.parent.document).find('.modelBox1').css('display', 'none');
+                        $(window.parent.document).find('.modelBoxaddqita p span').html('合同上传成功！');
+                    }
+
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
         });
 
         //确认送达
