@@ -151,7 +151,7 @@
                 <thead>
                     <tr>
                         <th style="width: 56px;text-align: center;"></th>
-                        <th>订单编号</th>
+                        <th>需求编号</th>
                         <!--<th>需求编号</th>-->
                         <th>发布时间</th>
                         <!--<th>报价时间</th>-->
@@ -331,7 +331,7 @@
         function getData(currentPage) {
             $(".listBox tbody").html("");//所有条件查询列表 必须先置空
             $.ajax({
-                url: pubIP + 'wlLogisticsDemand/queryPageForConfirmedBySupplier', /*v1.0*/
+                url: pubIP + 'wlLogisticsDemand/queryPageForQuoted', /*v1.0*/
                 type: 'get',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -387,14 +387,14 @@
             $.each(data,function (idx,item) {
                 str+='<tr data-id="'+item.id+'">';
                 str+='<td><div class="cf_select"></div></td>';
-                str+='<td>'+item.transactionOrderId+'</td>';
-                str+='<td>'+item.createtime+'</td>';
+                str+='<td>'+item.demandNo+'</td>';
+                str+='<td>'+timestampToTime(item.createTime)+'</td>';
 //                str+='<td>'+item.quotedTime+'</td>';//需要改成报价时间字段
                 str+='<td>'+item.goodsType+'</td>';
                 str+='<td>'+item.goodsName+'</td>';
                 str+='<td>'+item.sendProvince+'-'+item.sendCity+'</td>';
                 str+='<td>'+item.receiveProvince+'-'+item.receiveCity+'</td>';
-                str+='<td><span class="seeDetail ll">查看详情</span><span class="ll updataBaojia1">更改报价</span></td>';
+                str+='<td><span class="seeDetail ll">查看详情</span><span class="ll updataBaojia1">报价</span></td>';
                 str+='</tr>';
             })
             $(".listBox tbody").html(str);
@@ -498,7 +498,7 @@
                 },
                 success: function (res) {
                     if(res.code===1){
-                        alert("修改报价成功")
+                        alert("报价成功")
                         location.reload();
                     }else{
                         alert(res.msg);

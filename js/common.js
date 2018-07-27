@@ -17,7 +17,7 @@ var companyId = null, userId = null ;
 
 //时间戳转时间格式
 function timestampToTime(timestamp) {
-    if(timestamp/100000000000>0){
+    if(timestamp/100000000000<0){
         var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
     }else{
         var date = new Date(timestamp );//时间戳为10位需*1000，时间戳为13位的话不需乘1000

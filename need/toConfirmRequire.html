@@ -149,7 +149,7 @@
                 <thead>
                     <tr>
                         <th style="width: 56px;text-align: center;"></th>
-                        <th>订单编号</th>
+                        <th>需求编号</th>
                         <!--<th>需求编号</th>-->
                         <th>发布时间</th>
                         <th>报价时间</th>
@@ -331,7 +331,7 @@
         function getData(currentPage) {
             $(".listBox tbody").html("");//所有条件查询列表 必须先置空
             $.ajax({
-                url: pubIP + 'wlLogisticsDemand/queryPageForConfirmedBySupplier', /*v1.0*/
+                url: pubIP + 'wlLogisticsDemand/queryPageForConfirmedByCarrier', /*v1.0*/
                 type: 'get',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -388,9 +388,13 @@
             $.each(data,function (idx,item) {
                 str+='<tr data-id="'+item.id+'">';
                 str+='<td><div class="cf_select"></div></td>';
-                str+='<td>'+item.transactionOrderId+'</td>';
-                str+='<td>'+item.createtime+'</td>';
-                str+='<td>'+item.quotedTime+'</td>';//需要改成报价时间字段
+                str+='<td>'+item.demandNo+'</td>';
+                str+='<td>'+timestampToTime(item.createTime)+'</td>';
+                if(item.var28==null){
+                    str+='<td>无</td>';
+                }else{
+                    str+='<td>'+timestampToTime(item.var28)+'</td>';
+                }
                 str+='<td>'+item.goodsType+'</td>';
                 str+='<td>'+item.goodsName+'</td>';
                 str+='<td>'+item.sendProvince+'-'+item.sendCity+'</td>';
