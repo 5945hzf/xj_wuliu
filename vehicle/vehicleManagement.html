@@ -45,7 +45,7 @@
 			</div>
     		<!--<div>排序方式<img src="../img/cf_open.png"/></div>-->
     		<!--<div>显示条数<img src="../img/cf_open.png"/></div>-->
-            <div style="width: 102px;text-align: center;">添加车辆</div>
+            <div style="width: 102px;text-align: center;" id="addVehicle">添加车辆</div>
             <div style="width: 102px;text-align: center;">批量导入</div>
     	</div>
     	<div class="listBox">
@@ -233,6 +233,11 @@ var currentPage=1;
         var currentPage1 = $('.pageCont li.active>a').text();
         currentPage=currentPage1;
         getData(currentPage1);
+    })
+	//添加车辆
+	$("#addVehicle").click(function () {
+		window.parent.$(".modelBox12").show();
+
     })
 //启用禁用 删除  事件
 	function upadtaState(type,that) {

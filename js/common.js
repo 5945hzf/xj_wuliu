@@ -1,9 +1,9 @@
 //var pubIP = 'http://api.xjv56.com/service/';
 
 var pubIP = 'http://192.168.1.199:7777/service/';
-var pubIP = 'http://wl.api.xjv56.com/service/';
+// var pubIP = 'http://wl.api.xjv56.com/service/';
 var pub = 'http://192.168.1.80:7777/service/';
-var ip = 'http://wl.api.xjv56.com/service/';
+// var pub = 'http://wl.api.xjv56.com/service/';
 // var pubIP = 'https://xj.wl.api.hg.jergavin.com/service/';
 //var token = 'ceshi123456';
 
