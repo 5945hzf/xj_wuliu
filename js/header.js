@@ -1,7 +1,7 @@
 // 公共头
 var adct = document.getElementsByTagName('title')[0].getAttribute('adct');
 //公共IP
-var headerip = 'http://192.168.1.199:7777/service/';
+var headerip = 'http://192.168.1.208:7777/service/';
 // var headerip = 'http://wl.api.xjv56.com/service/';
 
 document.writeln("<header>\n" +

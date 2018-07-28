@@ -276,6 +276,88 @@ var currentPage=1;
             }
 		})
     }
+    
+    function ad() {
+		
+    }
+    
+    function  getJiuType() {
+        $.ajax({
+            url: pubIP + 'chemicalType/getChemicalType', /*v1.0*/
+            type: 'get',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data:{
+                sort:$(".sort").attr("data-selectedindex"),
+            },
+            success: function (res) {
+                if(res.code===1){
+                    var str="";
+                    $.each(res.data,function (idx,item) {
+                        if(idx==0){
+                            window.parent.$("#jiuType ul").attr("data-selectedindex",item.type_id);
+                            window.parent.$("#jiuType span").text(item.type_name);
+						}
+						str+='<li data-index="'+item.type_id+'">'+item.type_name+'</li>'
+                    })
+					window.parent.$("#jiuType ul").html(str);
+
+                    window.parent.$("#jiuType li").click(function () {
+                        getErShiWUXiang($(this).attr("data-index"));
+                        window.parent.$("#jiuType").attr("data-selectedindex",$(this).attr("data-index"));
+                        window.parent.$("#jiuType span").text($(this).text());
+                    })
+
+
+                }else{
+                    alert(res.msg);
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+    function getErShiWUXiang(id) {
+        $.ajax({
+            url: pubIP + 'chemicalType/getChemicalTypeByid', /*v1.0*/
+            type: 'get',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data:{
+                id:id
+            },
+            success: function (res) {
+                if(res.code===1){
+                    var str="";
+                    $.each(res.data,function (idx,item) {
+                        if(idx==0){
+                            window.parent.$("#jiuType ul").attr("data-selectedindex",item.type_id);
+                            window.parent.$("#jiuType span").text(item.type_name);
+                        }
+                        str+='<li data-index="'+item.type_id+'">'+item.type_name+'</li>'
+                    })
+                    window.parent.$("#jiuType ul").html(str);
+
+
+                }else{
+                    alert(res.msg);
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+    }
 </script>
 </body>
 </html>
