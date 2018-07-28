@@ -2224,6 +2224,7 @@
 
 
 
+
 <div class="modelBoxweixian">
     <div class="modelCont">
         <div class="modeltitle">
@@ -2690,7 +2691,7 @@
                         'background-size':'contain',
                         'background-color':'#f6f6f6'
                 });
-                // $(obj).parent().find('input[type="hidden"]').val(data.url);
+                $(obj).parent().parent().find('input[type="hidden"]').val(data.url);
                 // $(obj).parent().parent().next().css('display', 'none');
             },
             error: function (err) {
