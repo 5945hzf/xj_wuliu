@@ -275,95 +275,96 @@
         $(document).on('click', '.sure', function() {
 
             var tloId = $(this).attr('data-tloId');
+            sessionStorage.setItem("qrsd_tloId",tloId);
+            window.parent.showModelBox('.modelBox18_ifrm');
+            // // 详情信息
+            // $.ajax({
+            //     url: pubIP + 'order/getOrderByid',
+            //     type: 'get',
+            //     headers: {
+            //         Accept: "application/json; charset=utf-8",
+            //         token: token
+            //     },
+            //     data: {
+            //         tloid: tloId
+            //     },
+            //     cache: false,
+            //     dataType: 'json',
+            //     success: function (json) {
+            //         console.log(json);
 
-            // 详情信息
-            $.ajax({
-                url: pubIP + 'order/getOrderByid',
-                type: 'get',
-                headers: {
-                    Accept: "application/json; charset=utf-8",
-                    token: token
-                },
-                data: {
-                    tloid: tloId
-                },
-                cache: false,
-                dataType: 'json',
-                success: function (json) {
-                    console.log(json);
+            //         json.data.createTime = new Date(json.data.createTime).Format("yyyy-MM-dd hh:mm");
+            //         json.data.startDate = new Date(json.data.startDate).Format("yyyy-MM-dd hh:mm");
 
-                    json.data.createTime = new Date(json.data.createTime).Format("yyyy-MM-dd hh:mm");
-                    json.data.startDate = new Date(json.data.startDate).Format("yyyy-MM-dd hh:mm");
+            //         $(window.parent.document).find('.order_no').text(json.data.orderNo);
+            //         $(window.parent.document).find('.publish_time').text(json.data.createTime);
+            //         $(window.parent.document).find('.zhuangche_time').text(json.data.startDate);
 
-                    $(window.parent.document).find('.order_no').text(json.data.orderNo);
-                    $(window.parent.document).find('.publish_time').text(json.data.createTime);
-                    $(window.parent.document).find('.zhuangche_time').text(json.data.startDate);
+            //         $(window.parent.document).find('.start_address').text(json.data.sendAddress);
+            //         $(window.parent.document).find('.end_address').text(json.data.receiveAddress);
+            //         $(window.parent.document).find('.good_type').text(json.data.goodsType);
+            //         $(window.parent.document).find('.zhongliang').text(json.data.goodsNum+json.data.goodsUnit);
 
-                    $(window.parent.document).find('.start_address').text(json.data.sendAddress);
-                    $(window.parent.document).find('.end_address').text(json.data.receiveAddress);
-                    $(window.parent.document).find('.good_type').text(json.data.goodsType);
-                    $(window.parent.document).find('.zhongliang').text(json.data.goodsNum+json.data.goodsUnit);
-
-                    $(window.parent.document).find('.pay_method2').text(json.data.paymentType);
+            //         $(window.parent.document).find('.pay_method2').text(json.data.paymentType);
                     
-                    $(window.parent.document).find('.baozhuang_type').text(json.data.packageType);
-                    $(window.parent.document).find('.kaipiao').text(json.data.invoiceType);
+            //         $(window.parent.document).find('.baozhuang_type').text(json.data.packageType);
+            //         $(window.parent.document).find('.kaipiao').text(json.data.invoiceType);
                     
-                    $(window.parent.document).find('.good_name').text(json.data.goodsName);
+            //         $(window.parent.document).find('.good_name').text(json.data.goodsName);
 
-                    $(window.parent.document).find('.car_type').text(json.data.carType);
-                    $(window.parent.document).find('.beizhu').text(json.data.goodsRemark);
+            //         $(window.parent.document).find('.car_type').text(json.data.carType);
+            //         $(window.parent.document).find('.beizhu').text(json.data.goodsRemark);
 
-                },
-                error: function(err) {
-                    console.log(err);
-                }
-            });
+            //     },
+            //     error: function(err) {
+            //         console.log(err);
+            //     }
+            // });
 
-            //获取车辆信息
-            $.ajax({
-                url: pubIP + 'order/getCarUserListByOrderId',
-                type: 'get',
-                headers: {
-                    Accept: "application/json; charset=utf-8",
-                    token: token
-                },
-                data: {
-                    orderId: tloId
-                },
-                cache: false,
-                dataType: 'json',
-                success: function (json) {
-                    console.log(json);
+            // //获取车辆信息
+            // $.ajax({
+            //     url: pubIP + 'order/getCarUserListByOrderId',
+            //     type: 'get',
+            //     headers: {
+            //         Accept: "application/json; charset=utf-8",
+            //         token: token
+            //     },
+            //     data: {
+            //         orderId: tloId
+            //     },
+            //     cache: false,
+            //     dataType: 'json',
+            //     success: function (json) {
+            //         console.log(json);
 
-                    if (json.code == 1) {
+            //         if (json.code == 1) {
 
-                        var str = '';
-                        for (var i = 0; i < json.data.length; i++) {
-                            json.data[i].planStartDate = new Date(json.data[i].planStartDate).Format("yyyy-MM-dd hh:mm");
-                            json.data[i].planEndDate = new Date(json.data[i].planEndDate).Format("yyyy-MM-dd hh:mm");
+            //             var str = '';
+            //             for (var i = 0; i < json.data.length; i++) {
+            //                 json.data[i].planStartDate = new Date(json.data[i].planStartDate).Format("yyyy-MM-dd hh:mm");
+            //                 json.data[i].planEndDate = new Date(json.data[i].planEndDate).Format("yyyy-MM-dd hh:mm");
 
-                            if (json.data[i].tlvType == 0) {
-                                json.data[i].tlvType = '内部';
-                            } else if (json.data[i].tlvType == 1) {
-                                json.data[i].tlvType = '外部';
-                            }
+            //                 if (json.data[i].tlvType == 0) {
+            //                     json.data[i].tlvType = '内部';
+            //                 } else if (json.data[i].tlvType == 1) {
+            //                     json.data[i].tlvType = '外部';
+            //                 }
 
-                            str += '<li>'+json.data[i].carNo+'（'+json.data[i].tlvType+'）</li>';
+            //                 str += '<li>'+json.data[i].carNo+'（'+json.data[i].tlvType+'）</li>';
 
-                        }
-                        $(window.parent.document).find('.order_info_ul2').html(str);
+            //             }
+            //             $(window.parent.document).find('.order_info_ul2').html(str);
 
-                    }
+            //         }
 
-                },
-                error: function(err) {
-                    console.log(err);
-                }
+            //     },
+            //     error: function(err) {
+            //         console.log(err);
+            //     }
 
-            });
+            // });
 
-            window.parent.showModelBox('.modelBox18');
+            
 
         });
 
