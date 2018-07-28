@@ -336,6 +336,23 @@
             text-align: center;
         }
 
+        .listBox thead tr {
+            height: 34px;
+            line-height: 34px;
+            background: #fdfdfd;
+        }
+
+        .listBox table {
+            border: 1px solid #ebe9ea;
+        }
+
+        .listBox tr {
+            height: 61px;
+            line-height: 61px;
+            border-bottom: 1px solid #ebe9ea;
+            text-align: center;
+        }
+
         
         .car_num {
             border: 1px solid #9bbffe;
@@ -1850,7 +1867,7 @@
 </div>
 
 <!-- 分配车辆 -->
-<div class="modelBox17" style="font-size: 14px;display: block;">
+<div class="modelBox17" style="font-size: 14px;">
     <div class="modelCont" style="width: 1060px;height: 550px; overflow: hidden; overflow-y: auto;">
         <div class="modeltitle" style="width: 100%;">
             <span>分配车辆</span>
@@ -1911,7 +1928,7 @@
                     <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-left: 10px;">
                     <!--<input class="advancedRetrievalBtn btn input" type="button" value="高级检索">-->
                 </div>
-                <div class="listBox">
+                <div class="listBox1">
                     <table style="width: 979px;">
                         <thead>
                             <tr>
@@ -1924,14 +1941,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>3001804091631062137</td>
-                                <td>2017-07-19 14:48</td>
-                                <td>氢氧化钠</td>
-                                <td>化动力有限公司</td>
-                                <td>危化-氢氧化钠</td>
-                                <td style="color: #6ea3f4;">选择</td>
-                            </tr>
+
                         </tbody>
                     </table>
                     <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
@@ -1948,39 +1958,66 @@
                 </div>
                 <div class="" style="width: 690px; margin: 0 auto;">
                     <div class="clearfix">
-                        <div style="margin-top: 32px;color: #666666;line-height: 36px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">车辆选择：&nbsp;</span>
-                            <div class="selectPub" id="selectInfo" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px; background: #fff;">
-                                <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
-                                <ul>
-                                    <li data-index="1">1</li>
-                                    <li data-index="2">2</li>
-                                    <li data-index="3">3</li>
-                                </ul>
-                            </div>
+                        <div style="margin-top: 32px;color: #666666;line-height: 36px;" class="fl clearfix">
+                            <span class="modelBox34LeftTitle fl">车辆选择：&nbsp;</span>
+                            <div class="Lf" id="che"></div>
+                            <!--<div class="selectPub" id="selectInfo" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px; background: #fff;">-->
+                                <!--<span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">-->
+                                <!--<ul>-->
+                                    <!--<li data-index="1">1</li>-->
+                                    <!--<li data-index="2">2</li>-->
+                                    <!--<li data-index="3">3</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
                         </div>
                         <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">预计到货时间：</span>
                             <input type="text" placeholder="111" id="selectInput" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
                         </div>
                     </div>
                     <div class="clearfix">
-                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl"><span style="color: #282828;" class="modelBox34LeftTitle">司机选择：</span>
-                            <input type="text" placeholder="111" id="selectInput2" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl">
+                            <span style="color: #282828;" class="modelBox34LeftTitle Lf">司机选择：</span>
+                            <div class="selectPub" id="peoples1" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px; background: #fff;">
+                                <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
+                                <ul>
+                                    <li data-index="1">1</li>
+                                    <li data-index="2">2</li>
+                                    <li data-index="3">3</li>
+                                </ul>
+                            </div>
+                            <!--<input type="text" placeholder="111" id="selectInput2" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">-->
                         </div>
                         <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">公里数：</span>
                             <input type="text" placeholder="111" id="selectInput3" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
                         </div>
                     </div>
                     <div class="clearfix">
-                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl"><span style="color: #282828;" class="modelBox34LeftTitle">押运选择：</span>
-                            <input type="text" placeholder="111" id="selectInput4" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl"><span style="color: #282828;" class="modelBox34LeftTitle Lf">押运选择：</span>
+                            <div class="selectPub" id="peoples3" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px; background: #fff;">
+                                <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
+                                <ul>
+                                    <li data-index="1">1</li>
+                                    <li data-index="2">2</li>
+                                    <li data-index="3">3</li>
+                                </ul>
+                            </div>
+                            <!--<input type="text" placeholder="111" id="selectInput4" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">-->
                         </div>
                         <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">现金：</span>
                             <input type="text" placeholder="111" id="selectInput5" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
                         </div>
                     </div>
                     <div class="clearfix">
-                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl"><span style="color: #282828;display: inline-block; width: 70px; text-align: right;" class="modelBox34LeftTitle">安全员：</span>
-                            <input type="text" placeholder="111" id="selectInput6" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl "><span style="color: #282828;display: inline-block; width: 70px; text-align: right;" class="modelBox34LeftTitle Lf">安全员：</span>
+                            <div class="selectPub" id="peoples2" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px; background: #fff;">
+                                <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
+                                <ul>
+                                    <li data-index="1">1</li>
+                                    <li data-index="2">2</li>
+                                    <li data-index="3">3</li>
+                                </ul>
+                            </div>
+                            <!--<input type="text" placeholder="111" id="selectInput6" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">-->
                         </div>
                         <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">货物类型：</span>
                             <input type="text" placeholder="111" id="selectInput7" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
@@ -1988,12 +2025,9 @@
                     </div>
                     <div class="clearfix">
                         <div style="margin-top: 32px;color: #666666;line-height: 36px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">卡券选择：&nbsp;</span>
-                            <div class="selectPub" id="" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px; background: #fff;">
+                            <div class="selectPub" id="kaQuan" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px; background: #fff;">
                                 <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
                                 <ul>
-                                    <li data-index="1">1</li>
-                                    <li data-index="2">2</li>
-                                    <li data-index="3">3</li>
                                 </ul>
                             </div>
                             <span class="Lf" onclick="addQuan(this)">+</span>
@@ -2621,6 +2655,7 @@
 <script src="./js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="./js/common.js" type="text/javascript" charset="utf-8"></script>
 <script src="laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+<script src="./js/pager.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" >
 
 
@@ -3050,9 +3085,10 @@ function close1(that) {
 //分配车辆   部分操作
 
 
-    //获取数据
+    //获取车辆列表数据
     function getData(currentPage) {
-        $(".listBox tbody").html("");//必须先置空
+
+        $(".listBox1 tbody").html("");//必须先置空
         $.ajax({
             url: pubIP + 'order/getCarInfoList', /*v1.0*/
             type: 'post',
@@ -3074,7 +3110,7 @@ function close1(that) {
                 console.log(res)
                 if(res.code===1){
                     //首次请求时 改变分页数据
-                    if(res.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
+                    if(res.data.length==0){ $(".listBox1 tbody").html("");$(".pagination").parent().css("display","none"); return;}
                     $(".pagination").parent().css("display","block");
                     if(currentPage===1 ){
                         //修改底部分页
@@ -3094,7 +3130,6 @@ function close1(that) {
                     }
                     //修改底部页数
                     $(".allPageN").text((currentPage)+"/"+ $(".allPageN").attr("pageTotal"));
-                    debugger
                     cf_dataRender(res.data)
                 }else{
                     alert(res.msg);
@@ -3105,35 +3140,118 @@ function close1(that) {
             }
         });
     }
-    //渲染数据
+    //渲染车辆列表数据
     function cf_dataRender(data) {
-debugger
         var str='';
         $.each(data,function (idx,item) {
             item.tloUpdateTime = new Date(item.tloUpdateTime).Format("yyyy-MM-dd");
-            str+='<tr data-id="'+item.tloId+'">';
-            str+='<td>'+item.orderNo+'</td>';
-            str+='<td>'+item.tloUpdateTime+'</td>';
-            str+='<td>'+item.goodsType+'</td>';
-            str+='<td>'+item.goodsName+'</td>';
-            str+='<td>'+item.goodsNum +item.goodsUnit+'</td>';
-            str+='<td>'+item.sendProvince+item.sendCity+'</td>';
-            str+='<td>'+item.receiveProvince+item.receiveCity+'</td>';
-            str+='<td>2</td>';
-            str+='<td class="btn" style="color: #6ba1ff;">查看订单</td>';
+            str+='<tr data-id="'+item.carId+'" data-NO="'+item.carNO+'">';
+            str+='<td>'+item.carNO+'</td>';
+            str+='<td>'+item.vehicleLoad+'</td>';
+            str+='<td>'+item.carType+'</td>';
+            if(item.status==0){
+                str+='<td>启用</td>';
+            }else{
+                str+='<td>禁用</td>';
+            }
+            str+='<td>'+item.routeName+'</td>';
+            str+='<td class="btn selectCar"   style="color: #6ba1ff;">选择</td>';
             str+='</tr>';
         })
-        $(".myTbody").html(str);
-        //详情
-        $(".btn").click(function () {
-            sessionStorage.setItem("tloId",$(this).parent().attr("data-id"));
-            window.location.href="finishedOrder-detail.html";
+
+        $(".listBox1 tbody").html(str);
+        //选择车辆
+        $(".selectCar").click(function () {
+//            $(this).parents("tr").attr("data-id")
+            $("#che").text($(this).parents("tr").attr("data-no"))
         })
     }
+    //1 :司机 2:安全员 3:押运员
+    getPeoples(1);getPeoples(2);getPeoples(3);
+    function getPeoples(type) {
+        $.ajax({
+            url: pubIP + 'tLtDriver/selectDriverDoing', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data:{
+                companyId:companyId,
+                type:type
+            },
+            success: function (res) {
+                console.log(res)
+                if(res.code===1){
+                    var str='';
+                    $.each(res.data,function (idx,item) {
+                        str+='<li data-index="'+item.id+'">'+item.userName+'</li>';
+                    })
+                        $("#peoples"+type+" ul").html(str);
 
+                    $("#peoples"+type+" li").click(function () {
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+                    })
 
+                }else{
+                    alert(res.msg);
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+    //获取卡券列表
+    getKaQuanList();
+    function getKaQuanList() {
+        $.ajax({
+            url: pubIP + 'order/queryTCouponInfor', /*v1.0*/
+            type: 'get',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data:{
+                companyId:companyId
+            },
+            success: function (res) {
+                console.log(res)
+                if(res.code===1){
+                    var str='';
+                    $.each(res.data,function (idx,item) {
+                        str+='<li data-index="'+item.id+'">'+item.coupon_name+'</li>';
+                    })
+                    $("#kaQuan ul").html(str);
 
+                    $("#kaQuan li").click(function () {
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+                    })
 
+                }else{
+                    alert(res.msg);
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+    
     getCarType();
     //获取车辆类型
     function getCarType() {
