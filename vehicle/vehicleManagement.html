@@ -342,12 +342,12 @@ var currentPage=1;
                     var str="";
                     $.each(res.data,function (idx,item) {
                         if(idx==0){
-                            window.parent.$("#jiuType ul").attr("data-selectedindex",item.type_id);
-                            window.parent.$("#jiuType span").text(item.type_name);
+                            window.parent.$("#erShiWuXiang ul").attr("data-selectedindex",item.type_id);
+                            window.parent.$("#erShiWuXiang span").text(item.type_name);
                         }
                         str+='<li data-index="'+item.type_id+'">'+item.type_name+'</li>'
                     })
-                    window.parent.$("#jiuType ul").html(str);
+                    window.parent.$("#erShiWuXiang ul").html(str);
 
 
                 }else{

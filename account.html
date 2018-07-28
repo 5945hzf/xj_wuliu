@@ -467,7 +467,10 @@
         .box {
             display: none;
         }
-
+        .modelBox17 .clearfix{padding-right: 10px;}
+        #quanList{margin-bottom: 32px;overflow: hidden;}
+        #quanList li{margin-top: 32px;display: block;}
+        #quanList li input{height: 31px;line-height: 31px;border: 1px solid #dbdbdc;}
     </style>
 </head>
 <body>
@@ -1847,7 +1850,7 @@
 </div>
 
 <!-- 分配车辆 -->
-<div class="modelBox17" style="font-size: 14px;">
+<div class="modelBox17" style="font-size: 14px;display: block;">
     <div class="modelCont" style="width: 1060px;height: 550px; overflow: hidden; overflow-y: auto;">
         <div class="modeltitle" style="width: 100%;">
             <span>分配车辆</span>
@@ -1893,9 +1896,9 @@
                     </div>
                 </div>
                 <div class="inputBox" style="margin-top: 24px; border: 1px solid #ebe9ea; border-bottom: none;">
-                    <label for="">输入搜索</label><input class="orderNo input" type="text" placeholder="订单编号">
-                    <label for="">货物类型</label>
-                    <div class="goodsType input selectPub" data-selectedindex="0"><span>全部</span><img src="img/prl-select.jpg" >
+                    <label for="">输入搜索</label><input class="orderNo input" id="carNo" type="text" placeholder="车辆编号">
+                    <label for="">车辆类型</label>
+                    <div class="goodsType input selectPub" id="carType" data-selectedindex="0"><span>全部</span><img src="img/prl-select.jpg" >
                         <ul>
                             <li data-index="1">全部</li>
                             <li data-index="2">普化品</li>
@@ -1903,12 +1906,12 @@
                             <li data-index="4">特殊品</li>
                         </ul>
                     </div>
-                    <label for="">确认时间</label>
-                    <input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1">
+                    <!--<label for="">确认时间</label>-->
+                    <!--<input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1">-->
                     <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-left: 10px;">
                     <!--<input class="advancedRetrievalBtn btn input" type="button" value="高级检索">-->
                 </div>
-                <div class="listBox1">
+                <div class="listBox">
                     <table style="width: 979px;">
                         <thead>
                             <tr>
@@ -1917,6 +1920,7 @@
                                 <th>类型</th>
                                 <th>状态</th>
                                 <th>路线</th>
+                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1926,37 +1930,21 @@
                                 <td>氢氧化钠</td>
                                 <td>化动力有限公司</td>
                                 <td>危化-氢氧化钠</td>
-                            </tr>
-                            <tr>
-                                <td>3001804091631062137</td>
-                                <td>2017-07-19 14:48</td>
-                                <td>氢氧化钠</td>
-                                <td>化动力有限公司</td>
-                                <td>危化-氢氧化钠</td>
-                            </tr>
-                            <tr>
-                                <td>3001804091631062137</td>
-                                <td>2017-07-19 14:48</td>
-                                <td>氢氧化钠</td>
-                                <td>化动力有限公司</td>
-                                <td>危化-氢氧化钠</td>
-                            </tr>
-                            <tr>
-                                <td>3001804091631062137</td>
-                                <td>2017-07-19 14:48</td>
-                                <td>氢氧化钠</td>
-                                <td>化动力有限公司</td>
-                                <td>危化-氢氧化钠</td>
-                            </tr>
-                            <tr>
-                                <td>3001804091631062137</td>
-                                <td>2017-07-19 14:48</td>
-                                <td>氢氧化钠</td>
-                                <td>化动力有限公司</td>
-                                <td>危化-氢氧化钠</td>
+                                <td style="color: #6ea3f4;">选择</td>
                             </tr>
                         </tbody>
                     </table>
+                    <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
+                        <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
+                        <div class="pageJump">
+                            <span class="allPageN">1/200</span>
+                            <i style="margin-left: 12px;">共200页</i>，
+                            <span>到第</span>
+                            <input type="text"/>
+                            <span>页</span>
+                            <button type="button" class="button">GO</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="" style="width: 690px; margin: 0 auto;">
                     <div class="clearfix">
@@ -1994,18 +1982,32 @@
                         <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl"><span style="color: #282828;display: inline-block; width: 70px; text-align: right;" class="modelBox34LeftTitle">安全员：</span>
                             <input type="text" placeholder="111" id="selectInput6" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
                         </div>
-                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">油卡：</span>
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">货物类型：</span>
                             <input type="text" placeholder="111" id="selectInput7" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
                         </div>
                     </div>
                     <div class="clearfix">
-                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl"><span style="color: #282828;" class="modelBox34LeftTitle">货物类型：</span>
-                            <input type="text" placeholder="111" id="selectInput8" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        <div style="margin-top: 32px;color: #666666;line-height: 36px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">卡券选择：&nbsp;</span>
+                            <div class="selectPub" id="" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px; background: #fff;">
+                                <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
+                                <ul>
+                                    <li data-index="1">1</li>
+                                    <li data-index="2">2</li>
+                                    <li data-index="3">3</li>
+                                </ul>
+                            </div>
+                            <span class="Lf" onclick="addQuan(this)">+</span>
                         </div>
-                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">蓝券：</span>
-                            <input type="text" placeholder="111" id="selectInput9" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
-                        </div>
+                        <!--<div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl"><span style="color: #282828;" class="modelBox34LeftTitle">油卡：</span>-->
+                            <!--<input type="text" placeholder="111" id="selectInput8" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">-->
+                        <!--</div>-->
+                        <!--<div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">蓝券：</span>-->
+                            <!--<input type="text" placeholder="111" id="selectInput9" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">-->
+                        <!--</div>-->
                     </div>
+                    <ul id="quanList" >
+
+                    </ul>
                     <div class="clearFloat" style="text-align: center;margin-top: 50px;">
                         <span class=" cf_btn" id="ok_car_info" style="display: inline-block; width: 192px;height: 41px;line-height: 40px; margin-left: 20px; ">确认车辆信息</span>
                     </div>
@@ -2084,7 +2086,7 @@
                                     <div class="ml">￥<span>600.00</span></div>
                                 </li>
                                 <li class="span">
-                                    <span"></span>
+                                    <span></span>
                                 </li>
                                 <li class="w">
                                     <div>总支付：</div>
@@ -3038,6 +3040,215 @@ function close1(that) {
     }
 
 
+
+
+
+
+
+
+
+//分配车辆   部分操作
+
+
+    //获取数据
+    function getData(currentPage) {
+        $(".listBox tbody").html("");//必须先置空
+        $.ajax({
+            url: pubIP + 'order/getCarInfoList', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data:{
+                companyId:companyId,
+                carType: $("#carType").attr("data-id"),
+                carNo: $("#carNo").val(),
+                size:pageSize,
+                page:currentPage
+            },
+            success: function (res) {
+                console.log(res)
+                if(res.code===1){
+                    //首次请求时 改变分页数据
+                    if(res.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
+                    $(".pagination").parent().css("display","block");
+                    if(currentPage===1 ){
+                        //修改底部分页
+                        //debugger
+                        var pageNum=Math.ceil(res.count/pageSize);
+                        $(".allPageN").attr("pageTotal",pageNum);
+                        $(".pageJump i").text("共"+pageNum+"页");
+                        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+                        Page({
+                            num: pageNum,
+                            elem: $('#page1'),
+                            callback: function(n) {
+                                // console.log(n);
+                                getData(n);//加载n页数据
+                            }
+                        });
+                    }
+                    //修改底部页数
+                    $(".allPageN").text((currentPage)+"/"+ $(".allPageN").attr("pageTotal"));
+                    debugger
+                    cf_dataRender(res.data)
+                }else{
+                    alert(res.msg);
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+    //渲染数据
+    function cf_dataRender(data) {
+debugger
+        var str='';
+        $.each(data,function (idx,item) {
+            item.tloUpdateTime = new Date(item.tloUpdateTime).Format("yyyy-MM-dd");
+            str+='<tr data-id="'+item.tloId+'">';
+            str+='<td>'+item.orderNo+'</td>';
+            str+='<td>'+item.tloUpdateTime+'</td>';
+            str+='<td>'+item.goodsType+'</td>';
+            str+='<td>'+item.goodsName+'</td>';
+            str+='<td>'+item.goodsNum +item.goodsUnit+'</td>';
+            str+='<td>'+item.sendProvince+item.sendCity+'</td>';
+            str+='<td>'+item.receiveProvince+item.receiveCity+'</td>';
+            str+='<td>2</td>';
+            str+='<td class="btn" style="color: #6ba1ff;">查看订单</td>';
+            str+='</tr>';
+        })
+        $(".myTbody").html(str);
+        //详情
+        $(".btn").click(function () {
+            sessionStorage.setItem("tloId",$(this).parent().attr("data-id"));
+            window.location.href="finishedOrder-detail.html";
+        })
+    }
+
+
+
+
+    getCarType();
+    //获取车辆类型
+    function getCarType() {
+        $.ajax({
+            url: pubIP + 'tLogisticsVehicle/selectCarTypeList', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                var str = '';
+                str += '<li  data-index="" value="" data-id="">全部</li>';
+                for (var i = 0; i < data.data.length; i++) {
+                    str += '<li  data-index="'+i+'" value="'+i+'" data-id="'+data.data[i].id+'">'+data.data[i].typeName+'</li>';
+                }
+                $('#carType ul').html(str);
+
+                $('#carType ul li').click(function(){
+                    event.stopPropagation();
+                    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                    $(this).parent().parent().attr('data-id', $(this).attr('data-id'));
+                    $(this).parent().parent().find('span').text($(this).text());
+                    $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg');
+                    $(this).parent().css('display','none');
+                });
+                //默认选中
+//                $("#carType").attr('data-selectedindex', 0);
+//                $("#carType").attr('data-id', data.data[0].id);
+//                $("#carType").find('span').text(data.data[0].typeName);
+                $("#carType").attr('data-selectedindex', "");
+                $("#carType").attr('data-id', "");
+                $("#carType").find('span').text("全部");
+                //获取车辆列表
+                getData(1);
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+
+    }
+    //添加卡券
+    function addQuan(that){
+        if($(that).prev().attr("data-selectedindex")==-1){
+            alert("请选择卡券");
+            return;
+        }
+        var str='';
+        str+='<li data-id="'+$(that).prev().attr("data-selectedindex")+'">';
+        str+='<span style="width: 70px;display: inline-block;text-align: right;">'+$(that).prev().find("span").text()+'：</span>';
+        str+='<input type="text" style="width: 194px;">';
+        str+='<span onclick="delQuan(this)">-</span>';
+        str+='</li>';
+        $("#quanList").append(str);
+        $("#quanList li:nth-child(2n)").css("float","right");
+        $("#quanList li:nth-child(2n-1)").css("float","left");
+    }
+    //删除卡券
+    function delQuan(that){
+        $(that).parent().remove();
+        $("#quanList li:nth-child(2n)").css("float","right");
+        $("#quanList li:nth-child(2n-1)").css("float","left");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 点击删除车辆
+    $(".car_num img").click(function () {
+        if($(this).parents(".car_num").parent().find(".car_num").length==1){
+            $(this).parents(".car_num").parent().hide();
+            window.parent.$("#ok_fenpei").hide();
+        }
+        $(this).parents(".car_num").remove();
+
+    })
+
+
+    //点击添加车辆
+
+    $("#ok_car_info").click(function () {
+        //需要添加接口数据
+       $("#car_info").append("<div class=\"car_num\"><span>新B WERTTT</span><img src=\"img/close_btn.png\" alt=\"\"></div>");
+
+        //不需要添加接口数据部分
+       $("#ok_fenpei").show();
+       $("#car_info").show();
+        $(".car_num img").click(function () {
+            if($(this).parents(".car_num").parent().find(".car_num").length==1){
+                $(this).parents(".car_num").parent().hide();
+                $("#ok_fenpei").hide();
+            }
+            $(this).parents(".car_num").remove();
+        })
+    })
 </script>
 </body>
 </html>
