@@ -1891,7 +1891,7 @@
     <div class="modelCont" style="width: 1060px;height: 550px; overflow: hidden; ">
         <div class="modeltitle" style="width: 100%;">
             <span>分配车辆</span>
-            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+            <img class="close" id="fenpeiClose" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
         </div>
         <div class="modelcontent" style="width: 1058px; font-size: 14px; height: 500px; border: 1px solid #ebe9ea;overflow-y: auto;">
             <div class="clearFloat" style="padding: 45px 50px 50px 29px; ">
@@ -1980,7 +1980,7 @@
                     <div class="clearfix">
                         <div style="margin-top: 32px;color: #666666;line-height: 36px;" class="fl clearfix">
                             <span class="modelBox34LeftTitle fl">车辆选择：&nbsp;</span>
-                            <div class="Lf" id="che" style="border: 1px solid #e2e2e2;width: 192px;height: 35px;background-color: #ffffff;"></div>
+                            <div class="Lf" data-id="" id="che" style="border: 1px solid #e2e2e2;width: 192px;height: 35px;background-color: #ffffff;padding-left: 10px;"></div>
 
                             <!--<div class="selectPub" id="selectInfo" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px; background: #fff;">-->
                                 <!--<span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">-->
@@ -2069,7 +2069,8 @@
                     <ul id="quanList" >
 
                     </ul>
-                    <div class="clearFloat" style="text-align: center;margin-top: 50px;">
+                    <div id="sureCarError" style="text-align: center;color: red;line-height: 20px;font-size: 14px;"></div>
+                    <div class="clearFloat" style="text-align: center;margin-top: 30px;">
                         <span class="cf_btn" data-updata=""  data-cardzhujian="" data-carzhujian=""  id="ok_car_info1" style="display: inline-block; width: 192px;height: 41px;line-height: 40px; margin-left: 20px; ">确认车辆信息</span>
                     </div>
                 </div>
@@ -2937,12 +2938,14 @@ function close1(that) {
 
 
 //------------------------------------------------------------------------分配车辆部分   操作开始
-//搜索按钮
+    //搜索按钮
     $(".searchResultBtn.btn.input").click(function () {
             getData(1)
     })
-
-
+    //关闭按钮
+    $("#fenpeiClose").click(function () {
+        carCardReset();
+    })
     //获取车辆列表数据
     function getData(currentPage) {
 
@@ -2989,6 +2992,8 @@ function close1(that) {
                     //修改底部页数
                     $(".allPageN").text((currentPage)+"/"+ $(".allPageN").attr("pageTotal"));
                     cf_dataRender(res.data)
+                }else if(res.code==401){
+
                 }else{
                     alert(res.msg);
                 }
@@ -3003,8 +3008,8 @@ function close1(that) {
         var str='';
         $.each(data,function (idx,item) {
             item.tloUpdateTime = new Date(item.tloUpdateTime).Format("yyyy-MM-dd");
-            str+='<tr data-id="'+item.carId+'" data-NO="'+item.carNO+'">';
-            str+='<td>'+item.carNO+'</td>';
+            str+='<tr data-id="'+item.carId+'" data-NO="'+item.carNo+'">';
+            str+='<td>'+item.carNo+'</td>';
             str+='<td>'+item.vehicleLoad+'</td>';
             str+='<td>'+item.typeCame+'</td>';
             if(item.status==0){
@@ -3060,6 +3065,8 @@ function close1(that) {
                         $(this).parent().css('display','none');
                     })
 
+                }else if(res.code==401){
+
                 }else{
                     alert(res.msg);
                 }
@@ -3102,6 +3109,8 @@ function close1(that) {
                         $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
                         $(this).parent().css('display','none');
                     })
+
+                }else if(res.code==401){
 
                 }else{
                     alert(res.msg);
@@ -3211,7 +3220,60 @@ function close1(that) {
 
     //点击确认车辆信息
     $("#ok_car_info1").click(function () {
-//        debugger
+
+        //先前台验证
+        if($("#che").attr("data-id")==""){
+            $("#sureCarError").text("请选择车辆");
+            return;
+        }
+        if( $("#test1").val()==""){
+            $("#sureCarError").text("请选择预计发货时间");
+            return;
+        }
+        if($("#peoples1").attr("data-selectedindex")==-1){
+            $("#sureCarError").text("请选择司机");
+            return;
+        }
+        if( $("#test2").val()==""){
+            $("#sureCarError").text("请选择预计到货时间");
+            return;
+        }
+        if($("#peoples3").attr("data-selectedindex")==-1){
+            $("#sureCarError").text("请选择押运员");
+            return;
+        }
+        if( $("#money").val()==""){
+            $("#sureCarError").text("请填写现金");
+            return;
+        }
+        if($("#peoples2").attr("data-selectedindex")==-1){
+            $("#sureCarError").text("请选择安全员");
+            return;
+        }
+
+        if($("#kmNum").val()==""){
+            $("#sureCarError").text("请填写公里数");
+            return;
+        }
+        //卡券列表非空验证
+        var isOK=1;
+        var cardName1='';
+        $("#quanList li").each(function (idx,item) {
+            debugger
+            if($(item).find("input").val()==""){
+                if(isOK==1){
+                    cardName1=$(item).attr("data-name");
+                    isOK=0;
+                }
+            }
+        })
+        if(isOK==0){
+            $("#sureCarError").text("请填写"+cardName1+"金额");
+            return;
+        }
+        $("#sureCarError").text("");
+
+
         var cardStr=[];//卡券列表
         var carStr={};//车的相关
         listCard=[];
@@ -3238,7 +3300,7 @@ function close1(that) {
         }
 
         carStr.carid=$("#che").attr("data-id");
-        carStr.carNO=$("#che").text();
+        carStr.carNo=$("#che").text();
         carStr.planStartDate=$("#test1").val();
         carStr.planEndDate=$("#test2").val();
         carStr.kmNum=$("#kmNum").val();
@@ -3305,7 +3367,7 @@ function close1(that) {
             }
 
             $("#che").attr("data-id",listCar[$(this).index()].car.carid)
-            $("#che").text(listCar[$(this).index()].car.carNO)
+            $("#che").text(listCar[$(this).index()].car.carNo)
             $("#test1").val(listCar[$(this).index()].car.planStartDate)
             $("#test2").val(listCar[$(this).index()].car.planEndDate)
             $("#kmNum").val(listCar[$(this).index()].car.kmNum)
@@ -3342,8 +3404,6 @@ function close1(that) {
         $("#ok_car_info1").attr("data-updata","");//先保存index
         $("#ok_car_info1").attr("data-caridzhujian","")
         $("#ok_car_info1").attr("data-cardzhujian",'');
-
-
         $("#che").attr("data-id","")
         $("#che").text("")
         $("#test1").val("")
@@ -3357,17 +3417,10 @@ function close1(that) {
         $("#peoples3 span").text("请选择")
         $("#kaQuan").attr("data-selectedindex","-1")
         $("#kaQuan span").text("请选择")
-
-
         $("#money").val("")
         $("#selectInput7").val("")
-
         $("#quanList").html("");
-//        $("#quanList car_num").each(function (idx,item) {
-//
-//        })
-
-
+        $("#sureCarError").text("")
     }
     //获取已选车  he  卡
     function getCarCard() {
@@ -3387,13 +3440,10 @@ function close1(that) {
             ansyc: false,
             dataType: 'json',
             success: function (res) {
-                console.log(1111111111111)
-                debugger
-                console.log(res)
                 listCar=res.data;
                 str='';
                 $.each(res.data,function (idx,item) {
-                    str+='<div data-carstr="'+item.car+'" data-cardstr="'+item.listTCouponrec+'"  class="car_num"><span>'+item.car.carNo+'</span><img src="img/close_btn.png" alt=""></div>';
+                    str+='<div  class="car_num"><span>'+item.car.carNo+'</span><img src="img/close_btn.png" alt=""></div>';
                 })
                 $("#car_info").html(str);
 
@@ -3437,7 +3487,7 @@ function close1(that) {
                             }
 
                             $("#che").attr("data-id",listCar[$(this).index()].car.carid)
-                            $("#che").text(listCar[$(this).index()].car.carNO)
+                            $("#che").text(listCar[$(this).index()].car.carNo)
                             $("#test1").val(listCar[$(this).index()].car.planStartDate)
                             $("#test2").val(listCar[$(this).index()].car.planEndDate)
                             $("#kmNum").val(listCar[$(this).index()].car.kmNum)
@@ -3475,6 +3525,64 @@ function close1(that) {
     }
     //点击提交 （分配车辆）
     $("#ok_fenpei").click(function () {
+        if($("#che").attr("data-id")==""){
+            $("#sureCarError").text("请选择车辆");
+            return;
+        }
+        if( $("#test1").val()==""){
+            $("#sureCarError").text("请选择预计发货时间");
+            return;
+        }
+        if($("#peoples1").attr("data-selectedindex")==-1){
+            $("#sureCarError").text("请选择司机");
+            return;
+        }
+        if( $("#test2").val()==""){
+            $("#sureCarError").text("请选择预计到货时间");
+            return;
+        }
+        if($("#peoples3").attr("data-selectedindex")==-1){
+            $("#sureCarError").text("请选择押运员");
+            return;
+        }
+        if( $("#money").val()==""){
+            $("#sureCarError").text("请填写现金");
+            return;
+        }
+        if($("#peoples2").attr("data-selectedindex")==-1){
+            $("#sureCarError").text("请选择安全员");
+            return;
+        }
+        if($("#kaQuan").attr("data-selectedindex")==-1){
+            $("#sureCarError").text("请选择卡券");
+            return;
+        }
+        if($("#kmNum").val()==""){
+            $("#sureCarError").text("请填写公里数");
+            return;
+        }
+        //卡券列表非空验证
+        var isOK=1;
+        var cardName1='';
+        $("#quanList li").each(function (idx,item) {
+            debugger
+            if($(item).find("input").val()==""){
+                if(isOK==1){
+                    cardName1=$(item).attr("data-name");
+                    isOK=0;
+                }
+            }
+        })
+        if(isOK==0){
+            $("#sureCarError").text("请填写"+cardName1+"金额");
+            return;
+        }
+
+        $("#sureCarError").text("");
+        subFenPeiCar();
+    })
+
+    function subFenPeiCar() {
         $.ajax({
             url: pubIP + 'order/allotOrderCar', /*v1.0*/
             type: 'post',
@@ -3494,6 +3602,10 @@ function close1(that) {
                     alert("分配车辆成功");
                     carCardReset()
                     $(".modelBox17").hide();
+                }else if(res.code==401){
+
+                }else if(res.code==401){
+
                 }else{
                     alert(res.msg);
                 }
@@ -3503,7 +3615,7 @@ function close1(that) {
                 console.log(err);
             }
         });
-    })
+    }
     //------------------------------------------------------------------------分配车辆部分   操作结束
 
 </script>

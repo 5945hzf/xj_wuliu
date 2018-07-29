@@ -533,8 +533,8 @@
             window.parent.$(".modelBox17").show();
             window.parent.$(".modelBox17").attr("orderId",id);
             getData(id);
-            //获取已选车  he  卡
-           window.parent.getCarCard()
+            window.parent.$("#ok_fenpei").hide();
+            window.parent.$("#car_info").hide();
         }
 
         //获取数据
@@ -555,6 +555,8 @@
                 success: function (res) {
                     if(res.code===1){
                         cf_dataRender(res.data)
+                    }else if(res.code==401){
+
                     }else{
                         alert(res.msg);
                     }
