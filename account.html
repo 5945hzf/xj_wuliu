@@ -1887,48 +1887,48 @@
 </div>
 
 <!-- 分配车辆 -->
-<div class="modelBox17" style="font-size: 14px;">
-    <div class="modelCont" style="width: 1060px;height: 550px; overflow: hidden; overflow-y: auto;">
+<div class="modelBox17" style="font-size: 14px;display: none;">
+    <div class="modelCont" style="width: 1060px;height: 550px; overflow: hidden; ">
         <div class="modeltitle" style="width: 100%;">
             <span>分配车辆</span>
             <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
         </div>
-        <div class="modelcontent" style="width: 1058px; font-size: 14px; height: auto; border: 1px solid #ebe9ea;">
+        <div class="modelcontent" style="width: 1058px; font-size: 14px; height: 500px; border: 1px solid #ebe9ea;overflow-y: auto;">
             <div class="clearFloat" style="padding: 45px 50px 50px 29px; ">
                 <div class="div_ul" style="width: 979px; height: 247px; border: 1px solid #ebe9ea; padding-left: 40px;padding-top: 10px; box-sizing: border-box;">
                     <div class="clearfix model_ul">
                         <div class="" id="fenpei_info" style="display: inline-block; width: 33%; float: left;">
                             <ul>
-                                <li>订单编号：<span>201707196369321</span></li>
-                                <li>发布时间：<span>2015-06-07 23:00</span></li>
-                                <li>装车时间：<span>2015-06-07 23:00</span></li>
+                                <li>订单编号：<span id="demandNo">201707196369321</span></li>
+                                <li>发布时间：<span id="createTime">2015-06-07 23:00</span></li>
+                                <li>装车时间：<span id="startDate">2015-06-07 23:00</span></li>
                             </ul>
                         </div>
                         <div style="display: inline-block; float: left;" id="fenpei_info1">
                             <ul>
-                                <li>始发地：<span>新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情</span></li>
-                                <li class="clearfix"><i class="fl">目的地：</i><span style="display: inline-block; width: 328px; float: left;">新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情中华人民共和国北京市东城区朝阳花园</span></li>
+                                <li class="clearfix"><i class="fl">始发地：</i><span id="sendAddress" style="display: inline-block; width: 328px; float: left;">新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情</span></li>
+                                <li class="clearfix"><i class="fl">目的地：</i><span id="receiveAddress"  style="display: inline-block; width: 328px; float: left;">新疆-乌鲁木齐-xxxx区-xxxx路-xxxx号xxx详情中华人民共和国北京市东城区朝阳花园</span></li>
                             </ul>
                         </div>
                     </div>
                     <div class="order_info_ul" id="fenpei_info2">
                        <ul>
-                           <li>货物类型：<span>危化</span></li>
-                           <li>重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：<span>150吨</span></li>
-                           <li>支付方式：<span>预付</span></li>
-                           <li>保证金：<span>￥1000.00</span></li>
+                           <li>货物类型：<span id="goodsType">危化</span></li>
+                           <li>重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：<span id="goodsweight">150吨</span></li>
+                           <li>支付方式：<span id="paymentType">预付</span></li>
+                           <!--<li>保证金：<span>￥1000.00</span></li>-->
                        </ul>
                        <ul>
-                           <li>包装类型：<span>灌装</span></li>
-                           <li>开&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票：<span>普票</span></li>
-                           <li>结算方式：<span>现汇</span></li>
-                           <li>缴纳方式：<span>抵扣</span></li>
+                           <li>包装类型：<span id="packageType">灌装</span></li>
+                           <li>开&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票：<span id="invoiceType">普票</span></li>
+                           <li>结算方式：<span id="paymentMode">现汇</span></li>
+                           <!--<li>缴纳方式：<span>抵扣</span></li>-->
                        </ul>
                        <ul>
-                           <li>货物名称：<span>片碱</span></li>
-                           <li>车辆类型：<span>罐装车</span></li>
-                           <li>回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单：<span>预付</span></li>
-                           <li>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：<span>备注信息</span></li>
+                           <li>货物名称：<span id="goodsName">片碱</span></li>
+                           <li>车辆类型：<span id="carType1">罐装车</span></li>
+                           <!--<li>回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单：<span>预付</span></li>-->
+                           <li>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：<span id="goodsRemark">备注信息</span></li>
                        </ul>
                     </div>
                 </div>
@@ -1980,7 +1980,8 @@
                     <div class="clearfix">
                         <div style="margin-top: 32px;color: #666666;line-height: 36px;" class="fl clearfix">
                             <span class="modelBox34LeftTitle fl">车辆选择：&nbsp;</span>
-                            <div class="Lf" id="che"></div>
+                            <div class="Lf" id="che" style="border: 1px solid #e2e2e2;width: 192px;height: 35px;background-color: #ffffff;"></div>
+
                             <!--<div class="selectPub" id="selectInfo" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px; background: #fff;">-->
                                 <!--<span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">-->
                                 <!--<ul>-->
@@ -1990,8 +1991,9 @@
                                 <!--</ul>-->
                             <!--</div>-->
                         </div>
-                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">预计到货时间：</span>
-                            <input type="text" placeholder="111" id="selectInput" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">预计发货时间：</span>
+                            <!--<input type="text" placeholder="111" id="selectInput" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">-->
+                            <input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1" class="time_inp" style="height: 34px;width: 170px;border: 1px solid #dbdbdc; ">
                         </div>
                     </div>
                     <div class="clearfix">
@@ -2007,9 +2009,11 @@
                             </div>
                             <!--<input type="text" placeholder="111" id="selectInput2" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">-->
                         </div>
-                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">公里数：</span>
-                            <input type="text" placeholder="111" id="selectInput3" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">预计到货时间：</span>
+                            <!--<input type="text" placeholder="111" id="selectInput" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">-->
+                            <input type="text" class="date-input laydate-icon publishTime input time_inp" placeholder="请选择日期" id="test2" style="height: 34px;width: 170px;border: 1px solid #dbdbdc; ">
                         </div>
+
                     </div>
                     <div class="clearfix">
                         <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl"><span style="color: #282828;" class="modelBox34LeftTitle Lf">押运选择：</span>
@@ -2024,7 +2028,7 @@
                             <!--<input type="text" placeholder="111" id="selectInput4" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">-->
                         </div>
                         <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">现金：</span>
-                            <input type="text" placeholder="111" id="selectInput5" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                            <input type="text" id="money" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
                         </div>
                     </div>
                     <div class="clearfix">
@@ -2040,7 +2044,7 @@
                             <!--<input type="text" placeholder="111" id="selectInput6" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">-->
                         </div>
                         <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">货物类型：</span>
-                            <input type="text" placeholder="111" id="selectInput7" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
+                            <input type="text" id="selectInput7" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; "  readonly="readonly">
                         </div>
                     </div>
                     <div class="clearfix">
@@ -2051,6 +2055,9 @@
                                 </ul>
                             </div>
                             <span class="Lf" onclick="addQuan(this)">+</span>
+                        </div>
+                        <div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fr"><span style="color: #282828;" class="modelBox34LeftTitle">公里数：</span>
+                            <input type="text"  id="kmNum" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">
                         </div>
                         <!--<div style="margin-top: 32px;color: #666666; font-size: 14px; line-height: 36px;" class="fl"><span style="color: #282828;" class="modelBox34LeftTitle">油卡：</span>-->
                             <!--<input type="text" placeholder="111" id="selectInput8" style="height: 34px;width: 190px;border: 1px solid #dbdbdc; ">-->
@@ -2063,16 +2070,16 @@
 
                     </ul>
                     <div class="clearFloat" style="text-align: center;margin-top: 50px;">
-                        <span class=" cf_btn" id="ok_car_info" style="display: inline-block; width: 192px;height: 41px;line-height: 40px; margin-left: 20px; ">确认车辆信息</span>
+                        <span class="cf_btn" data-updata=""  data-cardzhujian="" data-carzhujian=""  id="ok_car_info1" style="display: inline-block; width: 192px;height: 41px;line-height: 40px; margin-left: 20px; ">确认车辆信息</span>
                     </div>
                 </div>
             </div>
             <div class="" id="car_info" style="padding: 16px 125px 12px 95px; border-top: 1px solid #ebe9ea; border-bottom: 1px solid #ebe9ea; background: #f4f7fc;">
-                <div class="car_num"><span>新B WERTTT</span><img src="img/close_btn.png" alt=""></div>
-                <div class="car_num"><span>新B WERTTT</span><img src="img/close_btn.png" alt=""></div>
+                <!--<div class="car_num"><span>新B WERTTT</span><img src="img/close_btn.png" alt=""></div>-->
+                <!--<div class="car_num"><span>新B WERTTT</span><img src="img/close_btn.png" alt=""></div>-->
             </div>
             <div class="clearFloat" style="text-align: center;margin-top: 39px; margin-bottom: 21px;">
-                <span class=" cf_btn" id="ok_fenpei" style="display: inline-block; width: 192px;height: 41px;line-height: 40px;">确认分配</span>
+                <span data-updata="" data-cardzhujian="" data-carzhujian="" class="cf_btn" id="ok_fenpei" style="display: inline-block; width: 192px;height: 41px;line-height: 40px;">确认分配</span>
             </div>
         </div>
     </div>
@@ -2482,8 +2489,29 @@
 <script src="./js/common.js" type="text/javascript" charset="utf-8"></script>
 <script src="laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
 <script src="./js/pager.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript" >
 
+<script type="text/javascript" >
+    var listCar=[];
+    var listCard=[];
+    //        时间初始化
+    var startTime = '';
+    var endTime = '';
+    laydate({
+        elem: '#test1',
+        format: 'YYYY-MM-DD',
+        istime: true,
+        choose: function(dates){ //选择好日期的回调
+            startTime = dates;
+        }
+    });
+    laydate({
+        elem: '#test2',
+        format: 'YYYY-MM-DD',
+        istime: true,
+        choose: function(dates){ //选择好日期的回调
+            endTime = dates;
+        }
+    });
 
     $(".tablea").find(".box:first").show();    //为每个BOX的第一个元素显示        
     $("#oranger li").on("click",function(){ //给a标签添加事件  
@@ -2908,7 +2936,11 @@ function close1(that) {
 
 
 
-//分配车辆   部分操作
+//------------------------------------------------------------------------分配车辆部分   操作开始
+//搜索按钮
+    $(".searchResultBtn.btn.input").click(function () {
+            getData(1)
+    })
 
 
     //获取车辆列表数据
@@ -2974,7 +3006,7 @@ function close1(that) {
             str+='<tr data-id="'+item.carId+'" data-NO="'+item.carNO+'">';
             str+='<td>'+item.carNO+'</td>';
             str+='<td>'+item.vehicleLoad+'</td>';
-            str+='<td>'+item.carType+'</td>';
+            str+='<td>'+item.typeCame+'</td>';
             if(item.status==0){
                 str+='<td>启用</td>';
             }else{
@@ -2990,6 +3022,8 @@ function close1(that) {
         $(".selectCar").click(function () {
 //            $(this).parents("tr").attr("data-id")
             $("#che").text($(this).parents("tr").attr("data-no"))
+            $("#che").attr('data-id',$(this).parents("tr").attr("data-id"))
+//            $("#selectInput7").val()
         })
     }
     //1 :司机 2:安全员 3:押运员
@@ -3056,13 +3090,14 @@ function close1(that) {
                 if(res.code===1){
                     var str='';
                     $.each(res.data,function (idx,item) {
-                        str+='<li data-index="'+item.id+'">'+item.coupon_name+'</li>';
+                        str+='<li  data-dot-id="'+item.dot_id+'" data-index="'+item.id+'">'+item.coupon_name+'</li>';
                     })
                     $("#kaQuan ul").html(str);
 
                     $("#kaQuan li").click(function () {
                         event.stopPropagation();
                         $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().attr('data-dot-id', $(this).attr('data-dot-id'));
                         $(this).parent().parent().find('span').text($(this).text());
                         $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
                         $(this).parent().css('display','none');
@@ -3131,7 +3166,7 @@ function close1(that) {
             return;
         }
         var str='';
-        str+='<li data-id="'+$(that).prev().attr("data-selectedindex")+'">';
+        str+='<li data-dot-id="'+$(that).prev().attr("data-dot-id")+'" data-name="'+$(that).prev().find("span").text()+'" data-id="'+$(that).prev().attr("data-selectedindex")+'">';
         str+='<span style="width: 70px;display: inline-block;text-align: right;">'+$(that).prev().find("span").text()+'：</span>';
         str+='<input type="text" style="width: 194px;">';
         str+='<span onclick="delQuan(this)">-</span>';
@@ -3147,52 +3182,330 @@ function close1(that) {
         $("#quanList li:nth-child(2n-1)").css("float","left");
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // 点击删除车辆
     $(".car_num img").click(function () {
+        event.stopPropagation();
+//        删除先判断是否点击过编辑
+        if( $("#ok_car_info1").attr("data-updata")!=''){
+            if($(this).parent().index()<$("#ok_car_info1").attr("data-updata")){
+                $("#ok_car_info1").attr("data-updata",$("#ok_car_info1").attr("data-updata")-1);
+            }else if($(this).parent().index()==$("#ok_car_info1").attr("data-updata")){
+                $("#ok_car_info1").attr("data-updata","");
+                //        删除当前  需要重置
+                carCardReset()
+            }
+        }
+//            删除数组
+        listCar.splice($(this).parent().index(),1);
+        //删除节点
         if($(this).parents(".car_num").parent().find(".car_num").length==1){
             $(this).parents(".car_num").parent().hide();
-            window.parent.$("#ok_fenpei").hide();
+            $("#ok_fenpei").hide();
         }
         $(this).parents(".car_num").remove();
 
     })
 
 
-    //点击添加车辆
 
-    $("#ok_car_info").click(function () {
-        //需要添加接口数据
-       $("#car_info").append("<div class=\"car_num\"><span>新B WERTTT</span><img src=\"img/close_btn.png\" alt=\"\"></div>");
 
-        //不需要添加接口数据部分
+    //点击确认车辆信息
+    $("#ok_car_info1").click(function () {
+//        debugger
+        var cardStr=[];//卡券列表
+        var carStr={};//车的相关
+        listCard=[];
+//        循环卡券
+        $("#quanList li").each(function (idx,item) {
+                var carObj={};
+                if($(this).attr("data-cardzhujian")){
+                    carObj.id=$(this).attr("data-cardzhujian");
+                }else{
+                    carObj.id=""
+                }
+                carObj.dot_id=$(item).attr("data-dot-id");
+                carObj.couponId=$(item).attr("data-id");
+                carObj.name=$(item).attr("data-name");
+                carObj.money=$(item).find('input').val();
+                cardStr.push(carObj);
+                listCard.push(carObj);
+           })
+
+        if($(this).attr("data-caridzhujian")){
+            carStr.id=$(this).attr("data-caridzhujian");
+        }else{
+            carStr.id="";
+        }
+
+        carStr.carid=$("#che").attr("data-id");
+        carStr.carNO=$("#che").text();
+        carStr.planStartDate=$("#test1").val();
+        carStr.planEndDate=$("#test2").val();
+        carStr.kmNum=$("#kmNum").val();
+        carStr.driverid=$("#peoples1").attr("data-selectedindex")
+        carStr.driver=$("#peoples1 span").text();
+        carStr.supercargoid=$("#peoples3").attr("data-selectedindex")
+        carStr.supercargo=$("#peoples3 span").text()
+        carStr.safetyid=$("#peoples2").attr("data-selectedindex")
+        carStr.safety=$("#peoples2 span").text()
+        carStr.money=$("#money").val()
+        carStr.orderId=$(".modelBox17").attr("orderId")
+        carStr.goodsType=$("#selectInput7").val()
+       // console.log(carStr)
+        var sss={};
+        sss.car=carStr;
+        sss.listTCouponrec=listCard
+        if($("#ok_car_info1").attr("data-updata")==""){//新增
+            listCar.push(sss)
+            $("#car_info").append('<div  class=\"car_num\"><span>'+$("#che").text()+'</span><img src=\"img/close_btn.png\" alt=\"\"></div>');
+        }else{//编辑
+            listCar[$("#ok_car_info1").attr("data-updata")]=sss;
+//            只需要修改对应的车牌号 其他的都是从数组取 无所谓
+            $("#car_info .car_num").eq($("#ok_car_info1").attr("data-updata")).find("span").text($("#che").text());
+
+        }
+
+
        $("#ok_fenpei").show();
-       $("#car_info").show();
+        $("#car_info").show();
+
+        $(".car_num img").unbind();//解除所有绑定事件 再重新注册
+        //删除车辆事件
         $(".car_num img").click(function () {
+            event.stopPropagation();
+            //        删除先判断是否点击过编辑
+            if( $("#ok_car_info1").attr("data-updata")!=''){
+                if($(this).parent().index()<$("#ok_car_info1").attr("data-updata")){
+                    $("#ok_car_info1").attr("data-updata",$("#ok_car_info1").attr("data-updata")-1);
+                }else if($(this).parent().index()==$("#ok_car_info1").attr("data-updata")){
+                    $("#ok_car_info1").attr("data-updata","");
+                    //        删除当前  需要重置
+                    carCardReset()
+                }
+            }
+//            删除数组
+            listCar.splice($(this).parent().index(),1);
+            //删除节点
             if($(this).parents(".car_num").parent().find(".car_num").length==1){
                 $(this).parents(".car_num").parent().hide();
                 $("#ok_fenpei").hide();
             }
             $(this).parents(".car_num").remove();
         })
+        $(".car_num").each(function (idx1,item) {
+            //编辑车辆事件
+            $(item).click(function () {
+            $("#ok_car_info1").attr("data-updata",$(this).index());//先保存index
+
+            $("#ok_car_info1").attr("data-caridzhujian",listCar[$(this).index()].car.id)
+            if(listCar[$(this).index()].listTCouponrec.length!=0){
+                $("#ok_car_info1").attr("data-cardzhujian",listCar[$(this).index()].listTCouponrec[0].id)
+            }else{
+                $("#ok_car_info1").attr("data-cardzhujian",'');
+            }
+
+            $("#che").attr("data-id",listCar[$(this).index()].car.carid)
+            $("#che").text(listCar[$(this).index()].car.carNO)
+            $("#test1").val(listCar[$(this).index()].car.planStartDate)
+            $("#test2").val(listCar[$(this).index()].car.planEndDate)
+            $("#kmNum").val(listCar[$(this).index()].car.kmNum)
+            $("#peoples1").attr("data-selectedindex",listCar[$(this).index()].car.driverid)
+            $("#peoples2").attr("data-selectedindex",listCar[$(this).index()].car.safetyid)
+            $("#peoples3").attr("data-selectedindex",listCar[$(this).index()].car.supercargoid)
+            $("#peoples1 span").text(listCar[$(this).index()].car.driver)
+            $("#peoples2 span").text(listCar[$(this).index()].car.safety)
+            $("#peoples3 span").text(listCar[$(this).index()].car.supercargo)
+            $("#money").val(listCar[$(this).index()].car.money)
+            $("#selectInput7").val(listCar[$(this).index()].car.goodsType)
+
+                $("#ok_car_info1").attr("data-updata",idx1);//先保存index
+                var str1="";
+                for(var i=0;i<listCar[idx1].listTCouponrec.length;i++){
+                    str1+='<li data-dot-id="'+listCar[idx1].listTCouponrec[i].dot_id+'" data-name="'+listCar[idx1].listTCouponrec[i].name+'" data-id="'+listCar[idx1].listTCouponrec[i].couponId+'">';
+                    str1+='<span style="width: 70px;display: inline-block;text-align: right;">'+listCar[idx1].listTCouponrec[i].name+'：</span>';
+                    str1+='<input type="text" style="width: 194px;" value="'+listCar[idx1].listTCouponrec[i].money+'">';
+                    str1+='<span onclick="delQuan(this)">-</span>';
+                    str1+='</li>';
+                }
+                $("#quanList").html(str1)
+                $("#quanList li:nth-child(2n)").css("float","right");
+                $("#quanList li:nth-child(2n-1)").css("float","left");
+
+            })
+        })
+
+//        添加成功需要重置
+        carCardReset()
     })
+    //重置 卡券和车的选择
+    function carCardReset() {
+        $("#ok_car_info1").attr("data-updata","");//先保存index
+        $("#ok_car_info1").attr("data-caridzhujian","")
+        $("#ok_car_info1").attr("data-cardzhujian",'');
+
+
+        $("#che").attr("data-id","")
+        $("#che").text("")
+        $("#test1").val("")
+        $("#test2").val("")
+        $("#kmNum").val("")
+        $("#peoples1").attr("data-selectedindex","-1")
+        $("#peoples2").attr("data-selectedindex","-1")
+        $("#peoples3").attr("data-selectedindex","-1")
+        $("#peoples1 span").text("请选择")
+        $("#peoples2 span").text("请选择")
+        $("#peoples3 span").text("请选择")
+        $("#kaQuan").attr("data-selectedindex","-1")
+        $("#kaQuan span").text("请选择")
+
+
+        $("#money").val("")
+        $("#selectInput7").val("")
+
+        $("#quanList").html("");
+//        $("#quanList car_num").each(function (idx,item) {
+//
+//        })
+
+
+    }
+    //获取已选车  he  卡
+    function getCarCard() {
+        $.ajax({
+            url: pubIP + 'order/queryAllocatingCarList', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            data:{
+                companyId:companyId,
+                orderId:1,
+//                orderId:$(".modelBox17").attr("orderId")
+            },
+            ansyc: false,
+            dataType: 'json',
+            success: function (res) {
+                console.log(1111111111111)
+                debugger
+                console.log(res)
+                listCar=res.data;
+                str='';
+                $.each(res.data,function (idx,item) {
+                    str+='<div data-carstr="'+item.car+'" data-cardstr="'+item.listTCouponrec+'"  class="car_num"><span>'+item.car.carNo+'</span><img src="img/close_btn.png" alt=""></div>';
+                })
+                $("#car_info").html(str);
+
+                if(str!=''){
+                    $("#ok_fenpei").show();
+                    $("#car_info").show();
+
+                    $(".car_num img").unbind();//解除所有绑定事件 再重新注册
+                    //删除车辆事件
+                    $(".car_num img").click(function () {
+                        event.stopPropagation();
+                        //        删除先判断是否点击过编辑
+                        if( $("#ok_car_info1").attr("data-updata")!=''){
+                            if($(this).parent().index()<$("#ok_car_info1").attr("data-updata")){
+                                $("#ok_car_info1").attr("data-updata",$("#ok_car_info1").attr("data-updata")-1);
+                            }else if($(this).parent().index()==$("#ok_car_info1").attr("data-updata")){
+                                $("#ok_car_info1").attr("data-updata","");
+                                //        删除当前  需要重置
+                                carCardReset()
+                            }
+                        }
+//            删除数组
+                        listCar.splice($(this).parent().index(),1);
+                        //删除节点
+                        if($(this).parents(".car_num").parent().find(".car_num").length==1){
+                            $(this).parents(".car_num").parent().hide();
+                            $("#ok_fenpei").hide();
+                        }
+                        $(this).parents(".car_num").remove();
+                    })
+                    $(".car_num").each(function (idx1,item) {
+                        //编辑车辆事件
+                        $(item).click(function () {
+                            $("#ok_car_info1").attr("data-updata",$(this).index());//先保存index
+
+                            $("#ok_car_info1").attr("data-caridzhujian",listCar[$(this).index()].car.id)
+                            if(listCar[$(this).index()].listTCouponrec.length!=0){
+                                $("#ok_car_info1").attr("data-cardzhujian",listCar[$(this).index()].listTCouponrec[0].id)
+                            }else{
+                                $("#ok_car_info1").attr("data-cardzhujian",'');
+                            }
+
+                            $("#che").attr("data-id",listCar[$(this).index()].car.carid)
+                            $("#che").text(listCar[$(this).index()].car.carNO)
+                            $("#test1").val(listCar[$(this).index()].car.planStartDate)
+                            $("#test2").val(listCar[$(this).index()].car.planEndDate)
+                            $("#kmNum").val(listCar[$(this).index()].car.kmNum)
+                            $("#peoples1").attr("data-selectedindex",listCar[$(this).index()].car.driverid)
+                            $("#peoples2").attr("data-selectedindex",listCar[$(this).index()].car.safetyid)
+                            $("#peoples3").attr("data-selectedindex",listCar[$(this).index()].car.supercargoid)
+                            $("#peoples1 span").text(listCar[$(this).index()].car.driver)
+                            $("#peoples2 span").text(listCar[$(this).index()].car.safety)
+                            $("#peoples3 span").text(listCar[$(this).index()].car.supercargo)
+                            $("#money").val(listCar[$(this).index()].car.money)
+                            $("#selectInput7").val(listCar[$(this).index()].car.goodsType)
+
+                            $("#ok_car_info1").attr("data-updata",idx1);//先保存index
+                            var str1="";
+                            for(var i=0;i<listCar[idx1].listTCouponrec.length;i++){
+                                str1+='<li data-dot-id="'+listCar[idx1].listTCouponrec[i].dot_id+'" data-name="'+listCar[idx1].listTCouponrec[i].name+'" data-id="'+listCar[idx1].listTCouponrec[i].couponId+'">';
+                                str1+='<span style="width: 70px;display: inline-block;text-align: right;">'+listCar[idx1].listTCouponrec[i].name+'：</span>';
+                                str1+='<input type="text" style="width: 194px;" value="'+listCar[idx1].listTCouponrec[i].money+'">';
+                                str1+='<span onclick="delQuan(this)">-</span>';
+                                str1+='</li>';
+                            }
+                            $("#quanList").html(str1)
+                            $("#quanList li:nth-child(2n)").css("float","right");
+                            $("#quanList li:nth-child(2n-1)").css("float","left");
+
+                        })
+                    })
+                }
+
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+    //点击提交 （分配车辆）
+    $("#ok_fenpei").click(function () {
+        $.ajax({
+            url: pubIP + 'order/allotOrderCar', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            data:{
+                tLogisticsOrderId:$(".modelBox17").attr("orderId"),
+                carAndTCouponrec:JSON.stringify(listCar)
+            },
+            ansyc: false,
+            dataType: 'json',
+            success: function (res) {
+                if (res.code==1){
+                    alert("分配车辆成功");
+                    carCardReset()
+                    $(".modelBox17").hide();
+                }else{
+                    alert(res.msg);
+                }
+
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    })
+    //------------------------------------------------------------------------分配车辆部分   操作结束
+
 </script>
 </body>
 </html>
