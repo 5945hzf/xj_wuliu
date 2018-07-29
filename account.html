@@ -3008,9 +3008,10 @@ function close1(that) {
     function cf_dataRender(data) {
         var str='';
         $.each(data,function (idx,item) {
+            
             item.tloUpdateTime = new Date(item.tloUpdateTime).Format("yyyy-MM-dd");
-            str+='<tr data-id="'+item.carId+'" data-NO="'+item.carNo+'">';
-            str+='<td>'+item.carNo+'</td>';
+            str+='<tr data-id="'+item.carId+'" data-NO="'+item.carNO+'">';
+            str+='<td>'+item.carNO+'</td>';
             str+='<td>'+item.vehicleLoad+'</td>';
             str+='<td>'+item.typeCame+'</td>';
             if(item.status==0){
@@ -3441,6 +3442,7 @@ function close1(that) {
             ansyc: false,
             dataType: 'json',
             success: function (res) {
+                //debugger
                 listCar=res.data;
                 str='';
                 $.each(res.data,function (idx,item) {

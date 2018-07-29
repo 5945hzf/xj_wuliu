@@ -234,7 +234,8 @@
             <td><%=list[i].companyName%></td>
             <td><%=list[i].goodsNum%><%=list[i].goodsUnit%></td>
             <td><%=list[i].unitPrice%></td>
-            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看详情</span><span class="btn ll" onclick="fenPei('<%=list[i].tloId%>')">分配车辆</span><span class="btn cancel_order" data-tloId="<%=list[i].tloId%>">取消订单</span><span class="btn update" style="margin-left: 12px;" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-sendCompanyId="<%=list[i].sendCompanyId%>" data-sendCompanyName="<%=list[i].sendCompanyName%>" data-receiveCompanyId="<%=list[i].receiveCompanyId%>" data-receiveCompanyName="<%=list[i].receiveCompanyName%>">上传合同</span></td>
+            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看详情</span><span class="btn ll" onclick="fenPei('<%=list[i].tloId%>')">分配车辆</span><span class="btn cancel_order" data-tloId="<%=list[i].tloId%>">取消订单</span>
+                <span class="btn update" style="margin-left: 12px;" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-sendCompanyId="<%=list[i].sendCompanyId%>" data-sendCompanyName="<%=list[i].sendCompanyName%>" data-receiveCompanyId="<%=list[i].receiveCompanyId%>" data-receiveCompanyName="<%=list[i].receiveCompanyName%>">上传合同</span></td>
         </tr>
         <%}%>
     </script>
@@ -276,13 +277,15 @@
 
         //上传合同
         $(document).on('click', '.update', function() {
-
+            $(".update").removeClass("thisUpdate");
+            $(this).addClass("thisUpdate");
             window.parent.showModelBox('.modelBox1');
 
         });
 
         $(window.parent.document).on('click', '.ok_upload', function() {
             // console.log('..');
+            //debugger
             $.ajax({
                 url: pubIP + 'tContractTrade/insertWLtContractTrade',
                 type: 'post',
@@ -291,12 +294,12 @@
                     token: token
                 },
                 data: {
-                    orderid: $('.update').attr('data-tloId'),
-                    orderNo: $('.update').attr('data-orderNo'),
-                    sendCompanyid: $('.update').attr('data-sendCompanyId'),
-                    sendCompanyname: $('.update').attr('data-sendCompanyName'),
-                    receiveCompanyid: $('.update').attr('data-receiveCompanyId'),
-                    receiveCompanyname: $('.update').attr('data-receiveCompanyName'),
+                    orderid: $('.thisUpdate').attr('data-tloId'),
+                    orderNo: $('.thisUpdate').attr('data-orderNo'),
+                    sendCompanyid: $('.thisUpdate').attr('data-sendCompanyId'),
+                    sendCompanyname: $('.thisUpdate').attr('data-sendCompanyName'),
+                    receiveCompanyid: $('.thisUpdate').attr('data-receiveCompanyId'),
+                    receiveCompanyname: $('.thisUpdate').attr('data-receiveCompanyName'),
                     url: $(window.parent.document).find('#upload_hetong_hidden').val(),
                     type: 1,
                     signDate: $(window.parent.document).find('.qianding_time').val()
