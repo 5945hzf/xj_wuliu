@@ -230,7 +230,7 @@
             <td><%=list[i].sendAddress%></td>
             <td><%=list[i].receiveAddress%></td>
             <td><%=list[i].carType%></td>
-            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看订单</span><span class="btn sure" data-tloId="<%=list[i].tloId%>">确认送达</span><span class="btn updata">更改车辆</span><span class="btn cancel cancel_order" data-tloId="<%=list[i].tloId%>">取消订单</span></td>
+            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看订单</span><span class="btn sure" data-tloId="<%=list[i].tloId%>">确认送达</span><span class="btn updata" onclick="fenPei('<%=list[i].tloId%>')">更改车辆</span><span class="btn cancel cancel_order" data-tloId="<%=list[i].tloId%>">取消订单</span></td>
         </tr>
         <%}%>
     </script>
@@ -368,7 +368,63 @@
 
         });
 
-
+        //分配车辆
+        function fenPei(id){
+            window.parent.$(".modelBox17").show();
+            window.parent.$(".modelBox17").attr("orderId",id);
+            getData(id);
+            window.parent.$("#ok_fenpei").hide();
+            window.parent.$("#car_info").hide();
+            //获取已选车  he  卡
+            window.parent.getCarCard()
+        }
+        //获取数据
+        function getData(id) {
+            $.ajax({
+                url: pubIP + 'order/getOrderByid', /*v1.0*/
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    tloid:id
+                },
+                success: function (res) {
+                    if(res.code===1){
+                        cf_dataRender(res.data)
+                    }else{
+                        alert(res.msg);
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+        //渲染上面数据
+        function cf_dataRender(data) {     //下需要重新写
+            window.parent.$("#demandNo").text(data.demandNo);
+            window.parent.$("#startDate").text(data.startDate);
+            window.parent.$("#createTime").text(data.createTime);
+            window.parent.$("#goodsType").text(data.goodsType);
+            window.parent.$("#selectInput7").text(data.goodsType);
+            window.parent.$("#packageType").text(data.packageType);
+            window.parent.$("#goodsName").text(data.goodsName);
+            if(data.goodsUnit=='重量/吨'){
+                window.parent.$("#goodsweight").eq(0).text(data.goodsNum+'吨');
+            }else{
+                window.parent.$("#goodsweight").eq(0).text(data.goodsNum+'m³');
+            }
+            window.parent.$("#sendAddress").text(data.sendProvince+"-"+data.sendCity+"-"+data.sendArea+"-"+data.sendAddress);
+            window.parent.$("#receiveAddress").text(data.receiveProvince+"-"+data.receiveCity+"-"+data.receiveArea+"-"+data.receiveAddress);
+            window.parent.$("#carType1").text(data.carType1);
+            window.parent.$("#paymentMode").text(data.paymentMode);
+            window.parent.$("#paymentType").text(data.paymentType);
+        }
 
         // 点击多选框
         $(document).on('click', '.cf_select', function() {
