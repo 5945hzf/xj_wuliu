@@ -71,38 +71,38 @@
                                 <ul class="clearfix">
                                     <li class="w">
                                         <div>总&nbsp;&nbsp;&nbsp;&nbsp;计：</div>
-                                        <div class="ml">￥<span class="zongji_money">600.00</span></div>
+                                        <div class="ml">￥<span class="zongji_money">0.00</span></div>
                                     </li>
                                     <li class="span">
                                         <span></span>
                                     </li>
                                     <li class="w">
                                         <div>总支付：</div>
-                                        <div class="ml">￥<span>800.00</span></div>
+                                        <div class="ml">￥<span class="zongzhifu_money">0.00</span></div>
                                     </li>
                                     <li class="span">
                                         <span></span>
                                     </li>
                                     <li class="w">
                                         <div>税&nbsp;&nbsp;&nbsp;&nbsp;后：</div>
-                                        <div class="ml">￥<span>600.00</span></div>
+                                        <div class="ml">￥<span class="shuihou_money">0.00</span></div>
                                     </li>
                                 </ul>
                             </div>
                             <div class="order_detail">
                                 <div class="centera">
                                     <ul id="oranger"> 
-                                        <li class="hover">预付款</li>
-                                        <li>运单信息</li>
-                                        <li class="tab3_kk">扣款项</li>
-                                        <li class="tab4_js">结算</li>
+                                        <li class="tab1_yfk hover" data-money="0">预付款</li>
+                                        <li class="tab2_ddxx" data-money="0">运单信息</li>
+                                        <li class="tab3_kk" data-money="0">扣款项</li>
+                                        <li class="tab4_js" data-money="0">结算</li>
                                     </ul>
                                     <div id="tablea" class="tablea">
                                         <div class="box">
                                             <div style="width: 530px; margin: 0 auto;">
                                                 <div class="clearfix">
                                                     <div class="fl" style="margin-top: 30px; line-height: 40px;">
-                                                        <span style="color: #666666; width: 156px; text-align: right;display: inline-block;">预付金：<span style="color: #333; font-size: 18px;" class="yufujin">￥1000.00</span></span>
+                                                        <span style="color: #666666; width: 156px; text-align: right;display: inline-block;">预付金：￥<span style="color: #333; font-size: 18px;" class="yufujin">1000.00</span></span>
                                                     </div>
                                                     <div class="fr" style="margin-top: 30px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="modelBox34LeftTitle">返还：</span>
                                                         <input class="yufujin_back" type="text" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; ">
@@ -119,35 +119,53 @@
                                                     <div style="margin-top: 14px; color: #333; font-size: 14px;">发车信息</div>
                                                     <div class="clearfix">
                                                         <div class="fl" style="margin-top: 30px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828; display: inline-block; width: 70px; text-align: right;" class="modelBox34LeftTitle">单号：</span>
-                                                            <input type="text" placeholder="111" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; ">
+                                                            <input type="text" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; ">
                                                         </div>
                                                         <div class="fr" style="margin-top: 30px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="modelBox34LeftTitle">重量/体积：</span>
-                                                            <input type="text" placeholder="111" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; ">
+                                                            <input type="text" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; " class="xx_zzjs">
                                                         </div>
                                                     </div>
                                                     <div class="clearfix">
                                                         <div class="fl" style="margin-top: 30px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="modelBox34LeftTitle">发货时间：</span>
-                                                            <input type="text" placeholder="111" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; ">
+                                                            <input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1" style="height: 36px;width: 170px;border: 1px solid #dbdbdc; " class="xx_fhsj">
                                                         </div>
                                                         <div class="fr" style="margin-top: 30px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="modelBox34LeftTitle">结车价：</span>
-                                                            <input type="text" placeholder="111" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; ">
+                                                            <input type="text" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; " class=" xx_jcj">
                                                         </div>
                                                     </div>
                                                     <div class="clearfix">
                                                         <div class="fl" style="margin-top: 30px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828; display: inline-block; width: 70px; text-align: right;" class="modelBox34LeftTitle">扣损率：</span>
-                                                            <input type="text" placeholder="111" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; ">
+                                                            <input type="text" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; " class="xx_ksl">
                                                         </div>
                                                         <div class="fr" style="margin-top: 30px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="modelBox34LeftTitle">扣损单价：</span>
-                                                            <input type="text" placeholder="111" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; ">
-                                                        </div>
-                                                    </div>
-                                                    <div class="clearfix">
-                                                        <div class="fl" style="margin-top: 30px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="modelBox34LeftTitle">发货时间：</span>
-                                                            <input type="text" placeholder="111" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; ">
+                                                            <input type="text" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; " class="xx_ksdj">
                                                         </div>
                                                     </div>
                                                     <div style="margin-top: 25px; margin-bottom: 20px;" class="clearfix">
-                                                        <span style="float: left; text-align: right;">上传合同：</span>
+                                                        <span style="float: left; text-align: right;">发货磅单：</span>
+                                                        <div style="position: relative; height: 130px;width: 130px; margin-left: 5px; border: 1px solid #dbdbdc; float: left;">
+                                                        </div>
+                                                        <div style="position: relative; display: inline-block;margin-top: 114px; margin-left: 10px; cursor: pointer;"><input type="file"><span style="color: #6ea3ff;">上传</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="" style="width: 666px; margin: 0 auto;">
+                                                    <div style="margin-top: 14px; color: #333; font-size: 14px;">收车信息</div>
+                                                    <div class="clearfix">
+                                                        <div class="fl" style="margin-top: 30px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828; display: inline-block; width: 70px; text-align: right;" class="modelBox34LeftTitle">单号：</span>
+                                                            <input type="text" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; ">
+                                                        </div>
+                                                        <div class="fr" style="margin-top: 30px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="modelBox34LeftTitle">重量/体积：</span>
+                                                            <input type="text" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; ">
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix">
+                                                        <div class="fl" style="margin-top: 30px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="modelBox34LeftTitle">到货时间：</span>
+                                                            <input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test2" style="height: 36px;width: 170px;border: 1px solid #dbdbdc;">
+                                                        </div>
+                                                    </div>
+                                                 
+                                                    <div style="margin-top: 25px; margin-bottom: 20px;" class="clearfix">
+                                                        <span style="float: left; text-align: right;">收货磅单：</span>
                                                         <div style="position: relative; height: 130px;width: 130px; margin-left: 5px; border: 1px solid #dbdbdc; float: left;">
                                                         </div>
                                                         <div style="position: relative; display: inline-block;margin-top: 114px; margin-left: 10px; cursor: pointer;"><input type="file"><span style="color: #6ea3ff;">上传</span></div>
@@ -170,10 +188,10 @@
                                             <ul class="js_type">
                                                 <!-- 现结 -->
                                                 <li class="xj_mylist xj_mylist1 thisShow">
-                                                    <div class="js_allmoney"><span>结算金额:</span><input type="text"></div>
+                                                    <div class="js_allmoney"><span>结算金额:</span><input type="text" class="all_jsje"></div>
                                                     <div class="add_djq">
-                                                        <div><span>现&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金:</span><input type="text"></div>
-                                                        <ul class="daijinquan_type">
+                                                        <div><span>现&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金:</span><input type="text" class="xianjin jiajia" data-types="1"></div>
+                                                        <ul class="daijinquan_type" data-types="1">
                                                             <!-- 券的种类 -->
                                                         </ul>
                                                     </div>
@@ -181,11 +199,11 @@
                                                 </li>
                                                 <!-- 工资 -->
                                                 <li class="gz_mylist xj_mylist2" style="display: none;">
-                                                    <div class="js_allmoney"><span>结算金额:</span><input type="text"></div>
+                                                    <div class="js_allmoney"><span>结算金额:</span><input class="all_jsje" type="text"></div>
                                                     <div class="add_djq">
-                                                        <div><span>提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成:</span><input type="text"></div>
-                                                        <div style="margin-top: 20px;"><span>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资:</span><input type="text"></div>
-                                                        <ul class="daijinquan_type">
+                                                        <div><span>提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成:</span><input type="text" class="ticheng jiajia" data-types="2"></div>
+                                                        <div style="margin-top: 20px;"><span>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资:</span><input type="text" class="gongzi jiajia" data-types="2"></div>
+                                                        <ul class="daijinquan_type" data-types="2">
                                                             <!-- 券的种类 -->
                                                         </ul>
                                                     </div>
@@ -200,19 +218,37 @@
                         </div>
                     </div>
                     <div class="clearFloat" style="text-align: center;margin-top: 28px; margin-bottom: 50px;">
-                        <span class=" cf_btn cancel cfClose quxiao" style="display: inline-block;" >取消</span>
-                        <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认收货</span>
+                        <span class="cf_btn cancel cfClose quxiao" style="display: inline-block;" >取消</span>
+                        <span class="cf_btn btn_queren" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认收货</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <input type="hidden" class="inp_hidden">
 
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
     <script src="../laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
     <script>
-        
+        laydate({
+            elem: '#test1',
+            format: 'YYYY-MM-DD',
+            istime: true,
+            choose: function(dates){ //选择好日期的回调
+                startTime = dates;
+            }
+        });
+        laydate({
+            elem: '#test2',
+            format: 'YYYY-MM-DD',
+            istime: true,
+            choose: function(dates){ //选择好日期的回调
+                startTime = dates;
+            }
+        });
+        //税率
+        var ggsl = 0.2;
         //获取订单id
         //var tloId = sessionStorage.getItem("qrsd_tloId");
         var tloId = "1";
@@ -235,7 +271,7 @@
 
                 json.data.createTime = new Date(json.data.createTime).Format("yyyy-MM-dd hh:mm");
                 json.data.startDate = new Date(json.data.startDate).Format("yyyy-MM-dd hh:mm");
-
+                //订单号
                 $('.order_no').text(json.data.orderNo);
                 $('.publish_time').text(json.data.createTime);
                 $('.zhuangche_time').text(json.data.startDate);
@@ -246,6 +282,7 @@
                 $('.end_address').attr("title",json.data.receiveAddress);
                 $('.good_type').text(json.data.goodsType);
                 $('.zhongliang').text(json.data.goodsNum+json.data.goodsUnit);
+                $('.zhongliang').attr("data-zl",json.data.goodsNum);
 
                 $('.pay_method2').text(json.data.paymentType);
                 
@@ -259,10 +296,18 @@
                 $('.beizhu').attr("title",json.data.goodsRemark);
                 //单价
                 var danjia = Number(json.data.unitPrice);
+                $(".inp_hidden").val(danjia);
+                //结车价
+                $(".xx_jcj").val(danjia);
                 //重量
-                var zhongliang = Number(json.data.goodsNum);
-                //总价
-                $(".zongji_money").html((danjia*zhongliang).toFixed(2));
+                // var zhongliang = Number(json.data.goodsNum);
+                // //总价
+                // $(".zongji_money").html((danjia*zhongliang).toFixed(2));
+                //初始算下总支付
+                var all_zzf = Number($(".zongji_money").html())-Number($(".tab1_yfk").attr("data-money"))-Number($(".tab2_ddxx").attr("data-money"))-Number($(".tab3_kk").attr("data-money"));
+                $(".zongzhifu_money").html(all_zzf.toFixed(2));
+                $(".shuihou_money").html((all_zzf*(1-ggsl)).toFixed(2));
+                $(".all_jsje").val((all_zzf*(1-ggsl)).toFixed(2));
             },
             error: function(err) {
                 console.log(err);
@@ -285,18 +330,20 @@
             success: function (json) {
                 console.log("+++++++++++++++++++++++++++++");
                 console.log(json);
+                
+                
                 if (json.code == 1) {
                     var str = '';
                     for (var i = 0; i < json.data.length; i++) {
                         json.data[i].planStartDate = new Date(json.data[i].planStartDate).Format("yyyy-MM-dd hh:mm");
                         json.data[i].planEndDate = new Date(json.data[i].planEndDate).Format("yyyy-MM-dd hh:mm");
-
+                        
                         if (json.data[i].tlvType == 0) {
-                            json.data[i].tlvType = '内部';
+                            json.data[i].tlvType2 = '内部';
                         } else if (json.data[i].tlvType == 1) {
-                            json.data[i].tlvType = '外部';
+                            json.data[i].tlvType2 = '外部';
                         }
-                        str += '<li id='+json.data[i].driverid+'>'+json.data[i].carNo+'（'+json.data[i].tlvType+'）</li>';
+                        str += '<li data-carid='+json.data[i].carid+' id='+json.data[i].driverid+' data-type='+json.data[i].tlvType+'>'+json.data[i].carNo+'（'+json.data[i].tlvType2+'）</li>';
                     }
                     $('.order_info_ul2').html(str);
                     //点击车辆显示右侧信息
@@ -306,6 +353,20 @@
                         $(".order_info_ul2 li").removeClass("active");
                         $(this).addClass("active");
                         seachMsg($(this).attr("id"));
+                        var datas = $(this).attr("data-type");
+                        if (datas == 0) {
+                            $("#myradio1").hide().attr("checked",false);
+                            $("#myradio1").next().hide();
+                            $("#myradio2").prop("checked",true);
+                            $(".xj_mylist1").removeClass("thisShow");
+                            $(".xj_mylist2").addClass("thisShow");
+                        } else if (datas == 1) {
+                            $("#myradio1").show().prop("checked",true);
+                            $("#myradio1").next().show();
+                            $("#myradio2").attr("checked",false);
+                            $(".xj_mylist2").removeClass("thisShow");
+                            $(".xj_mylist1").addClass("thisShow");
+                        }
                     })
                     
                 }
@@ -315,10 +376,12 @@
             }
 
         });
-
+        
+        
         //查询车辆预付款信息(不传司机id时查看全部)
         seachMsg('');
-        var total_yfk = ''
+        //用掉的预付金
+        var saleyfmoney = 0;
         function seachMsg(driverId){
             $.ajax({
                 url: pubIP + 'order/queryAllocatingCarList',
@@ -336,8 +399,16 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log("--------------------------------------");
-                    console.log(data);
+                    console.log(data.data[0]);
+                    var thisdata = data.data[0]
+                    //折损率
+                    $(".xx_ksl").val(thisdata.car.departureLoss);
+                    //折损单价
+                    $("xx_ksdj").val(thisdata.car.departureLossPrice);
+                    
+
                     $(".yufujin").html(data.data[0].car.money);
+                    $(".yufujin_back").attr("yfj_backs",data.data[0].car.money);
                     var data =data.data[0].listTCouponrec;
                     var str = '';
                     $.each(data,function(idx,item){
@@ -345,15 +416,54 @@
                         str += '<div class="fl" style="margin-top: 15px; line-height: 40px;">'
                         str += '<span style="color: #666666; width: 156px; text-align: right;display: inline-block;">'
                         str += '<span class="quan_names">'+item.name+':</span>'
-                        str += '<span class="quan_moneys" style="color: #333; font-size: 18px;">￥'+item.money+'</span>'
+                        str += '￥<span class="quan_moneys" style="color: #333; font-size: 18px;" data-yfje="'+item.money+'">'+item.money+'</span>'
                         str += '</span>'
                         str += '</div>'
                         str += '<div class="fr" style="margin-top: 15px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="modelBox34LeftTitle">返还：</span>'
-                        str += '<input class="quan_backmoneys" type="text" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc;" id='+item.id+'>'
+                        str += '<input class="quan_backmoneys" type="text" data-maxmoney="'+item.money+'" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc;" id='+item.id+'>'
                         str += '</div>'
                         str += '</div>'
                     })
                     $(".quan_lists").html(str);
+                    //预付优惠券金额
+                    var this_jine=0;
+                    var allback_money=0;
+                    var yfjjj = Number($(".yufujin").html());
+                    var yfjfhje=0;
+                    $(".quan_moneys").each(function(){
+                        this_jine += Number($(this).attr("data-yfje"))
+                    });
+                    //返还优惠券金额
+                    $(".quan_backmoneys").on("input",function(){
+                        allback_money=0;
+                        $(".quan_backmoneys").each(function(){
+                            if(Number($(this).val())>Number($(this).attr("data-maxmoney"))){
+                                $(this).val($(this).attr("data-maxmoney"));
+                            }
+                            allback_money += Number($(this).val())
+                        });
+                        //用掉的预付金 = 总预付金额- 返还的预付金(tab第一个全部金额计算)
+                        saleyfmoney = (this_jine+yfjjj)-(allback_money+yfjfhje);
+                        $(".tab1_yfk").attr("data-money",saleyfmoney);
+                        var all_zzf = Number($(".zongji_money").html())-Number($(".tab1_yfk").attr("data-money"))-Number($(".tab2_ddxx").attr("data-money"))-Number($(".tab3_kk").attr("data-money"));
+                        $(".zongzhifu_money").html(all_zzf.toFixed(2));
+                        $(".shuihou_money").html((all_zzf*(1-ggsl)).toFixed(2));
+                        $(".all_jsje").val((all_zzf*(1-ggsl)).toFixed(2));
+                    })
+                    //预付金返还单算
+                    $(".yufujin_back").on("input",function(){
+                        if(Number($(this).val())>Number($(this).attr("yfj_backs"))){
+                            $(this).val($(this).attr("yfj_backs"));
+                        }
+                        yfjfhje = Number($(this).val());
+                        //用掉的预付金 = 总预付金额- 返还的预付金(tab第一个全部金额计算)
+                        saleyfmoney = (this_jine+yfjjj)-(allback_money+yfjfhje);
+                        $(".tab1_yfk").attr("data-money",saleyfmoney);
+                        var all_zzf = Number($(".zongji_money").html())-Number($(".tab1_yfk").attr("data-money"))-Number($(".tab2_ddxx").attr("data-money"))-Number($(".tab3_kk").attr("data-money"));
+                        $(".zongzhifu_money").html(all_zzf.toFixed(2));
+                        $(".shuihou_money").html((all_zzf*(1-ggsl)).toFixed(2));
+                        $(".all_jsje").val((all_zzf*(1-ggsl)).toFixed(2));
+                    })
                     
                 },
                 error: function(err) {
@@ -361,10 +471,53 @@
                 }
             })
         }
-    
+        
+        //运单信息计算总价
+        function xxjszj(){
+            //货物单价
+            var hwdj = $(".inp_hidden").val()-0;
+            //折损率
+            var thiszsl = $(".xx_ksl").val();
+            //折损单价
+            var thiszsdj = $(".xx_ksdj").val();
+            //重量
+            var thishwzl = $(".xx_zzjs").val();
+            $(".zongji_money").html(Number(thishwzl)*hwdj);
+
+            if(thiszsl!=''&&thiszsl!=null){
+                var ydxxMoney = Number(thishwzl)*hwdj*(Number(thiszsl));
+                $(".tab2_ddxx").attr("data-money",ydxxMoney);
+                //$(".zongji_money").html(ydxxMoney);
+            }else if(thiszsdj!=''&&thiszsdj!=null){
+                var ydxxMoney2 = Number(thishwzl)*(Number(thiszsdj));
+                $(".tab2_ddxx").attr("data-money",ydxxMoney2);
+                //$(".zongji_money").html(ydxxMoney2);
+            } else{
+                var ydxxMoney3 = Number(thishwzl)*hwdj;
+                $(".tab2_ddxx").attr("data-money","0");
+                //$(".zongji_money").html(ydxxMoney3);
+            }
+            var all_zzf = Number($(".zongji_money").html())-Number($(".tab1_yfk").attr("data-money"))-Number($(".tab2_ddxx").attr("data-money"))-Number($(".tab3_kk").attr("data-money"));
+            $(".zongzhifu_money").html(all_zzf.toFixed(2));
+            $(".shuihou_money").html((all_zzf*(1-ggsl)).toFixed(2));
+            $(".all_jsje").val((all_zzf*(1-ggsl)).toFixed(2));
+        }
+        //重量改变总计
+        $(".xx_zzjs").on("input",function(){
+
+            xxjszj();
+        })
+        //折损率改变总计
+        $(".xx_ksl").on("input",function(){
+            xxjszj();
+        })
+        //折损单价改变总计
+        $(".xx_ksdj").on("input",function(){
+            xxjszj();
+        })
+
         //新增扣款项
         var isFrist3 = true;
-
         $(".tab3_kk").on("click",function(){
             if(!isFrist3){
                 return;
@@ -414,6 +567,22 @@
                     str2+='</div>'
                     str2+='</li>'
                     $(".koukuan_list").append(str2);
+
+                     //返还优惠券金额
+                     var kkallback_money=0;
+                     $(".kk_money").on("input",function(){
+                        kkallback_money=0;
+                        $(".kk_money").each(function(){
+                            kkallback_money += Number($(this).val())
+                        });
+                       
+                        $(".tab3_kk").attr("data-money",kkallback_money);
+                        var all_zzf = Number($(".zongji_money").html())-Number($(".tab1_yfk").attr("data-money"))-Number($(".tab2_ddxx").attr("data-money"))-Number($(".tab3_kk").attr("data-money"));
+                        $(".zongzhifu_money").html(all_zzf.toFixed(2));
+                        $(".shuihou_money").html((all_zzf*(1-ggsl)).toFixed(2));
+                        $(".all_jsje").val((all_zzf*(1-ggsl)).toFixed(2));
+                    })
+
                     // 模拟下拉框
                     $(".select").unbind();//解除所有绑定事件 再重新注册
                     $('.select').click(function(event){
@@ -458,7 +627,21 @@
         //删除扣款项目
         function dele_thisclk(obj){
             $(obj).parents(".kk_thislist").remove();
+            kkallback_money=0;
+            $(".kk_money").each(function(){
+                kkallback_money += Number($(this).val())
+            });
+            
+            $(".tab3_kk").attr("data-money",kkallback_money);
+            var all_zzf = Number($(".zongji_money").html())-Number($(".tab1_yfk").attr("data-money"))-Number($(".tab2_ddxx").attr("data-money"))-Number($(".tab3_kk").attr("data-money"));
+            $(".zongzhifu_money").html(all_zzf.toFixed(2));
+            $(".shuihou_money").html((all_zzf*(1-ggsl)).toFixed(2));
+            $(".all_jsje").val((all_zzf*(1-ggsl)).toFixed(2));
         }
+        //扣款项(tab第三个全部金额计算)
+        
+
+
 
         //结算
         
@@ -468,6 +651,8 @@
             $(".xj_mylist2").hide();
             $(".xj_mylist2").removeClass("thisShow");
             $(".daijinquan_type").html('');
+            $(".qr_clxx span").css("background","#6ba1ff");
+            $(".btn_queren").css("background","#6ba1ff");
             add_djqclk();
         })
         $("#myradio2").on("click",function(){
@@ -476,6 +661,8 @@
             $(".xj_mylist1").hide();
             $(".xj_mylist1").removeClass("thisShow");
             $(".daijinquan_type").html('');
+            $(".qr_clxx span").css("background","#6ba1ff");
+            $(".btn_queren").css("background","#6ba1ff");
             add_djqclk();
         })
         //结算新增代金券
@@ -526,6 +713,55 @@
                     str5+='</div>'
                     str5+='</li>'
                     $(".daijinquan_type").append(str5);
+                     
+                    var jiesuanAll = Number($(".all_jsje").val()).toFixed(0);
+                    //现金
+                    //提成
+                    //工资
+                    $(".jiajia").unbind();
+                    $(".jiajia").on("input",function(){
+                        var jiajia = 0;
+                        if($(this).attr("data-types")==1){
+                            jiajia = Number($(".xianjin").val());
+                        }else{
+                            jiajia = Number($(".ticheng").val())+Number($(".gongzi").val());
+                        }
+                        var kkallback_money=0;
+                        $(".dj_money").each(function(){
+                            kkallback_money += Number($(this).val())
+                        });
+                        if(jiajia+kkallback_money>jiesuanAll){
+                            alert("实际金额不能大于结算金额");
+                            $(".qr_clxx span").css("background","#666");
+                            $(".btn_queren").css("background","#666");
+                            $(".sjjs_allmoney input").val("");
+                        }else{
+                            $(".sjjs_allmoney input").val(jiajia+kkallback_money);
+                        }
+                    })
+
+                     //带金券金额
+                     $(".dj_money").unbind();
+                     $(".dj_money").on("input",function(){
+                        var jiajia = 0;
+                        var kkallback_money=0;
+                        $(".dj_money").each(function(){
+                            kkallback_money += Number($(this).val())
+                        });
+                        if($(this).parents("ul").attr("data-types")==1){
+                            jiajia= Number($(".xianjin").val());
+                        }else{
+                            jiajia = Number($(".ticheng").val())+Number($(".gongzi").val());
+                        }
+                        if(jiajia+kkallback_money>jiesuanAll){
+                            alert("实际金额不能大于结算金额");
+                            $(".qr_clxx span").css("background","#666");
+                            $(".btn_queren").css("background","#666");
+                            $(".sjjs_allmoney input").val("");
+                        }else{
+                            $(".sjjs_allmoney input").val(jiajia+kkallback_money);
+                        }
+                    })
                     // 模拟下拉框
                     $(".select").unbind();//解除所有绑定事件 再重新注册
                     $('.select').click(function(event){
@@ -571,6 +807,44 @@
         function dele_djqclk(obj){
             $(obj).parents(".dj_thislist").remove();
         }
+
+        //确认送达结算工资
+        //车辆对象
+        var carobj = {};
+        carobj.carid = $(".order_info_ul2 li.active").attr("data-carid");
+        // carobj.departureDate = 
+        // carobj.carid =
+        // carobj.carid = 
+        // carobj.carid = 
+        // carobj.carid = 
+        $(".qr_clxx").on("click",function(){
+            $.ajax({
+                url: pubIP + 'order/upCarUserById',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    companyId: '1',
+                    extractMoney: $(".ticheng").val(),
+                    grantMoney: $(".grantMoney").val(),
+                    orderNo: tloId,
+                    tLogisticsOrderId: 1,
+                    tlvType: $(".order_info_ul2 li.active").attr("data-type"),
+                    type: $(".order_info_ul2 li.active").attr("data-type"),
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log("++++++++++++------------------+++++++++++++++");
+                    console.log(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            })
+        })
         
         
         
