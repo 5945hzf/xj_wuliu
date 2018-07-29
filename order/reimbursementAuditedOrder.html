@@ -369,7 +369,7 @@
         function order_list(num, orderNo, goodsType, publishTime, size) {
             $('#orderListInfo').html('');
             $.ajax({
-                url: pubIP + 'order/getAllocatedList',
+                url: pubIP + 'order/getReturnMoneyList',
                 type: 'post',
                 headers: {
                     Accept: "application/json; charset=utf-8",

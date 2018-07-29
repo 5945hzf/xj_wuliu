@@ -152,10 +152,10 @@
                                                     <div style="margin-top: 14px; color: #333; font-size: 14px;">收车信息</div>
                                                     <div class="clearfix">
                                                         <div class="fl" style="margin-top: 30px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828; display: inline-block; width: 70px; text-align: right;" class="modelBox34LeftTitle">单号：</span>
-                                                            <input type="text" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; ">
+                                                            <input type="text" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; " class="xx_scdh">
                                                         </div>
                                                         <div class="fr" style="margin-top: 30px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="modelBox34LeftTitle">重量/体积：</span>
-                                                            <input type="text" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; ">
+                                                            <input type="text" placeholder="" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; " class="xx_sczl">
                                                         </div>
                                                     </div>
                                                     <div class="clearfix">
@@ -343,7 +343,7 @@
                         } else if (json.data[i].tlvType == 1) {
                             json.data[i].tlvType2 = '外部';
                         }
-                        str += '<li data-carid='+json.data[i].carid+' id='+json.data[i].driverid+' data-type='+json.data[i].tlvType+'>'+json.data[i].carNo+'（'+json.data[i].tlvType2+'）</li>';
+                        str += '<li data-carid="'+json.data[i].carid+'" data-ids="'+json.data[i].id+'" id="'+json.data[i].driverid+'" data-type="'+json.data[i].tlvType+'" data-departureNo="'+json.data[i].departureNo+'" data-departureDate="'+json.data[i].departureDate+'">'+json.data[i].carNo+'（'+json.data[i].tlvType2+'）</li>';
                     }
                     $('.order_info_ul2').html(str);
                     //点击车辆显示右侧信息
@@ -358,14 +358,14 @@
                             $("#myradio1").hide().attr("checked",false);
                             $("#myradio1").next().hide();
                             $("#myradio2").prop("checked",true);
-                            $(".xj_mylist1").removeClass("thisShow");
-                            $(".xj_mylist2").addClass("thisShow");
+                            $(".xj_mylist1").hide().removeClass("thisShow");
+                            $(".xj_mylist2").show().addClass("thisShow");
                         } else if (datas == 1) {
                             $("#myradio1").show().prop("checked",true);
                             $("#myradio1").next().show();
                             $("#myradio2").attr("checked",false);
-                            $(".xj_mylist2").removeClass("thisShow");
-                            $(".xj_mylist1").addClass("thisShow");
+                            $(".xj_mylist2").hide().removeClass("thisShow");
+                            $(".xj_mylist1").show().addClass("thisShow");
                         }
                     })
                     
@@ -408,6 +408,7 @@
                     
 
                     $(".yufujin").html(data.data[0].car.money);
+                    $(".yufujin_back").attr("data-id",data.data[0].car.id);
                     $(".yufujin_back").attr("yfj_backs",data.data[0].car.money);
                     var data =data.data[0].listTCouponrec;
                     var str = '';
@@ -433,6 +434,7 @@
                     $(".quan_moneys").each(function(){
                         this_jine += Number($(this).attr("data-yfje"))
                     });
+                    
                     //返还优惠券金额
                     $(".quan_backmoneys").on("input",function(){
                         allback_money=0;
@@ -442,6 +444,10 @@
                             }
                             allback_money += Number($(this).val())
                         });
+                        //预付金额
+                        $(".tab1_yfk").attr("data-yfmoney",(this_jine+yfjjj));
+                        //返还的预付金额
+                        $(".tab1_yfk").attr("data-backyfmoney",(allback_money+yfjfhje));
                         //用掉的预付金 = 总预付金额- 返还的预付金(tab第一个全部金额计算)
                         saleyfmoney = (this_jine+yfjjj)-(allback_money+yfjfhje);
                         $(".tab1_yfk").attr("data-money",saleyfmoney);
@@ -556,7 +562,7 @@
                     str2+='<li class="kk_thislist">'
                     str2+='<div class="lf lf_select">'
                     str2+='<span>扣款项：</span>'
-                    str2+='<div class="goodsType input select myselect" style="float: none;margin: 0" data-selectedindex="-1"><span>请选择</span><img src="../img/prl-select.jpg" >'
+                    str2+='<div class="goodsType input select myselect" style="float: none;margin: 0" data-selectedindex="-1"><span  class="all_kkx">请选择</span><img src="../img/prl-select.jpg" >'
                     str2+='<ul style="top: 35px;">'+str3+'</ul>'
                     str2+='</div>'
                     str2+='</div>'
@@ -614,6 +620,7 @@
                     $('.select ul li').click(function(){
                         event.stopPropagation();
                         $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().find('span').attr('data-dmid', $(this).attr('id'));
                         $(this).parent().parent().find('span').text($(this).text());
                         $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
                         $(this).parent().css('display','none');
@@ -702,7 +709,7 @@
                     str5+='<li class="dj_thislist">'
                     str5+='<div class="lf lfdj_select">'
                     str5+='<span>代&nbsp;&nbsp;金&nbsp; 券：</span>'
-                    str5+='<div class="goodsType input select myselect2" style="float: none;margin: 0" data-selectedindex="-1"><span>请选择</span><img src="../img/prl-select.jpg" >'
+                    str5+='<div class="goodsType input select myselect2" style="float: none;margin: 0" data-selectedindex="-1"><span class="all_djq">请选择</span><img src="../img/prl-select.jpg" >'
                     str5+='<ul style="top: 35px;">'+str4+'</ul>'
                     str5+='</div>'
                     str5+='</div>'
@@ -793,6 +800,7 @@
                     $('.select ul li').click(function(){
                         event.stopPropagation();
                         $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().find('span').attr('data-dmid', $(this).attr('id'))
                         $(this).parent().parent().find('span').text($(this).text());
                         $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
                         $(this).parent().css('display','none');
@@ -809,15 +817,67 @@
         }
 
         //确认送达结算工资
-        //车辆对象
-        var carobj = {};
-        carobj.carid = $(".order_info_ul2 li.active").attr("data-carid");
-        // carobj.departureDate = 
-        // carobj.carid =
-        // carobj.carid = 
-        // carobj.carid = 
-        // carobj.carid = 
+
         $(".qr_clxx").on("click",function(){
+             //车辆对象
+            var car = {};
+            car.driverid = $(".order_info_ul2 li.active").attr("id");
+            car.id = $(".order_info_ul2 li.active").attr("data-ids");
+            car.carid = $(".order_info_ul2 li.active").attr("data-carid");
+            car.departureNo = '';//$(".order_info_ul2 li.active").attr("data-departureNo")
+            car.departureDate = '';//$(".order_info_ul2 li.active").attr("data-departureDate")
+            car.departureNum = $(".xx_zzjs").val();//发车重量
+            car.departurePrice = $(".xx_jcj").val();//结车价
+            car.departureLoss = $(".xx_ksl").val();//	扣损率
+            car.departureLossPrice = $(".xx_ksdj").val();//扣损单价
+            car.departureAttr = 1;//发货磅单0
+            car.returnNo = $(".xx_scdh").val();//收车单号
+            car.returnNum = $(".xx_sczl").val();//收车(重量/体积)
+            car.returnDate = $("#test2").val();//	收车日期
+            car.returnAttr = 1;//	收车磅单0
+            car.settlementAmount = $("#test2").val();//	结算金额
+            car.money = $(".tab1_yfk").attr("data-yfmoney");//	预付金额
+            car.returnMoney= $(".tab1_yfk").attr("data-backyfmoney");//	返还金额
+            var carstr = JSON.stringify(car);
+            //console.log(carstr,"111111111111111111111111111");
+            //扣款项数组
+            var deductMoneyList = [];
+            $(".all_kkx").each(function(idx,item){
+                //console.log(item.getAttribute("data-dmid"))
+                var aa = {};
+                aa.companyId = '1';//	公司主键
+                aa.dmid = item.getAttribute("data-dmid");//扣款项Id
+                aa.name = item.innerHTML;//扣款名称
+                aa.value = $(".kk_money").eq(idx).val();//扣款金额
+                deductMoneyList.push(aa);
+            })
+            var deductMoneyListstr=JSON.stringify(deductMoneyList);
+            console.log(deductMoneyListstr,"666666666666666666666666666666666666666666666");
+            //代金券数组
+            var settlementCardList = [];
+            $(".thisShow .all_djq").each(function(idx,item){
+                //console.log(item.getAttribute("data-dmid"))
+                var aa = {};
+                aa.id = item.getAttribute("data-dmid");//扣款项Id
+                aa.value = $(".thisShow .dj_money").eq(idx).val();//扣款金额
+                settlementCardList.push(aa);
+            })
+            var settlementCardListstr=JSON.stringify(settlementCardList);
+            //console.log(settlementCardList);
+            //返还预付款
+            var cardList = [];
+            // var bb ={
+            //     cardId:$(".yufujin_back").attr("data-id"),
+            //     amount:$(".yufujin_back").val(),
+            // }
+            // cardList.push(bb);
+            $(".quan_backmoneys").each(function(idx,item){
+                var aa = {};
+                aa.cardId = item.getAttribute("id");//返还卡id
+                aa.amount = $(".quan_backmoneys").eq(idx).val();//返还卡金额
+                cardList.push(aa);
+            })
+            var cardListstr=JSON.stringify(cardList);
             $.ajax({
                 url: pubIP + 'order/upCarUserById',
                 type: 'post',
@@ -828,11 +888,15 @@
                 data: {
                     companyId: '1',
                     extractMoney: $(".ticheng").val(),
-                    grantMoney: $(".grantMoney").val(),
+                    grantMoney: $(".xianjin").val(),
                     orderNo: tloId,
                     tLogisticsOrderId: 1,
                     tlvType: $(".order_info_ul2 li.active").attr("data-type"),
                     type: $(".order_info_ul2 li.active").attr("data-type"),
+                    car:carstr,
+                    deductMoneyList:deductMoneyListstr,
+                    settlementCardList:settlementCardListstr,
+                    cardList:cardListstr,
                 },
                 cache: false,
                 dataType: 'json',
