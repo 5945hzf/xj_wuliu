@@ -2080,6 +2080,7 @@
                 <!--<div class="car_num"><span>新B WERTTT</span><img src="img/close_btn.png" alt=""></div>-->
                 <!--<div class="car_num"><span>新B WERTTT</span><img src="img/close_btn.png" alt=""></div>-->
             </div>
+            <div id="sureCarError1" style="text-align: center;color: red;line-height: 20px;font-size: 14px;"></div>
             <div class="clearFloat" style="text-align: center;margin-top: 39px; margin-bottom: 21px;">
                 <span data-updata="" data-cardzhujian="" data-carzhujian="" class="cf_btn" id="ok_fenpei" style="display: inline-block; width: 192px;height: 41px;line-height: 40px;">确认分配</span>
             </div>
@@ -3541,60 +3542,12 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
     }
     //点击提交 （分配车辆）
     $("#ok_fenpei").click(function () {
-        if($("#che").attr("data-id")==""){
-            $("#sureCarError").text("请选择车辆");
+        if($("#car_info").html()==""){
+            $(".sureCarError1").text("您还未选择车辆");
             return;
+        }else{
+             $(".sureCarError1").text("");
         }
-        if( $("#test1").val()==""){
-            $("#sureCarError").text("请选择预计发货时间");
-            return;
-        }
-        if($("#peoples1").attr("data-selectedindex")==-1){
-            $("#sureCarError").text("请选择司机");
-            return;
-        }
-        if( $("#test2").val()==""){
-            $("#sureCarError").text("请选择预计到货时间");
-            return;
-        }
-        if($("#peoples3").attr("data-selectedindex")==-1){
-            $("#sureCarError").text("请选择押运员");
-            return;
-        }
-        if( $("#money").val()==""){
-            $("#sureCarError").text("请填写现金");
-            return;
-        }
-        if($("#peoples2").attr("data-selectedindex")==-1){
-            $("#sureCarError").text("请选择安全员");
-            return;
-        }
-        if($("#kaQuan").attr("data-selectedindex")==-1){
-            $("#sureCarError").text("请选择卡券");
-            return;
-        }
-        if($("#kmNum").val()==""){
-            $("#sureCarError").text("请填写公里数");
-            return;
-        }
-        //卡券列表非空验证
-        var isOK=1;
-        var cardName1='';
-        $("#quanList li").each(function (idx,item) {
-            debugger
-            if($(item).find("input").val()==""){
-                if(isOK==1){
-                    cardName1=$(item).attr("data-name");
-                    isOK=0;
-                }
-            }
-        })
-        if(isOK==0){
-            $("#sureCarError").text("请填写"+cardName1+"金额");
-            return;
-        }
-
-        $("#sureCarError").text("");
         subFenPeiCar();
     })
 
