@@ -2824,6 +2824,18 @@ function close1(that) {
     $(that).parents(".pop").css("display","none")
 }
 
+
+if (sessionStorage.getItem('cf_showPage') == '1'){
+    $(".acconut_box").toggle();
+    $(".manage").find('img').attr("src","img/cf_close.png");
+    $(".manageItem").removeClass("active1");
+    $(".qiye_renzheng").addClass("active1");
+    $(".qiye_renzheng").parent().parent().toggle();
+    $(".qiye_renzheng").parent().parent().prev("a").find('img').attr("src","img/cf_open.png");
+    $('#Iframe').attr('src', './finance/identification1.html');
+}
+
+
 // 危险化学品认证提交成功
     function tan() {
         $('.modelBox0').css('display', 'block');
