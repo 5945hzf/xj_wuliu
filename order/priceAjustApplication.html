@@ -267,14 +267,18 @@
         function cf_dataRender(data) {
             var str='';
             $.each(data,function (idx,item) {
-                str+='<tr data-id="'+item.id+'">';
+                str+='<tr data-id="'+item.id+'"  data-orderId="'+item.orderid+'">';
                 str+='<td>'+item.orderid+'</td>';
                 str+='<td>'+item.companyname+'</td>';
-                str+='<td>'+item.createTime+'</td>';
+                str+='<td>'+timestampToTime(item.createTime)+'</td>';
                 str+='<td>'+item.oldPrice+'</td>';
                 str+='<td>'+item.quotedPrice+'</td>';
                 str+='<td>'+item.quotesSatus+'</td>';
-                str+='<td class="btn" style="color: #6ba1ff;">查看详情</td>';
+                if(item.status==0&&item.type==0){
+                    str+='<td ><span class="btn agree" style="color: #6ba1ff;">同意</span> <span  class="btn bohui" style="color: #6ba1ff;">驳回</span> <span class="btn seeDetail" style="color: #6ba1ff;">查看详情</span></td>';
+                }else{
+                    str+='<td> <span class="btn seeDetail" style="color: #6ba1ff;">查看详情</span></td>';
+                }
                 str+='</tr>';
             })
             $(".myTbody").html(str);
@@ -282,6 +286,14 @@
             $(".seeDetail").click(function () {
                 sessionStorage.setItem("detailId",$(this).parent().attr("data-id"));
                 window.location.href="./lineDetails.html";
+            })
+            //同意
+            $(".agree").click(function () {
+                upPricesChanged(1,$(this).parents("tr").attr("data-id"),$(this).parents("tr").attr("data-orderId"));
+            })
+//            驳回
+            $(".bohui").click(function () {
+                upPricesChanged(2,$(this).parents("tr").attr("data-id"),$(this).parents("tr").attr("data-orderId"));
             })
         }
         //选择排序方式
@@ -293,7 +305,35 @@
             var currentPage = $('.pageCont li.active>a').text();
             getData(currentPage);
         })
-
+        //        同意驳回调价申请
+        function upPricesChanged(type,id,orderId) {
+            $.ajax({
+                url: pubIP + 'OrderPricesChanged/upPricesChanged', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    companyId:companyId,
+                    status: type,
+                    orderId: orderId,
+                    id:id
+                },
+                success: function (res) {
+                    console.log(res)
+                    if (res.code === 1) {
+                        alert(res.msg);
+                        window.location.reload()
+                    } else {
+                        alert(res.msg);
+                    }
+                }
+            })
+        }
     </script>
 </body>
 </html>

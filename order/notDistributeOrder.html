@@ -312,6 +312,7 @@
                         $(window.parent.document).find('.modelBox1').css('display', 'none');
                         $(window.parent.document).find('.modelBoxaddqita p span').html('合同上传成功！');
                         window.parent.showModelBox('.modelBoxaddqita');
+
                     }
 
                 },
@@ -365,7 +366,8 @@
             window.localStorage.setItem('data-tloId', $(this).attr('data-tloId'));
             window.localStorage.setItem('data-orderNo', $(this).attr('data-orderNo'));
             window.location.href = "notDistributeOrder-detail.html";
-
+            window.location.reload();
+//            order_list(1 , '', '', '', 10);
         });
 
 
@@ -507,6 +509,7 @@
                     if (json.code == 1) {
                         $(window.parent.document).find('.modelBoxaddqita p').html('<span>订单取消成功!</span>');
                         window.parent.showModelBox('.modelBoxaddqita');
+                        window.location.reload();
                     }
 
                 },
