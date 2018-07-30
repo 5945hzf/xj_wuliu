@@ -296,8 +296,8 @@
         //税率
         var ggsl = 0.2;
         //获取订单id
-        //var tloId = sessionStorage.getItem("qrsd_tloId");
-        var tloId = "1";
+        var tloId = sessionStorage.getItem("qrsd_tloId");
+        //var tloId = "1";
         // 详情信息
         $.ajax({
             url: pubIP + 'order/getOrderByid',
@@ -882,10 +882,13 @@
             $(".all_kkx").each(function(idx,item){
                 var aa = {};
                 aa.companyId = '1';//	公司主键
-                aa.dmid = item.getAttribute("data-dmid");//扣款项Id
-                aa.name = item.innerHTML;//扣款名称
-                aa.value = $(".kk_money").eq(idx).val();//扣款金额
-                deductMoneyList.push(aa);
+                if(item.innerHTML!= '请选择'){
+                    aa.dmid = item.getAttribute("data-dmid");//扣款项Id
+                    aa.name = item.innerHTML;//扣款名称
+                    aa.value = $(".kk_money").eq(idx).val();//扣款金额
+                    deductMoneyList.push(aa);
+                }
+                
             })
             var deductMoneyListstr=JSON.stringify(deductMoneyList);
             //console.log(deductMoneyListstr,"22222222222222222222222222222");
@@ -894,13 +897,15 @@
             var settlementCardList = [];
             $(".all_djq").each(function(idx,item){
                 var aa = {};
-                aa.couponId = item.getAttribute("data-couponId");//代金券id
-                aa.dotId = item.getAttribute("data-dotId");//结算网点id
-                aa.companyId = companyId;//企业id
-                aa.money = $(".dj_money").eq(idx).val();//代金券金额
-                aa.driverId = $(".order_info_ul2 li.active").attr("id");//司机id  
-                aa.attr1 = $(".order_info_ul2 li.active").attr("data-tLogisticsOrderId");//订单主键
-                settlementCardList.push(aa);
+                if(item.innerHTML!= '请选择'){
+                    aa.couponId = item.getAttribute("data-couponId");//代金券id
+                    aa.dotId = item.getAttribute("data-dotId");//结算网点id
+                    aa.companyId = companyId;//企业id
+                    aa.money = $(".dj_money").eq(idx).val();//代金券金额
+                    aa.driverId = $(".order_info_ul2 li.active").attr("id");//司机id  
+                    aa.attr1 = $(".order_info_ul2 li.active").attr("data-tLogisticsOrderId");//订单主键
+                    settlementCardList.push(aa);
+                }
             })
             var settlementCardListstr=JSON.stringify(settlementCardList);
             //console.log(settlementCardListstr,"33333333333333333333333333333");
