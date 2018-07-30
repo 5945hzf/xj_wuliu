@@ -143,9 +143,10 @@
                                                     </div>
                                                     <div style="margin-top: 25px; margin-bottom: 20px;" class="clearfix">
                                                         <span style="float: left; text-align: right;">发货磅单：</span>
-                                                        <div style="position: relative; height: 130px;width: 130px; margin-left: 5px; border: 1px solid #dbdbdc; float: left;">
+                                                        <div class="upload_div" style="position: relative; height: 130px;width: 130px; margin-left: 5px; border: 1px solid #dbdbdc; float: left;">
                                                         </div>
-                                                        <div style="position: relative; display: inline-block;margin-top: 114px; margin-left: 10px; cursor: pointer;"><input type="file"><span style="color: #6ea3ff;">上传</span></div>
+                                                        <div style="position: relative; display: inline-block;margin-top: 114px; margin-left: 10px; cursor: pointer;"><input type="file" id="upload_btn2"><span style="color: #6ea3ff;">上传</span></div>
+                                                        <input type="hidden" value="">
                                                     </div>
                                                 </div>
                                                 <div class="" style="width: 666px; margin: 0 auto;">
@@ -166,9 +167,10 @@
                                                  
                                                     <div style="margin-top: 25px; margin-bottom: 20px;" class="clearfix">
                                                         <span style="float: left; text-align: right;">收货磅单：</span>
-                                                        <div style="position: relative; height: 130px;width: 130px; margin-left: 5px; border: 1px solid #dbdbdc; float: left;">
+                                                        <div class="upload_div" style="position: relative; height: 130px;width: 130px; margin-left: 5px; border: 1px solid #dbdbdc; float: left;">
                                                         </div>
-                                                        <div style="position: relative; display: inline-block;margin-top: 114px; margin-left: 10px; cursor: pointer;"><input type="file"><span style="color: #6ea3ff;">上传</span></div>
+                                                        <div style="position: relative; display: inline-block;margin-top: 114px; margin-left: 10px; cursor: pointer;"><input type="file" id="upload_btn1"><span style="color: #6ea3ff;">上传</span></div>
+                                                        <input type="hidden" value="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -188,26 +190,26 @@
                                             <ul class="js_type">
                                                 <!-- 现结 -->
                                                 <li class="xj_mylist xj_mylist1 thisShow">
-                                                    <div class="js_allmoney"><span>结算金额:</span><input type="text" class="all_jsje"></div>
+                                                    <div class="js_allmoney"><span>结算金额：</span><input type="text" class="all_jsje"></div>
                                                     <div class="add_djq">
-                                                        <div><span>现&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金:</span><input type="text" class="xianjin jiajia" data-types="1"></div>
+                                                        <div><span>现&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金：</span><input type="text" class="xianjin jiajia" data-types="1"></div>
                                                         <ul class="daijinquan_type" data-types="1">
                                                             <!-- 券的种类 -->
                                                         </ul>
                                                     </div>
-                                                    <div class="sjjs_allmoney"><span>实际现结:</span><input type="text"></div>
+                                                    <div class="sjjs_allmoney"><span>实际现结：</span><input type="text"></div>
                                                 </li>
                                                 <!-- 工资 -->
                                                 <li class="gz_mylist xj_mylist2" style="display: none;">
-                                                    <div class="js_allmoney"><span>结算金额:</span><input class="all_jsje" type="text"></div>
+                                                    <div class="js_allmoney"><span>结算金额：</span><input class="all_jsje" type="text"></div>
                                                     <div class="add_djq">
-                                                        <div><span>提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成:</span><input type="text" class="ticheng jiajia" data-types="2"></div>
-                                                        <div style="margin-top: 20px;"><span>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资:</span><input type="text" class="gongzi jiajia" data-types="2"></div>
+                                                        <div><span>提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成：</span><input type="text" class="ticheng jiajia" data-types="2"></div>
+                                                        <div style="margin-top: 20px;"><span>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资：</span><input type="text" class="gongzi jiajia" data-types="2"></div>
                                                         <ul class="daijinquan_type" data-types="2">
                                                             <!-- 券的种类 -->
                                                         </ul>
                                                     </div>
-                                                    <div class="sjjs_allmoney"><span>实际工资:</span><input type="text"></div>
+                                                    <div class="sjjs_allmoney"><span>实际工资：</span><input type="text"></div>
                                                 </li>
                                             </ul>
                                             <div class="qr_clxx"><span>确认此车辆信息</span></div>
@@ -247,6 +249,49 @@
                 startTime = dates;
             }
         });
+
+        // 上传图片
+        $(document).on('change','#upload_btn1,#upload_btn2',function(){
+            xmTanUploadImg11(this);
+        })
+        
+        function xmTanUploadImg11(obj) {
+            var file = obj.files[0];
+            if (file.size >= 2097152) {
+                alert('上传的图片超过了2MB');
+                return;
+            }
+    
+            var formdata=new FormData();
+    
+            formdata.append('file', file);
+            
+            $.ajax({
+                url: uplodImgPath,
+                type: 'post',
+                processData: false,  // 告诉jQuery不要去处理发送的数据
+                contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+                data: formdata,
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    //console.log(data);
+                    $(obj).parent().parent().find('.upload_div').css({
+                            'background':'url('+data.url+') no-repeat',
+                            'background-position':'center',
+                            'background-size':'contain',
+                            'background-color':'#f6f6f6'
+                    });
+                    $(obj).parent().parent().find('input[type="hidden"]').val(data.url);
+                    // $(obj).parent().parent().next().css('display', 'none');
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+    
+        }
+
         //税率
         var ggsl = 0.2;
         //获取订单id
@@ -416,7 +461,7 @@
                         str += '<div class="clearfix">'
                         str += '<div class="fl" style="margin-top: 15px; line-height: 40px;">'
                         str += '<span style="color: #666666; width: 156px; text-align: right;display: inline-block;">'
-                        str += '<span class="quan_names">'+item.name+':</span>'
+                        str += '<span class="quan_names">'+item.name+'：</span>'
                         str += '￥<span class="quan_moneys" style="color: #333; font-size: 18px;" data-yfje="'+item.money+'">'+item.money+'</span>'
                         str += '</span>'
                         str += '</div>'
@@ -709,7 +754,7 @@
                     str5+='<li class="dj_thislist">'
                     str5+='<div class="lf lfdj_select">'
                     str5+='<span>代&nbsp;&nbsp;金&nbsp; 券：</span>'
-                    str5+='<div class="goodsType input select myselect2" style="float: none;margin: 0" data-selectedindex="-1"><span class="all_djq">请选择</span><img src="../img/prl-select.jpg" >'
+                    str5+='<div class="goodsType input select myselect2" style="float: none;margin-top: 0px; margin-right: 0px; margin-left: 8px;" data-selectedindex="-1"><span class="all_djq">请选择</span><img src="../img/prl-select.jpg" >'
                     str5+='<ul style="top: 35px;">'+str4+'</ul>'
                     str5+='</div>'
                     str5+='</div>'
