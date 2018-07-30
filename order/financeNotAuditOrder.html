@@ -196,6 +196,37 @@
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
     <script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
     <script type="text/javascript">
+        //修改订单状态  暂时
+        function updateStates(that){
+            $.ajax({
+                url: pubIP + 'order/upOrderStatus',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    status:9,
+                    tLogisticsOrderId:$(that).parents("tr").attr("data-id"),
+                    tLogisticsOrderstatus:8,
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log(json);
+
+                    if (json.code == 1) {
+                        alert(json.msg)
+                        window.location.reload();
+                    }
+
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        }
+
         //Iframe 的高度
         $(function () {
             window.parent.$("#Iframe").css("height","977");
@@ -314,7 +345,12 @@
                 str+='<td>'+item.sendProvince+'-'+item.sendCity+'</td>';
                 str+='<td>'+item.receiveProvince+'-'+item.receiveCity+'</td>';
                 str+='<td>'+item.tlosettlementAmount+'</td>';
-                str+='<td><span class="btn seeDetail">查看订单</span></td>';
+                if(item.tLogisticsOrderstatus==8){
+                    str+='<td><span class="btn seeDetail">查看订单</span><span onclick="updateStates(this)">修改状态</span></td>';
+                }else{
+                    str+='<td><span class="btn seeDetail">查看订单</span></td>';
+                }
+
                 str+='</tr>';
             })
             $(".listBox tbody").html(str);

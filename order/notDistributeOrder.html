@@ -235,7 +235,7 @@
             <td><%=list[i].goodsNum%><%=list[i].goodsUnit%></td>
             <td><%=list[i].unitPrice%></td>
             <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看详情</span><span class="btn ll" onclick="fenPei('<%=list[i].tloId%>')">分配车辆</span><span class="btn cancel_order" data-tloId="<%=list[i].tloId%>">取消订单</span>
-                <span class="btn update" style="margin-left: 12px;" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-sendCompanyId="<%=list[i].sendCompanyId%>" data-sendCompanyName="<%=list[i].sendCompanyName%>" data-receiveCompanyId="<%=list[i].receiveCompanyId%>" data-receiveCompanyName="<%=list[i].receiveCompanyName%>">上传合同</span></td>
+                <span class="btn update" style="margin-left: 12px;" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-sendCompanyId="<%=list[i].sendCompanyId%>" data-sendCompanyName="<%=list[i].sendCompanyName%>" data-receiveCompanyId="<%=list[i].receiveCompanyId%>" data-receiveCompanyName="<%=list[i].receiveCompanyName%>">上传合同</span><span class="btn ll diaoling" style="margin-left: 10px;" data-tloContractAmount="<%=list[i].unitPrice%>" data-orderId="<%=list[i].tloId%>" data-companyname="<%=list[i].companyName%>" data-quotesSatus="<%=list[i].goodsType%>">发起调令</span></td>
         </tr>
         <%}%>
     </script>
@@ -275,6 +275,72 @@
         // });
 
 
+        // 发起调令
+        $(document).on('click', '.diaoling', function() {
+            console.log($(this).attr('data-tloContractAmount'));
+            $(window.parent.document).find('.ok_shenqing').attr('data-orderid', $(this).attr('data-orderId'));
+            $(window.parent.document).find('.hetongyuanjia').text($(this).attr('data-tloContractAmount'));
+            $(window.parent.document).find('.ok_shenqing').attr('data-companyname', $(this).attr('data-companyname'));
+            $(window.parent.document).find('.ok_shenqing').attr('data-quotesSatus', $(this).attr('data-quotesSatus'));
+
+
+            window.parent.showModelBox('.modelBox37');
+
+
+        });
+
+        $(window.parent.document).on('click', '.modelBox37 .ok_shenqing', function() {
+
+            var orderid = $(this).attr('data-orderid');
+            var companyname = $(this).attr('data-companyname');
+
+            var quotesSatus = $(this).attr('data-quotesSatus');
+
+            var oldPrice = $(window.parent.document).find('.hetongyuanjia').text();
+            var quotedPrice = $(window.parent.document).find('.update_unit').val();
+            var remark = $(window.parent.document).find('.tiaojia_yuanyin').val();
+
+            $.ajax({
+                url: pubIP + 'OrderPricesChanged/addPricesChanged',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    orderid: orderid,
+                    companyid: companyId,
+                    companyname: companyname,
+                    quotesSatus: quotesSatus,
+                    oldPrice: oldPrice,
+                    quotedPrice: quotedPrice,
+                    remark: remark
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log(json);
+                    if (json.code == 1) {
+                        $(window.parent.document).find('.modelBox37').css('display', 'none');
+                        $('.update_unit').val('');
+                        $('.tiaojia_yuanyin').val();
+                        window.parent.showModelBox('.modelBoxdiaoling');
+
+                        window.parent.$("#sureDiaoLingOver").click(function () {
+                            window.location.reload();
+                        })
+                    }
+
+
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+
+            });
+
+        });
+
         //上传合同
         $(document).on('click', '.update', function() {
             $(".update").removeClass("thisUpdate");
@@ -312,7 +378,7 @@
                         $(window.parent.document).find('.modelBox1').css('display', 'none');
                         $(window.parent.document).find('.modelBoxaddqita p span').html('合同上传成功！');
                         window.parent.showModelBox('.modelBoxaddqita');
-
+                        window.location.reload();
                     }
 
                 },

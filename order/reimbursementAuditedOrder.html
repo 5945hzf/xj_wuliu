@@ -231,11 +231,17 @@
             <td><%=list[i].sendAddress%></td>
             <td><%=list[i].receiveAddress%></td>
             <td></td>
-            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看订单</span><span class="btn huikuan_shenhe" data-tloContractAmount="<%=list[i].tloContractAmount%>" data-tlosettlementAmount="<%=list[i].tlosettlementAmount%>" data-tloId="<%=list[i].tloId%>">回款审核</span></td>
+            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看订单</span>
+                <span class="btn huikuan_shenhe" data-tloContractAmount="<%=list[i].tloContractAmount%>" data-tlosettlementAmount="<%=list[i].tlosettlementAmount%>" data-tloId="<%=list[i].tloId%>">回款审核</span>
+
+            </td>
         </tr>
         <%}%>
     </script>
     <script type="text/javascript">
+
+
+
         //Iframe 的高度
         $(function () {
             window.parent.$("#Iframe").css("height","977");
