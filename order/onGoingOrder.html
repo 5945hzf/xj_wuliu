@@ -230,7 +230,11 @@
             <td><%=list[i].sendAddress%></td>
             <td><%=list[i].receiveAddress%></td>
             <td><%=list[i].carType%></td>
-            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看订单</span><span class="btn sure" data-tloId="<%=list[i].tloId%>">确认送达</span><span class="btn updata" onclick="fenPei('<%=list[i].tloId%>')">更改车辆</span><span class="btn cancel cancel_order" data-tloId="<%=list[i].tloId%>">取消订单</span></td>
+            <td><span class="see seeDetail ll" data-tloId="<%=list[i].tloId%>" data-orderNo="<%=list[i].orderNo%>" data-companyId="<%=list[i].companyId%>">查看订单</span>
+                <span class="btn sure" data-tloId="<%=list[i].tloId%>">确认送达</span>
+                <span class="btn updata" onclick="fenPei('<%=list[i].tloId%>')">更改车辆</span>
+                <!--<span class="btn cancel cancel_order" data-tloId="<%=list[i].tloId%>">取消订单</span>-->
+            </td>
         </tr>
         <%}%>
     </script>
@@ -277,6 +281,7 @@
             var tloId = $(this).attr('data-tloId');
             sessionStorage.setItem("qrsd_tloId",tloId);
             window.parent.showModelBox('.modelBox18_ifrm');
+            window.parent.$("#suerSongda").attr("src","order/querensongda.html");
             // // 详情信息
             // $.ajax({
             //     url: pubIP + 'order/getOrderByid',

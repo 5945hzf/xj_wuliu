@@ -2098,7 +2098,7 @@
 
 <!-- 确认送达 -->
 <div class="modelBox18_ifrm">
-    <iframe src="order/querensongda.html" frameborder="0" style="width: 1070px;height: 625px;"></iframe>
+    <iframe id="suerSongda" src="##" frameborder="0" style="width: 1070px;height: 625px;"></iframe>
 </div>
 
 
@@ -2970,6 +2970,7 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
     //关闭按钮
     $("#fenpeiClose").click(function () {
         carCardReset();
+        $("#car_info").html("")
     })
     //获取车辆列表数据
     function getData(currentPage) {
@@ -3581,6 +3582,7 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
                 if (res.code==1){
                     alert("分配车辆成功");
                     carCardReset()
+                    $("#car_info").html("")
                     $(".modelBox17").hide();
                 }else if(res.code==401){
 
