@@ -596,7 +596,7 @@
                     qualificationNum1: zizhi_num,
                     qualificationDataBegin1: starttime,
                     qualificationDataExpire1: endtime,
-                    imgs: img,
+                    imgs1: img,
                     qualificationType1: 1
                 },
                 cache: false,
@@ -636,7 +636,7 @@
                     qualificationNum1: zizhi_num,
                     qualificationDataBegin1: starttime,
                     qualificationDataExpire1: endtime,
-                    imgs: img,
+                    imgs1: img,
                     classType: str2,
                     operationLimit1: str3,
                     qualificationType1: 1
@@ -685,6 +685,15 @@
                 data.data[0].qualificationDataBegin = new Date(data.data[0].qualificationDataBegin).Format("yyyy-MM-dd");
                 data.data[0].qualificationDataExpire = new Date(data.data[0].qualificationDataExpire).Format("yyyy-MM-dd");
                 
+                $('#yingye_zhizhao_pic').parent().css({
+                    'background':'url('+data.data[0].picInfos[0].picUrl+') no-repeat',
+                    'background-position':'center',
+                    'background-size':'contain',
+                    'background-color':'#f6f6f6'
+                });
+
+                $('#yingye_zhizhao_hidden').val(data.data[0].picInfos[0].picUrl);
+                $('#yingye_zhizhao_hidden').attr('data-picids', data.data[0].picInfos[0].ids);
 
                 $('.zizhi_num').val(data.data[0].qualificationNum);
 
@@ -741,7 +750,7 @@
         var starttime = $('#test1').val();
         var endtime = $('#test2').val();
 
-        var img = $('#yingye_zhizhao_hidden').val();
+        var img = $('#yingye_zhizhao_hidden').attr('data-picids') + ',' + $('#yingye_zhizhao_hidden').val();
 
         var ids = $('.center1 ul').attr('data-ids');
 
@@ -760,7 +769,7 @@
                     qualificationNum1: zizhi_num,
                     qualificationDataBegin1: starttime,
                     qualificationDataExpire1: endtime,
-                    imgs: img,
+                    imgs1: img,
                     qualificationType1: 1,
                     qualificationId1: ids
                 },
@@ -801,7 +810,7 @@
                     qualificationNum1: zizhi_num,
                     qualificationDataBegin1: starttime,
                     qualificationDataExpire1: endtime,
-                    imgs: img,
+                    imgs1: img,
                     classType: str2,
                     operationLimit1: str3,
                     qualificationType1: 1,

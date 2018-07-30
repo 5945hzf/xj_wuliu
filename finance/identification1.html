@@ -66,6 +66,7 @@
                 ..................
             </li> -->
             <li>
+                <!-- <a href="./identification3.html"> -->
                 <a href="./identification3.html">
                     <!-- <div class="Lf lan">3</div> -->
                     发票信息
@@ -95,6 +96,14 @@
     <div style="font-size: 16px;color: #282828;margin-left: 20px;margin-top: 10px;">基本信息</div>
     <div class="center1">
         <ul>
+            <li>
+                <div class="left1 Lf"><i class="red">*</i>身份类型:</div>
+                <div class="right2 Lf">
+                    <input type="radio" name="code_type" checked="checked" value="00">供货商
+                    <input type="radio" name="code_type" value="4">运货商
+                </div>
+                <span class="ts"></span>
+            </li>
             <li>
                 <div class="left1 Lf"><i class="red">*</i>企业名称:</div>
                 <div class="right1 Lf"><input type="text" id="qiye_name" placeholder="请与营业执照一致，最长100字"></div>
@@ -191,12 +200,13 @@
                 <div class="right1 Lf"><input type="text" id="address"></div>
                 <span class="ts"></span>
             </li> -->
-            <li>
+            <li class="company_type">
                 <div class="left1 Lf"><i class="red">*</i>公司类型:</div>
                 <div class="right2 Lf" id="company_type">
-                    <input type="radio" name="type1" value="0">厂家
-                    <input type="radio" name="type1" value="1" checked="checked">贸易商
+                    <input type="radio" name="type1" value="0" checked="checked">厂家
+                    <input type="radio" name="type1" value="1">贸易商
                     <input type="radio" name="type1" value="2">终端
+                    <!-- <input type="radio"> -->
                 </div>
             </li>
             <li>
@@ -272,9 +282,20 @@
     $(function () {
         window.parent.$("#Iframe").css("height","1722");
     })
+
+    $(document).on('change', 'input[name="code_type"]', function() {
+        if ($('input[name="code_type"]:checked').val() == '00') {
+            $('.company_type').css('display', 'block');
+        } else {
+            $('.company_type').css('display', 'none');
+
+        }
+    });
+
+
     $(document).on('change','#yingye_zhizhao_pic,#saomiaojian_pic,#chajian_pic,#zhengjian_pic1,#zhengjian_pic2',function(){
-            xmTanUploadImg11(this);
-        })
+        xmTanUploadImg11(this);
+    })
 
 
         selectProvince('');
@@ -863,7 +884,12 @@
             var faren_name = $('#faren_name').val();
             var id_number = $('#id_number').val();
 
-            var radioIndex = $("input[name='type1']:checked").index();
+            if ($('input[name="code_type"]:checked').val() == '00') {
+                var radioIndex = $("input[name='type1']:checked").index();
+            } else {
+                var radioIndex = 4;
+            }
+            
 
             img_url1 = $('#yingye_zhizhao_hidden').val();
             img_url2 = $('#saomiaojian_hidden').val();
@@ -1159,7 +1185,16 @@
                         
                         
                         // $('#address').val(data.data.company.companyAddress2);
-                        $("input[name=type1][value="+data.data.company.companyType+"]").attr("checked",true);
+                        if (data.data.company.companyType == 4) {
+                            $('.company_type').css('display', 'none');
+                            $("input[name=code_type][value='4']").attr("checked",true);
+                        } else {
+                            $('.company_type').css('display', 'block');
+                            $("input[name=code_type][value='00']").attr("checked",true);
+                            
+                            $("input[name=type1][value="+data.data.company.companyType+"]").attr("checked",true);
+                        }
+                        
 
                         $('#faren_name').val(data.data.company.legalPerson);
                         $('#id_number').val(data.data.company.legalIdNumber);
@@ -1453,6 +1488,7 @@
         $('#province').attr('disabled', false);
         $('#city').attr('disabled', false);
         $('#area').attr('disabled', false);
+        $('input[name=code_type]').attr('disabled', false);
         $(this).addClass('yiRenZheng1');
         $(this).text('修改完成');
     })

@@ -398,6 +398,8 @@
 
                         $('.c'+i).append('<div class="btn edit_btn" style="width: 82px;height: 30px;line-height: 30px;margin: 45px 0 0 298px;">编辑</div>');
 
+                        $('.input_blur').attr('disabled', true);
+
                     }
                     $('.textarea').each(function(){
                         var that = this;
@@ -473,7 +475,7 @@
         function sousuoAjax(chemicalIds ,func) {
 
             $.ajax({
-                url: pub + 'productApi/getChemicalInfoById',
+                url: pubIP + 'productApi/getChemicalInfoById',
                 type: 'get',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -510,6 +512,8 @@
            $(this).parent().find(".btn1").show();
            $(this).parent().find(".start").attr('disabled', false).css("background-color","#fff");
            $(this).parent().find(".end").attr('disabled', false).css("background-color","#fff");
+
+           $('.input_blur').attr('disabled', false);
 
         });
 
@@ -773,7 +777,7 @@
         // }
 
         $.ajax({
-            url: pub + 'productApi/listChemicalLikeByName',
+            url: pubIP + 'productApi/listChemicalLikeByName',
             type: 'get',
             headers: {
                 Accept: "application/json; charset=utf-8",
