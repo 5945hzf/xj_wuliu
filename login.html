@@ -253,7 +253,7 @@
           	}
           	$.ajax({ 
 	          type:"post",
-	          url:"http://192.168.1.199:7777/service/userCarriers/login",//v1.0
+	          url:pubIP + "userCarriers/login",//v1.0
 	          cache:false,
 	          dataType: "json",
 	          data:{
@@ -269,11 +269,11 @@
                         //sessionStorage.setItem("token",json.data.token);//hzf  20180716
 	                	window.location.href = 'index.html';
 						window.localStorage.setItem('data-logout', 'false');
-						if (json.data.companyType == 1) { //未认证和供应商
-							window.location.href = "D:/wuliu-gys/xj_wuliu_gys/index.html";
-						} else if (json.data.companyType == 2) { //承运商
-							window.location.href = "index.html";
-						}
+						// if (json.data.companyType == 1) { //未认证和供应商
+							
+						// } else if (json.data.companyType == 2) { //承运商
+						// 	window.location.href = "index.html";
+						// }
 						$('#logout').show();
 	                }else{
 	                	//alert(json.msg)

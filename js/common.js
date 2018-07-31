@@ -210,10 +210,10 @@ if(token){
 							  rzType = '-1';
 							  break;
 							case 5:
-							  rzType = '-2';
+							  rzType = '2';
 							  break;
 							case 6:
-							  rzType = '-2';
+							  rzType = '2';
 							  break;
 							default:
 							  rzType = '-1';
