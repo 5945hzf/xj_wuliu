@@ -11,7 +11,9 @@
     <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
     <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
     <link rel="stylesheet" href="../css/setUp_departmentManage.css">
-
+	<style>
+		
+	</style>
 </head>
 <body>
 <!--部门管理-->
@@ -41,7 +43,7 @@
 					<li data-index="3">30</li>
 				</ul>
 			</div>
-    		<div style="width: 102px;">添加</div>
+    		<div style="width: 102px;" class="add_apartment">添加</div>
     	</div>
     	<div class="listBox">
 			<table class="contentslist" >
@@ -51,8 +53,8 @@
 					<th style="width: 123px;"></th>
 					<th>职能描述</th>
 					<th style="width: 40px;"></th>
-					<th>角色数量</th>
-					<th style="width:20px;"> </th>
+					<!-- <th>角色数量</th>
+					<th style="width:20px;"> </th> -->
 					<th>成员数量</th>
 					<th style="width: 20px;"></th>
 					<th>添加时间</th>
@@ -62,8 +64,8 @@
 					<th>操作</th>
 				</tr>
 				</thead>
-				<tbody>
-					<tr>
+				<tbody id="apartmentListInfo">
+					<!-- <tr>
 						<td>销售部</td>
 						<td></td>
 						<td>暂无描述</td>
@@ -98,7 +100,7 @@
 						</td>
 						<td></td>
 						<td><a href="" class="lookover" style="color:#6ba1ff;">编辑</a><a href="" class="delect" style="color: #6ba1ff;">删除</a></td>
-					</tr>
+					</tr> -->
 				</tbody>
 			</table>
 		</div>
@@ -106,10 +108,10 @@
 		<div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
 			<ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
 			<div class="pageJump">
-				<span class="allPageN">1/200</span>
-				<i style="margin-left: 12px;">共200页</i>，
+				<span class="allPageN">1/1</span>
+				<i style="margin-left: 12px;">共<span class="total">1</span>页</i>，
 				<span>到第</span>
-				<input type="text"/>
+				<input type="text" style="text-align: center;" />
 				<span>页</span>
 				<button type="button" class="button">GO</button>
 			</div>
@@ -121,7 +123,42 @@
 <script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/template.js"></script>
 
+<script type="text/html" id="apartmentListTpl">
+	<%for (i in list) {%>
+	<tr>
+		<td><%=list[i].ordName%></td>
+		<td></td>
+		<td>
+			<%if (list[i].describe != '') {%>
+			<%=list[i].describe%>
+			<%} else {%>
+			暂无描述
+			<%}%>
+		</td>
+		<td></td>
+		<!-- <td>10</td>
+		<td></td> -->
+		<td class=""><%=list[i].num%></td>
+		<td></td>
+		<td><%=list[i].addTime%></td>
+		<td></td>
+		<td class="chooseswitch">
+			<%if (list[i].obligate1 == '0') {%>
+			<input id="checked_" type="checkbox" class="switch" checked="" />
+			<label for="checked_"+i></label>
+			<%} else if (list[i].obligate1 == '1') {%>
+			<input id="checked_"+i type="checkbox" class="switch" />
+			<label for="checked_"+i></label>
+			<%}%>
+			
+		</td>
+		<td></td>
+		<td><a href="" class="lookover" style="color:#6ba1ff;">编辑</a><a href="" class="delect" style="color: #6ba1ff;">删除</a></td>
+	</tr>
+	<%}%>
+</script>
 
 <script type="text/javascript" >
     //Iframe 的高度
@@ -137,6 +174,173 @@
             console.log(n);
         }
     });
+
+
+    var isFirst = true;
+
+    var isSearch = 0;
+
+    apartment_list(1, '', 10);
+
+    // 部门列表
+    function apartment_list(num, sort, size) {
+        $('#apartmentListInfo').html('');
+        $.ajax({
+            url: pubIP + 'tLtDriverOrg/selectWLtDriverOrgList',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                companyId: companyId,
+                page: num,
+                size: size,
+                sort: sort
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+
+                if (json.code == 1) {
+                    if (json.data.length != 0) {
+                    	var str = '';
+                        for (var i = 0; i < json.data.length; i++) {
+                        
+                            json.data[i].addTime = new Date(json.data[i].addTime).Format("yyyy-MM-dd hh:mm");
+
+                            str += '<tr '+json.data[i].id+'>'
+									+'<td>'+json.data[i].ordName+'</td>'
+									+'<td></td>'
+									
+									if (json.data[i].describe != '') {
+										str += '<td>'+json.data[i].describe+'</td>'
+									} else {
+										str += '<td>'+暂无描述+'</td>'
+									}
+									
+									str += '<td></td>'
+									+'<td class="">'+json.data[i].num+'</td>'
+									+'<td></td>'
+									+'<td>'+json.data[i].addTime+'</td>'
+									+'<td></td>'
+									+'<td class="chooseswitch">'
+									if (json.data[i].obligate1 == '0') {
+										str+='<input id="checked_'+i+'" type="checkbox" class="switch" checked="" />'
+										+'<label for="checked_'+i+'"></label>'
+									} else if (json.data[i].obligate1 == '1') {
+										str+=+'<input id="checked_'+i+'" type="checkbox" class="switch" />'
+										+'<label for="checked_'+i+'"></label>'
+									}
+										
+									str += '</td>'
+									+'<td></td>'
+									+'<td><a href="" class="lookover" style="color:#6ba1ff;">编辑</a><a href="" class="delect" style="color: #6ba1ff;">删除</a></td>'
+								+'</tr>'
+                        }
+						
+                        $('#apartmentListInfo').html(str);
+
+                        // var result = template('apartmentListTpl', {list: json.data});
+                        // $('#apartmentListInfo').html(result);
+
+                       
+                        if (isSearch == 1) {
+                            // if (isFirst) {
+
+                                Page({
+                                    num: json.totalPage,
+                                    elem: $('#page1'),
+                                    callback: function(n) {
+                                        apartment_list(n, sort, size);
+                                    }
+                                });
+                                
+                                $('.total').text(json.totalPage);
+                                isFirst = false;
+
+                            // }
+
+                            $('.allPageN').text(num+1+'/'+json.totalPage);
+                        }
+
+                        isSearch = 0;
+
+                        if (isFirst) {
+
+                            Page({
+                                num: json.totalPage,
+                                elem: $('#page1'),
+                                callback: function(n) {
+                                    apartment_list(n, sort, size);
+                                }
+                            });
+                            
+                            $('.total').text(json.totalPage);
+
+                            isFirst = false;
+                        }
+
+                        $('.allPageN').text(num+'/'+json.totalPage);
+                    } else {
+                        $('.pageJump').css('display', 'none');    
+                    }
+                } else {
+                    $('.pageJump').css('display', 'none');
+                }
+
+            },
+            error: function (err) {
+                console.log(err);
+            }
+
+        });
+    }
+
+    // 新增部门
+    $(document).on('click', '.add_apartment', function() {
+
+    	window.parent.showModelBox('.modelBox35');
+
+    });
+
+    // 添加部门
+    $(window.parent.document).on('click', '.model35_ok_btn', function() {
+
+    	var apartment_name = $(window.parent.document).find('.apartment_name').val();
+    	var zhineng_descript = $(window.parent.document).find('.zhineng_descript').val();
+
+    	$.ajax({
+            url: pubIP + 'tLtDriverOrg/updateDriverOrg',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                ordName: apartment_name,
+                describe: zhineng_descript
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+                if (json.code == 1) {
+                	$(window.parent.document).find('.innerSuccmsg').html('<span>添加成功！</span>');
+                	window.parent.showModelBox('.all_error_alert');
+                }
+            },
+            error: function(err){
+            	console.log(err);
+            }
+        });
+    });
+    
+    $(window.parent.document).on('click', '.all_error_alert .modelbtn', function() {
+    	window.location.reload();
+    });
+
 </script>
 </body>
 </html>
