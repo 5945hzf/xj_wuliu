@@ -38,7 +38,7 @@
     			<img src="../img/yh_refresh2.png"/>
     			<span class="">刷新</span>
     		</div>
-			<div class="add">新增扣车款</div>
+			<div class="add" id="addDeductMoney">新增扣车款</div>
     	</div>
     	<!--<div class="record">-->
     		<!--<div>数据列表</div>-->
@@ -197,6 +197,40 @@
     $('.pageCont').on('click', '.button',function(){
         var currentPage = $('.pageCont li.active>a').text();
         getData(currentPage);
+    })
+//	新增扣款项
+	$("#addDeductMoney").click(function () {
+		window.parent.$(".modelBox8").show();
+    })
+	//新增扣款项确定按钮
+    window.parent.$("#sureAddDeductMoney").click(function () {
+        $.ajax({
+            url: pubIP + 'buckle/getDeductMoneyList', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data:{
+                companyId:"9041805231046330013",
+//              	orderId:$(".sort").attr("data-selectedindex"),
+//                status:,
+            },
+            success: function (res) {
+                if(res.code===1){
+                    //首次请求时 改变分页数据
+
+                }else{
+                    alert(res.msg);
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
     })
 </script>
 </body>

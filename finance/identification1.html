@@ -99,8 +99,8 @@
             <li>
                 <div class="left1 Lf"><i class="red">*</i>身份类型:</div>
                 <div class="right2 Lf">
-                    <input type="radio" name="code_type" checked="checked" value="00">供货商
-                    <input type="radio" name="code_type" value="4">运货商
+                    <input type="radio" name="code_type" checked="checked" value="00">供应商
+                    <input type="radio" name="code_type" value="4">承运商
                 </div>
                 <span class="ts"></span>
             </li>
@@ -709,9 +709,15 @@
                         $('#province').attr('disabled', true);
                         $('#city').attr('disabled', true);
                         $('#area').attr('disabled', true);
+                        
+                        if (sessionStorage.getItem('isfirstclickqiye') != '1') {
+                            $(window.parent.document).find('.modelBox6 .info p span').html('企业基本信息审核中');
+                            window.parent.tan6();
+                        } else {
+                            sessionStorage.setItem('isfirstclickqiye', '0')
+                        }
 
-                        $(window.parent.document).find('.modelBox6 .info p span').html('企业基本信息审核中');
-                        window.parent.tan6();
+                        
 
                     } else if (data.data.type == 3) {  //已认证
                         $(".weiRenZheng").addClass('xiaoshi');
