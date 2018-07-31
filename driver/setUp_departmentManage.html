@@ -300,7 +300,8 @@
 
     // 新增部门
     $(document).on('click', '.add_apartment', function() {
-
+    	$(window.parent.document).find('.apartment_name').val('')
+    	$(window.parent.document).find('.zhineng_descript').val('')
     	window.parent.showModelBox('.modelBox35');
 
     });
@@ -310,7 +311,8 @@
 
     	var apartment_name = $(window.parent.document).find('.apartment_name').val();
     	var zhineng_descript = $(window.parent.document).find('.zhineng_descript').val();
-
+    	// console.log(apartment_name);
+    	// console.log(zhineng_descript);
     	$.ajax({
             url: pubIP + 'tLtDriverOrg/updateDriverOrg',
             type: 'post',
@@ -327,8 +329,9 @@
             success: function (json) {
                 console.log(json);
                 if (json.code == 1) {
+                	$(window.parent.document).find('.modelBox35').hide();
                 	$(window.parent.document).find('.innerSuccmsg').html('<span>添加成功！</span>');
-                	window.parent.showModelBox('.all_error_alert');
+                	window.parent.showModelBox('.all_success_alert');
                 }
             },
             error: function(err){
@@ -337,7 +340,8 @@
         });
     });
     
-    $(window.parent.document).on('click', '.all_error_alert .modelbtn', function() {
+    $(window.parent.document).on('click', '.all_success_alert .modelbtn.confirm', function() {
+    	console.log('...');
     	window.location.reload();
     });
 
