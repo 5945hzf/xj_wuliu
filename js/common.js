@@ -1,6 +1,6 @@
 
 //var pubIP = 'http://192.168.1.76:7777/service/';
-var pubIP = 'http://192.168.1.197:7777/service/';
+var pubIP = 'http://192.168.1.199:7777/service/';
 // var pubIP = 'http://wl.api.xjv56.com/service/';
 
 
@@ -210,10 +210,10 @@ if(token){
 							  rzType = '-1';
 							  break;
 							case 5:
-							  rzType = '-2';
+							  rzType = '2';
 							  break;
 							case 6:
-							  rzType = '-2';
+							  rzType = '2';
 							  break;
 							default:
 							  rzType = '-1';
