@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="./css/account.css"/>
     <style>
 
-        .modelBoxshenhezhong, .modelBoxyijujue, .modelBoxqiyesecond, .modelBoxchujinsecond, .modelBoxaddsuccess, .modelBoxaddteshu, .modelBoxaddqita, .modelBoxtiao_tan, .modelBoxupdate_chujin, .modelBoxupdate_qiye, .modelBoxupdate_runPerson, .modelBoxupdate_runFapiao, .modelBoxupdate_runcaiwu, .modelBoxdelzizhi, .modelBoxzihzishenhe, .modelBoxweipass, .modelBoxjujue_teshu, .modelBox0, .modelBoxweixian, .modelBoxweirenzheng, .modelBoxdengdai {
+        .modelBoxshenhezhong, .modelBoxyijujue, .modelBoxqiyesecond, .modelBoxchujinsecond, .modelBoxaddsuccess, .modelBoxaddteshu, .modelBoxaddqita, .modelBoxtiao_tan, .modelBoxupdate_chujin, .modelBoxupdate_qiye, .modelBoxupdate_runPerson, .modelBoxupdate_runFapiao, .modelBoxupdate_runcaiwu, .modelBoxdelzizhi, .modelBoxzihzishenhe, .modelBoxweipass, .modelBoxjujue_teshu, .modelBox0, .modelBoxweixian, .modelBoxweirenzheng, .modelBoxdengdai, .no_zizhi {
             z-index: 9999;
             display: none;
             position: fixed;
@@ -24,7 +24,7 @@
             background-color: rgba(0, 0, 0, 0.5);
         }
 
-        .modelBoxdiaoling p, .modelBoxshenhezhong p, .modelBoxyijujue p, .modelBoxqiyesecond p, .modelBoxchujinsecond p, .modelBoxaddsuccess p, .modelBoxaddteshu p, .modelBoxaddqita p, .modelBoxtiao_tan p, .modelBoxupdate_chujin p, .modelBoxupdate_qiye p, .modelBoxupdate_runPerson p, .modelBoxupdate_runFapiao p, .modelBoxupdate_runcaiwu p, .modelBoxdelzizhi p, .modelBoxzihzishenhe p, .modelBoxweipass p, .modelBoxjujue_teshu p, .modelBox0 p, .modelBoxweixian p, .modelBoxweirenzheng p, .modelBoxdengdai p {
+        .modelBoxdiaoling p, .modelBoxshenhezhong p, .modelBoxyijujue p, .modelBoxqiyesecond p, .modelBoxchujinsecond p, .modelBoxaddsuccess p, .modelBoxaddteshu p, .modelBoxaddqita p, .modelBoxtiao_tan p, .modelBoxupdate_chujin p, .modelBoxupdate_qiye p, .modelBoxupdate_runPerson p, .modelBoxupdate_runFapiao p, .modelBoxupdate_runcaiwu p, .modelBoxdelzizhi p, .modelBoxzihzishenhe p, .modelBoxweipass p, .modelBoxjujue_teshu p, .modelBox0 p, .modelBoxweixian p, .modelBoxweirenzheng p, .modelBoxdengdai p, .no_zizhi p {
             text-align: center;
 
         }
@@ -566,17 +566,17 @@
                     <li><a href="##" class="manageItem"  data-src="./systemIndex/information.html"  data-height="1600">企业信息设置</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="yrz">
                 <a href="##" class="manage"><strong>用户中心</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
                 <ul class="manageList2">
                     <li><a href="##" class="manageItem"  data-src="./systemIndex/grow.html"  data-height="1600">个人资料</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="wrz">
                 <a href="##" class="manage"><strong>企业资质</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="./img/cf_close.png" alt=""></div></a>
                 <ul class="manageList2">
                     <li><a href="##" class="manageItem qiye_renzheng"  data-src="./finance/identification1.html"  data-height="1600">企业认证</a></li>
-                    <li><a href="##" class="manageItem"  data-src="./finance/Special1.html"  data-height="1600">资质认证</a></li>
+                    <li><a href="##" class="manageItem zizhi"  data-src="./finance/Special1.html"  data-height="1600">资质认证</a></li>
                 </ul>
             </li>
         </ul>
@@ -2121,7 +2121,24 @@
 </div>
 
 
-
+<!-- 未通过企业认证 -->
+<div class="no_zizhi">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><span class="clearfix"><img style="float: none;" src="./img/cf_denger1.png" alt=""></span></div>
+                <p><span>未通过企业认证！</span></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn cfClose back">返回</div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <div class="modelBoxweixian">
@@ -2693,7 +2710,11 @@
         //$(".manageList").css("display","none");
         //$(idx).css("display","block");
         if(idx==".cfidx1"){//首页
-            sessionStorage.setItem("cfsrc","./systemIndex/mine.html");
+            if (localStorage.getItem('isOld') == 1 || localStorage.getItem('isOld') == -2) {
+                sessionStorage.setItem("cfsrc","./finance/identification1.html");
+            }else {
+                sessionStorage.setItem("cfsrc","./systemIndex/mine.html");
+            }
         }else if(idx==".cfidx2"){//需求
             sessionStorage.setItem("cfsrc","./need/toOffer.html");
         }else if(idx==".cfidx3"){//多订单
@@ -2772,6 +2793,17 @@
         return temp
     }
 
+    //未认证，不能进入资质认证
+    $(document).on('click', '.zizhi', function() {
+        if(localStorage.getItem('isOld') == -1 || localStorage.getItem('isOld') == -2){
+            // $('#Iframe').attr('src', './personal/identification1.html');
+            showModelBox('.no_zizhi');
+            $('.qiye_renzheng').click();
+            sessionStorage.setItem('isfirstclickqiye', '1');
+        }
+    });
+
+    
     // var state=1;//未认证
     $(function () {
         if(localStorage.getItem('isOld') == -1 || localStorage.getItem('isOld') == -2){
@@ -2782,6 +2814,7 @@
                     $(this).find('img').eq(0).attr('src',"./img/cf_close.png");
                 }
             })
+            $('.cfnav1').click();
         }else{
             $('.yrz').css('display', 'block');
             $(".weiRenZheng").addClass('xiaoshi');
