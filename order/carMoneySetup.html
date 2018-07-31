@@ -204,8 +204,14 @@
     })
 	//新增扣款项确定按钮
     window.parent.$("#sureAddDeductMoney").click(function () {
+        var url1="";
+        if(1){//新增
+            url1="buckle/addDeductMoney";
+		}else{
+            url1="buckle/upDeductMoney";
+		}
         $.ajax({
-            url: pubIP + 'buckle/getDeductMoneyList', /*v1.0*/
+            url: pubIP + url1, /*v1.0*/
             type: 'post',
             headers: {
                 Accept: "application/json; charset=utf-8",
@@ -216,12 +222,12 @@
             dataType: 'json',
             data:{
                 companyId:"9041805231046330013",
-//              	orderId:$(".sort").attr("data-selectedindex"),
-//                status:,
+                name:$("#deductMoneyName").val(),
+                remark:$("#deductMoneyRemark").text(),
+				id:$(".modelBox8").attr("data-id")
             },
             success: function (res) {
                 if(res.code===1){
-                    //首次请求时 改变分页数据
 
                 }else{
                     alert(res.msg);
