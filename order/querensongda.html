@@ -259,7 +259,8 @@
         function xmTanUploadImg11(obj) {
             var file = obj.files[0];
             if (file.size >= 2097152) {
-                alert('上传的图片超过了2MB');
+                window.parent.$(".all_error_alert").show();
+                window.parent.$(".all_error_alert").find(".innerErrmsg").html("上传的图片超过了2MB");
                 return;
             }
     
@@ -400,7 +401,8 @@
                 console.log(json);
                 if (json.code == 1) {
                     if(json.data.length==0){
-                        alert("暂无车辆");
+                        window.parent.$(".all_error_alert").show();
+                        window.parent.$(".all_error_alert").find(".innerErrmsg").html("暂无车辆");
                     }
                     var str = '';
                     for (var i = 0; i < json.data.length; i++) {
@@ -797,9 +799,11 @@
                             kkallback_money += Number($(this).val());
                         });
                         if(jiajia+kkallback_money>jiesuanAll){
-                            alert("实际金额不能大于结算金额");
-                            $(".qr_clxx span").css("background","#666");
-                            $(".btn_queren").css("background","#666");
+                            window.parent.$(".all_error_alert").show();
+                            window.parent.$(".all_error_alert").find(".innerErrmsg").html("实际金额不能大于结算金额");
+                            // $(".qr_clxx span").css("background","#666");
+                            // $(".btn_queren").css("background","#666");
+                            $(this).val('');
                             $(".sjjs_allmoney input").val("");
                         }else{
                             $(".sjjs_allmoney input").val(jiajia+kkallback_money);
@@ -855,7 +859,7 @@
 
         //确认送达结算工资
 
-        $(".qr_clxx").on("click",function(){
+        $(".qr_clxx span").on("click",function(){
              //车辆对象
             var car = {};
             car.driverid = $(".order_info_ul2 li.active").attr("id");//司机id
@@ -937,16 +941,18 @@
                     tLogisticsOrderId: tloId,
                     tlvType: $(".order_info_ul2 li.active").attr("data-type"),
                     type: $(".order_info_ul2 li.active").attr("data-type"),
-                    car:carstr,
-                    deductMoneyList:deductMoneyListstr,
-                    settlementCardList:settlementCardListstr,
-                    cardList:cardListstr,
+                    car: carstr,
+                    deductMoneyList: deductMoneyListstr,
+                    settlementCardList: settlementCardListstr,
+                    cardList: cardListstr,
                 },
                 cache: false,
                 dataType: 'json',
                 success: function (data) {
                     console.log("++++++++++++------------------+++++++++++++++");
                     console.log(data);
+                    window.parent.$(".all_error_alert").show();
+                    window.parent.$(".all_error_alert").find(".innerErrmsg").html("上传的图片超过了2MB");
                 },
                 error: function(err) {
                     console.log(err);
