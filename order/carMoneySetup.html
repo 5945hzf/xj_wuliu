@@ -184,10 +184,16 @@
                 str+='<td class="chooseswitch"><input id="checked_'+idx+'" type="checkbox"  name="status" class="switch" /><label for="checked_'+idx+'"></label></td>';
             }
             str+='<td>'+idx+'</td>';
-            str+='<td data-id="'+item.id+'"><a class="lookover" style="color: #6ea3f4;">编辑</a><a class="delect" style="color: #6ea3f4;">删除</a></td>';
+            str+='<td data-id="'+item.id+'"><a class="lookover editDeductMoney" style="color: #6ea3f4;">编辑</a><a class="delect" style="color: #6ea3f4;">删除</a></td>';
             str+='</tr>';
         })
         $(".listBox tbody").html(str);
+        //	编辑扣款项
+        $(".editDeductMoney").click(function () {
+            debugger
+            window.parent.$(".modelBox8").show();
+            window.parent.$(".modelBox8").attr("data-id",$(this).parents("tr").attr("data-id"));
+        })
     }
     //选择排序方式
     $(".select ul li").click(function () {
@@ -201,11 +207,15 @@
 //	新增扣款项
 	$("#addDeductMoney").click(function () {
 		window.parent.$(".modelBox8").show();
+        window.parent.$(".modelBox8").attr("data-id","");
     })
+
 	//新增扣款项确定按钮
+//    window.parent.$(".sureAddDeductMoney").unbind();
     window.parent.$("#sureAddDeductMoney").click(function () {
+        debugger
         var url1="";
-        if(1){//新增
+        if(window.parent.$(".modelBox8").attr("data-id")==""){//新增
             url1="buckle/addDeductMoney";
 		}else{
             url1="buckle/upDeductMoney";
@@ -227,10 +237,11 @@
 				id:$(".modelBox8").attr("data-id")
             },
             success: function (res) {
+                debugger
                 if(res.code===1){
-
+					cf_alert("1","添加成功");
                 }else{
-                    alert(res.msg);
+                    cf_alert(0,res.msg);
                 }
             },
             error: function(err){
@@ -238,6 +249,8 @@
             }
         });
     })
+
+
 </script>
 </body>
 </html>
