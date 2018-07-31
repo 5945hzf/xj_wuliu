@@ -42,6 +42,7 @@
             color: #949495;
             font-size: 14px;
             padding: 0 80px;
+            text-align: center;
         }
 
         .modelcontent p span {
@@ -1316,7 +1317,7 @@
 </div>
 
 <!-- 新增口车款 -->
-<div class="modelBox8" style="font-size: 14px;">
+<div class="modelBox8" style="font-size: 14px;" data-id="">
     <div class="modelCont" style="width: 650px;height: 555px;">
         <div class="modeltitle" style="width: 100%;">
             <span>新增扣车款</span>
@@ -1324,10 +1325,10 @@
         </div>
         <div class="modelcontent clearFloat" style="width: 598px; height: 448px; border: 1px solid #ebe9ea;padding: 15px 50px 0 0px; ">
             <div style="margin-top: 50px;color: #666666; font-size: 14px; line-height: 40px;"><span style="color: #282828;" class="span_width modelBox34LeftTitle fl">扣车款名称：&nbsp;</span>
-                <input type="text" placeholder="订单编号/项目名称" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; margin-left: 5px;">
+                <input type="text" id="deductMoneyName" placeholder="订单编号/项目名称" style="height: 36px;width: 190px;border: 1px solid #dbdbdc; margin-left: 5px;">
             </div>
             <div class="clearfix" style="margin-top: 25px;color: #666666;line-height: 40px; font-size: 14px;"><span class="span_width modelBox34LeftTitle fl" style="color: #282828;">描&nbsp;&nbsp;述：&nbsp;</span>
-                <textarea name="" id="" cols="50" rows="10" placeholder="请输入内容" style="width: 470px; text-indent: 10px; border: 1px solid #dbdbdc; overflow: hidden; float: left; margin-left: 5px;"></textarea>
+                <textarea name="" id="deductMoneyRemark" cols="50" rows="10" placeholder="请输入内容" style="width: 470px; text-indent: 10px; border: 1px solid #dbdbdc; overflow: hidden; float: left; margin-left: 5px;"></textarea>
             </div>
             <div class="clearFloat" style="text-align: center;margin-top: 29px;">
                 <span class=" cf_btn" id="sureAddDeductMoney" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确定新增</span>
@@ -2522,6 +2523,42 @@
             <div class="info">
                 <div class="img_div"><img style="float: none;" src="img/gsxq_success.gif" alt=""></div>
                 <p><span>金额确认成功！</span></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="all_error_alert">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/cf_denger1.png" alt=""></div>
+                <p class="innerErrmsg"></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="all_success_alert">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="img/gsxq_success.gif" alt=""></div>
+                <p class="innerSuccmsg"></p>
             </div>
             <div class="modelBtnBox">
                 <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
