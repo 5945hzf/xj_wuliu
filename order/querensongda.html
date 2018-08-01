@@ -220,10 +220,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="clearFloat" style="text-align: center;margin-top: 28px; margin-bottom: 50px;">
+                    <!-- <div class="clearFloat" style="text-align: center;margin-top: 28px; margin-bottom: 50px;">
                         <span class="cf_btn cancel cfClose quxiao" style="display: inline-block;" >取消</span>
                         <span class="cf_btn btn_queren" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认收货</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -383,71 +383,76 @@
         }
 
         //获取车辆信息
-        $.ajax({
-            url: pubIP + 'order/getCarUserListByOrderId',
-            type: 'get',
-            headers: {
-                Accept: "application/json; charset=utf-8",
-                token: token
-            },
-            data: {
-                orderId: tloId,
-                status: 0
-            },
-            cache: false,
-            dataType: 'json',
-            success: function (json) {
-                console.log("+++++++++++++++++++++++++++++");
-                console.log(json);
-                if (json.code == 1) {
-                    if(json.data.length==0){
-                        window.parent.$(".all_error_alert").show();
-                        window.parent.$(".all_error_alert").find(".innerErrmsg").html("暂无车辆");
-                    }
-                    var str = '';
-                    for (var i = 0; i < json.data.length; i++) {
-                        json.data[i].planStartDate = new Date(json.data[i].planStartDate).Format("yyyy-MM-dd hh:mm");
-                        json.data[i].planEndDate = new Date(json.data[i].planEndDate).Format("yyyy-MM-dd hh:mm");
+        huoqu_msg();
+        function huoqu_msg(){
+            $.ajax({
+                url: pubIP + 'order/getCarUserListByOrderId',
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    orderId: tloId,
+                    status: 0
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log("+++++++++++++++++++++++++++++");
+                    console.log(json);
+                    if (json.code == 1) {
+                        if(json.data.length==0){
+                            window.parent.$(".all_error_alert").show();
+                            window.parent.$(".all_error_alert").find(".innerErrmsg").html("该订单已全部结算完成，确认送达");
+                            window.parent.$(".modelBox18_ifrm").hide();
+                            window.parent.$("#suerSongda").attr("src","");
+                        }
+                        var str = '';
+                        for (var i = 0; i < json.data.length; i++) {
+                            json.data[i].planStartDate = new Date(json.data[i].planStartDate).Format("yyyy-MM-dd hh:mm");
+                            json.data[i].planEndDate = new Date(json.data[i].planEndDate).Format("yyyy-MM-dd hh:mm");
+                            
+                            if (json.data[i].tlvType == 0) {
+                                json.data[i].tlvType2 = '内部';
+                            } else if (json.data[i].tlvType == 1) {
+                                json.data[i].tlvType2 = '外部';
+                            }
+                            str += '<li data-carid="'+json.data[i].carid+'" data-ids="'+json.data[i].id+'" id="'+json.data[i].driverid+'" data-type="'+json.data[i].tlvType+'" data-tLogisticsOrderId="'+json.data[i].tLogisticsOrderId+'">'+json.data[i].carNo+'（'+json.data[i].tlvType2+'）</li>';
+                        }
+                        $('.order_info_ul2').html(str);
+                        //点击车辆显示右侧信息
+                        $(".order_info_ul2 li:first-child").addClass("active");
+                        //$(".order_info_ul2 li:first-child").click();
+                        $(".order_info_ul2 li").on("click",function(){
+                            $(".order_info_ul2 li").removeClass("active");
+                            $(this).addClass("active");
+                            seachMsg($(this).attr("id"));//刷新预付金
+                            tabReset();//重置其他
+                            var datas = $(this).attr("data-type");
+                            if (datas == 0) {
+                                $("#myradio1").hide().attr("checked",false);
+                                $("#myradio1").next().hide();
+                                $("#myradio2").prop("checked",true);
+                                $(".gz_ticheng").show().find(".ticheng").val('');
+                                $(".gz_xianjin").html('工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资：').next(".xianjin").val('');
+                                $(".sjjs_allmoney").find("span").html('实际工资：');
+                                $(".sjjs_allmoney").find("input").html('');
+                            } else if (datas == 1) {
+                                $("#myradio1").show().prop("checked",true);
+                                $("#myradio1").next().show();
+                                $("#myradio2").attr("checked",false);
+                            }
+                        })
                         
-                        if (json.data[i].tlvType == 0) {
-                            json.data[i].tlvType2 = '内部';
-                        } else if (json.data[i].tlvType == 1) {
-                            json.data[i].tlvType2 = '外部';
-                        }
-                        str += '<li data-carid="'+json.data[i].carid+'" data-ids="'+json.data[i].id+'" id="'+json.data[i].driverid+'" data-type="'+json.data[i].tlvType+'" data-tLogisticsOrderId="'+json.data[i].tLogisticsOrderId+'">'+json.data[i].carNo+'（'+json.data[i].tlvType2+'）</li>';
                     }
-                    $('.order_info_ul2').html(str);
-                    //点击车辆显示右侧信息
-                    $(".order_info_ul2 li:first-child").addClass("active");
-                    //$(".order_info_ul2 li:first-child").click();
-                    $(".order_info_ul2 li").on("click",function(){
-                        $(".order_info_ul2 li").removeClass("active");
-                        $(this).addClass("active");
-                        seachMsg($(this).attr("id"));//刷新预付金
-                        tabReset();//重置其他
-                        var datas = $(this).attr("data-type");
-                        if (datas == 0) {
-                            $("#myradio1").hide().attr("checked",false);
-                            $("#myradio1").next().hide();
-                            $("#myradio2").prop("checked",true);
-                            $(".gz_ticheng").show().find(".ticheng").val('');
-                            $(".gz_xianjin").html('工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资：').next(".xianjin").val('');
-                            $(".sjjs_allmoney").find("span").html('实际工资：');
-                            $(".sjjs_allmoney").find("input").html('');
-                        } else if (datas == 1) {
-                            $("#myradio1").show().prop("checked",true);
-                            $("#myradio1").next().show();
-                            $("#myradio2").attr("checked",false);
-                        }
-                    })
-                    
+                },
+                error: function(err) {
+                    console.log(err);
                 }
-            },
-            error: function(err) {
-                console.log(err);
-            }
 
-        });
+            });
+        }
         
         
         //查询车辆预付款信息(不传司机id时查看全部)
@@ -860,6 +865,7 @@
         //确认送达结算工资
 
         $(".qr_clxx span").on("click",function(){
+           
              //车辆对象
             var car = {};
             car.driverid = $(".order_info_ul2 li.active").attr("id");//司机id
@@ -925,7 +931,8 @@
             })
             var cardListstr=JSON.stringify(cardList);
             //console.log(cardListstr,"444444444444444444444444444444444444444");
-
+            
+            //结算接口
             $.ajax({
                 url: pubIP + 'order/upCarUserById',
                 type: 'post',
@@ -952,7 +959,8 @@
                     console.log("++++++++++++------------------+++++++++++++++");
                     console.log(data);
                     window.parent.$(".all_error_alert").show();
-                    window.parent.$(".all_error_alert").find(".innerErrmsg").html("上传的图片超过了2MB");
+                    window.parent.$(".all_error_alert").find(".innerErrmsg").html("结算成功");
+                    huoqu_msg();
                 },
                 error: function(err) {
                     console.log(err);
