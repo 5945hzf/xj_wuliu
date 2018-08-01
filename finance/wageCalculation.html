@@ -21,25 +21,25 @@
     <div class="contbox">
         <div class="topTitle">工资发放列表<div class="fr cfRefresh"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
         <div class="inputBox">
-            <label for="">输入搜索</label><input class="orderNo input" type="text" placeholder="订单编号">
-            <label for="">审批类型</label>
+            <label for="">搜索类型</label>
             <div class="goodsType input select" data-selectedindex="0"><span>全部</span><img src="../img/prl-select.jpg" >
                 <ul>
-                    <li data-index="1">类型1</li>
-                    <li data-index="2">类型2</li>
-                    <li data-index="3">类型3</li>
+                    <li data-index="1">姓名</li>
+                    <li data-index="2">部门</li>
                 </ul>
             </div>
-            <label for="">提交时间</label><input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1">
+            <label for="">搜索内容</label><input class="orderNo input" type="text" placeholder="请输入搜索内容">
+            
+            <!-- <label for="">提交时间</label><input type="text" class="date-input laydate-icon publishTime input" placeholder="请选择日期" id="test1"> -->
             <input class="searchResultBtn btn input" type="button" value="查询结果" style="margin-left: 100px;">
         </div>
-        <div class="opciationBox clearFloat">
+        <!-- <div class="opciationBox clearFloat">
             <div class="Lf"></div>
             <div style="float: right;">
                 <span class="btn1" style="float: left; ">工资结算</span>
                 <span class="btn1" style="float: left;">批量导出</span>
 
-                <div class="goodsType input select" style="float: left;width: 160px;height: 38px;line-height: 38px;" data-selectedindex="-1"><span>显示条目</span><img src="../img/prl-select.jpg" >
+                <div class="goodsType input select" style="float: left;width: 160px;height: 38px;line-height: 38px;" data-selectedindex="-1"><span>显示条数</span><img src="../img/prl-select.jpg" >
                     <ul>
                         <li data-index="1">1</li>
                         <li data-index="2">2</li>
@@ -54,7 +54,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="listBox">
             <table>
                 <thead>
@@ -74,16 +74,9 @@
                         <td>司机</td>
                         <td>¥111111</td>
                         <td>¥111111</td>
-                        <td><span class="btn ll">移除</span></td>
+                        <td><span class="btn ll">工资发放</span></td>
                     </tr>
-                    <tr>
-                        <td>王小二</td>
-                        <td>车辆管理</td>
-                        <td>司机</td>
-                        <td>¥111111</td>
-                        <td>¥111111</td>
-                        <td><span class="btn ll">移除</span></td>
-                    </tr>
+                 
                 </tbody>
             </table>
         </div>
@@ -151,6 +144,33 @@
         $('.bottomOperiat .selsectAll').click(function(){
             $('.bottomOperiat .squre').toggleClass('active');
         });
+
+
+        //工资申请列表
+        $.ajax({
+            url: pubIP + 'carrierFinance/selectWageslist',
+            type: 'POST',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                type: 0,
+                status: 1,
+                page: 1,
+                size: 10,
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log("+++++++++++++++++++++++++++++");
+                console.log(json);
+            },
+            error: function(err) {
+                console.log(err);
+            }
+
+            });
     </script>
 </body>
 </html>

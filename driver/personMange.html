@@ -29,11 +29,10 @@
     	</div>
     	<div class="record">
     		<div></div>
-			<div class="select displayNum" data-selectedindex="0"><span>排序方式</span><img src="../img/prl-select.jpg" alt="">
+			<div class="select displayNum sort_method" data-selectedindex="0"><span>排序方式</span><img src="../img/prl-select.jpg" alt="">
 				<ul>
-					<li data-index="1">10</li>
-					<li data-index="2">20</li>
-					<li data-index="3">30</li>
+					<li data-index="1">入职时间顺序</li>
+					<li data-index="2">入职时间倒序</li>
 				</ul>
 			</div>
 			<div class="select displayNum" data-selectedindex="0"><span>显示条数</span><img src="../img/prl-select.jpg" alt="">
@@ -43,7 +42,7 @@
 					<li data-index="3">30</li>
 				</ul>
 			</div>
-    		<div >添加</div>
+    		<div class="add_apartment">添加</div>
 			<div class="cf_btn Rt">批量导出</div>
 			<div class="cf_btn Rt">批量导入</div>
     	</div>
@@ -62,8 +61,8 @@
 					<th>操作</th>
 				</tr>
 				</thead>
-				<tbody>
-				<tr>
+				<tbody id="apartmentListInfo">
+				<!-- <tr>
 					<td>王小二</td>
 					<td>车联管理</td>
 					<td>内部司机</td>
@@ -90,18 +89,18 @@
 						<label for="checked_1"></label>
 					</td>
 					<td ><a href="" class="lookover" style="color: #6ea3f4;">编辑</a><a href="" class="delect" style="color: #6ea3f4;">删除</a></td>
-				</tr>
+				</tr> -->
 				</tbody>
 			</table>
 		</div>
 
-		<div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
+		<div class="" style="text-align: center;height: 75px;padding-top: 18px; box-sizing: border-box; margin-bottom: 0;border-top: 1px solid #ebe9ea;">
 			<ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
 			<div class="pageJump">
-				<span class="allPageN">1/200</span>
-				<i style="margin-left: 12px;">共200页</i>，
+				<span class="allPageN">1/1</span>
+				<i style="margin-left: 12px;">共<span class="total">1</span>页</i>，
 				<span>到第</span>
-				<input type="text"/>
+				<input type="text" style="text-align: center; text-indent: 0px;" />
 				<span>页</span>
 				<button type="button" class="button">GO</button>
 			</div>
@@ -122,13 +121,287 @@
     })
 
     $('.objListBox>div:nth-child(5n)').css('margin-right','0');
-    Page({
-        num: 200,
-        elem: $('#page1'),
-        callback: function(n) {
-            console.log(n);
-        }
+    // Page({
+    //     num: 200,
+    //     elem: $('#page1'),
+    //     callback: function(n) {
+    //         console.log(n);
+    //     }
+    // });
+
+    var isFirst = true;
+
+    var isSearch = 0;
+
+    apartment_list(1, '', 10);
+
+    // 职务列表
+    function apartment_list(num, sort, size) {
+        $('#apartmentListInfo').html('');
+        $.ajax({
+            url: pubIP + 'tLtDriver/selectDriverList',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                companyId: companyId,
+                page: num,
+                size: size,
+                sort: sort
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+
+                if (json.code == 1) {
+                    if (json.aData.length != 0) {
+                    	var str = '';
+                        for (var i = 0; i < json.aData.length; i++) {
+                        
+                            json.aData[i].creatTime = new Date(json.aData[i].creatTime).Format("yyyy-MM-dd hh:mm");
+
+                            str += '<tr data-id="'+json.aData[i].id+'">'
+								+'<td class="ord_name">'+json.aData[i].userName+'</td>'
+								+'<td>'+json.aData[i].org+'</td>'
+								+'<td>'+json.aData[i].jobName+'</td>'
+								+'<td>'+json.aData[i].card+'</td>'
+								+'<td>'+json.aData[i].phone+'</td>'
+								+'<td>'+json.aData[i].pay+'</td>'
+								+'<td>'+json.aData[i].creatTime+'</td>'
+								+'<td class="chooseswitch">'
+									if (json.aData[i].obligate1 == '0') {
+										str += '<input id="checked_'+i+'" type="checkbox" class="switch" checked=""/>'
+										+'<label for="checked_'+i+'"></label>'
+									} else if (json.aData[i].obligate1 == '1') {
+										str += '<input id="checked_'+i+'" type="checkbox" class="switch" />'
+										+'<label for="checked_'+i+'"></label>'
+									}
+								str+='</td>'
+								+'<td ><a href="" class="lookover" style="color: #6ea3f4;">编辑</a><a href="" class="delect" style="color: #6ea3f4;">删除</a></td>'
+							+'</tr>';
+
+                        }
+						
+                        $('#apartmentListInfo').html(str);
+
+                        // var result = template('apartmentListTpl', {list: json.data});
+                        // $('#apartmentListInfo').html(result);
+
+
+                        //启用和禁用
+						$(".chooseswitch input[type='checkbox']").change(function() {
+						    console.log($(this).prop("checked"));
+						    if($(this).prop("checked")){
+						        delete_qi_jin(2, $(this));
+						        console.log('开启');
+						    }else {
+						        delete_qi_jin(3, $(this));
+						        console.log('禁用');
+						    }
+						});
+
+
+                       
+                        if (isSearch == 1) {
+                            // if (isFirst) {
+
+                                Page({
+                                    num: json.totalPage,
+                                    elem: $('#page1'),
+                                    callback: function(n) {
+                                        apartment_list(n, sort, size);
+                                    }
+                                });
+                                
+                                $('.total').text(json.totalPage);
+                                isFirst = false;
+
+                            // }
+
+                            $('.allPageN').text(num+1+'/'+json.totalPage);
+                        }
+
+                        isSearch = 0;
+
+                        if (isFirst) {
+
+                            Page({
+                                num: json.totalPage,
+                                elem: $('#page1'),
+                                callback: function(n) {
+                                    apartment_list(n, sort, size);
+                                }
+                            });
+                            
+                            $('.total').text(json.totalPage);
+
+                            isFirst = false;
+                        }
+
+                        $('.allPageN').text(num+'/'+json.totalPage);
+                    } else {
+                        $('.pageJump').css('display', 'none');    
+                    }
+                } else {
+                    $('.pageJump').css('display', 'none');
+                }
+
+            },
+            error: function (err) {
+                console.log(err);
+            }
+
+        });
+    }
+
+    // 新增部门
+    $(document).on('click', '.add_apartment', function() {
+    	$(window.parent.document).find('.model20_ok_btn').attr('data-zhiwuId', '');
+    	$(window.parent.document).find('.apartment_select span').text('请选择');
+    	$(window.parent.document).find('.apartment_select').attr('data-selectedindex', '-1');
+    	$(window.parent.document).find('.zhiwu_name').val('')
+    	$(window.parent.document).find('.zhiwu_zhineng_descript').val('')
+    	window.parent.showModelBox('.modelBox19');
+
     });
+
+    // 添加部门
+    window.parent.$('.model20_ok_btn').unbind();
+    window.parent.$('.model20_ok_btn').click(function() {
+    // $(window.parent.document).on('click', '.model19_ok_btn', function() {
+
+    	var zhiwu_name = $(window.parent.document).find('.zhiwu_name').val();
+    	var reserved2 = $(window.parent.document).find('.apartment_select span').text();
+    	var orgId = $(window.parent.document).find('.apartment_select').attr('data-selectedindex');
+
+    	var zhiwu_zhineng_descript = $(window.parent.document).find('.zhiwu_zhineng_descript').val();
+
+
+    	if ($(this).attr('data-zhiwuId') != '') {
+    		id = $(this).attr('data-zhiwuId');
+    	} else {
+    		id = '';
+    	}
+    	
+    	add_apartment(zhiwu_name, zhiwu_zhineng_descript, id, reserved2, orgId);
+
+    });
+
+    function add_apartment(zhiwu_name, zhiwu_zhineng_descript, id, reserved2, orgId) {
+    	console.log(zhiwu_name);
+    	console.log(zhiwu_zhineng_descript);
+    	console.log(id);
+    	console.log(reserved2);
+    	console.log(orgId);
+    	        
+        $.ajax({
+            url: pubIP + 'tLtDriverOrgDute/updateDriverOrgDute',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                dutyName: zhiwu_name,
+                dutyDescribe: zhiwu_zhineng_descript,
+                id: id,
+                reserved2: reserved2,
+                orgId: orgId
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+                if (json.code == 1) {
+                	$(window.parent.document).find('.modelBox20').hide();
+                	if (id == '') {
+                		$(window.parent.document).find('.innerSuccmsg').html('<span>添加成功！</span>');
+                	} else {
+                		$(window.parent.document).find('.innerSuccmsg').html('<span>修改成功！</span>');
+                	}
+                	
+                	window.parent.showModelBox('.all_success_alert');
+                }
+            },
+            error: function(err){
+            	console.log(err);
+            }
+        });
+    }
+    
+    $(window.parent.document).on('click', '.all_success_alert .modelbtn.confirm', function() {
+    	
+    	window.location.reload();
+    });
+
+    // 排序方式
+    $('.sort_method ul li').click(function() {
+    	apartment_list(1, $(this).parent().parent().attr('data-selectedindex'), 10);
+    });
+
+    // 编辑
+    $(document).on('click', '.lookover', function() {
+    	// console.log($(this).parent().parent().find('.ord_name').text());
+    	$(window.parent.document).find('.zhiwu_name').val($(this).parent().parent().find('.ord_name').text());
+    	var describe = $(this).parent().parent().find('.describe').text();
+    	if (describe == '暂无数据') {
+    		describe = '';
+    	}
+    	$(window.parent.document).find('.zhiwu_zhineng_descript').val(describe);
+
+		$(window.parent.document).find('.apartment_select span').text($(this).parent().parent().find('.suoshu_apartment').text());   
+
+		$(window.parent.document).find('.apartment_select').attr('data-selectedindex', $(this).parent().parent().find('.suoshu_apartment').attr('data-apartid2')); 	
+
+    	$(window.parent.document).find('.model20_ok_btn').attr('data-zhiwuId', $(this).parent().parent().attr('data-id'));
+    	window.parent.showModelBox('.modelBox20');
+
+    });
+
+   	// 删除
+   	$(document).on('click', '.delete', function() {
+
+   		delete_qi_jin(1, $(this));
+
+   	});
+
+   	function delete_qi_jin(type, _that) {
+   		
+   		var data_id = _that.parent().parent().attr('data-id');
+   		console.log(type);
+   		console.log(data_id);
+   		$.ajax({
+            url: pubIP + 'tLtDriver/updateDoStart',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                id: data_id,
+                type: type
+            },
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+
+                if (json.code == 1) {
+                	if (type == 1) {
+                		cf_alert(1, '删除成功！');
+                	}
+                }
+
+            },
+            error: function(err) {
+            	console.log(err);
+            }
+        });
+
+   	}
+
 </script>
 </body>
 </html>
