@@ -1613,7 +1613,7 @@
                     </div>
                 </div>
                 <div class="clearFloat" style="text-align: center;margin-top: 50px;">
-                    <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认提交</span>
+                    <span class=" cf_btn conFirm" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认提交</span>
                 </div>
             </div>
         </div>
@@ -3096,7 +3096,6 @@
 
     // 模拟下拉框
     $('.selectPub').click(function(event){
-        // debugger;
         if($(this).children('img').attr('src') == 'img/prl-selected.jpg'){
             $(this).children('img').attr('src', 'img/prl-select.jpg')
         } else {
@@ -3403,7 +3402,6 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
                     $(".pagination").parent().css("display","block");
                     if(currentPage===1 ){
                         //修改底部分页
-                        //debugger
                         var pageNum=Math.ceil(res.count/pageSize);
                         $(".allPageN").attr("pageTotal",pageNum);
                         $(".pageJump i").text("共"+pageNum+"页");
@@ -3688,7 +3686,6 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
         var isOK=1;
         var cardName1='';
         $("#quanList li").each(function (idx,item) {
-            debugger
             if($(item).find("input").val()==""){
                 if(isOK==1){
                     cardName1=$(item).attr("data-name");
@@ -3869,7 +3866,6 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
             ansyc: false,
             dataType: 'json',
             success: function (res) {
-                //debugger
                 listCar=res.data;
                 str='';
                 $.each(res.data,function (idx,item) {
