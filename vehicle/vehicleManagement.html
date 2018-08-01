@@ -146,13 +146,10 @@ var currentPage=1;
             success: function (res) {
                 if(res.code===1){
                     //首次请求时 改变分页数据
-					debugger
                     if(res.data.length==0){ $(".listBox tbody").html("");$(".pagination").parent().css("display","none"); return;}
                     $(".pagination").parent().css("display","block");
                     if(currentPage==1){
                         //修改底部分页
-						//debugger
-
                         var pageNum=Math.ceil(res.count/pageSize);
                         $(".allPageN").attr("pageTotal",pageNum);
                         $(".pageJump i").text("共"+pageNum+"页");
@@ -211,7 +208,8 @@ var currentPage=1;
         })
 //		编辑
 		$(".editList").click(function () {
-			window.parent.$(".modelBox12").show()
+			window.parent.$(".modelBox12").show();
+            window.parent.$(".modelBox12").attr("data-id",$(this).parents("tr").attr("data-id"));
         })
 		//删除
         $(".delect").click(function () {
@@ -242,7 +240,7 @@ var currentPage=1;
 	//添加车辆
 	$("#addVehicle").click(function () {
 		window.parent.$(".modelBox12").show();
-
+        window.parent.$(".modelBox12").attr("data-id","");
     })
 //启用禁用 删除  事件
 	function upadtaState(type,that) {
@@ -281,8 +279,48 @@ var currentPage=1;
             }
 		})
     }
-    
-    function ad() {
+//    点击确认按钮
+    window.parent.$(".modelBox12 .conFirm").unbind();
+	window.parent.$(".modelBox12 .conFirm").click(function () {
+        addCar();
+    })
+//    添加车辆方法
+    function addCar() {
+        $.ajax({
+            url: pubIP + 'tLogisticsVehicle/insertCar', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data:{
+                companyId:companyId,
+                carId:'',
+				sort:$(".sort").attr("data-selectedindex"),
+                carId:$(that).parents("tr").attr("data-id"),
+                type:type
+            },
+            success: function (res) {
+                if(res.code==1){
+                    if(type==1){
+                        alert("删除车辆成功")
+                    }else if(type==2){
+                        alert("启用车辆成功")
+                    }else if(type==3){
+                        alert("禁用车辆成功")
+                    }
+                    getData(currentPage);
+                }else{
+                    alert(res.msg);
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        })
 		
     }
 
