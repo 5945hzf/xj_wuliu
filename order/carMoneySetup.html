@@ -175,19 +175,37 @@
     function cf_dataRender(data) {
         var str='';
         $.each(data,function (idx,item) {
-            str+='<tr data-id="'+item.id+'">';
+            str+='<tr data-id="'+item.id+'" data-name="'+item.name+'" data-remark="'+item.remark+'">';
             str+='<td>'+item.name+'</td>';
             str+='<td>'+item.remark+'</td>';
-            if(item.status===0){
+            if(item.status==0){
                 str+='<td class="chooseswitch"><input id="checked_'+idx+'" type="checkbox" name="status" class="switch" checked="checked" /><label for="checked_'+idx+'"></label></td>';
             }else{
                 str+='<td class="chooseswitch"><input id="checked_'+idx+'" type="checkbox"  name="status" class="switch" /><label for="checked_'+idx+'"></label></td>';
             }
             str+='<td>'+idx+'</td>';
-            str+='<td data-id="'+item.id+'"><a class="lookover" style="color: #6ea3f4;">编辑</a><a class="delect" style="color: #6ea3f4;">删除</a></td>';
+            str+='<td data-id="'+item.id+'"><a class="lookover editDeductMoney" style="color: #6ea3f4;">编辑</a></td>';
+//        <a class="delect" style="color: #6ea3f4;">删除</a>
             str+='</tr>';
         })
         $(".listBox tbody").html(str);
+        //	编辑扣款项
+        $(".editDeductMoney").click(function () {
+            debugger
+            window.parent.$(".modelBox8").show();
+            window.parent.$(".modelBox8").attr("data-id",$(this).parents("tr").attr("data-id"));
+            window.parent.$("#deductMoneyName").val($(this).parents("tr").attr("data-name"));
+            window.parent.$("#deductMoneyRemark").val($(this).parents("tr").attr("data-remark"));
+        })
+        //启用和禁用
+        $(".chooseswitch input[type='checkbox']").change(function() {
+            console.log($(this).prop("checked"));
+            if($(this).prop("checked")){
+                upadtaState(0,this);
+            }else {
+                upadtaState(1,this);
+            }
+        });
     }
     //选择排序方式
     $(".select ul li").click(function () {
@@ -201,11 +219,31 @@
 //	新增扣款项
 	$("#addDeductMoney").click(function () {
 		window.parent.$(".modelBox8").show();
+        window.parent.$(".modelBox8").attr("data-id","");
+        window.parent.$("#deductMoneyName").val("");
+        window.parent.$("#deductMoneyRemark").val("");
     })
+
 	//新增扣款项确定按钮
+    window.parent.$("#sureAddDeductMoney").unbind();
     window.parent.$("#sureAddDeductMoney").click(function () {
+        if(window.parent.$("#deductMoneyName").val()==""){
+            alert("扣车款名称不能为空")
+			return;
+		}
+        if(window.parent.$("#deductMoneyRemark").val()==""){
+            alert("扣车款描述不能为空")
+            return;
+        }
+
+        var url1="";
+        if(window.parent.$(".modelBox8").attr("data-id")==""){//新增
+            url1="buckle/addDeductMoney";
+		}else{
+            url1="buckle/upDeductMoney";
+		}
         $.ajax({
-            url: pubIP + 'buckle/getDeductMoneyList', /*v1.0*/
+            url: pubIP + url1, /*v1.0*/
             type: 'post',
             headers: {
                 Accept: "application/json; charset=utf-8",
@@ -216,15 +254,15 @@
             dataType: 'json',
             data:{
                 companyId:"9041805231046330013",
-//              	orderId:$(".sort").attr("data-selectedindex"),
-//                status:,
+                name:window.parent.$("#deductMoneyName").val(),
+                remark:window.parent.$("#deductMoneyRemark").val(),
+				id:window.parent.$(".modelBox8").attr("data-id")
             },
             success: function (res) {
                 if(res.code===1){
-                    //首次请求时 改变分页数据
-
+					cf_alert("1","添加成功");
                 }else{
-                    alert(res.msg);
+                    cf_alert(0,res.msg);
                 }
             },
             error: function(err){
@@ -232,6 +270,43 @@
             }
         });
     })
+	//启用和禁用
+    function upadtaState(type,that){
+        debugger
+        $.ajax({
+            url: pubIP + "buckle/upDeductMoney", /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data:{
+                companyId:"9041805231046330013",
+                name:$(that).parents("tr").attr("data-name"),
+                remark:$(that).parents("tr").attr("data-remark"),
+                id:$(that).parents("tr").attr("data-id"),
+                status:type
+            },
+            success: function (res) {
+                if(res.code===1){
+                    if(type==0){
+                        cf_alert("1","启用成功");
+					}else {
+                        cf_alert("1","禁用成功");
+					}
+                }else{
+                    cf_alert(0,res.msg);
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+	}
+
 </script>
 </body>
 </html>
