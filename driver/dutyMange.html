@@ -169,7 +169,7 @@
                     	var str = '';
                         for (var i = 0; i < json.data.length; i++) {
                         
-                            json.data[i].addTime = new Date(json.data[i].addTime).Format("yyyy-MM-dd hh:mm");
+                            json.data[i].addTime = new Date(json.data[i].addTime).Format("yyyy-MM-dd");
 
                             str += '<tr data-id="'+json.data[i].id+'">'
 									+'<td class="ord_name">'+json.data[i].dutyName+'</td>'
@@ -271,8 +271,8 @@
     // 新增部门
     $(document).on('click', '.add_apartment', function() {
     	$(window.parent.document).find('.model19_ok_btn').attr('data-zhiwuId', '');
-    	$(window.parent.document).find('.apartment_select span').text('请选择');
-    	$(window.parent.document).find('.apartment_select').attr('data-selectedindex', '-1');
+    	$(window.parent.document).find('.apartment_select0 span').text('请选择');
+    	$(window.parent.document).find('.apartment_select0').attr('data-selectedindex', '-1');
     	$(window.parent.document).find('.zhiwu_name').val('')
     	$(window.parent.document).find('.zhiwu_zhineng_descript').val('')
     	window.parent.showModelBox('.modelBox19');
@@ -285,8 +285,8 @@
     // $(window.parent.document).on('click', '.model19_ok_btn', function() {
 
     	var zhiwu_name = $(window.parent.document).find('.zhiwu_name').val();
-    	var reserved2 = $(window.parent.document).find('.apartment_select span').text();
-    	var orgId = $(window.parent.document).find('.apartment_select').attr('data-selectedindex');
+    	var reserved2 = $(window.parent.document).find('.apartment_select0 span').text();
+    	var orgId = $(window.parent.document).find('.apartment_select0').attr('data-selectedindex');
 
     	var zhiwu_zhineng_descript = $(window.parent.document).find('.zhiwu_zhineng_descript').val();
 
@@ -363,9 +363,9 @@
     	}
     	$(window.parent.document).find('.zhiwu_zhineng_descript').val(describe);
 
-		$(window.parent.document).find('.apartment_select span').text($(this).parent().parent().find('.suoshu_apartment').text());   
+		$(window.parent.document).find('.apartment_select0 span').text($(this).parent().parent().find('.suoshu_apartment').text());   
 
-		$(window.parent.document).find('.apartment_select').attr('data-selectedindex', $(this).parent().parent().find('.suoshu_apartment').attr('data-apartid2')); 	
+		$(window.parent.document).find('.apartment_select0').attr('data-selectedindex', $(this).parent().parent().find('.suoshu_apartment').attr('data-apartid2')); 	
 
     	$(window.parent.document).find('.model19_ok_btn').attr('data-zhiwuId', $(this).parent().parent().attr('data-id'));
     	window.parent.showModelBox('.modelBox19');

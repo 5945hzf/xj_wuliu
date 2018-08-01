@@ -161,7 +161,7 @@
                     	var str = '';
                         for (var i = 0; i < json.aData.length; i++) {
                         
-                            json.aData[i].creatTime = new Date(json.aData[i].creatTime).Format("yyyy-MM-dd hh:mm");
+                            json.aData[i].creatTime = new Date(json.aData[i].creatTime).Format("yyyy-MM-dd");
 
                             str += '<tr data-id="'+json.aData[i].id+'">'
 								+'<td class="ord_name">'+json.aData[i].userName+'</td>'
@@ -180,7 +180,7 @@
 										+'<label for="checked_'+i+'"></label>'
 									}
 								str+='</td>'
-								+'<td ><a href="" class="lookover" style="color: #6ea3f4;">编辑</a><a href="" class="delect" style="color: #6ea3f4;">删除</a></td>'
+								+'<td ><a href="" class="lookover" style="color: #6ea3f4;">编辑</a><a href="" class="delect delete" style="color: #6ea3f4;">删除</a></td>'
 							+'</tr>';
 
                         }
@@ -260,12 +260,40 @@
     // 新增部门
     $(document).on('click', '.add_apartment', function() {
     	$(window.parent.document).find('.model20_ok_btn').attr('data-zhiwuId', '');
-    	$(window.parent.document).find('.apartment_select span').text('请选择');
-    	$(window.parent.document).find('.apartment_select').attr('data-selectedindex', '-1');
-    	$(window.parent.document).find('.zhiwu_name').val('')
-    	$(window.parent.document).find('.zhiwu_zhineng_descript').val('')
-    	window.parent.showModelBox('.modelBox19');
-
+    	$(window.parent.document).find('.apartment_select1 span').text('请选择');
+    	$(window.parent.document).find('.apartment_select1').attr('data-selectedindex', '-1');
+    	$(window.parent.document).find('.driver_type_select').attr('data-selectedindex', '-1');
+    	$(window.parent.document).find('.zhiwu_select').attr('data-selectedindex', '-1');
+    	$(window.parent.document).find('.zhiwu_select span').text('请选择');
+    	$(window.parent.document).find('.suozai_car_select').attr('data-selectedindex', '-1');
+    	$(window.parent.document).find('.suozai_car_select span').text('请选择');
+    	$(window.parent.document).find('.person_name').val('');
+    	$(window.parent.document).find('.person_cardID').val('');
+    	$(window.parent.document).find('.person_address').val('');
+    	$(window.parent.document).find('.person_phone').val('');
+    	$(window.parent.document).find('.person_driver_num').val('');
+    	$(window.parent.document).find('.person_huowu_num').val('');
+    	$(window.parent.document).find('.person_yihangka').val('');
+    	$(window.parent.document).find('.person_money').val('');
+    	$(window.parent.document).find('.person_baoxian_status').val('');
+    	$(window.parent.document).find('#upload_hidden0').val('');
+    	$(window.parent.document).find('#upload_hidden0').parent({
+    		'background': 'url("")'
+    	});
+    	$(window.parent.document).find('#upload_hidden1').val('');
+    	$(window.parent.document).find('#upload_hidden1').parent({
+    		'background': 'url("")'
+    	});
+    	$(window.parent.document).find('#upload_hidden2').val('');
+    	$(window.parent.document).find('#upload_hidden2').parent({
+    		'background': 'url("")'
+    	});
+    	$(window.parent.document).find('#upload_hidden3').val('');
+    	$(window.parent.document).find('#upload_hidden3').parent({
+    		'background': 'url("")'
+    	});
+    	window.parent.showModelBox('.modelBox20');
+    	window.parent.car_select();
     });
 
     // 添加部门
@@ -273,43 +301,75 @@
     window.parent.$('.model20_ok_btn').click(function() {
     // $(window.parent.document).on('click', '.model19_ok_btn', function() {
 
-    	var zhiwu_name = $(window.parent.document).find('.zhiwu_name').val();
-    	var reserved2 = $(window.parent.document).find('.apartment_select span').text();
-    	var orgId = $(window.parent.document).find('.apartment_select').attr('data-selectedindex');
+    	var driver_type_select = $(window.parent.document).find('.driver_type_select').attr('data-selectedindex');
+    	var apartment_select = $(window.parent.document).find('.apartment_select1').attr('data-selectedindex');
+    	var apartment_select_span = $(window.parent.document).find('.apartment_select1 span').text();
+    	var zhiwu_select = $(window.parent.document).find('.zhiwu_select').attr('data-selectedindex');
+    	var zhiwu_select_span = $(window.parent.document).find('.zhiwu_select span').text();
+    	var suozai_car_select = $(window.parent.document).find('.suozai_car_select').attr('data-selectedindex');
+    	var suozai_car_select_span = $(window.parent.document).find('.suozai_car_select span').text();
+    	var person_name = $(window.parent.document).find('.person_name').val();
+    	var person_cardID = $(window.parent.document).find('.person_cardID').val();
+    	var person_address = $(window.parent.document).find('.person_address').val();
+    	var person_phone = $(window.parent.document).find('.person_phone').val();
+    	var person_driver_num = $(window.parent.document).find('.person_driver_num').val();
+    	var person_huowu_num = $(window.parent.document).find('.person_huowu_num').val();
+    	var person_yihangka = $(window.parent.document).find('.person_yihangka').val();
+    	// var person_login_num = $(window.parent.document).find('.person_login_num').val();
+    	// var person_login_pass = $(window.parent.document).find('.person_login_pass').val();
+    	var person_money = $(window.parent.document).find('.person_money').val();
+    	var person_baoxian_status = $(window.parent.document).find('.person_baoxian_status').val();
 
-    	var zhiwu_zhineng_descript = $(window.parent.document).find('.zhiwu_zhineng_descript').val();
-
+    	var upload_hidden0 = $(window.parent.document).find('#upload_hidden0').val();
+    	var upload_hidden1 = $(window.parent.document).find('#upload_hidden1').val();
+    	var upload_hidden2 = $(window.parent.document).find('#upload_hidden2').val();
+    	var upload_hidden3 = $(window.parent.document).find('#upload_hidden3').val();
+    	var up = '';
 
     	if ($(this).attr('data-zhiwuId') != '') {
     		id = $(this).attr('data-zhiwuId');
+    		up = '1'; 
     	} else {
     		id = '';
+    		up = '0';
     	}
     	
-    	add_apartment(zhiwu_name, zhiwu_zhineng_descript, id, reserved2, orgId);
+    	add_apartment(id, up, driver_type_select, apartment_select, apartment_select_span, zhiwu_select, zhiwu_select_span, suozai_car_select, suozai_car_select_span, person_name, person_cardID, person_address, person_phone, person_driver_num, person_huowu_num, person_yihangka, person_money, person_baoxian_status, upload_hidden0, upload_hidden1, upload_hidden2, upload_hidden3);
 
     });
 
-    function add_apartment(zhiwu_name, zhiwu_zhineng_descript, id, reserved2, orgId) {
-    	console.log(zhiwu_name);
-    	console.log(zhiwu_zhineng_descript);
-    	console.log(id);
-    	console.log(reserved2);
-    	console.log(orgId);
-    	        
+    function add_apartment(id, up, driver_type_select, apartment_select, apartment_select_span, zhiwu_select, zhiwu_select_span, suozai_car_select, suozai_car_select_span, person_name, person_cardID, person_address, person_phone, person_driver_num, person_huowu_num, person_yihangka, person_money, person_baoxian_status, upload_hidden0, upload_hidden1, upload_hidden2, upload_hidden3) {
+    	
         $.ajax({
-            url: pubIP + 'tLtDriverOrgDute/updateDriverOrgDute',
+            url: pubIP + 'tLtDriver/updateDriver',
             type: 'post',
             headers: {
                 Accept: "application/json; charset=utf-8",
                 token: token
             },
             data: {
-                dutyName: zhiwu_name,
-                dutyDescribe: zhiwu_zhineng_descript,
                 id: id,
-                reserved2: reserved2,
-                orgId: orgId
+                up: up,
+                type: driver_type_select,
+                orgId: apartment_select,
+                org: apartment_select_span,
+                jobId: zhiwu_select,
+                jobName: zhiwu_select_span,
+                carId: suozai_car_select, 
+                credentials5: suozai_car_select_span,
+                drivingLicence: person_driver_num,
+                userName: person_name,
+                card: person_cardID,
+                address: person_address,
+                phone: person_phone,
+                certificate: person_huowu_num,
+                bankCard: person_yihangka,
+                pay: person_money,
+                insurance: person_baoxian_status,
+                credentials1: upload_hidden0,
+                credentials2: upload_hidden1,
+                credentials3: upload_hidden2,
+                credentials4: upload_hidden3
             },
             cache: false,
             dataType: 'json',
@@ -344,26 +404,94 @@
 
     // 编辑
     $(document).on('click', '.lookover', function() {
-    	// console.log($(this).parent().parent().find('.ord_name').text());
-    	$(window.parent.document).find('.zhiwu_name').val($(this).parent().parent().find('.ord_name').text());
-    	var describe = $(this).parent().parent().find('.describe').text();
-    	if (describe == '暂无数据') {
-    		describe = '';
-    	}
-    	$(window.parent.document).find('.zhiwu_zhineng_descript').val(describe);
+    	var id = $(this).parent().parent().attr('data-id');
+    	$.ajax({
+            url: pubIP + 'tLtDriver/selectById',
+            type: 'post',
+            headers: {
+            	Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                id: id
+            },
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
 
-		$(window.parent.document).find('.apartment_select span').text($(this).parent().parent().find('.suoshu_apartment').text());   
+                $(window.parent.document).find('.driver_type_select').attr('data-selectedindex', json.data.type);
+                
+                if (json.data.type == 0) {
+                	$(window.parent.document).find('.driver_type_select span').text('内部');
+                } else if (json.data.type == 1) {
+                	$(window.parent.document).find('.driver_type_select span').text('外部');
+                }
 
-		$(window.parent.document).find('.apartment_select').attr('data-selectedindex', $(this).parent().parent().find('.suoshu_apartment').attr('data-apartid2')); 	
+                $(window.parent.document).find('.apartment_select1').attr('data-selectedindex', json.data.orgId);
+                $(window.parent.document).find('.apartment_select1 span').text(json.data.org);
 
-    	$(window.parent.document).find('.model20_ok_btn').attr('data-zhiwuId', $(this).parent().parent().attr('data-id'));
-    	window.parent.showModelBox('.modelBox20');
+                $(window.parent.document).find('.zhiwu_select').attr('data-selectedindex', json.data.jobId);
+                $(window.parent.document).find('.zhiwu_select span').text(json.data.jobName);
+
+                $(window.parent.document).find('.suozai_car_select').attr('data-selectedindex', json.data.carId);
+                $(window.parent.document).find('.suozai_car_select span').text(json.data.credentials5);
+
+                $(window.parent.document).find('.person_name').val(json.data.userName);
+		    	$(window.parent.document).find('.person_cardID').val(json.data.card);
+		    	$(window.parent.document).find('.person_address').val(json.data.address);
+		    	$(window.parent.document).find('.person_phone').val(json.data.phone);
+		    	$(window.parent.document).find('.person_driver_num').val(json.data.drivingLicence);
+		    	$(window.parent.document).find('.person_huowu_num').val(json.data.certificate);
+		    	$(window.parent.document).find('.person_yihangka').val(json.data.bankCard);
+		    	
+		    	$(window.parent.document).find('.person_money').val(json.data.pay);
+		    	$(window.parent.document).find('.person_baoxian_status').val(json.data.insurance);
+
+		    	$(window.parent.document).find('#upload_hidden0').val(json.data.credentials1);
+		    	$(window.parent.document).find('#upload_hidden1').val(json.data.credentials2);
+		    	$(window.parent.document).find('#upload_hidden2').val(json.data.credentials3);
+		    	$(window.parent.document).find('#upload_hidden3').val(json.data.credentials4);
+
+		    	$(window.parent.document).find('#upload_hidden0').parent().css({
+		    		'background':'url('+json.data.credentials1+') no-repeat',
+                    'background-position':'center',
+                    'background-size':'contain'
+		    	});
+
+		    	$(window.parent.document).find('#upload_hidden1').parent().css({
+		    		'background':'url('+json.data.credentials2+') no-repeat',
+                    'background-position':'center',
+                    'background-size':'contain'
+		    	});
+
+		    	$(window.parent.document).find('#upload_hidden2').parent().css({
+		    		'background':'url('+json.data.credentials3+') no-repeat',
+                    'background-position':'center',
+                    'background-size':'contain'
+		    	});
+
+		    	$(window.parent.document).find('#upload_hidden3').parent().css({
+		    		'background':'url('+json.data.credentials4+') no-repeat',
+                    'background-position':'center',
+                    'background-size':'contain'
+		    	});
+
+		    	$(window.parent.document).find('.model20_ok_btn').attr('data-zhiwuId', $(this).parent().parent().attr('data-id'));
+    			
+    			window.parent.showModelBox('.modelBox20');
+
+            },
+            error: function(err) {
+            	console.log(err);
+            }
+
+        });
 
     });
 
    	// 删除
    	$(document).on('click', '.delete', function() {
-
+   		
    		delete_qi_jin(1, $(this));
 
    	});
@@ -371,8 +499,8 @@
    	function delete_qi_jin(type, _that) {
    		
    		var data_id = _that.parent().parent().attr('data-id');
-   		console.log(type);
-   		console.log(data_id);
+   		// console.log(type);
+   		// console.log(data_id);
    		$.ajax({
             url: pubIP + 'tLtDriver/updateDoStart',
             type: 'post',

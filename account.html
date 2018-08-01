@@ -49,7 +49,7 @@
             color: #5992f3;
         }
         
-        .modelBox1 input[type="file"], .modelBox12 input[type="file"], .modelBox13 input[type="file"], .modelBox18 input[type="file"] {
+        .modelBox1 input[type="file"], .modelBox12 input[type="file"], .modelBox13 input[type="file"], .modelBox18 input[type="file"], .modelBox20 input[type="file"] {
             position: absolute;
             top: 0;
             left: 0;
@@ -528,6 +528,23 @@
             border: 1px solid #dbdbdc;
         }
 
+        #dynamic>li{
+            float: left;margin-top: 15px;margin-right: 34px;
+        }
+        #dynamic .dynamicTitle{
+            float: left;
+            width: 153px;
+            text-align: right;
+            display: inline-block;
+            line-height: 40px;
+            color: #666666;
+        }
+        .modelBox12 .clearfix{margin-left: 40px;}
+
+        .last_add_img .upload_fapiao:last-child {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -631,7 +648,6 @@
                     <li><a href="##" class="manageItem" data-src="./order/finishedOrder.html" data-height="1445">已完成订单</a></li>
                     <li><a href="##" class="manageItem" data-src="./order/carMoneySetup.html" data-height="1445">扣车款设置</a></li>
                     <li><a href="##" class="manageItem" data-src="./order/priceAjustApplication.html" data-height="1445">调价申请</a></li>
-
                 </ul>
             </li>
         </ul>
@@ -653,10 +669,15 @@
                 <ul class="manageList2">
                     <!--<li><a href="##" class="manageItem" data-src="caiwu" data-height="1032">平台资产</a></li>-->
                     <!--<li><a href="##" class="manageItem " data-src="./financialManage/settlementAudit.html" data-height="715">待审核列表</a></li>-->
+<<<<<<< HEAD
                     <!-- <li><a href="##" class="manageItem" data-src="./finance/replenish.html" data-height="767">网点卡券申请</a></li>  -->
                     <!-- <li><a href="##" class="manageItem" data-src="./finance/returnedMoney.html" data-height="767">订单回款申请</a></li> -->
 
                     
+=======
+                    <li><a href="##" class="manageItem" data-src="./finance/replenish.html" data-height="767">油卡补充申请</a></li>
+                    <li><a href="##" class="manageItem" data-src="./finance/returnedMoney.html" data-height="767">订单回款申请</a></li>
+>>>>>>> 8904fc3928ba0f20d002cdaa04145e99c91fa263
                     <li><a href="##" class="manageItem" data-src="./finance/imprest.html" data-height="767">预付款申请</a></li>
                     <li><a href="##" class="manageItem" data-src="./finance/wageCalculation.html" data-height="767">工资结算</a></li>
                     <li><a href="##" class="manageItem" data-src="./finance/outWage.html" data-height="767">外部工资申请</a></li>
@@ -1498,20 +1519,20 @@
 
 <!-- 添加车辆/编辑汽车 -->
 <div class="modelBox12" style="font-size: 14px;">
-    <div class="modelCont" style="width: 846px;height: 730px;">
+    <div class="modelCont" style="width: 846px;height: 570px;">
         <div class="modeltitle" style="width: 100%;">
             <span>添加车辆/编辑汽车</span>
             <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
         </div>
-        <div class="modelcontent clearFloat" style="width: 744px; font-size: 14px; height: 680px; border: 1px solid #ebe9ea;padding: 15px 50px 0 50px; ">
-            <div style="padding-right: 80px; box-sizing: border-box;">
+        <div class="modelcontent clearFloat" style="width: 834px; font-size: 14px; height: 500px; border: 1px solid #ebe9ea;padding: 15px 0px 0 10px; ">
+            <div style="padding-right: 80px; box-sizing: border-box; height: 400px;overflow-y: auto;">
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">车辆类型：&nbsp;</span>
                         <div id="carTypeOut" class="selectPub" data-selectedindex="0" style="float: left;width: 96px; margin-right: 6px; margin-top: 0px;">
                             <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">内部</span><img src="img/prl-select.jpg" alt="">
                             <ul>
-                                <li data-index="1">内部</li>
-                                <li data-index="2">外部</li>
+                                <li data-index="0">内部</li>
+                                <li data-index="1">外部</li>
                             </ul>
                         </div>
                         <div class="selectPub" id="carTypeList" data-selectedindex="-1" style="float: left;width: 96px; margin-top: 0px;">
@@ -1524,12 +1545,12 @@
                         </div>
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr ml90 clearfix"><span class="modelBox34LeftTitle fl">车牌号：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input id="addCarNo" type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                 </div>
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">车辆品牌：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input id="carBrand" type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                         <!--<div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 6px; margin-top: 0px;">-->
                             <!--<span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">-->
                             <!--<ul>-->
@@ -1540,37 +1561,37 @@
                         <!--</div>-->
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">车辆档案号：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" id="archivesNo" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                 </div>
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">车&nbsp;&nbsp;架&nbsp;号：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" id="frameNo" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">发动机号：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" id="engineNo" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                 </div> 
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">年审日期：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input id="annualVerificationDate" class="date-input laydate-icon"  type="text" style="height: 36px;width: 176px;border: 1px solid #dbdbdc;">
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">初次上牌日期：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input id="firstDate" class="date-input laydate-icon" type="text" style="height: 36px;width: 176px;border: 1px solid #dbdbdc;">
                     </div>
                 </div>  
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">保险日期：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" class="date-input laydate-icon" id="insuranceDate" style="height: 36px;width: 176px;border: 1px solid #dbdbdc;">
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">车辆载重：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" id="vehicleLoad" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                 </div>
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">线路选择：&nbsp;</span>
-                        <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 6px; margin-top: 0px;">
-                            <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                        <div class="selectPub" id="chooseAbleLine" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 6px; margin-top: 0px;">
+                            <span style="display: inline-block;max-width: 70%;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
                             <ul>
                                 <li data-index="1">1</li>
                                 <li data-index="2">2</li>
@@ -1579,15 +1600,15 @@
                         </div>
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">购买金额：&nbsp;</span>
-                        <input type="text" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" id="purchaseAmount" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                 </div>
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">保险金额：&nbsp;</span>
-                        <input type="text" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" id="insuranceAmount" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl" style="width: 96px; text-align: right;">保险年限：&nbsp;</span>
-                        <input type="text" placeholder="" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input id="insuranceYears" type="text" placeholder="" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                         <!--<div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">-->
                             <!--<span style="display: inline-block;max-width: 70px;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">-->
                             <!--<ul>-->
@@ -1598,27 +1619,57 @@
                         <!--</div>-->
                     </div>
                 </div>
+                <ul id="dynamic" class="clearFloat">
+                    <li>
+                        <div>
+                            <span class="dynamicTitle">asdasd：</span>
+                            <div class="selectPub" data-selectedindex="-1" style="width: 198px; margin-right: 0px; margin-top: 0px;">
+                                <span style="display: inline-block;max-width: 70px;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                                <ul>
+                                    <li data-index="1">1</li>
+                                    <li data-index="2">2</li>
+                                    <li data-index="3">3</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="dynamicTitle">asdasd：</span>
+                            <input type="text" style="width: 197px;height: 36px;border: 1px solid #dbdbdc;">
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="dynamicTitle">asdasd：</span>
+                            <input type="text" class="date-input laydate-icon"  type="text" style="height: 36px;width: 176px;border: 1px solid #dbdbdc;">
+                        </div>
+                    </li>
+                </ul>
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">上传发票：&nbsp;</span>
                         <div class="fl">
                             <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative;">
-                                <input type="file">
+                                <input type="file" id="cf_xingshizheng">
+                                <input type="hidden" id="cf_xingshizheng1">
                             </div>
                             <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">行驶证</div>
                         </div>
                         <div class="fl">
                             <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative; margin-left: 30px;">
-                                <input type="file">
+                                <input type="file" id="cf_cheliangyunying">
+                                <input type="hidden" id="cf_cheliangyunying1">
                             </div>
                             <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">车辆运营证</div>
                         </div>
                     </div>
                 </div>
-                <div class="clearFloat" style="text-align: center;margin-top: 50px;">
-                    <span class=" cf_btn conFirm" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认提交</span>
-                </div>
+            </div>
+            <div class="clearFloat" style="text-align: center;margin-top: 30px;">
+                <span class=" cf_btn conFirm" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认提交</span>
             </div>
         </div>
+
     </div>
 </div>
 
@@ -1830,7 +1881,7 @@
             </div>
             <div class="clearFloat" style="text-align: center;margin-top: 50px;">
                 <span class=" cf_btn cancel cfClose quxiao" style="display: inline-block;" >取消</span>
-                <span class=" cf_btn model20_ok_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认新增</span>
+                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认新增</span>
             </div>
         </div>
     </div>
@@ -2150,7 +2201,7 @@
             <div class="clearFloat clearfix" style="margin-top: 25px;">
                 <span style="display: inline-block; width: 135px;text-align: right; float: left;"><span style='color: #e71212; margin-right: 3px;'>*</span>所属部门：</span>
                 <!-- <input type="text" class="shuyu_apartment" placeholder="33333"  style="height: 36px;width: 205px;border: 1px solid #dbdbdc;"> -->
-                <div class="selectPub apartment_select" data-selectedindex="-1" style="float: left; width: 207px; margin-left: 4px; margin-top: 0px;">
+                <div class="selectPub apartment_select apartment_select0" data-selectedindex="-1" style="float: left; width: 207px; margin-left: 4px; margin-top: 0px;">
                     <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
                     <ul class="shuyu_apartment">
                         <li data-index="1">1</li>
@@ -2182,19 +2233,18 @@
             
             <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">司机类型：&nbsp;</span>
-                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
-                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
-                        <ul>
-                            <li data-index="1">1</li>
-                            <li data-index="2">2</li>
-                            <li data-index="3">3</li>
+                    <div class="selectPub driver_type_select" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
+                        <ul class="driver_type_ul">
+                            <li data-index="0">内部</li>
+                            <li data-index="1">外部</li>
                         </ul>
                     </div>
                 </div>
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">部门：&nbsp;</span>
-                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
-                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
-                        <ul>
+                    <div class="selectPub apartment_select apartment_select1" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
+                        <ul class="shuyu_apartment">
                             <li data-index="1">1</li>
                             <li data-index="2">2</li>
                             <li data-index="3">3</li>
@@ -2204,98 +2254,117 @@
             </div>
             <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle span_width74 fl">职务：&nbsp;</span>
-                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
-                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
-                        <ul>
-                            <li data-index="1">1</li>
+                    <div class="selectPub zhiwu_select" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
+                        <ul class="zhiwu_ul">
+                            <!-- <li data-index="1">1</li>
                             <li data-index="2">2</li>
-                            <li data-index="3">3</li>
+                            <li data-index="3">3</li> -->
                         </ul>
                     </div>
                 </div>
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">所在车辆：&nbsp;</span>
-                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
-                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
-                        <ul>
-                            <li data-index="1">1</li>
+                    <div class="selectPub suozai_car_select" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
+                        <ul class="suozai_car_ul">
+                            <!-- <li data-index="1">1</li>
                             <li data-index="2">2</li>
-                            <li data-index="3">3</li>
+                            <li data-index="3">3</li> -->
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle span_width74 fl">姓名：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_name" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">身份证号：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_cardID" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
             </div>
             <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle span_width74 fl">住址：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_address" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">电话：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_phone" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
             </div>
             <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">驾驶证号：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_driver_num" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">货物资格证号：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_huowu_num" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
             </div>
             <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle span_width74 fl">银行卡：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_yihangka" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
-                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">登陆账号：&nbsp;</span>
-                    <input type="text" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                <!-- <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">登陆账号：&nbsp;</span>
+                    <input type="text" class="person_login_num" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div> -->
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">薪资：&nbsp;</span>
+                    <input type="text" class="person_money" placeholder="" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
             </div>
-            <div class="clearfix">
+            <!-- <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">登录密码：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_login_pass" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">薪资：&nbsp;</span>
-                    <input type="text" placeholder="333" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_money" placeholder="333" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
-            </div>
+            </div> -->
             <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">保险状态：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_baoxian_status" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
             </div>
             <div class="clearfix">
-                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">上传发票：&nbsp;</span>
-                    <div class="fl upload_fapiao_div" style="width: 610px;">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">上传图片：&nbsp;</span>
+                    <div class="fl upload_fapiao_div div_div" style="width: 610px;">
                         <div class="fl upload_fapiao">
                             <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative;">
-                                <input type="file">
+                                <input type="file" id="upload_input0">
+                                <input type="hidden" id="upload_hidden0">
                             </div>
-                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">驾驶证</div>
+                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">驾驶证1</div>
                         </div>
                         <div class="fl upload_fapiao">
                             <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative; ">
-                                <input type="file">
+                                <input type="file" id="upload_input1">
+                                <input type="hidden" id="upload_hidden1">
                             </div>
-                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">上传发票</div>
+                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">驾驶证2</div>
                         </div>
                         <div class="fl upload_fapiao">
+                            <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative; ">
+                                <input type="file" id="upload_input2">
+                                <input type="hidden" id="upload_hidden2">
+                            </div>
+                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">运输资格证1</div>
+                        </div>
+                        <div class="fl upload_fapiao">
+                            <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative; ">
+                                <input type="file" id="upload_input3">
+                                <input type="hidden" id="upload_hidden3">
+                            </div>
+                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">运输资格证2</div>
+                        </div>
+                        <!-- <div class="fl upload_fapiao">
                             <div class="add_img" style="height: 128px;width: 128px;border: 1px solid #dbdbdc; background: url('img/cf_add.png') no-repeat; position: relative; background-size: contain">
                                 
                             </div>
                             <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">上传发票</div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
             <div class="clearFloat" style="text-align: center;margin-top: 50px;">
                 <span class=" cf_btn cancel cfClose quxiao" style="display: inline-block;" >取消</span>
-                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认新增</span>
+                <span class=" cf_btn model20_ok_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认新增</span>
             </div>
         </div>
     </div>
@@ -2800,6 +2869,31 @@
             endTime = dates;
         }
     });
+    laydate({
+        elem: '#insuranceDate',//保险日期
+        format: 'YYYY-MM-DD',
+        istime: false,
+        choose: function(dates){ //选择好日期的回调
+            console.log(dates);
+        }
+    });
+    laydate({
+        elem: '#annualVerificationDate',//年审日期
+        format: 'YYYY-MM-DD',
+        istime: false,
+        choose: function(dates){ //选择好日期的回调
+            console.log(dates);
+        }
+    });
+    laydate({
+        elem: '#firstDate',//初次上牌日期
+        format: 'YYYY-MM-DD',
+        istime: false,
+        choose: function(dates){ //选择好日期的回调
+            console.log(dates);
+        }
+    });
+
 
     // 所属部门select
     $.ajax({
@@ -2830,12 +2924,15 @@
             // $('.shuyu_apartment').parent().attr('data-selectedindex', json.data[0].id);
             // $('.shuyu_apartment').parent().find('span').text(json.data[0].ordName);
 
-            $('.selectPub ul li').click(function(){
+            $('.apartment_select ul li').click(function(){
                 event.stopPropagation();
                 $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
                 $(this).parent().parent().find('span').text($(this).text());
                 $(this).parent().parent().children('img').attr('src', 'img/prl-select.jpg')
                 $(this).parent().css('display','none');
+
+                selectZhiwu($(this).attr('data-index'));
+
             });
 
         },
@@ -2843,6 +2940,90 @@
             console.log(err);
         }
     });
+
+    function selectZhiwu(apartmentIndex) {
+        $.ajax({
+            url: pubIP + 'tLtDriverOrgDute/selectByOrgId',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                id: apartmentIndex
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+
+                var str = '';
+                for (var i = 0; i < json.data.length; i++) {
+                    str += '<li data-index="'+json.data[i].id+'">'+json.data[i].dutyName+'</li>'
+                }
+
+                $('.zhiwu_ul').html(str);
+
+                $('.zhiwu_select ul li').click(function(){
+                    event.stopPropagation();
+                    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                    $(this).parent().parent().find('span').text($(this).text());
+                    $(this).parent().parent().children('img').attr('src', 'img/prl-select.jpg')
+                    $(this).parent().css('display','none');
+
+                });
+
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+    }
+
+    // if ($('.modelBox20').css('display') == 'block') {
+    //     car_select();
+    // }
+
+    function car_select() {
+        $.ajax({
+            url: pubIP + 'tLogisticsVehicle/selectLogisticsVehicleList',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                page: 1,
+                size: 100,
+                sort: 4
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+
+                var str = '';
+                for (var i = 0; i < json.data.length; i++) {
+                    str += '<li data-index="'+json.data[i].id+'">'+json.data[i].carNo+'</li>'
+                }
+
+                $('.suozai_car_ul').html(str);
+
+                $('.suozai_car_select ul li').click(function(){
+                    event.stopPropagation();
+                    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                    $(this).parent().parent().find('span').text($(this).text());
+                    $(this).parent().parent().children('img').attr('src', 'img/prl-select.jpg')
+                    $(this).parent().css('display','none');
+
+                });
+
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
 
 
     $(".tablea").find(".box:first").show();    //为每个BOX的第一个元素显示        
@@ -2978,18 +3159,66 @@
         $(cls).css("display","block");
     }
 
+    //var n = 1;
     // 点击添加上传发票
-    $(document).on('click', '.add_img', function() {
+    // $(document).on('click', '.add_img', function() {
+    //     var len = $(this).parent().parent().find('.upload_fapiao').length;
+    //     n++;
+    //     if (len < 6) {
+    //         $(this).parent().before('<div class="fl upload_fapiao">'
+    //                     +'<div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative;">'
+    //                         +'<input type="file" id="upload_input'+n+'">'
+    //                         +'<input type="hidden" id="upload_hidden'+n+'">'
+    //                     +'</div>'
+    //                     +'<div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">上传发票</div>'
+    //                 +'</div>');
+    //     } 
+    //     if (len == 5) {
+    //         $(this).parent().parent().addClass('last_add_img');
+    //     }
+       
+    // });
 
-        $(this).parent().before('<div class="fl upload_fapiao">'
-                        +'<div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative;">'
-                            +'<input type="file">'
-                        +'</div>'
-                        +'<div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">上传发票</div>'
-                    +'</div>');
-
+    $(document).on('change', '#upload_input0, #upload_input1, #upload_input2, #upload_input3, #upload_input4,#cf_xingshizheng,#cf_cheliangyunying', function() {
+        xmTanUploadImg(this);
     });
 
+    function xmTanUploadImg(obj) {
+        var file = obj.files[0];
+        if (file.size >= 2097152) {
+            alert('上传的图片超过了2MB');
+            return;
+        }
+
+        var formdata=new FormData();
+
+        formdata.append('file', file);
+        
+        $.ajax({
+            url: uplodImgPath,
+            type: 'post',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            data: formdata,
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                //console.log(data);
+                $(obj).parent().css({
+                        'background':'url('+data.url+') no-repeat',
+                        'background-position':'center',
+                        'background-size':'contain'
+                        // 'background-color':'#f6f6f6'
+                });
+                $(obj).parent().find('input[type="hidden"]').val(data.url);
+                // $(obj).parent().parent().next().css('display', 'none');
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+    }
 
     function showMangeList(idx) {//设置每个页面的  初始加载页面， cfsrc  必须是 和data-src 一致
         //$(".manageList").css("display","none");
@@ -3934,7 +4163,7 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
     }
     //------------------------------------------------------------------------分配车辆部分   操作结束
 //tianjia 车辆部分
-    getCarTypeList();
+
     //获取车辆类型
     function getCarTypeList() {
         $.ajax({
@@ -3977,7 +4206,7 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
     //获取线路列表   未对接
     function getLineList() {
         $.ajax({
-            url: pubIP + 'tLogisticsVehicleRoute/selectVehicleRouteList', /*v1.0*/
+            url: pubIP + 'tLogisticsVehicleRoute/selectStatusUp', /*v1.0*/
             type: 'post',
             headers: {
                 Accept: "application/json; charset=utf-8",
@@ -3987,18 +4216,17 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
             ansyc: false,
             dataType: 'json',
             data:{
-                page:"1",
-                size:"1111111111"
+
             },
             success: function (data) {
                 console.log(data);
                 var str = '';
                 for (var i = 0; i < data.data.length; i++) {
-                    str += '<li  data-index="'+i+'" value="'+i+'" data-id="'+data.data[i].id+'">'+data.data[i].typeName+'</li>';
+                    str += '<li  data-index="'+i+'" value="'+i+'" data-id="'+data.data[i].id+'">'+data.data[i].routeName+'</li>';
                 }
-                $('#carTypeList ul').html(str);
+                $('#chooseAbleLine ul').html(str);
 
-                $('#carTypeList ul li').click(function(){
+                $('#chooseAbleLine ul li').click(function(){
                     event.stopPropagation();
                     $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
                     $(this).parent().parent().attr('data-id', $(this).attr('data-id'));
@@ -4007,9 +4235,9 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
                     $(this).parent().css('display','none');
                 });
                 //默认选中
-                $("#carTypeList").attr('data-selectedindex', 0);
-                $("#carTypeList").attr('data-id', data.data[0].id);
-                $("#carTypeList").find('span').text(data.data[0].typeName);
+                $("#chooseAbleLine").attr('data-selectedindex', 0);
+                $("#chooseAbleLine").attr('data-id', data.data[0].id);
+                $("#chooseAbleLine").find('span').text(data.data[0].routeName);
             },
             error: function(err){
                 console.log(err);
@@ -4046,6 +4274,109 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
                 }
             });
         })
+    }
+    //获取车辆动态字段
+    function getDynamic() {
+        $.ajax({
+            url: pubIP + 'wLtLogisticsVehicleAttribute/selectCarShezhi', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: false,
+            dataType: 'json',
+            data:{
+
+            },
+            success: function (data) {
+                console.log(data);
+                var str = '';
+                for (var i = 0; i < data.data.length; i++) {
+                    str+='<li data-type="'+data.data[i].type+'" data-id="data.data[i].id">';
+                    str+='<div>';
+                    str+='<span class="dynamicTitle" data-title="'+data.data[i].name+'">'+data.data[i].name+'：</span>';
+                    if(data.data[i].type==1){//下拉框
+                        var list=data.data[i].label.split("@");
+                        for(j=0;j<list.length;j++){
+                            var id=list[j].split(",")[0];
+                            var name=list[j].split(",")[1];
+                            if(j==0){
+                                str+='<div class="select" data-id="'+id+'" data-selectedindex="'+j+'" style="width: 198px; margin-right: 0px; margin-top: 0px;">';
+                                str+='<span style="display: inline-block;max-width: 70px;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;">'+name+'</span><img src="img/prl-select.jpg" alt="">';
+                                str+='<ul>';
+                            }
+                            str+='<li data-index="'+j+'" data-id="'+id+'">'+name+'</li>';
+                        }
+                        str+='</ul>';
+                        str+='</div>';
+
+                    }else if(data.data[i].type==2){//日期框
+                        str+='<input type="text" class="date-input laydate-icon" id="dynamicData'+i+'" type="text" style="height: 36px;width: 176px;border: 1px solid #dbdbdc;">'
+                    }else if(data.data[i].type==0){//input
+                        str+='<input type="text" style="width: 197px;height: 36px;border: 1px solid #dbdbdc;">'
+                    }
+                    str+='</div>';
+                    str+=' </li>';
+                }
+                $('#dynamic').html(str);
+                //    动态添加的LI样式
+                $("#dynamic>li:nth-child(2n)").css("margin-right","0");
+                //select 处理
+                // 模拟下拉框
+                $('#dynamic .select').click(function(event){
+                    if($(this).attr("disabled")=="disabled"){return;}//不可选
+                    if($(this).children('img').attr('src') == './img/prl-selected.jpg'){
+                        $(this).children('img').attr('src', './img/prl-select.jpg')
+                    } else {
+                        $(this).children('img').attr('src', './img/prl-selected.jpg')
+                    }
+                    event.stopPropagation();
+                    $(this).children('ul').toggle();
+                    var that = $(this);
+                    that.find('li').each(function(){
+                        $(this).mouseover(function(){
+                            $(this).addClass('hovered')
+                        });
+                        $(this).mouseleave(function(){
+                            $(this).removeClass('hovered')
+                        });
+                        if($(this).attr('data-index') == that.attr('data-selectedindex')){
+                            $(this).css({'background': '#6ea3ff','color': '#fff'});
+                            $(this).siblings('li').css({'background': '#fff','color': '#999'});
+                        }
+                    });
+
+                }).mouseleave(function (event) {
+                    $(this).children('img').attr('src', './img/prl-select.jpg');
+                    $(this).children('ul').hide();
+                });
+                $('#dynamic .select li').unbind();
+                $('#dynamic .select li').click(function(){
+                    event.stopPropagation();
+                    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                    $(this).parent().parent().attr('data-id', $(this).attr('data-id'));
+                    $(this).parent().parent().find('span').text($(this).text());
+                    $(this).parent().parent().children('img').attr('src', './img/prl-select.jpg');
+                    $(this).parent().css('display','none');
+                });
+                //   时间框处理
+                $("#dynamic .date-input.laydate-icon").click(function () {
+                    laydate({
+                        elem: '#'+$(this).attr("id"),
+                        format: 'YYYY-MM-DD',
+                        istime: true,
+                        choose: function(dates){ //选择好日期的回调
+                        }
+                    });
+                })
+
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
     }
 </script>
 </body>
