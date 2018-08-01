@@ -12,14 +12,14 @@
     <link rel="stylesheet" type="text/css" href="../css/commin.css"/>
     <link rel="stylesheet" href="../css/wageCalculation.css">
     <style>
-
+        .no_msg{display: none;width: 100%;line-height: 80px;text-align: center;font-size: 18px;color: #666;}
     </style>
     
     
 </head>
 <body>
     <div class="contbox">
-        <div class="topTitle">工资发放列表<div class="fr cfRefresh"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
+        <div class="topTitle">工资结算<div class="fr cfRefresh"><img src="../img/prl-refresh.png" alt="" width="27" height="34">刷新</div></div>
         <div class="inputBox">
             <label for="">搜索类型</label>
             <div class="goodsType input select" data-selectedindex="0"><span>全部</span><img src="../img/prl-select.jpg" >
@@ -62,26 +62,21 @@
                         <th>姓名</th>
                         <th>所属部门</th>
                         <th>职务</th>
-                        <th>应结工资</th>
-                        <th>本次结算</th>
+                        <th>上次结算时间</th>
+                        <th>本月工资</th>
+                        <th>未结工资</th>
                         <th>操作</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>王小二</td>
-                        <td>车辆管理</td>
-                        <td>司机</td>
-                        <td>¥111111</td>
-                        <td>¥111111</td>
-                        <td><span class="btn ll">工资发放</span></td>
-                    </tr>
+                <tbody class="myTbody">
+                    
                  
                 </tbody>
             </table>
+            <p class="no_msg">暂无数据</p>
         </div>
 
-        <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
+        <div class="myPage" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
             <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
             <div class="pageJump">
                 <span class="allPageN">1/200</span>
@@ -125,14 +120,7 @@
         });
         laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
 
-        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
-        Page({
-            num: 200,
-            elem: $('#page1'),
-            callback: function(n) {
-                console.log(n);
-            }
-        });
+       
         //查看详情
         $(".seeDetail").click(function () {
             window.location.href="./wegeCalculationDetail.html";
@@ -147,30 +135,96 @@
 
 
         //工资申请列表
-        $.ajax({
-            url: pubIP + 'carrierFinance/selectWageslist',
-            type: 'POST',
-            headers: {
-                Accept: "application/json; charset=utf-8",
-                token: token
-            },
-            data: {
-                type: 0,
-                status: 1,
-                page: 1,
-                size: 10,
-            },
-            cache: false,
-            dataType: 'json',
-            success: function (json) {
-                console.log("+++++++++++++++++++++++++++++");
-                console.log(json);
-            },
-            error: function(err) {
-                console.log(err);
-            }
+        js_list(1)
+        function js_list(currentPage){
+            $.ajax({
+                url: pubIP + 'carrierFinance/selectWageslist',
+                type: 'POST',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    type: 0,
+                    status: 1,
+                    page: currentPage,
+                    size: 10,
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log("+++++++++++++++++++++++++++++");
+                    console.log(json.data);
+                    var data = json.data;
+                    if(data==null || data.length==0){
+                        $(".no_msg").show();
+                        $(".myPage").hide();
+                        return false;
+                    }
+                    if(currentPage===1 ){
+                        //修改底部分页
+                        //debugger
+                        var pageNum=Math.ceil(data.count/10);
+                        $(".allPageN").attr("pageTotal",pageNum);
+                        $(".pageJump i").text("共"+pageNum+"页");
+                        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+                        Page({
+                            num: pageNum,
+                            elem: $('#page1'),
+                            callback: function(n) {
+                                // console.log(n);
+                                js_list(n);//加载n页数据
+                            }
+                        });
+                    }
+                    
+                    var str = ''
+                    $.each(data,function(idx,item){
+                        str += '<tr>'
+                        str += '<td>'+item.name+'</td>'
+                        str += '<td>'+item.org_name+'</td>'
+                        str += '<td>'+item.job_name+'</td>'
+                        str += '<td>'+item.updatetime+'</td>'
+                        str += '<td>'+item.money+'</td>'
+                        str += '<td>'+item.wj_money+'</td>'
+                        str += '<td><span class="btn ll fafang" id="'+item.id+'" data-djs="'+item.wj_money+'" data-by="'+item.money+'">工资发放</span><span class="btn ll" onclick="ffdetail();">查看详情</span></td>'
+                        str += '</tr>'
+                    })
+                    $(".myTbody").html(str);
+                    
+                },
+                error: function(err) {
+                    console.log(err);
+                }
 
             });
+        }
+        //发放工资
+        $(".fafang").on("click",function(){
+            window.parent.jiesuan_alert_show($(this).attr("id"),$(this).attr("data-djs"),$(this).attr("data-by"));
+        })
+        function ffdetail(){
+            $.ajax({
+                url: pubIP + 'wages/wagesdetil',
+                type: 'POST',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    id: 0,
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log("+++++++++++++++++++++++++++++");
+                    console.log(json.data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        }
     </script>
 </body>
 </html>

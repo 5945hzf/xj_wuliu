@@ -49,8 +49,8 @@
                         <th>操作</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody class="myTbody">
+                    <!-- <tr>
                         <td><div class="cf_select"></div></td>
                         <td>251841648964165415</td>
                         <td>王二</td>
@@ -59,19 +59,11 @@
                         <td>新B 123565</td>
                         <td>待审核</td>
                         <td><span class="btn ll">工资发放</span><span class="btn ll">查看详情</span></td>
-                    </tr>
-                    <tr>
-                        <td><div class="cf_select"></div></td>
-                        <td>251841648964165415</td>
-                        <td>王二</td>
-                        <td>￥200.00</td>
-                        <td>￥200.00</td>
-                        <td>新B 123565</td>
-                        <td>待审核</td>
-                        <td><span class="btn ll">工资发放</span><span class="btn ll">查看详情</span></td>
-                    </tr>
+                    </tr> -->
+                   
                 </tbody>
             </table>
+            <p class="no_msg">暂无数据</p>
         </div>
         <div class="bottomOperiat">
             <span class="squre"></span>
@@ -79,7 +71,7 @@
             <span class="closeBtn">批量通过</span>
             <span class="delBtn">批量驳回</span>
         </div>
-        <div class="" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
+        <div class="myPage" style="text-align: center;height: 75px;padding-top: 17px;margin-bottom: 0;border-top: 1px solid #ebe9ea;">
             <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
             <div class="pageJump">
                 <span class="allPageN">1/200</span>
@@ -123,14 +115,7 @@
         });
         laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
 
-        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
-        Page({
-            num: 200,
-            elem: $('#page1'),
-            callback: function(n) {
-                console.log(n);
-            }
-        });
+       
         //查看详情
         $(".seeDetail").click(function () {
             window.location.href="./sureTakengoodsOrder-detail.html";
@@ -142,6 +127,75 @@
         $('.bottomOperiat .selsectAll').click(function(){
             $('.bottomOperiat .squre').toggleClass('active');
         });
+
+
+
+        //工资申请列表
+        js_list(1)
+        function js_list(currentPage){
+            $.ajax({
+                url: pubIP + 'carrierFinance/selectWageslist',
+                type: 'POST',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    type: 1,
+                    status: 1,
+                    page: currentPage,
+                    size: 10,
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log("+++++++++++++++++++++++++++++");
+                    console.log(json.data);
+                    var data = json.data;
+                    if(data==null || data.length==0){
+                        $(".no_msg").show();
+                        $(".bottomOperiat").hide();
+                        $(".myPage").hide();
+                        return false;
+                    }
+                    if(currentPage===1 ){
+                        //修改底部分页
+                        //debugger
+                        var pageNum=Math.ceil(data.count/10);
+                        $(".allPageN").attr("pageTotal",pageNum);
+                        $(".pageJump i").text("共"+pageNum+"页");
+                        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+                        Page({
+                            num: pageNum,
+                            elem: $('#page1'),
+                            callback: function(n) {
+                                // console.log(n);
+                                js_list(n);//加载n页数据
+                            }
+                        });
+                    }
+                    
+                    var str = ''
+                    $.each(data,function(idx,item){
+                        str += '<tr>'
+                        str += '<td>'+item.name+'</td>'
+                        str += '<td>'+item.org_name+'</td>'
+                        str += '<td>'+item.job_name+'</td>'
+                        str += '<td>'+item.updatetime+'</td>'
+                        str += '<td>'+item.money+'</td>'
+                        str += '<td>'+item.wj_money+'</td>'
+                        str += '<td><span class="btn ll fafang" id="'+item.id+'" data-djs="'+item.wj_money+'" data-by="'+item.money+'">工资发放</span><span class="btn ll" onclick="ffdetail();">查看详情</span></td>'
+                        str += '</tr>'
+                    })
+                    $(".myTbody").html(str);
+                    
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+
+            });
+        }
     </script>
 </body>
 </html>

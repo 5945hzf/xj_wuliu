@@ -655,6 +655,8 @@
                     <!--<li><a href="##" class="manageItem " data-src="./financialManage/settlementAudit.html" data-height="715">待审核列表</a></li>-->
                     <!-- <li><a href="##" class="manageItem" data-src="./finance/replenish.html" data-height="767">网点卡券申请</a></li>  -->
                     <!-- <li><a href="##" class="manageItem" data-src="./finance/returnedMoney.html" data-height="767">订单回款申请</a></li> -->
+
+                    
                     <li><a href="##" class="manageItem" data-src="./finance/imprest.html" data-height="767">预付款申请</a></li>
                     <li><a href="##" class="manageItem" data-src="./finance/wageCalculation.html" data-height="767">工资结算</a></li>
                     <li><a href="##" class="manageItem" data-src="./finance/outWage.html" data-height="767">外部工资申请</a></li>
@@ -2744,6 +2746,30 @@
         </div>
     </div>
 </div>
+<!-- 结算 -->
+<div class="jiesuan_alert">
+    <div class="modelCont" style="width: 550px;height: 370px;background: white;">
+        <div class="modeltitle" style="width: 550px;">
+            <span>工资结算</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="">
+        </div> 
+        <div class="jiesuan_main">
+            <ul class="jie_title">
+                <li><span>工资待结算：</span><i class="djs_money">13131</i></li>
+                <li><span>本月工资：</span><i class="by_money">313131</i></li>
+            </ul>
+            <div class="sjff">
+                <span>实际发放</span>
+                <input type="text" placeholder="请输入金额" class="sjff_inp">
+            </div>
+            <!-- <div class="ff_beizhu">
+                <span>备注</span>
+                <textarea></textarea>
+            </div> -->
+            <div class="js_btn">立即结算</div>
+        </div>
+    </div>
+</div>
 
 
 <script src="./js/footer.js" type="text/javascript" charset="utf-8"></script>
@@ -3990,6 +4016,36 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
             }
         });
 
+    }
+    //结算框显示
+    function jiesuan_alert_show(obj,obj1,obj2){
+        $(".jiesuan_alert").show();
+        $(".djs_money").html(obj1);
+        $(".by_money").html(obj2);
+        $(".js_btn").on("click",function(){
+            $.ajax({
+                url: pubIP + 'carrierFinance/updatewagesvo',
+                type: 'POST',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    wages_id: obj,
+                    sign: 0,
+                    money: $(".sjff_inp").val(),
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log("+++++++++++++++++++++++++++++");
+                    console.log(json.data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        })
     }
 </script>
 </body>

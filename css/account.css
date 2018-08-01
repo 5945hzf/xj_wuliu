@@ -261,7 +261,7 @@ header>.headerBot{display: none;}
 
 
 
-.all_error_alert,.all_success_alert,.modelBoxdiaoling,.ok_success, .modelBox0, .modelBox1, .modelBox2, .modelBox3, .modelBox4, .modelBox5, .modelBox6, .modelBox7, .modelBox8, .modelBox9, .modelBox10, .modelBox11, .modelBox12, .modelBox13, .modelBox14, .modelBox15, .modelBox16, .modelBox17, .modelBox18, .modelBox19, .modelBox20, .modelBox21, .modelBox22, .modelBox23, .modelBox24, .modelBox25, .modelBox26, .modelBox27, .modelBox28,.modelBox29,.modelBox30,.modelBox31,.modelBox32,.modelBox33,.modelBox34,.modelBox35,.modelBox36,.modelBox37,.modelBox38,.modelBox39,.modelBox40,.modelBox41,.modelBox42,.modelBox43,.modelBox44,.modelBox45,.modelBox46,.modelBox47,.modelBox48,.modelBox49,.modelBox50,.modelBox51,.modelBox52,.modelBox53,.modelBox54,.modelBox55,.closeRequirement, .okClose, #renzheng1, #addCustomerRelationship, #lijiBaoming, #activityDetail {
+.jiesuan_alert,.all_error_alert,.all_success_alert,.modelBoxdiaoling,.ok_success, .modelBox0, .modelBox1, .modelBox2, .modelBox3, .modelBox4, .modelBox5, .modelBox6, .modelBox7, .modelBox8, .modelBox9, .modelBox10, .modelBox11, .modelBox12, .modelBox13, .modelBox14, .modelBox15, .modelBox16, .modelBox17, .modelBox18, .modelBox19, .modelBox20, .modelBox21, .modelBox22, .modelBox23, .modelBox24, .modelBox25, .modelBox26, .modelBox27, .modelBox28,.modelBox29,.modelBox30,.modelBox31,.modelBox32,.modelBox33,.modelBox34,.modelBox35,.modelBox36,.modelBox37,.modelBox38,.modelBox39,.modelBox40,.modelBox41,.modelBox42,.modelBox43,.modelBox44,.modelBox45,.modelBox46,.modelBox47,.modelBox48,.modelBox49,.modelBox50,.modelBox51,.modelBox52,.modelBox53,.modelBox54,.modelBox55,.closeRequirement, .okClose, #renzheng1, #addCustomerRelationship, #lijiBaoming, #activityDetail {
     z-index: 9999;
     display: none;
     position: fixed;
@@ -321,3 +321,84 @@ header>.headerBot{display: none;}
 .cf_btn{width: 120px;height: 40px;line-height: 40px; cursor: pointer; text-align: center;border-radius: 3px;background-color: #6ba1ff;color: white;}
 .cf_btn:hover{background-color: #5388ff;color: white;}
 .cf_btnA{color: #6ba1ff;}
+
+.jiesuan_main{
+    width: 80%;
+    margin: 0 auto;
+}
+.jie_title{
+    overflow: hidden;
+    width: 100%;
+}
+.jie_title>li{
+    width: 50%;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    color: red;
+    line-height: 90px;
+}
+.sjff{
+    width: 100%;
+    overflow: hidden;
+    font-size: 14px;
+    color: #666;
+    margin-top: 30px;
+}
+.sjff>span{
+    display: inline-block;
+    width: 90px;
+    line-height: 40px;
+    text-align: right;
+}
+.sjff>input{
+    width: 260px;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    margin-left: 20px;
+}
+.ff_beizhu{
+    width: 100%;
+    overflow: hidden;
+    font-size: 14px;
+    color: #666;
+    margin-top: 40px;
+}
+.ff_beizhu>span{
+    display: inline-block;
+    width: 90px;
+    line-height: 40px;
+    text-align: right;
+}
+.ff_beizhu>textarea{
+    width: 460px;
+    height: 140px;
+    outline: none;
+    margin-left: 20px;
+}
+.js_btn{
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    border-radius: 2px;
+    background: #026ee4;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
