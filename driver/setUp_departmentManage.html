@@ -175,7 +175,7 @@
                     	var str = '';
                         for (var i = 0; i < json.data.length; i++) {
                         
-                            json.data[i].addTime = new Date(json.data[i].addTime).Format("yyyy-MM-dd hh:mm");
+                            json.data[i].addTime = new Date(json.data[i].addTime).Format("yyyy-MM-dd");
 
                             str += '<tr data-id="'+json.data[i].id+'">'
 									+'<td class="ord_name">'+json.data[i].ordName+'</td>'
