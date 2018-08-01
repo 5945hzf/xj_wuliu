@@ -2152,7 +2152,7 @@
             <div class="clearFloat clearfix" style="margin-top: 25px;">
                 <span style="display: inline-block; width: 135px;text-align: right; float: left;"><span style='color: #e71212; margin-right: 3px;'>*</span>所属部门：</span>
                 <!-- <input type="text" class="shuyu_apartment" placeholder="33333"  style="height: 36px;width: 205px;border: 1px solid #dbdbdc;"> -->
-                <div class="selectPub apartment_select" data-selectedindex="-1" style="float: left; width: 207px; margin-left: 4px; margin-top: 0px;">
+                <div class="selectPub apartment_select apartment_select0" data-selectedindex="-1" style="float: left; width: 207px; margin-left: 4px; margin-top: 0px;">
                     <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
                     <ul class="shuyu_apartment">
                         <li data-index="1">1</li>
@@ -2193,7 +2193,7 @@
                     </div>
                 </div>
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">部门：&nbsp;</span>
-                    <div class="selectPub apartment_select" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
+                    <div class="selectPub apartment_select apartment_select1" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
                         <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
                         <ul class="shuyu_apartment">
                             <li data-index="1">1</li>
@@ -2257,7 +2257,7 @@
                     <input type="text" class="person_login_num" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div> -->
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">薪资：&nbsp;</span>
-                    <input type="text" class="person_money" placeholder="333" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_money" placeholder="" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
             </div>
             <!-- <div class="clearfix">
@@ -2281,21 +2281,35 @@
                                 <input type="file" id="upload_input0">
                                 <input type="hidden" id="upload_hidden0">
                             </div>
-                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">驾驶证</div>
+                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">驾驶证1</div>
                         </div>
                         <div class="fl upload_fapiao">
                             <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative; ">
                                 <input type="file" id="upload_input1">
                                 <input type="hidden" id="upload_hidden1">
                             </div>
-                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">上传发票</div>
+                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">驾驶证2</div>
                         </div>
                         <div class="fl upload_fapiao">
+                            <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative; ">
+                                <input type="file" id="upload_input2">
+                                <input type="hidden" id="upload_hidden2">
+                            </div>
+                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">运输资格证1</div>
+                        </div>
+                        <div class="fl upload_fapiao">
+                            <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative; ">
+                                <input type="file" id="upload_input3">
+                                <input type="hidden" id="upload_hidden3">
+                            </div>
+                            <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">运输资格证2</div>
+                        </div>
+                        <!-- <div class="fl upload_fapiao">
                             <div class="add_img" style="height: 128px;width: 128px;border: 1px solid #dbdbdc; background: url('img/cf_add.png') no-repeat; position: relative; background-size: contain">
                                 
                             </div>
                             <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">上传发票</div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -3072,25 +3086,25 @@
         $(cls).css("display","block");
     }
 
-    var n = 1;
+    //var n = 1;
     // 点击添加上传发票
-    $(document).on('click', '.add_img', function() {
-        var len = $(this).parent().parent().find('.upload_fapiao').length;
-        n++;
-        if (len < 6) {
-            $(this).parent().before('<div class="fl upload_fapiao">'
-                        +'<div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative;">'
-                            +'<input type="file" id="upload_input'+n+'">'
-                            +'<input type="hidden" id="upload_hidden'+n+'">'
-                        +'</div>'
-                        +'<div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">上传发票</div>'
-                    +'</div>');
-        } 
-        if (len == 5) {
-            $(this).parent().parent().addClass('last_add_img');
-        }
+    // $(document).on('click', '.add_img', function() {
+    //     var len = $(this).parent().parent().find('.upload_fapiao').length;
+    //     n++;
+    //     if (len < 6) {
+    //         $(this).parent().before('<div class="fl upload_fapiao">'
+    //                     +'<div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative;">'
+    //                         +'<input type="file" id="upload_input'+n+'">'
+    //                         +'<input type="hidden" id="upload_hidden'+n+'">'
+    //                     +'</div>'
+    //                     +'<div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">上传发票</div>'
+    //                 +'</div>');
+    //     } 
+    //     if (len == 5) {
+    //         $(this).parent().parent().addClass('last_add_img');
+    //     }
        
-    });
+    // });
 
     $(document).on('change', '#upload_input0, #upload_input1, #upload_input2, #upload_input3, #upload_input4', function() {
         xmTanUploadImg(this);
