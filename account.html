@@ -529,7 +529,7 @@
         }
 
         #dynamic>li{
-            float: left;margin-top: 15px;
+            float: left;margin-top: 15px;margin-right: 34px;
         }
         #dynamic .dynamicTitle{
             float: left;
@@ -648,7 +648,6 @@
                     <li><a href="##" class="manageItem" data-src="./order/finishedOrder.html" data-height="1445">已完成订单</a></li>
                     <li><a href="##" class="manageItem" data-src="./order/carMoneySetup.html" data-height="1445">扣车款设置</a></li>
                     <li><a href="##" class="manageItem" data-src="./order/priceAjustApplication.html" data-height="1445">调价申请</a></li>
-
                 </ul>
             </li>
         </ul>
@@ -1513,13 +1512,13 @@
 
 <!-- 添加车辆/编辑汽车 -->
 <div class="modelBox12" style="font-size: 14px;">
-    <div class="modelCont" style="width: 846px;height: 730px;">
+    <div class="modelCont" style="width: 846px;height: 570px;">
         <div class="modeltitle" style="width: 100%;">
             <span>添加车辆/编辑汽车</span>
             <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
         </div>
-        <div class="modelcontent clearFloat" style="width: 784px; font-size: 14px; height: 680px; border: 1px solid #ebe9ea;padding: 15px 50px 0 10px; ">
-            <div style="padding-right: 80px; box-sizing: border-box;">
+        <div class="modelcontent clearFloat" style="width: 834px; font-size: 14px; height: 500px; border: 1px solid #ebe9ea;padding: 15px 0px 0 10px; ">
+            <div style="padding-right: 80px; box-sizing: border-box; height: 400px;overflow-y: auto;">
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">车辆类型：&nbsp;</span>
                         <div id="carTypeOut" class="selectPub" data-selectedindex="0" style="float: left;width: 96px; margin-right: 6px; margin-top: 0px;">
@@ -1644,23 +1643,26 @@
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">上传发票：&nbsp;</span>
                         <div class="fl">
                             <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative;">
-                                <input type="file">
+                                <input type="file" id="cf_xingshizheng">
+                                <input type="hidden" id="cf_xingshizheng1">
                             </div>
                             <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">行驶证</div>
                         </div>
                         <div class="fl">
                             <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative; margin-left: 30px;">
-                                <input type="file">
+                                <input type="file" id="cf_cheliangyunying">
+                                <input type="hidden" id="cf_cheliangyunying1">
                             </div>
                             <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">车辆运营证</div>
                         </div>
                     </div>
                 </div>
-                <div class="clearFloat" style="text-align: center;margin-top: 50px;">
-                    <span class=" cf_btn conFirm" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认提交</span>
-                </div>
+            </div>
+            <div class="clearFloat" style="text-align: center;margin-top: 30px;">
+                <span class=" cf_btn conFirm" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认提交</span>
             </div>
         </div>
+
     </div>
 </div>
 
@@ -3132,7 +3134,7 @@
        
     });
 
-    $(document).on('change', '#upload_input0, #upload_input1, #upload_input2, #upload_input3, #upload_input4', function() {
+    $(document).on('change', '#upload_input0, #upload_input1, #upload_input2, #upload_input3, #upload_input4,#cf_xingshizheng,#cf_cheliangyunying', function() {
         xmTanUploadImg(this);
     });
 
@@ -4117,7 +4119,6 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
     //------------------------------------------------------------------------分配车辆部分   操作结束
 //tianjia 车辆部分
 
-
     //获取车辆类型
     function getCarTypeList() {
         $.ajax({
@@ -4218,9 +4219,9 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
                 console.log(data);
                 var str = '';
                 for (var i = 0; i < data.data.length; i++) {
-                    str+='<li data-type="'+data.data[i].type+'">';
+                    str+='<li data-type="'+data.data[i].type+'" data-id="data.data[i].id">';
                     str+='<div>';
-                    str+='<span class="dynamicTitle">'+data.data[i].name+'：</span>';
+                    str+='<span class="dynamicTitle" data-title="'+data.data[i].name+'">'+data.data[i].name+'：</span>';
                     if(data.data[i].type==1){//下拉框
                         var list=data.data[i].label.split("@");
                         for(j=0;j<list.length;j++){
@@ -4250,9 +4251,7 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
                 //select 处理
                 // 模拟下拉框
                 $('#dynamic .select').click(function(event){
-
                     if($(this).attr("disabled")=="disabled"){return;}//不可选
-
                     if($(this).children('img').attr('src') == './img/prl-selected.jpg'){
                         $(this).children('img').attr('src', './img/prl-select.jpg')
                     } else {
