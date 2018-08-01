@@ -184,7 +184,7 @@
 		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" >
 		$(function(){
-			//localStorage.setItem("token","");
+			localStorage.setItem("token","");
 		})
 		var isAuto=0;
 
@@ -269,11 +269,12 @@
                         //sessionStorage.setItem("token",json.data.token);//hzf  20180716
 	                	window.location.href = 'index.html';
 						window.localStorage.setItem('data-logout', 'false');
-						// if (json.data.companyType == 1) { //未认证和供应商
-							
-						// } else if (json.data.companyType == 2) { //承运商
-						// 	window.location.href = "index.html";
-						// }
+						if (json.data.companyType == 1) { //未认证和供应商
+							// window.location.href = "http://192.168.1.159:8080/xj_wuliu_gys/index.html";	
+							// window.location.href = "http://127.0.0.1:8082/wuliu-gys/xj_wuliu_gys/index.html";	
+						} else if (json.data.companyType == 2) { //承运商
+							window.location.href = "index.html";
+						}
 						$('#logout').show();
 	                }else{
 	                	//alert(json.msg)
@@ -283,7 +284,7 @@
 	          error:function(xhr,statues,error){
 	              
 	          }
-	       });
+	        });
           })
 	  </script>
 	</body>
