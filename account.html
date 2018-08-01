@@ -1508,8 +1508,8 @@
                         <div id="carTypeOut" class="selectPub" data-selectedindex="0" style="float: left;width: 96px; margin-right: 6px; margin-top: 0px;">
                             <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">内部</span><img src="img/prl-select.jpg" alt="">
                             <ul>
-                                <li data-index="1">内部</li>
-                                <li data-index="2">外部</li>
+                                <li data-index="0">内部</li>
+                                <li data-index="1">外部</li>
                             </ul>
                         </div>
                         <div class="selectPub" id="carTypeList" data-selectedindex="-1" style="float: left;width: 96px; margin-top: 0px;">
@@ -1522,12 +1522,12 @@
                         </div>
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr ml90 clearfix"><span class="modelBox34LeftTitle fl">车牌号：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input id="addCarNo" type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                 </div>
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">车辆品牌：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input id="carBrand" type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                         <!--<div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 6px; margin-top: 0px;">-->
                             <!--<span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">-->
                             <!--<ul>-->
@@ -1538,37 +1538,37 @@
                         <!--</div>-->
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">车辆档案号：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" id="archivesNo" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                 </div>
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">车&nbsp;&nbsp;架&nbsp;号：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" id="frameNo" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">发动机号：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" id="engineNo" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                 </div> 
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">年审日期：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input id="annualVerificationDate" type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">初次上牌日期：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input id="firstDate" type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                 </div>  
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">保险日期：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" id="insuranceDate" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">车辆载重：&nbsp;</span>
-                        <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" id="vehicleLoad" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                 </div>
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">线路选择：&nbsp;</span>
-                        <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 6px; margin-top: 0px;">
-                            <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                        <div class="selectPub" id="chooseAbleLine" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 6px; margin-top: 0px;">
+                            <span style="display: inline-block;max-width: 70%;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
                             <ul>
                                 <li data-index="1">1</li>
                                 <li data-index="2">2</li>
@@ -1577,15 +1577,15 @@
                         </div>
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">购买金额：&nbsp;</span>
-                        <input type="text" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" id="purchaseAmount" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                 </div>
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">保险金额：&nbsp;</span>
-                        <input type="text" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" id="insuranceAmount" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl" style="width: 96px; text-align: right;">保险年限：&nbsp;</span>
-                        <input type="text" placeholder="" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input id="insuranceYears" type="text" placeholder="" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                         <!--<div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">-->
                             <!--<span style="display: inline-block;max-width: 70px;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">-->
                             <!--<ul>-->
@@ -2774,6 +2774,31 @@
             endTime = dates;
         }
     });
+    laydate({
+        elem: '#insuranceDate',//保险日期
+        format: 'YYYY-MM-DD',
+        istime: false,
+        choose: function(dates){ //选择好日期的回调
+            console.log(dates);
+        }
+    });
+    laydate({
+        elem: '#annualVerificationDate',//年审日期
+        format: 'YYYY-MM-DD',
+        istime: false,
+        choose: function(dates){ //选择好日期的回调
+            console.log(dates);
+        }
+    });
+    laydate({
+        elem: '#firstDate',//初次上牌日期
+        format: 'YYYY-MM-DD',
+        istime: false,
+        choose: function(dates){ //选择好日期的回调
+            console.log(dates);
+        }
+    });
+
 
     // 所属部门select
     $.ajax({
@@ -3908,7 +3933,7 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
     }
     //------------------------------------------------------------------------分配车辆部分   操作结束
 //tianjia 车辆部分
-    getCarTypeList();
+
     //获取车辆类型
     function getCarTypeList() {
         $.ajax({
@@ -3951,7 +3976,7 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
     //获取线路列表   未对接
     function getLineList() {
         $.ajax({
-            url: pubIP + 'tLogisticsVehicleRoute/selectVehicleRouteList', /*v1.0*/
+            url: pubIP + 'tLogisticsVehicleRoute/selectStatusUp', /*v1.0*/
             type: 'post',
             headers: {
                 Accept: "application/json; charset=utf-8",
@@ -3961,18 +3986,17 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
             ansyc: false,
             dataType: 'json',
             data:{
-                page:"1",
-                size:"1111111111"
+
             },
             success: function (data) {
                 console.log(data);
                 var str = '';
                 for (var i = 0; i < data.data.length; i++) {
-                    str += '<li  data-index="'+i+'" value="'+i+'" data-id="'+data.data[i].id+'">'+data.data[i].typeName+'</li>';
+                    str += '<li  data-index="'+i+'" value="'+i+'" data-id="'+data.data[i].id+'">'+data.data[i].routeName+'</li>';
                 }
-                $('#carTypeList ul').html(str);
+                $('#chooseAbleLine ul').html(str);
 
-                $('#carTypeList ul li').click(function(){
+                $('#chooseAbleLine ul li').click(function(){
                     event.stopPropagation();
                     $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
                     $(this).parent().parent().attr('data-id', $(this).attr('data-id'));
@@ -3981,9 +4005,9 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
                     $(this).parent().css('display','none');
                 });
                 //默认选中
-                $("#carTypeList").attr('data-selectedindex', 0);
-                $("#carTypeList").attr('data-id', data.data[0].id);
-                $("#carTypeList").find('span').text(data.data[0].typeName);
+                $("#chooseAbleLine").attr('data-selectedindex', 0);
+                $("#chooseAbleLine").attr('data-id', data.data[0].id);
+                $("#chooseAbleLine").find('span').text(data.data[0].routeName);
             },
             error: function(err){
                 console.log(err);
