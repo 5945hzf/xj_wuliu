@@ -208,6 +208,7 @@ var currentPage=1;
         })
 //		编辑
 		$(".editList").click(function () {
+		    window.parent.getDynamic();
             window.parent.getCarTypeList();
             window.parent.getLineList();
 			window.parent.$(".modelBox12").show();
@@ -241,6 +242,7 @@ var currentPage=1;
     })
 	//添加车辆
 	$("#addVehicle").click(function () {
+        window.parent.getDynamic();
         window.parent.getCarTypeList();
         window.parent.getLineList();
 		window.parent.$(".modelBox12").show();
@@ -314,13 +316,13 @@ var currentPage=1;
 				firstDate:window.parent.$("#firstDate").val(),//		是	Sring	初次上牌日期
 				vehicleLoad:window.parent.$("#vehicleLoad").val(),//		是	String	车辆
 				insuranceDate:window.parent.$("#insuranceDate").val(),//		是	String	保险日期
-				routeid:window.parent.$("#carBrand").val(),//		是	String	线路id
+				routeid:window.parent.$("#chooseAbleLine").attr("data-id"),//		是	String	线路id
 				purchaseAmount:window.parent.$("#purchaseAmount").val(),//		是	String	购买金额
 				insuranceAmount:window.parent.$("#insuranceAmount").val(),//		是	String	保险金额
 				insuranceYears:window.parent.$("#insuranceYears").val(),//		是	String	保险年限
 				drivingLicense:window.parent.$("#drivingLicense").val(),//		是	String	行驶证url
 				carOperation:window.parent.$("#carOperation").val(),//		是	String	车辆运营url
-				values:window.parent.$("#values").val(),//		是	String	获取车辆设置的属性”id @#@ value @,@ id @#@ value “
+				values:"",//		是	String	获取车辆设置的属性”id @#@ value @,@ id @#@ value “
             },
             success: function (res) {
                 if(res.code==1){

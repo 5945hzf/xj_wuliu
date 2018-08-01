@@ -528,6 +528,19 @@
             border: 1px solid #dbdbdc;
         }
 
+        #dynamic>li{
+            float: left;margin-top: 15px;
+        }
+        #dynamic .dynamicTitle{
+            float: left;
+            width: 153px;
+            text-align: right;
+            display: inline-block;
+            line-height: 40px;
+            color: #666666;
+        }
+        .modelBox12 .clearfix{margin-left: 40px;}
+
         .last_add_img .upload_fapiao:last-child {
             display: none;
         }
@@ -1505,7 +1518,7 @@
             <span>添加车辆/编辑汽车</span>
             <img class="close" style="float: right;cursor: pointer;" height="50" src="./img/gsxq_del.png" alt="">
         </div>
-        <div class="modelcontent clearFloat" style="width: 744px; font-size: 14px; height: 680px; border: 1px solid #ebe9ea;padding: 15px 50px 0 50px; ">
+        <div class="modelcontent clearFloat" style="width: 784px; font-size: 14px; height: 680px; border: 1px solid #ebe9ea;padding: 15px 50px 0 10px; ">
             <div style="padding-right: 80px; box-sizing: border-box;">
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">车辆类型：&nbsp;</span>
@@ -1555,15 +1568,15 @@
                 </div> 
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">年审日期：&nbsp;</span>
-                        <input id="annualVerificationDate" type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input id="annualVerificationDate" class="date-input laydate-icon"  type="text" style="height: 36px;width: 176px;border: 1px solid #dbdbdc;">
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">初次上牌日期：&nbsp;</span>
-                        <input id="firstDate" type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input id="firstDate" class="date-input laydate-icon" type="text" style="height: 36px;width: 176px;border: 1px solid #dbdbdc;">
                     </div>
                 </div>  
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">保险日期：&nbsp;</span>
-                        <input type="text" id="insuranceDate" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                        <input type="text" class="date-input laydate-icon" id="insuranceDate" style="height: 36px;width: 176px;border: 1px solid #dbdbdc;">
                     </div>
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">车辆载重：&nbsp;</span>
                         <input type="text" id="vehicleLoad" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
@@ -1600,6 +1613,33 @@
                         <!--</div>-->
                     </div>
                 </div>
+                <ul id="dynamic" class="clearFloat">
+                    <li>
+                        <div>
+                            <span class="dynamicTitle">asdasd：</span>
+                            <div class="selectPub" data-selectedindex="-1" style="width: 198px; margin-right: 0px; margin-top: 0px;">
+                                <span style="display: inline-block;max-width: 70px;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
+                                <ul>
+                                    <li data-index="1">1</li>
+                                    <li data-index="2">2</li>
+                                    <li data-index="3">3</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="dynamicTitle">asdasd：</span>
+                            <input type="text" style="width: 197px;height: 36px;border: 1px solid #dbdbdc;">
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="dynamicTitle">asdasd：</span>
+                            <input type="text" class="date-input laydate-icon"  type="text" style="height: 36px;width: 176px;border: 1px solid #dbdbdc;">
+                        </div>
+                    </li>
+                </ul>
                 <div class="clearfix">
                     <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">上传发票：&nbsp;</span>
                         <div class="fl">
@@ -4091,6 +4131,7 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
     //------------------------------------------------------------------------分配车辆部分   操作结束
 //tianjia 车辆部分
 
+
     //获取车辆类型
     function getCarTypeList() {
         $.ajax({
@@ -4171,6 +4212,111 @@ if (sessionStorage.getItem('cf_showPage') == '1'){
             }
         });
 
+    }
+    //获取车辆动态字段
+    function getDynamic() {
+        $.ajax({
+            url: pubIP + 'wLtLogisticsVehicleAttribute/selectCarShezhi', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: false,
+            dataType: 'json',
+            data:{
+
+            },
+            success: function (data) {
+                console.log(data);
+                var str = '';
+                for (var i = 0; i < data.data.length; i++) {
+                    str+='<li data-type="'+data.data[i].type+'">';
+                    str+='<div>';
+                    str+='<span class="dynamicTitle">'+data.data[i].name+'：</span>';
+                    if(data.data[i].type==1){//下拉框
+                        var list=data.data[i].label.split("@");
+                        for(j=0;j<list.length;j++){
+                            var id=list[j].split(",")[0];
+                            var name=list[j].split(",")[1];
+                            if(j==0){
+                                str+='<div class="select" data-id="'+id+'" data-selectedindex="'+j+'" style="width: 198px; margin-right: 0px; margin-top: 0px;">';
+                                str+='<span style="display: inline-block;max-width: 70px;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;">'+name+'</span><img src="img/prl-select.jpg" alt="">';
+                                str+='<ul>';
+                            }
+                            str+='<li data-index="'+j+'" data-id="'+id+'">'+name+'</li>';
+                        }
+                        str+='</ul>';
+                        str+='</div>';
+
+                    }else if(data.data[i].type==2){//日期框
+                        str+='<input type="text" class="date-input laydate-icon" id="dynamicData'+i+'" type="text" style="height: 36px;width: 176px;border: 1px solid #dbdbdc;">'
+                    }else if(data.data[i].type==0){//input
+                        str+='<input type="text" style="width: 197px;height: 36px;border: 1px solid #dbdbdc;">'
+                    }
+                    str+='</div>';
+                    str+=' </li>';
+                }
+                $('#dynamic').html(str);
+                //    动态添加的LI样式
+                $("#dynamic>li:nth-child(2n)").css("margin-right","0");
+                //select 处理
+                // 模拟下拉框
+                $('#dynamic .select').click(function(event){
+
+                    if($(this).attr("disabled")=="disabled"){return;}//不可选
+
+                    if($(this).children('img').attr('src') == './img/prl-selected.jpg'){
+                        $(this).children('img').attr('src', './img/prl-select.jpg')
+                    } else {
+                        $(this).children('img').attr('src', './img/prl-selected.jpg')
+                    }
+                    event.stopPropagation();
+                    $(this).children('ul').toggle();
+                    var that = $(this);
+                    that.find('li').each(function(){
+                        $(this).mouseover(function(){
+                            $(this).addClass('hovered')
+                        });
+                        $(this).mouseleave(function(){
+                            $(this).removeClass('hovered')
+                        });
+                        if($(this).attr('data-index') == that.attr('data-selectedindex')){
+                            $(this).css({'background': '#6ea3ff','color': '#fff'});
+                            $(this).siblings('li').css({'background': '#fff','color': '#999'});
+                        }
+                    });
+
+                }).mouseleave(function (event) {
+                    $(this).children('img').attr('src', './img/prl-select.jpg');
+                    $(this).children('ul').hide();
+                });
+                $('#dynamic .select li').unbind();
+                $('#dynamic .select li').click(function(){
+                    event.stopPropagation();
+                    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                    $(this).parent().parent().attr('data-id', $(this).attr('data-id'));
+                    $(this).parent().parent().find('span').text($(this).text());
+                    $(this).parent().parent().children('img').attr('src', './img/prl-select.jpg');
+                    $(this).parent().css('display','none');
+                });
+                //   时间框处理
+                $("#dynamic .date-input.laydate-icon").click(function () {
+                    laydate({
+                        elem: '#'+$(this).attr("id"),
+                        format: 'YYYY-MM-DD',
+                        istime: true,
+                        choose: function(dates){ //选择好日期的回调
+                        }
+                    });
+                })
+
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
     }
 </script>
 </body>
