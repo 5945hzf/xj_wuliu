@@ -49,7 +49,7 @@
             color: #5992f3;
         }
         
-        .modelBox1 input[type="file"], .modelBox12 input[type="file"], .modelBox13 input[type="file"], .modelBox18 input[type="file"] {
+        .modelBox1 input[type="file"], .modelBox12 input[type="file"], .modelBox13 input[type="file"], .modelBox18 input[type="file"], .modelBox20 input[type="file"] {
             position: absolute;
             top: 0;
             left: 0;
@@ -653,8 +653,8 @@
                 <ul class="manageList2">
                     <!--<li><a href="##" class="manageItem" data-src="caiwu" data-height="1032">平台资产</a></li>-->
                     <!--<li><a href="##" class="manageItem " data-src="./financialManage/settlementAudit.html" data-height="715">待审核列表</a></li>-->
-                    <!-- <li><a href="##" class="manageItem" data-src="./finance/replenish.html" data-height="767">网点卡券申请</a></li>  -->
-                    <!-- <li><a href="##" class="manageItem" data-src="./finance/returnedMoney.html" data-height="767">订单回款申请</a></li> -->
+                    <li><a href="##" class="manageItem" data-src="./finance/replenish.html" data-height="767">油卡补充申请</a></li>
+                    <li><a href="##" class="manageItem" data-src="./finance/returnedMoney.html" data-height="767">订单回款申请</a></li>
                     <li><a href="##" class="manageItem" data-src="./finance/imprest.html" data-height="767">预付款申请</a></li>
                     <li><a href="##" class="manageItem" data-src="./finance/wageCalculation.html" data-height="767">工资结算</a></li>
                     <li><a href="##" class="manageItem" data-src="./finance/outWage.html" data-height="767">外部工资申请</a></li>
@@ -1828,7 +1828,7 @@
             </div>
             <div class="clearFloat" style="text-align: center;margin-top: 50px;">
                 <span class=" cf_btn cancel cfClose quxiao" style="display: inline-block;" >取消</span>
-                <span class=" cf_btn model20_ok_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认新增</span>
+                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认新增</span>
             </div>
         </div>
     </div>
@@ -2180,19 +2180,18 @@
             
             <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">司机类型：&nbsp;</span>
-                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
-                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
-                        <ul>
-                            <li data-index="1">1</li>
-                            <li data-index="2">2</li>
-                            <li data-index="3">3</li>
+                    <div class="selectPub driver_type_select" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
+                        <ul class="driver_type_ul">
+                            <li data-index="0">内部</li>
+                            <li data-index="1">外部</li>
                         </ul>
                     </div>
                 </div>
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">部门：&nbsp;</span>
-                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
-                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
-                        <ul>
+                    <div class="selectPub apartment_select" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
+                        <ul class="shuyu_apartment">
                             <li data-index="1">1</li>
                             <li data-index="2">2</li>
                             <li data-index="3">3</li>
@@ -2202,74 +2201,77 @@
             </div>
             <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle span_width74 fl">职务：&nbsp;</span>
-                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
-                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
-                        <ul>
-                            <li data-index="1">1</li>
+                    <div class="selectPub zhiwu_select" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
+                        <ul class="zhiwu_ul">
+                            <!-- <li data-index="1">1</li>
                             <li data-index="2">2</li>
-                            <li data-index="3">3</li>
+                            <li data-index="3">3</li> -->
                         </ul>
                     </div>
                 </div>
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">所在车辆：&nbsp;</span>
-                    <div class="selectPub" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
-                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">333</span><img src="img/prl-select.jpg" alt="">
-                        <ul>
-                            <li data-index="1">1</li>
+                    <div class="selectPub suozai_car_select" data-selectedindex="-1" style="float: left;width: 198px; margin-right: 0px; margin-top: 0px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择</span><img src="img/prl-select.jpg" alt="">
+                        <ul class="suozai_car_ul">
+                            <!-- <li data-index="1">1</li>
                             <li data-index="2">2</li>
-                            <li data-index="3">3</li>
+                            <li data-index="3">3</li> -->
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle span_width74 fl">姓名：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_name" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">身份证号：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_cardID" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
             </div>
             <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle span_width74 fl">住址：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_address" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">电话：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_phone" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
             </div>
             <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">驾驶证号：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_driver_num" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">货物资格证号：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_huowu_num" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
             </div>
             <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle span_width74 fl">银行卡：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_yihangka" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
-                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">登陆账号：&nbsp;</span>
-                    <input type="text" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                <!-- <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">登陆账号：&nbsp;</span>
+                    <input type="text" class="person_login_num" placeholder="含税" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                </div> -->
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">薪资：&nbsp;</span>
+                    <input type="text" class="person_money" placeholder="333" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
             </div>
-            <div class="clearfix">
+            <!-- <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">登录密码：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_login_pass" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fr clearfix"><span class="modelBox34LeftTitle fl">薪资：&nbsp;</span>
-                    <input type="text" placeholder="333" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_money" placeholder="333" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
-            </div>
+            </div> -->
             <div class="clearfix">
                 <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">保险状态：&nbsp;</span>
-                    <input type="text" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
+                    <input type="text" class="person_baoxian_status" style="height: 36px;width: 197px;border: 1px solid #dbdbdc;">
                 </div>
             </div>
             <div class="clearfix">
-                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">上传发票：&nbsp;</span>
-                    <div class="fl upload_fapiao_div" style="width: 610px;">
+                <div style="margin-top: 15px;color: #666666;line-height: 40px;" class="fl clearfix"><span class="modelBox34LeftTitle fl">上传图片：&nbsp;</span>
+                    <div class="fl upload_fapiao_div div_div" style="width: 610px;">
                         <div class="fl upload_fapiao">
                             <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative;">
                                 <input type="file">
@@ -2293,7 +2295,7 @@
             </div>
             <div class="clearFloat" style="text-align: center;margin-top: 50px;">
                 <span class=" cf_btn cancel cfClose quxiao" style="display: inline-block;" >取消</span>
-                <span class=" cf_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认新增</span>
+                <span class=" cf_btn model20_ok_btn" style="display: inline-block; width: 190px;height: 40px;line-height: 40px; margin-left: 20px; ">确认新增</span>
             </div>
         </div>
     </div>
@@ -2804,12 +2806,15 @@
             // $('.shuyu_apartment').parent().attr('data-selectedindex', json.data[0].id);
             // $('.shuyu_apartment').parent().find('span').text(json.data[0].ordName);
 
-            $('.selectPub ul li').click(function(){
+            $('.apartment_select ul li').click(function(){
                 event.stopPropagation();
                 $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
                 $(this).parent().parent().find('span').text($(this).text());
                 $(this).parent().parent().children('img').attr('src', 'img/prl-select.jpg')
                 $(this).parent().css('display','none');
+
+                selectZhiwu($(this).attr('data-index'));
+
             });
 
         },
@@ -2817,6 +2822,90 @@
             console.log(err);
         }
     });
+
+    function selectZhiwu(apartmentIndex) {
+        $.ajax({
+            url: pubIP + 'tLtDriverOrgDute/selectByOrgId',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                id: apartmentIndex
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+
+                var str = '';
+                for (var i = 0; i < json.data.length; i++) {
+                    str += '<li data-index="'+json.data[i].id+'">'+json.data[i].dutyName+'</li>'
+                }
+
+                $('.zhiwu_ul').html(str);
+
+                $('.zhiwu_select ul li').click(function(){
+                    event.stopPropagation();
+                    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                    $(this).parent().parent().find('span').text($(this).text());
+                    $(this).parent().parent().children('img').attr('src', 'img/prl-select.jpg')
+                    $(this).parent().css('display','none');
+
+                });
+
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+    }
+
+    // if ($('.modelBox20').css('display') == 'block') {
+    //     car_select();
+    // }
+
+    function car_select() {
+        $.ajax({
+            url: pubIP + 'tLogisticsVehicle/selectLogisticsVehicleList',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                page: 1,
+                size: 100,
+                sort: 4
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+
+                var str = '';
+                for (var i = 0; i < json.data.length; i++) {
+                    str += '<li data-index="'+json.data[i].id+'">'+json.data[i].carNo+'</li>'
+                }
+
+                $('.suozai_car_ul').html(str);
+
+                $('.suozai_car_select ul li').click(function(){
+                    event.stopPropagation();
+                    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                    $(this).parent().parent().find('span').text($(this).text());
+                    $(this).parent().parent().children('img').attr('src', 'img/prl-select.jpg')
+                    $(this).parent().css('display','none');
+
+                });
+
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
 
 
     $(".tablea").find(".box:first").show();    //为每个BOX的第一个元素显示        

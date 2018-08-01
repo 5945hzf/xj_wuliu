@@ -264,8 +264,8 @@
     	$(window.parent.document).find('.apartment_select').attr('data-selectedindex', '-1');
     	$(window.parent.document).find('.zhiwu_name').val('')
     	$(window.parent.document).find('.zhiwu_zhineng_descript').val('')
-    	window.parent.showModelBox('.modelBox19');
-
+    	window.parent.showModelBox('.modelBox20');
+    	window.parent.car_select();
     });
 
     // 添加部门
@@ -273,9 +273,27 @@
     window.parent.$('.model20_ok_btn').click(function() {
     // $(window.parent.document).on('click', '.model19_ok_btn', function() {
 
+    	var driver_type_select = $(window.parent.document).find('.driver_type_select').attr('data-selectedindex');
+    	var apartment_select = $(window.parent.document).find('.apartment_select').attr('data-selectedindex');
+    	var zhiwu_select = $(window.parent.document).find('.zhiwu_select').attr('data-selectedindex');
+    	var suozai_car_select = $(window.parent.document).find('.suozai_car_select').attr('data-selectedindex');
+    	var person_name = $(window.parent.document).find('.person_name').val('');
+    	var person_cardID = $(window.parent.document).find('.person_cardID').val('');
+    	var person_address = $(window.parent.document).find('.person_address').val('');
+    	var person_phone = $(window.parent.document).find('.person_phone').val('');
+    	var person_driver_num = $(window.parent.document).find('.person_driver_num').val('');
+    	var person_huowu_num = $(window.parent.document).find('.person_huowu_num').val('');
+    	var person_yihangka = $(window.parent.document).find('.person_yihangka').val('');
+    	var person_login_num = $(window.parent.document).find('.person_login_num').val('');
+    	var person_login_pass = $(window.parent.document).find('.person_login_pass').val('');
+    	var person_money = $(window.parent.document).find('.person_money').val('');
+    	var person_baoxian_status = $(window.parent.document).find('.person_baoxian_status').val('');
+
+    	// var 
+
     	var zhiwu_name = $(window.parent.document).find('.zhiwu_name').val();
     	var reserved2 = $(window.parent.document).find('.apartment_select span').text();
-    	var orgId = $(window.parent.document).find('.apartment_select').attr('data-selectedindex');
+    	
 
     	var zhiwu_zhineng_descript = $(window.parent.document).find('.zhiwu_zhineng_descript').val();
 
