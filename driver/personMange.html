@@ -259,7 +259,7 @@
 
     // 新增部门
     $(document).on('click', '.add_apartment', function() {
-    	$(window.parent.document).find('.model19_ok_btn').attr('data-zhiwuId', '');
+    	$(window.parent.document).find('.model20_ok_btn').attr('data-zhiwuId', '');
     	$(window.parent.document).find('.apartment_select span').text('请选择');
     	$(window.parent.document).find('.apartment_select').attr('data-selectedindex', '-1');
     	$(window.parent.document).find('.zhiwu_name').val('')
@@ -269,8 +269,8 @@
     });
 
     // 添加部门
-    window.parent.$('.model19_ok_btn').unbind();
-    window.parent.$('.model19_ok_btn').click(function() {
+    window.parent.$('.model20_ok_btn').unbind();
+    window.parent.$('.model20_ok_btn').click(function() {
     // $(window.parent.document).on('click', '.model19_ok_btn', function() {
 
     	var zhiwu_name = $(window.parent.document).find('.zhiwu_name').val();
@@ -316,7 +316,7 @@
             success: function (json) {
                 console.log(json);
                 if (json.code == 1) {
-                	$(window.parent.document).find('.modelBox19').hide();
+                	$(window.parent.document).find('.modelBox20').hide();
                 	if (id == '') {
                 		$(window.parent.document).find('.innerSuccmsg').html('<span>添加成功！</span>');
                 	} else {
@@ -356,8 +356,8 @@
 
 		$(window.parent.document).find('.apartment_select').attr('data-selectedindex', $(this).parent().parent().find('.suoshu_apartment').attr('data-apartid2')); 	
 
-    	$(window.parent.document).find('.model19_ok_btn').attr('data-zhiwuId', $(this).parent().parent().attr('data-id'));
-    	window.parent.showModelBox('.modelBox19');
+    	$(window.parent.document).find('.model20_ok_btn').attr('data-zhiwuId', $(this).parent().parent().attr('data-id'));
+    	window.parent.showModelBox('.modelBox20');
 
     });
 
