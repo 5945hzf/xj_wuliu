@@ -540,6 +540,11 @@
             color: #666666;
         }
         .modelBox12 .clearfix{margin-left: 40px;}
+
+        .last_add_img .upload_fapiao:last-child {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -2313,13 +2318,15 @@
                     <div class="fl upload_fapiao_div div_div" style="width: 610px;">
                         <div class="fl upload_fapiao">
                             <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative;">
-                                <input type="file">
+                                <input type="file" id="upload_input0">
+                                <input type="hidden" id="upload_hidden0">
                             </div>
                             <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">驾驶证</div>
                         </div>
                         <div class="fl upload_fapiao">
                             <div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative; ">
-                                <input type="file">
+                                <input type="file" id="upload_input1">
+                                <input type="hidden" id="upload_hidden1">
                             </div>
                             <div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">上传发票</div>
                         </div>
@@ -3105,18 +3112,66 @@
         $(cls).css("display","block");
     }
 
+    var n = 1;
     // 点击添加上传发票
     $(document).on('click', '.add_img', function() {
-
-        $(this).parent().before('<div class="fl upload_fapiao">'
+        var len = $(this).parent().parent().find('.upload_fapiao').length;
+        n++;
+        if (len < 6) {
+            $(this).parent().before('<div class="fl upload_fapiao">'
                         +'<div style="height: 128px;width: 128px;border: 1px solid #dbdbdc; position: relative;">'
-                            +'<input type="file">'
+                            +'<input type="file" id="upload_input'+n+'">'
+                            +'<input type="hidden" id="upload_hidden'+n+'">'
                         +'</div>'
                         +'<div style="color: #6ea3ff; font-size: 14px; text-align: right; padding-right: 5px;">上传发票</div>'
                     +'</div>');
-
+        } 
+        if (len == 5) {
+            $(this).parent().parent().addClass('last_add_img');
+        }
+       
     });
 
+    $(document).on('change', '#upload_input0, #upload_input1, #upload_input2, #upload_input3, #upload_input4', function() {
+        xmTanUploadImg(this);
+    });
+
+    function xmTanUploadImg(obj) {
+        var file = obj.files[0];
+        if (file.size >= 2097152) {
+            alert('上传的图片超过了2MB');
+            return;
+        }
+
+        var formdata=new FormData();
+
+        formdata.append('file', file);
+        
+        $.ajax({
+            url: uplodImgPath,
+            type: 'post',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            data: formdata,
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                //console.log(data);
+                $(obj).parent().css({
+                        'background':'url('+data.url+') no-repeat',
+                        'background-position':'center',
+                        'background-size':'contain'
+                        // 'background-color':'#f6f6f6'
+                });
+                $(obj).parent().find('input[type="hidden"]').val(data.url);
+                // $(obj).parent().parent().next().css('display', 'none');
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+    }
 
     function showMangeList(idx) {//设置每个页面的  初始加载页面， cfsrc  必须是 和data-src 一致
         //$(".manageList").css("display","none");
